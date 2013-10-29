@@ -1,0 +1,5998 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Justified Image Grid\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-02 00:13+0100\n"
+"PO-Revision-Date: 2013-10-02 00:13+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2\n"
+"X-Poedit-Basepath: ./\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../jig-shortcode-editor.php:727
+msgid "Enter shortcode to edit (optional)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:731 ../justified-image-grid.php:937
+#: ../justified-image-grid.php:2339
+msgid "Settings"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:732 ../jig-shortcode-editor.php:755
+#: ../justified-image-grid.php:2341 ../justified-image-grid.php:2408
+msgid "General settings"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:733 ../jig-shortcode-editor.php:1145
+#: ../justified-image-grid.php:2342 ../justified-image-grid.php:3023
+msgid "Load more"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:734 ../jig-shortcode-editor.php:1201
+#: ../justified-image-grid.php:2343 ../justified-image-grid.php:3146
+msgid "Filtering"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:735 ../jig-shortcode-editor.php:1312
+#: ../justified-image-grid.php:2344 ../justified-image-grid.php:3400
+msgid "Lightboxes"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:736 ../jig-shortcode-editor.php:1452
+#: ../justified-image-grid.php:2345 ../justified-image-grid.php:3694
+msgid "Captions"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:737 ../jig-shortcode-editor.php:1624
+#: ../justified-image-grid.php:2346 ../justified-image-grid.php:3946
+msgid "Overlay effects"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:738 ../jig-shortcode-editor.php:1772
+#: ../justified-image-grid.php:2347 ../justified-image-grid.php:4174
+msgid "Special effects"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:739 ../jig-shortcode-editor.php:2688
+msgid "Template Tag"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:741
+msgid "Sources"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:742 ../jig-shortcode-editor.php:1825
+#: ../justified-image-grid.php:2348 ../justified-image-grid.php:4257
+msgid "NextGEN"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:743 ../jig-shortcode-editor.php:2071
+msgid "Recent posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:744 ../jig-shortcode-editor.php:2257
+#: ../justified-image-grid.php:2349 ../justified-image-grid.php:4399
+msgid "Facebook"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:745 ../jig-shortcode-editor.php:2350
+#: ../justified-image-grid.php:2350 ../justified-image-grid.php:4508
+msgid "Flickr"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:746 ../jig-shortcode-editor.php:2400
+#: ../justified-image-grid.php:2351 ../justified-image-grid.php:4619
+msgid "Instagram"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:747 ../jig-shortcode-editor.php:2519
+#: ../justified-image-grid.php:2352 ../justified-image-grid.php:4711
+msgid "RSS"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:752
+msgid "Select color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:753
+msgid "Pick"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:759
+msgid "Override the plugin's settings"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:762
+msgid "Preset"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:765 ../jig-shortcode-editor.php:857
+#: ../jig-shortcode-editor.php:910 ../jig-shortcode-editor.php:932
+#: ../jig-shortcode-editor.php:947 ../jig-shortcode-editor.php:1012
+#: ../jig-shortcode-editor.php:1022 ../jig-shortcode-editor.php:1032
+#: ../jig-shortcode-editor.php:1042 ../jig-shortcode-editor.php:1052
+#: ../jig-shortcode-editor.php:1062 ../jig-shortcode-editor.php:1072
+#: ../jig-shortcode-editor.php:1084 ../jig-shortcode-editor.php:1097
+#: ../jig-shortcode-editor.php:1116 ../jig-shortcode-editor.php:1138
+#: ../jig-shortcode-editor.php:1151 ../jig-shortcode-editor.php:1162
+#: ../jig-shortcode-editor.php:1190 ../jig-shortcode-editor.php:1207
+#: ../jig-shortcode-editor.php:1245 ../jig-shortcode-editor.php:1255
+#: ../jig-shortcode-editor.php:1287 ../jig-shortcode-editor.php:1303
+#: ../jig-shortcode-editor.php:1321 ../jig-shortcode-editor.php:1341
+#: ../jig-shortcode-editor.php:1364 ../jig-shortcode-editor.php:1375
+#: ../jig-shortcode-editor.php:1389 ../jig-shortcode-editor.php:1402
+#: ../jig-shortcode-editor.php:1421 ../jig-shortcode-editor.php:1431
+#: ../jig-shortcode-editor.php:1445 ../jig-shortcode-editor.php:1461
+#: ../jig-shortcode-editor.php:1478 ../jig-shortcode-editor.php:1502
+#: ../jig-shortcode-editor.php:1540 ../jig-shortcode-editor.php:1552
+#: ../jig-shortcode-editor.php:1564 ../jig-shortcode-editor.php:1577
+#: ../jig-shortcode-editor.php:1591 ../jig-shortcode-editor.php:1616
+#: ../jig-shortcode-editor.php:1633 ../jig-shortcode-editor.php:1645
+#: ../jig-shortcode-editor.php:1671 ../jig-shortcode-editor.php:1753
+#: ../jig-shortcode-editor.php:1764 ../jig-shortcode-editor.php:1778
+#: ../jig-shortcode-editor.php:1790 ../jig-shortcode-editor.php:1801
+#: ../jig-shortcode-editor.php:1933 ../jig-shortcode-editor.php:1943
+#: ../jig-shortcode-editor.php:1953 ../jig-shortcode-editor.php:1963
+#: ../jig-shortcode-editor.php:2180 ../jig-shortcode-editor.php:2294
+#: ../jig-shortcode-editor.php:2306 ../jig-shortcode-editor.php:2392
+#: ../jig-shortcode-editor.php:2509 ../jig-shortcode-editor.php:2534
+#: ../jig-shortcode-editor.php:2544 ../jig-shortcode-editor.php:2570
+msgid "default"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:766
+msgid "Preset 1: Out of the box"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:767 ../justified-image-grid.php:2319
+msgid "Preset 2: Author's favorite"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:768 ../justified-image-grid.php:2320
+msgid "Preset 3: Flickr style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:769 ../justified-image-grid.php:2321
+msgid "Preset 4: Google+ style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:770 ../justified-image-grid.php:2322
+msgid "Preset 5: Fixed height, no fancy"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:771 ../justified-image-grid.php:2323
+msgid "Preset 6: Artistic-zen"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:772 ../justified-image-grid.php:2324
+msgid "Preset 7: Color magic fancy style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:773 ../justified-image-grid.php:2325
+msgid "Preset 8: Big images no click"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:774 ../justified-image-grid.php:2326
+msgid "Preset 9: Focus on the text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:775 ../justified-image-grid.php:2327
+msgid "Preset 10: Hidden"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:776 ../justified-image-grid.php:2328
+msgid "Preset 11: Magnifier blur"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:777 ../justified-image-grid.php:2329
+msgid "Preset 12: Author's other favorite"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:778 ../justified-image-grid.php:2330
+msgid "Preset 13: Orton effect"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:779 ../justified-image-grid.php:2331
+msgid "Preset 14: Animated border and glow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:780 ../justified-image-grid.php:2332
+msgid "Preset 15: Borders and shadow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:781 ../justified-image-grid.php:2333
+msgid "Preset 16: Facebok inspired"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:782 ../justified-image-grid.php:2334
+msgid "Preset 17: Vertical center"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:783 ../justified-image-grid.php:2335
+msgid "Preset 18: Vertical creative"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:784 ../justified-image-grid.php:2336
+msgid "Preset 19: Caption fun, gray background"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:785 ../justified-image-grid.php:2337
+msgid "Preset 20: Caption below the thumbs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:787
+msgid "Choose one of the 20 presets."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:790
+msgid ""
+"Note: Selecting a preset here will cause this instance to disregard your "
+"choices from the plugin's settings page (except some core settings)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:793
+msgid "WordPress image sources - Media Library"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:796
+msgid "IDs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:799
+msgid ""
+"Enter image IDs, comma separated. Just copy from the [gallery] shortcode "
+"(can be accessed on the text editor tab)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:802
+msgid "Other post/page ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:805
+msgid ""
+"Use this to show images attached to another page/post: postID, a number "
+"which you can get by looking at the URL bar when editing it)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:808
+msgid "Exclude these images"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:811
+msgid ""
+"This is only used when you display images attached to the post/page. You can "
+"get the ID by looking at the Permalink of each image in the Media Library. "
+"Add them here, separated by a comma. For example: 21,featured,652 (you can "
+"use the word \"featured\")."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:814
+msgid "Include these images"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:817
+msgid ""
+"Includes only these from the attached images of the page/post. Opposite of "
+"exclude so you can only use one of these two settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:820
+msgid "Image categories"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:823
+msgid ""
+"Enter category slugs, comma separated. You can only use this when \"WP image "
+"tags and categories\" is enabled in the Settings. Can be combined with the "
+"\"Image tags\" setting."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:826
+msgid "Image tags"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:829
+msgid ""
+"Enter tag slugs, comma separated. The same restriction applies as with "
+"\"Image categories\". Can be combined with \"Image categories\"."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:833 ../justified-image-grid.php:1808
+msgid "Row behavior"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:836 ../justified-image-grid.php:2419
+msgid "Target row height"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:839 ../justified-image-grid.php:2424
+msgid "Desired row height in pixels, e.g. 200 (without px)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:842 ../justified-image-grid.php:2429
+msgid "Row height max deviation (+-)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:845 ../justified-image-grid.php:2434
+msgid "The row height will vary +/- by this value, e.g. 50 (without px)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:848 ../justified-image-grid.php:2439
+msgid "Max rows"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:851
+msgid ""
+"Only show up to this amount of rows. 0 to force unlimited. Combined with a "
+"fixed row height (0 deviation), this can result a banner."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:854 ../justified-image-grid.php:2449
+msgid "Incomplete last row"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:858 ../justified-image-grid.php:2456
+msgid ""
+"Normal: Try to fill width OR fall back to target height (visibly incomplete)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:859
+msgid "Hide: Form a perfect justified block."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:860
+msgid "Flexible: For Load More: only allow the very last row to be orphan."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:861
+msgid "Match previous row's height, useful for same aspect ratio photos."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:862
+msgid "Flexible Match: For Load More: combines Flexible and Match."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:864
+msgid "The last row is not always full - choose how to handle it."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:867 ../justified-image-grid.php:2468
+msgid "Mobile row height"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:870 ../justified-image-grid.php:2473
+msgid "Same as \"Target row height\", but only for mobiles. Optional!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:873 ../justified-image-grid.php:2478
+msgid "Mobile row height deviation (+-)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:876 ../justified-image-grid.php:2483
+msgid "Same as \"Row height max deviation\", but for mobiles. Optional!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:880 ../justified-image-grid.php:1809
+msgid "Thumbnail count and dimensions"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:883
+msgid "Limit image count *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:886
+msgid "Only show up to this number of images. Set 0 for unlimited."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:889
+msgid "Hidden limit *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:892
+msgid "More images can still be added to the lightbox, until the Hidden limit."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:895 ../justified-image-grid.php:2511
+msgid "Spacing between the thumbnails"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:898 ../justified-image-grid.php:2516
+msgid "Enter a number like 0, 1, 4 or 10 (without px)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:901 ../justified-image-grid.php:2521
+msgid "Thumbnail aspect ratio"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:904
+msgid ""
+"To crop your thumbs enter a ratio: 1, 1:1 or 1/1 (square) 2.35:1 or 16:9 "
+"(wide), 4/3, 1.5 or similar - to lock it, look at the next setting."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:907 ../justified-image-grid.php:2531
+msgid "Disable cropping"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:911 ../justified-image-grid.php:2538
+msgid "No, respect the row height and allow some cropping."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:912 ../justified-image-grid.php:2539
+msgid "Yes, lock aspect ratio and use 50px minimum row height."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:914
+msgid "Use this to avoid cropping or to lock your selected aspect ratio."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:917
+msgid "Randomize thumbnail width "
+msgstr ""
+
+#: ../jig-shortcode-editor.php:920
+msgid ""
+"A number (without px) to make images randomly cropped or extended within "
+"this range."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:923
+msgid ""
+"* Note: Facebook, Flickr and Instagram have a default limit of ~25 and a "
+"maximum of 500. Enter something other than 0 to show more."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:926 ../justified-image-grid.php:1810
+msgid "Settings that affect the entire grid"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:929
+msgid "Order by"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:933 ../justified-image-grid.php:2564
+msgid "Menu order"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:934 ../jig-shortcode-editor.php:1259
+#: ../justified-image-grid.php:2565 ../justified-image-grid.php:3217
+msgid "Random"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:935 ../justified-image-grid.php:2566
+msgid "Title ascending"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:936 ../justified-image-grid.php:2567
+msgid "Title descending"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:937 ../justified-image-grid.php:2568
+msgid "Date ascending"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:938 ../justified-image-grid.php:2569
+msgid "Date descending"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:939
+msgid "Force menu order for recent posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:941
+msgid "The order of images (only for images from WP, except Random)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:944 ../justified-image-grid.php:2578
+msgid "Width mode"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:948
+msgid "Responsive fallback, automatic"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:949
+msgid "Non-responsive, fixed"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:950
+msgid "Fixed width for mobile - Responsive on desktop"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:951
+msgid "Fixed width for desktop - Responsive on mobile"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:953
+msgid ""
+"Set to Fixed if you have the \"element is too thin\" error. You must set a "
+"width at the next setting if you selected any of the Fixed modes."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:956 ../justified-image-grid.php:2595
+msgid "Custom width (whole grid)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:959
+msgid "The width to use by \"Width mode\", (empty is default). Without px."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:962 ../justified-image-grid.php:2606
+msgid "Margin around gallery"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:965
+msgid "A CSS margin value e.g. 10px (around) or 0 10px (sides only)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:968 ../justified-image-grid.php:2616
+msgid "Animation speed"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:971
+msgid "For every animation, in milliseconds: 200 is fast, 600 is slow."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:974 ../justified-image-grid.php:2626
+msgid "Min height to avoid \"jumping\""
+msgstr ""
+
+#: ../jig-shortcode-editor.php:977
+msgid ""
+"To avoid seeing the footer if you have no sidebar, e.g. 500 (without px). "
+"Makes the grid take up some space even without images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:980 ../justified-image-grid.php:2636
+msgid "Background behind thumbnails"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:983
+msgid ""
+"You could specify a grey color like Flickr #cccccc or #eaeaea or even a "
+"loader animation. Accepts CSS background property."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:986
+msgid "Show custom text before"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:989 ../jig-shortcode-editor.php:999
+msgid "default (yes)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:990 ../jig-shortcode-editor.php:1000
+#: ../jig-shortcode-editor.php:1043 ../jig-shortcode-editor.php:1053
+#: ../jig-shortcode-editor.php:1064 ../jig-shortcode-editor.php:1289
+#: ../jig-shortcode-editor.php:1304 ../jig-shortcode-editor.php:1376
+#: ../jig-shortcode-editor.php:1423 ../jig-shortcode-editor.php:1447
+#: ../jig-shortcode-editor.php:1954 ../jig-shortcode-editor.php:2051
+#: ../jig-shortcode-editor.php:2059 ../jig-shortcode-editor.php:2229
+#: ../jig-shortcode-editor.php:2393 ../jig-shortcode-editor.php:2510
+#: ../justified-image-grid.php:2746 ../justified-image-grid.php:2761
+#: ../justified-image-grid.php:2777 ../justified-image-grid.php:3271
+#: ../justified-image-grid.php:3534 ../justified-image-grid.php:3564
+#: ../justified-image-grid.php:3614 ../justified-image-grid.php:4550
+#: ../justified-image-grid.php:4671
+msgid "No"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:993
+msgid "Leave unchanged to allow custom text or disable."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:996
+msgid "Show custom text after"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1003
+msgid "You can set these before & after texts in the settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1006 ../justified-image-grid.php:1811
+msgid "Behavior of the plugin"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1009 ../justified-image-grid.php:2694
+msgid "Allow animated GIFs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1013 ../justified-image-grid.php:2701
+msgid "No, resize and freeze them."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1014 ../justified-image-grid.php:2702
+msgid "Yes, let them display as-is."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1016
+msgid "Show animated GIFs as-is, animated, not freezed nor broken."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1019 ../justified-image-grid.php:2709
+msgid "Allow transparent PNGs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1023 ../justified-image-grid.php:2716
+msgid "No."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1024 ../justified-image-grid.php:2717
+msgid "Yes, let them display with transparency."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1026
+msgid "Only enable if you really want to use transparent PNGs."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1029 ../justified-image-grid.php:2724
+msgid "Wrap text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1033 ../justified-image-grid.php:2731
+msgid "No, clear the block."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1034 ../justified-image-grid.php:2732
+msgid "Yes, let the text wrap around JIG."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1036
+msgid ""
+"Let the text flow to the right after the last image, e.g. single images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1039 ../justified-image-grid.php:2739
+msgid "Disable mobile hover interaction"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1044 ../jig-shortcode-editor.php:1054
+#: ../jig-shortcode-editor.php:1063 ../jig-shortcode-editor.php:1288
+#: ../jig-shortcode-editor.php:1955 ../jig-shortcode-editor.php:2050
+#: ../jig-shortcode-editor.php:2060 ../jig-shortcode-editor.php:2230
+#: ../justified-image-grid.php:2747 ../justified-image-grid.php:2762
+#: ../justified-image-grid.php:2776 ../justified-image-grid.php:3270
+msgid "Yes"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1046 ../justified-image-grid.php:2744
+msgid "Choose yes if you wish to avoid \"double tapping\" to open images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1049 ../justified-image-grid.php:2754
+msgid "Disable right mouse menu"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1056
+msgid "Choose yes if you wish to disable right click menu (prevent copy)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1059 ../justified-image-grid.php:2769
+msgid "Error checking"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1066 ../justified-image-grid.php:2774
+msgid "Yes to hide unloadable images from the grid, No to show them all."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1069 ../justified-image-grid.php:2784
+msgid "Custom link's target"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1073 ../justified-image-grid.php:2791
+msgid "Self: The same tab or same window."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1074 ../justified-image-grid.php:2792
+msgid "Blank: A new tab or new window."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1075
+msgid "Lightbox: video / iframe / different image."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1076
+msgid "Off: Disregard custom links."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1078 ../justified-image-grid.php:2789
+msgid "Choose where you wish to open custom links."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1081
+msgid "Follow mode for custom links"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1085
+msgid "Yes: dofollow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1086
+msgid "No: add nofollow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1088 ../justified-image-grid.php:2805
+msgid "Tell search engines to follow the custom link to the external site."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1091 ../justified-image-grid.php:1813
+msgid "Developer link"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1094
+msgid "Display developer link"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1098
+msgid "Show"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1099
+msgid "Hide"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1101
+msgid "Show a \"Powered by\" affiliate link. Set this up in the settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1104
+msgid "TimThumb"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1107 ../justified-image-grid.php:4834
+msgid "TimThumb quality"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1110
+msgid "Leave empty or enter a number between 0 and 100."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1113 ../justified-image-grid.php:4844
+msgid "Retina ready"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1117 ../justified-image-grid.php:4851
+msgid "Yes, load higher resolution thumbnails on HDPI displays."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1118 ../justified-image-grid.php:4852
+msgid "No, just load normal resolution thumbnails on all devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1120
+msgid ""
+"The thumbnails will look crisp on modern mobile devices or other high "
+"resolution displays."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1123 ../justified-image-grid.php:4859
+msgid "Retina quality"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1126
+msgid ""
+"This determines the thumbnails' file size. Same as TimThumb quality. Best "
+"set to auto (or empty), which will divide TimThumb quality by the pixel "
+"aspect ratio of the device."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1129
+msgid "Custom TimThumb path"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1132
+msgid "Absolute path (full URL), most likely just leave it empty."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1135 ../justified-image-grid.php:4902
+msgid "Use TimThumb"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1139 ../justified-image-grid.php:4909
+msgid "Yes: Use TimThumb (recommended)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1140 ../justified-image-grid.php:4910
+msgid "No: Do not use TimThumb (not recommended)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1142
+msgid ""
+"Only disable TimThumb if you know what you are doing, for logos, tesing "
+"purposes or as a last resort."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1148 ../justified-image-grid.php:3030
+msgid "Load more (behavior)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1152 ../justified-image-grid.php:3037
+msgid "Off: All images are loaded in one go."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1153
+msgid "Click: 'Load more' button."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1154
+msgid "Infinite Scroll (+ the button)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1156
+msgid "Enable this to break down loading into smaller batches."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1159 ../justified-image-grid.php:3046
+msgid "Load more only on mobile"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1163
+msgid "No: Not just mobiles."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1164 ../justified-image-grid.php:3054
+msgid "Yes: Only for mobile devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1166 ../justified-image-grid.php:3051
+msgid "Use this if you only want use Load More on mobile devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1169
+msgid "Load more limit (per load)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1172
+msgid ""
+"Amount of images to fetch initially, then per load. This should be something "
+"smaller than the 'Limit' (if set)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1175 ../justified-image-grid.php:3071
+msgid "Load more text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1178 ../justified-image-grid.php:3076
+msgid "The text to show on the button, instead of 'Load more'."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1181 ../justified-image-grid.php:3081
+msgid "Load more count text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1184
+msgid ""
+"Second line of the button, *count* is replaced with the actual remaining "
+"count. To turn off, enter the word: none."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1187 ../justified-image-grid.php:3091
+msgid "Load more auto width"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1191 ../justified-image-grid.php:3098
+msgid "On: Automatic width, overrides any CSS."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1192 ../justified-image-grid.php:3099
+msgid "Off: Width is controlled by CSS."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1194
+msgid "Automatically set the Load more button's width to smallest possible."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1197
+msgid ""
+"Tip: Set the 'General settings -> Incomplete last row' setting to be "
+"'flexible' (last_row=flexible), as it'll hide the orphan rows except the "
+"last when there is no more images to display. It's been designed for this "
+"Load More feature."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1204 ../justified-image-grid.php:3179
+msgid "Filter by"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1208 ../justified-image-grid.php:3152
+msgid "Nothing, turn filtering off."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1209
+msgid ""
+"Automatic (on): Choose a tag taxonomy automatically, this should work in "
+"most cases."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1239
+msgid "Choose a taxonomy to filter the thumbnails, more info in the settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1242 ../justified-image-grid.php:3191
+msgid "Filter style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1246
+msgid "Buttons"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1247
+msgid "Tag cloud"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1249 ../justified-image-grid.php:3196
+msgid "Choose how the filtering interface should look like."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1252 ../justified-image-grid.php:3207
+msgid "Order filter terms by"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1256 ../justified-image-grid.php:3214
+msgid "In order of appearance in images"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1257 ../justified-image-grid.php:3215
+msgid "Title ascending (A-Z)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1258 ../justified-image-grid.php:3216
+msgid "Title descending (Z-A)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1260 ../justified-image-grid.php:3218
+msgid "Popularity among images (top terms first)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1261 ../justified-image-grid.php:3219
+msgid "Custom (use the next setting)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1263 ../justified-image-grid.php:3212
+msgid ""
+"Set an order for the filter buttons or tags. This does not change the order "
+"of images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1266
+msgid "Filter terms custom order "
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1269
+msgid ""
+"Manually enter filter buttons or tags by name, comma separated, Case "
+"Sensitive! Only those that you specify will be used and in the exact order. "
+"This is a manual setting and requires you to know the term names, "
+"furthermore filter_orderby needs to be on custom."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1272 ../justified-image-grid.php:3239
+msgid "Min count for term"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1275 ../justified-image-grid.php:3244
+msgid ""
+"Only show those filter buttons or tags that have at least this number of "
+"images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1278 ../justified-image-grid.php:3251
+msgid "Top x terms"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1281 ../justified-image-grid.php:3256
+msgid ""
+"Limit the number of filter buttons or tags to the top x (any number) that "
+"occur in the most images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1284 ../justified-image-grid.php:3263
+msgid "Use All button"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1291 ../justified-image-grid.php:3268
+msgid ""
+"Whether or not to use the All button. When not used, the first filter button "
+"or tag will be active instead of an All button."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1294 ../justified-image-grid.php:3279
+msgid "Filter: \"All\" button/tag text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1297 ../justified-image-grid.php:3284
+msgid "Change what appears on the \"All\" button/tag, e.g. \"All posts\" etc."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1300 ../justified-image-grid.php:3291
+msgid "Allow multiple filters"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1305
+msgid "OR (expanding selection, union)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1306
+msgid "AND (narrowing selection, intersect)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1308 ../justified-image-grid.php:3296
+msgid ""
+"Normally, the visitors can only select one term at a time. If this is set to "
+"OR, then all images matching any of the selected terms will be displayed. In "
+"case of AND, only images that match all selected terms will be shown."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1315 ../justified-image-grid.php:1817
+msgid "What to do when clicking on a thumbnail"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1318 ../justified-image-grid.php:3407
+msgid "Lightbox type"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1329
+msgid "Custom"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1330
+msgid "No: Open by the browser"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1331
+msgid "New tab: Open by the browser"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1332
+msgid "Attachment page"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1333
+msgid "Links-off"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1335
+msgid "Decide what happens when an image is clicked."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1338 ../justified-image-grid.php:3435
+msgid "Mobile lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1344 ../jig-shortcode-editor.php:1479
+#: ../jig-shortcode-editor.php:1646 ../justified-image-grid.php:3444
+#: ../justified-image-grid.php:3730 ../justified-image-grid.php:3977
+#: ../justified-image-grid.php:4205
+msgid "Same as desktop."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1346 ../justified-image-grid.php:3440
+msgid "Choose to force a certain lightbox on mobile devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1349 ../justified-image-grid.php:3452
+msgid "Link class(es)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1352 ../justified-image-grid.php:3457
+msgid "Class of the image's anchor tag."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1355 ../justified-image-grid.php:3462
+msgid "Link rel"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1358
+msgid ""
+"This groups images together (prev/next arrows). Can't use [] square brackets "
+"here, so format it like this: gallery(modal) or just leave empty for the "
+"automatic, best results. It can be set to auto as well."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1361
+msgid "Maximum size for lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1365
+msgid "Large"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1366
+msgid "Full"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1367
+msgid "Medium"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1369 ../justified-image-grid.php:3477
+msgid "Maximum size of the WP image that loads in the lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1372 ../justified-image-grid.php:3527
+msgid "Download link for the image"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1377 ../jig-shortcode-editor.php:2214
+#: ../jig-shortcode-editor.php:2572 ../justified-image-grid.php:3535
+#: ../justified-image-grid.php:4781
+msgid "Yes: link title (the default position)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1378 ../jig-shortcode-editor.php:2215
+#: ../jig-shortcode-editor.php:2395 ../jig-shortcode-editor.php:2573
+#: ../justified-image-grid.php:3536 ../justified-image-grid.php:4552
+#: ../justified-image-grid.php:4673 ../justified-image-grid.php:4782
+msgid "Add to img alt."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1380 ../justified-image-grid.php:3532
+msgid "A link that displays a browser dialog to download the photo."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1383 ../justified-image-grid.php:1818
+msgid "What text to show inside the lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1386
+msgid "WP field for link title *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1390 ../jig-shortcode-editor.php:1404
+#: ../jig-shortcode-editor.php:1579 ../jig-shortcode-editor.php:1593
+#: ../justified-image-grid.php:3496 ../justified-image-grid.php:3515
+#: ../justified-image-grid.php:3855 ../justified-image-grid.php:3874
+msgid "Description"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1391 ../jig-shortcode-editor.php:1403
+#: ../jig-shortcode-editor.php:1578 ../jig-shortcode-editor.php:1592
+#: ../justified-image-grid.php:3497 ../justified-image-grid.php:3514
+#: ../justified-image-grid.php:3854 ../justified-image-grid.php:3873
+msgid "Title"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1392 ../jig-shortcode-editor.php:1405
+#: ../jig-shortcode-editor.php:1580 ../jig-shortcode-editor.php:1594
+#: ../justified-image-grid.php:3498 ../justified-image-grid.php:3516
+#: ../justified-image-grid.php:3856 ../justified-image-grid.php:3875
+msgid "Caption"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1393 ../jig-shortcode-editor.php:1406
+#: ../jig-shortcode-editor.php:1581 ../jig-shortcode-editor.php:1595
+msgid "Alternate"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1394 ../jig-shortcode-editor.php:1407
+#: ../justified-image-grid.php:3500 ../justified-image-grid.php:3518
+msgid "Off: Do not use"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1396 ../justified-image-grid.php:3494
+msgid "Choose a WP field as link title from the image details."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1399
+msgid "WP field for img alt *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1409 ../justified-image-grid.php:3512
+msgid "Choose a WP field as img alt from the image details."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1412
+msgid ""
+"* Note: NextGEN, Facebook, Flickr title/description (or equivalent) fields "
+"act in place of WP Title and Description fields."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1415 ../justified-image-grid.php:1820
+msgid "PrettyPhoto settings"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1418 ../justified-image-grid.php:3556
+msgid "prettyPhoto social tools"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1422 ../justified-image-grid.php:3563
+msgid "Yes: display the social sharing buttons."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1425 ../justified-image-grid.php:3561
+msgid "Toggle Like, Tweet, Pin and +1 buttons in prettyPhoto."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1428 ../justified-image-grid.php:3587
+msgid "prettyPhoto theme"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1432 ../justified-image-grid.php:3594
+msgid "Default theme"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1433 ../justified-image-grid.php:3595
+msgid "Light rounded"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1434 ../justified-image-grid.php:3596
+msgid "Dark rounded"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1435 ../justified-image-grid.php:3597
+msgid "Light square"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1436 ../justified-image-grid.php:3598
+msgid "Dark square"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1437 ../justified-image-grid.php:3599
+msgid "Facebook style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1439 ../justified-image-grid.php:3592
+msgid "Choose one of the six built-in themes of prettyPhoto."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1442 ../justified-image-grid.php:3607
+msgid "prettyPhoto Google Analytics"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1446 ../justified-image-grid.php:3615
+msgid "Yes, track photo views as events."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1449 ../justified-image-grid.php:3612
+msgid "You can track images viewed in the lightbox as events."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1455 ../justified-image-grid.php:1823
+msgid "Caption appearance and style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1458 ../justified-image-grid.php:3701
+msgid "Caption style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1462
+msgid "Fade"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1463
+msgid "Slide"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1464
+msgid "Mixed"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1465
+msgid "Fixed"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1466
+msgid "Reverse Fade"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1467
+msgid "Reverse Slide"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1468
+msgid "Reverse Mixed"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1469 ../jig-shortcode-editor.php:1481
+msgid "Below the image"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1470 ../jig-shortcode-editor.php:1482
+#: ../jig-shortcode-editor.php:1637 ../jig-shortcode-editor.php:1767
+#: ../jig-shortcode-editor.php:1779 ../jig-shortcode-editor.php:1792
+#: ../justified-image-grid.php:3113 ../justified-image-grid.php:3716
+#: ../justified-image-grid.php:3733
+msgid "Off"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1472
+msgid ""
+"Choose how would you like the caption to appear. Reverse does the opposite, "
+"shows all text then fades/slides them out on mouse over."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1475 ../justified-image-grid.php:3723
+msgid "Mobile caption"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1480
+msgid "Fixed - Whole caption is always visible."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1484 ../justified-image-grid.php:3728
+msgid "Caption behavior for mobile devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1487 ../justified-image-grid.php:3741
+msgid "Caption opacity"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1490 ../justified-image-grid.php:3746
+msgid "Opacity for the entire caption, enter a number between 0 and 1."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1493 ../justified-image-grid.php:3751
+msgid "Caption background color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1496 ../justified-image-grid.php:3756
+msgid ""
+"Enter any CSS color, or the word transparent. You can use the color picker "
+"in the top right corner. For opacity use rgba(0,0,0,0.3) but only when the "
+"Caption opacity is set to 1."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1499
+msgid "Title bg matches text width"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1503 ../justified-image-grid.php:3768
+msgid "No, display the caption background at full width."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1504 ../justified-image-grid.php:3769
+msgid "Yes, only show the background as far as the text goes."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1505 ../justified-image-grid.php:3770
+msgid "Yes, and also add some rounded corners (dossier style)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1507
+msgid "Show the caption title background only behind the text."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1510 ../justified-image-grid.php:3777
+msgid "Caption text color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1513 ../jig-shortcode-editor.php:1662
+#: ../justified-image-grid.php:3782 ../justified-image-grid.php:4003
+msgid "Any CSS color (HEX, name of the color) except rgba."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1516
+msgid "Caption height only for the \"Below the image\" style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1519
+msgid ""
+"Set a uniform caption height that will only be used when caption is set to "
+"\"Below the image\". Accepts a number without px."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1522
+msgid "Caption title size"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1525
+msgid "Any CSS font-size, e.g. 16px, leave empty to use the global CSS."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1528
+msgid "Caption description size"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1531
+msgid "Any CSS font-size, e.g. 12px, leave empty to use the global CSS."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1534 ../justified-image-grid.php:1824
+msgid "Align"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1537 ../justified-image-grid.php:3797
+msgid "Horizontal caption text-align"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1541 ../justified-image-grid.php:3804
+msgid ""
+"CSS: Respect the text-align settings below (Caption title CSS + Caption "
+"description CSS)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1542 ../justified-image-grid.php:3805
+msgid "Left"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1543 ../justified-image-grid.php:3806
+msgid "Center"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1544 ../justified-image-grid.php:3807
+msgid "Right"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1546 ../justified-image-grid.php:3802
+msgid "Align both captions horizontally."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1549 ../justified-image-grid.php:3815
+msgid "Vertically center captions"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1553 ../justified-image-grid.php:3822
+msgid "Off: Display them at the bottom."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1554 ../justified-image-grid.php:3823
+msgid "Yes: (center both axes, animate from center, overrides text-align CSS)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1555 ../justified-image-grid.php:3824
+msgid ""
+"Simple: Same as 'Yes', but doesn't animate from center (slide and mixed "
+"styles)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1556 ../justified-image-grid.php:3825
+msgid ""
+"Vertical only: (no horizontal centering, keeps text-align CSS, animate from "
+"center)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1558
+msgid "Makes captions appear in the middle of the image."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1561
+msgid "Vertically center: Custom fonts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1565 ../justified-image-grid.php:3839
+msgid "Yes, I use custom fonts, apply a fix."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1566 ../justified-image-grid.php:3840
+msgid "No, I don't use custom fonts."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1568
+msgid "If the vertical centering is not perfect, you are using custom fonts."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1571 ../justified-image-grid.php:1825
+msgid "What text to show on the top of thumbnails"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1574
+msgid "WP field to use for title (main) *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1582 ../jig-shortcode-editor.php:1596
+#: ../justified-image-grid.php:3858 ../justified-image-grid.php:3877
+msgid "Off: Do not display."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1585 ../justified-image-grid.php:3852
+msgid "Choose a WP field as title from the image details."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1588
+msgid "WP field to use for caption *"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1598 ../justified-image-grid.php:3871
+msgid "Choose a WP field as caption description from the image details."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1601
+msgid ""
+"* Note: NextGEN, Facebook, Instagram, Flickr title/description (or "
+"equivalent) fields act in place of WP Title and Description fields."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1604 ../justified-image-grid.php:1826
+msgid "Extra"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1607 ../justified-image-grid.php:3906
+msgid "Text shadow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1610
+msgid ""
+"Set shadow on the text of the caption. Example: 1px 1px 0 black<br/>(x, y, "
+"blur, color - respectively). It's only applied when Caption opacity is set "
+"to 1. Doesn't work under IE10 so don't depend on it."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1613 ../justified-image-grid.php:3916
+msgid "Gradient caption background"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1617
+msgid "No, use the simple color options."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1618
+msgid "Yes, use the CSS gradient (set up in the settings)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1620
+msgid "Use a Facebook-style gradient for the caption background."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1627 ../justified-image-grid.php:1828
+msgid "Overlay appearance and style"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1630 ../justified-image-grid.php:3953
+msgid "Overlay type"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1634 ../jig-shortcode-editor.php:1755
+#: ../jig-shortcode-editor.php:1780
+msgid "Others"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1635 ../jig-shortcode-editor.php:1756
+#: ../jig-shortcode-editor.php:1781
+msgid "Hovered"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1636
+msgid "Everything has color overlay"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1639 ../justified-image-grid.php:3958
+msgid "Choose a behavior for the overlay."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1642 ../justified-image-grid.php:3970
+msgid "Mobile overlay type"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1647 ../justified-image-grid.php:3962
+#: ../justified-image-grid.php:3978
+msgid "Everything has color overlay."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1648 ../justified-image-grid.php:3979
+msgid "Off: No overlay."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1650 ../justified-image-grid.php:3975
+msgid "Overlay behavior for mobile devices."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1653 ../justified-image-grid.php:3988
+msgid "Overlay opacity"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1656 ../jig-shortcode-editor.php:1681
+#: ../justified-image-grid.php:3993 ../justified-image-grid.php:4029
+msgid "A number between 0 and 1."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1659 ../justified-image-grid.php:3998
+msgid "Overlay color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1665 ../justified-image-grid.php:1829
+msgid "Overlay icon on top of thumbnails"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1668 ../justified-image-grid.php:4009
+msgid "Overlay icon"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1672 ../justified-image-grid.php:4016
+msgid "Off: Don't display the icon in the overlay."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1673 ../justified-image-grid.php:4017
+msgid "On: Display the icon."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1675 ../justified-image-grid.php:4014
+msgid "Enable to display an icon in the middle of the thumbnails."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1678 ../justified-image-grid.php:4024
+msgid "Overlay icon opacity"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1684 ../justified-image-grid.php:4034
+msgid "Overlay icon URL"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1687 ../justified-image-grid.php:4039
+msgid "Path to your icon or leave empty for the default magnifier icon."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1690 ../justified-image-grid.php:4044
+msgid "Overlay icon retina URL"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1693 ../justified-image-grid.php:4049
+msgid ""
+"2x size image of your Overlay icon. Default is the 2x version of the "
+"magnifier, or if set, the 1x version of your Overlay icon."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1696 ../justified-image-grid.php:1830
+msgid "Shadows"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1699 ../justified-image-grid.php:4055
+msgid "Outer shadow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1702
+msgid "CSS3 shadow value: \"0 0 3px black\" - may decrease performance."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1705 ../justified-image-grid.php:4065
+msgid "Inner shadow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1708
+msgid "CSS3 shadow value: \"0 0 30px black\" - only when overlay is in use."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1711 ../justified-image-grid.php:1831
+msgid "Borders"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1714 ../justified-image-grid.php:4076
+msgid "Outer (standard) border width"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1717 ../jig-shortcode-editor.php:1729
+#: ../jig-shortcode-editor.php:1741
+msgid "A number in pixels, without \"px\" - 0 to turn off, empty for default."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1720 ../justified-image-grid.php:4086
+msgid "Outer (standard) border color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1723 ../justified-image-grid.php:4091
+msgid "Any CSS color value."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1726 ../justified-image-grid.php:4097
+msgid "Middle (spacing) border width"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1732 ../justified-image-grid.php:4107
+msgid "Middle (spacing) border color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1735
+msgid "Any CSS color, usually white, also affects tile background color."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1738 ../justified-image-grid.php:4118
+msgid "Inner (on-image) border width"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1744 ../justified-image-grid.php:4128
+msgid "Inner (on-image) border color"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1747 ../justified-image-grid.php:4133
+msgid ""
+"Any CSS color, especially recommended rgba(0,0,0,0.1) this is Facebook-style."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1750 ../justified-image-grid.php:4138
+msgid "Inner border behavior"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1754
+msgid "Always"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1758 ../justified-image-grid.php:4143
+msgid "Control the inner border with the mouse or let it be static."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1761
+msgid "Inner border animate"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1765
+msgid "Width only"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1766
+msgid "Opacity only"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1769 ../justified-image-grid.php:4159
+msgid "The mouse controlled inner border's animation style."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1775 ../justified-image-grid.php:4181
+msgid "Special effects behavior"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1782 ../jig-shortcode-editor.php:1793
+msgid "Everything"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1784 ../justified-image-grid.php:4186
+msgid "Choose a behavior for the special effects like desaturation."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1787 ../justified-image-grid.php:4198
+msgid "Mobile special effects"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1791
+msgid "Same as desktop"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1795
+msgid ""
+"Alternative behavior for special effects on mobile devices. Turn off if you "
+"have lots of images as it may decrease performance."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1798 ../justified-image-grid.php:4214
+msgid "Special effects type"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1802 ../justified-image-grid.php:4221
+msgid "Desaturate"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1803 ../justified-image-grid.php:4222
+msgid "Blur"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1804 ../justified-image-grid.php:4223
+msgid "Glow"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1805 ../justified-image-grid.php:4224
+msgid "Sepia"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1806
+msgid "Laplace dark (edge detection)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1807
+msgid "Laplace light (edge detection)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1809 ../justified-image-grid.php:4219
+msgid "Choose a special effect to apply."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1812
+msgid "Special effects blend"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1815
+msgid ""
+"Enter a value between 0.1 and 1 to control how much you see the special "
+"effect over the original image."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1818
+msgid "Special effects options"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1821
+#, php-format
+msgid ""
+"Advanced setting, refer to JIG documentation and the %1$s docs. Example "
+"(default for glow): amount:0.3,radius:0.2"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1835
+msgid "What images to show from NextGEN gallery (choose one)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1838
+msgid "Gallery ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1843 ../jig-shortcode-editor.php:1861
+#: ../jig-shortcode-editor.php:1917 ../jig-shortcode-editor.php:2097
+msgid "I want to use multiple (switch to checkboxes)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1844 ../jig-shortcode-editor.php:1862
+#: ../jig-shortcode-editor.php:1903 ../jig-shortcode-editor.php:1913
+#: ../jig-shortcode-editor.php:1979 ../jig-shortcode-editor.php:2018
+#: ../jig-shortcode-editor.php:2080
+msgid "Do not use."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1849
+msgid "No galleries."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1853
+msgid "Choose a NextGEN gallery."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1856
+msgid "Album ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1864 ../jig-shortcode-editor.php:1872
+msgid "Overview album (all galleries)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1870
+msgid "No albums."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1879
+msgid "OR choose a NextGEN album."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1882
+msgid "Single picture(s) by ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1885
+msgid "OR image IDs, comma separated if more than one."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1888
+msgid "Tags gallery"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1891
+msgid "OR tag(s), comma separated, to be displayed as a gallery."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1894
+msgid "Tags album"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1897
+msgid "OR tag(s), comma separated, to be displayed as an album."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1900
+msgid "Use recent images"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1904
+msgid "Yes: by upload date (NG 1.9.x style)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1905
+msgid "Yes: by image/exif date (NG 2 style)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1907
+msgid ""
+"OR show the 25 most recent images regardless of gallery. You can modify the "
+"limit in the general settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1910
+msgid "Use random images"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1914
+msgid "Yes: all random images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1924
+msgid ""
+"Show random images regardless of gallery or from a specific one. Don't "
+"forget to limit, which is applied <b>after</b> the randomization. The "
+"default limit is 25, which you can modify in the general settings."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1927
+msgid "Behavior options"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1930 ../justified-image-grid.php:4300
+msgid "Display album and photo count"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1934 ../justified-image-grid.php:4307
+msgid "Yes: display the counters."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1935 ../justified-image-grid.php:4308
+msgid "No: do not display the counters."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1937 ../justified-image-grid.php:4305
+msgid ""
+"Make the thumbnail's caption display the count of photos in a gallery. Also, "
+"the count of subalbums/galleries in albums."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1940 ../justified-image-grid.php:4315
+msgid "Open galleries in lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1944 ../justified-image-grid.php:4322
+msgid "No: open them on their own page."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1945 ../jig-shortcode-editor.php:2308
+#: ../justified-image-grid.php:4323 ../justified-image-grid.php:4478
+msgid "Yes: Open them in the lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1947
+msgid "In album views, open the galleries in the lightbox on the same page."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1950 ../justified-image-grid.php:4330
+msgid "Show album/gallery description"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1957
+msgid ""
+"Display gallery or album description (if any) between the breadcrumb and the "
+"grid."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1960 ../justified-image-grid.php:4345
+msgid "Intersect tags"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1964
+msgid "No, match ANY of the chosen tags"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1965
+msgid "Yes, match ALL of the chosen tags"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1967
+msgid "Tag match mode for NG tag galleries."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1970
+msgid "Settings for the built-in JIG Breadcrumb for NextGEN"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1973
+msgid ""
+"Breadcrumb example: <span class=\"ngBcHelp\">base:</span> You are here: "
+"<span class=\"ngBcHelp\">home:</span> Overview <span class=\"ngBcHelp"
+"\">separator:</span> &raquo; <span class=\"ngBcHelp\">album:</span> Colors "
+"<span class=\"ngBcHelp\">separator:</span> &raquo; <span class=\"ngBcHelp"
+"\">gallery, last element:</span> Orange <span class=\"ngBcHelp\">additional "
+"separator:</span> &raquo; "
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1976
+msgid "Breadcrumb"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1980 ../jig-shortcode-editor.php:2317
+msgid "Yes: use the breadcrumb."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1983
+msgid "Show a path to the current gallery. Set up with the settings below."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:1986
+msgid "Separator character"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2003
+msgid "This is the character that separates path elements."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2006
+msgid "Base element: custom text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2009
+msgid ""
+"This is the first, non-clickable text of the breadcrumb, default is 'You are "
+"here:', to turn off, enter the word: none."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2012
+msgid "Home element"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2015
+msgid "Post title."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2016
+msgid "Custom text."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2017
+msgid "Album name (automatic)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2020
+msgid "This is the second, optionally-clickable text that is the gallery home."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2023
+msgid "Home element: custom text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2026
+msgid "This is for the 'Custom text' from above, default is Home."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2029
+msgid "Home element: clickable"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2032 ../jig-shortcode-editor.php:2042
+msgid "Clickable"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2033 ../jig-shortcode-editor.php:2041
+msgid "Not clickable."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2035
+msgid "When clickable, the home element links back to the original page."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2038
+msgid "Last element: clickable"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2044
+msgid "The last (current) element in the breadcrumb can be a link."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2047
+msgid "Show top level breadcrumb"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2053
+msgid ""
+"Show breadcrumb on the top level page: When only the base and home elements "
+"are visible. This is when no albums or galleries are in the breadcrumb path. "
+"The breacrumb may be unncessary then."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2056
+msgid "Add separator at the end"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2062
+msgid "Show an additional separator at the very end of the breadcrumb."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2066
+msgid "NextGEN is not installed!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2074
+msgid ""
+"Create a gallery of posts by their featured images. They'll automatically "
+"link to the posts. You are not limited to posts, nor the order or the number "
+"of pictures is written in stone. The automatic excerpt helps you when you do "
+"not have a manual one so you can have both: manual excerpt when set, "
+"automatic otherwise. You can create a homepage banner with this feature."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2077
+msgid "Use recent posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2081
+msgid "Yes: use recent posts."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2084
+msgid "Choose yes if you wish to create a grid of recent posts."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2088
+msgid "Post IDs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2091
+msgid ""
+"Optionally, you can manually specify posts by IDs, comma separated. You need "
+"to select the appropriate post type as well."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2094
+msgid "Post type"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2115
+msgid "The custom post types/pages must still have featured images!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2118
+msgid "Display in the description"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2121
+msgid "Nothing."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2122
+msgid "Auto excerpt only."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2123
+msgid "Manual excerpt only."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2124
+msgid "Auto or manual excerpt."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2125
+msgid "Categorie(s), comma separated."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2126
+msgid "Tag(s), comma separated."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2127 ../jig-shortcode-editor.php:2548
+#: ../justified-image-grid.php:4744
+msgid "Date and time."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2128 ../jig-shortcode-editor.php:2549
+#: ../justified-image-grid.php:4745
+msgid "Date only."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2129 ../jig-shortcode-editor.php:2550
+#: ../justified-image-grid.php:4746
+msgid "Nice time (FB style 'ago')."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2130
+msgid "Author name."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2132
+msgid "Choose what to display on the thumbnails under the post title."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2135
+msgid "Word count for auto excerpt"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2138 ../justified-image-grid.php:4758
+msgid "Limit the length of automatic excerpt, defaults to 20 words."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2141
+msgid "Ending for auto excerpt"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2144
+msgid ""
+"Add this to the end of the auto excerpt like - Read more...<br />Converts "
+"( ) to [ ], defaults to [...], enter <strong>none</strong> to have no ending."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2147
+msgid "Prefix for author name"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2150
+msgid ""
+"This is before the name, e.g. \"written by \", defaults to \"by \". Only if "
+"author name is selected above. Enter <strong>none</strong> to have no ending."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2153
+msgid "Exclude posts by ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2156
+msgid ""
+"Don't show these posts (specify IDs, comma separated). Use the word "
+"'current' to automatically exclude the current post (for example, related "
+"posts). Not compatible with the post_ids setting."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2159
+msgid "Exclude category"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2162
+msgid "Show posts from all WP categories except these OR..."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2165
+msgid "Include category"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2168
+msgid ""
+"Only show posts from these categories. Both exclude and include take comma "
+"separated list of category slugs or IDs. This is the built-in WP Category "
+"taxonomy, may not be applicable for custom post types."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2171
+msgid "Filter by tag"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2174
+msgid ""
+"Enter comma separated WP tag slugs to filter by. This can be combined with "
+"the categories above."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2177
+msgid "Filter by taxonomy"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2185
+msgid "Choose a taxonomy to filter recent posts by."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2188
+msgid "Taxonomy filter term"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2191
+msgid "Enter the term(s) for your taxonomy (comma separated slugs)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2194
+msgid "Placeholder image"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2197
+msgid ""
+"To still show posts without a featured image, specify the full URL of a "
+"desired placeholder image (upload to the media library)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2200
+msgid "Click on a thumbnail links to"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2203
+msgid "The post."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2204
+msgid "The image (opens in the lightbox)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2205
+msgid "The WP attachment page of the image."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2207
+msgid ""
+"Link to the posts like a regular slider or you can create a gallery of their "
+"featured images, opening them in the lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2210
+msgid "Link to the post from lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2213
+msgid "No, just a gallery of post images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2217
+msgid ""
+"Provides a way of still going to the permalink, only used when Click on a "
+"thumbnail links to an image."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2220
+msgid "Lightbox link text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2223
+msgid "The text for the permalink in the lightbox, e.g. Read more, Go to post."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2226
+msgid "Use custom links"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2232
+msgid "Use the JIG Link of featured images, can override recents_link_to."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2235
+msgid "Use sticky posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2238
+msgid "No preference"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2239
+msgid "Yes: Only sticky posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2240
+msgid "No: Do not display sticky posts at all"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2242
+msgid ""
+"Only usable when displaying regular WP posts. Narrow thumbnails to the "
+"sticky posts or exclude them."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2245
+msgid "Parent post ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2248
+msgid "Use if you wish to display children of a page, only when using pages."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2251
+msgid "Tree depth"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2254
+msgid ""
+"When displaying children of a page, you can set the level of descendants. "
+"It's like 1 or 3 levels deep, default is 10 levels which is a practical "
+"limit. Enter a number."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2260
+msgid ""
+"If you don't have any Profiles or Pages below, go to the settings and "
+"authorize/add some. Once added, you can select one and view the album list. "
+"You'll need to choose an album or the overview to display. Don't edit the "
+"Facebook IDs (<span class=\"fbBlue\">facebook_id</span> and <span class="
+"\"fbBlue\">facebook_album</span>) manually. You can set the order on "
+"Facebook, or use the random order in JIG. You might want to limit how many "
+"images to load (e.g. for Wall Photos), using the <span class=\"fbBlue"
+"\">limit</span> in the general settings above. The default limit is 25 when "
+"nothing is set."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2265
+msgid "loading albums from Facebook"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2266 ../jig-shortcode-editor.php:2359
+msgid "please be patient, this can take a while"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2271
+msgid "Do not use Facebook"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2285 ../justified-image-grid.php:4434
+msgid "Facebook caching time"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2288
+msgid ""
+"The time it takes to see the Facebook album change on the site. This greatly "
+"speeds up loading as the photo list for each album is cached, saving a "
+"request to Facebook! Set in minutes: 4 hours is 240, a day is 1440, a week "
+"is 10080."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2291
+msgid "Image size in the lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2295
+msgid "Normal (720px wide)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2296
+msgid "Larger (most useful)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2297
+msgid "Maximum (up to 4MP - 2048px)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2300
+msgid "Select a preferred image size that opens in the lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2303 ../justified-image-grid.php:4470
+msgid "Open albums in lightbox"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2307 ../justified-image-grid.php:4477
+msgid "No: Open them on their own page."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2311 ../justified-image-grid.php:4475
+msgid ""
+"Only when using the overview feature! Open Facebook albums in the lightbox "
+"(on the same page, instead of linking to separate pages). Note: currently "
+"not compatible with Social Gallery lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2314
+msgid "Overview mini-breadcrumb"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2318
+msgid "Do not use"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2321
+msgid ""
+"Show title of current Facebook album and a link back to the overview. This "
+"is only used when the overview is selected and the albums are not set to "
+"open in the lightbox."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2324
+msgid "Breadcrumb home text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2327
+msgid "You can override the home element page/profile name with custom text. "
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2330
+msgid "Breadcrumb separator character"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2347
+msgid ""
+"This is the character that separates path elements in the Facebook "
+"breadcrumb (previous setting)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2353
+msgid ""
+"If you don't have any users below, go to the settings and add some. Once "
+"added, you can select one then a content source: Photostream, Favorites, "
+"Groups, Photosets, and Galleries. They may open a third set of options where "
+"you need to select exactly which Group, Photoset, or Gallery you wish to "
+"use. Don't to edit the Flickr attributes manually in the shortcode. You can "
+"set the order on Flickr, or use the random order in JIG. Titles/captions for "
+"photos from Flickr are recognized as Title and Description fields. You might "
+"want to limit how many images to load (e.g. for Photostreams), using the "
+"<span class=\"fbBlue\">limit</span> in the general settings above. The "
+"default limit is 25 when nothing is set."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2358
+msgid "loading user data from Flickr"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2364
+msgid "Do not use Flickr"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2383 ../justified-image-grid.php:4533
+msgid "Flickr caching time"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2386 ../justified-image-grid.php:4538
+msgid ""
+"The time it takes to see the Flickr content change on the site. This greatly "
+"speeds up loading as the photo list for each content is cached, saving a "
+"request to Flickr each time the album is shown! Set in minutes: 4 hours is "
+"240, a day is 1440, a week is 10080."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2389 ../justified-image-grid.php:4543
+msgid "Link to the photo on Flickr"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2394 ../justified-image-grid.php:4551
+#: ../justified-image-grid.php:4672
+msgid "Yes: link title (default position)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2397 ../justified-image-grid.php:4548
+msgid ""
+"Display a link back to the photo on Flickr in the lightbox.<br/>Highly "
+"recommended!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2403
+msgid ""
+"If you don't have any Users below, please go to the settings and add "
+"yourself. Once added, you can select various content sources from Instagram. "
+"You'll have access the Your feed, Your recent photos, Photos you like, "
+"Someone else's recent photos, Photos by a tag and last but not least photos "
+"that are from a specific Location! Please don't edit the Instagram "
+"attributes manually in the shortcode. You might want to limit how many "
+"images to load, using the <span class=\"fbBlue\">limit</span> in the general "
+"settings above. The default limit is about 20 when nothing is set."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2408 ../justified-image-grid.php:5220
+msgid "loading data from Instagram"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2409
+msgid "please wait, this can take a little time"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2414
+msgid "Do not use Instagram"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2418
+msgid "Feed of"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2421
+msgid "Recent pictures of"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2424
+msgid "Liked by"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2426
+msgid "Recent pictures of any user (+)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2428
+msgid "By tag (+)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2429
+msgid "By location (+)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2437
+msgid "Search for Instagram users"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2440
+msgid "Search user"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2446
+msgid "User ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2449
+msgid "This is the user ID of your selected user."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2454
+msgid "Search for Instagram tags"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2457
+msgid "Search tag"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2463
+msgid "Tag slug"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2466
+msgid "This is your selected tag."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2471
+#, php-format
+msgid ""
+"How to search for locations? Go to %s and find your desired place. Then copy-"
+"paste the URL of the page here.<br />Or just enter the code from the URL, "
+"for example %s for Times Square."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2474
+msgid "Search for Instagram locations"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2477
+msgid "Search location"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2483
+msgid "Location ID"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2486
+msgid "This is your selected location's ID."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2494
+msgid "Instagram tag filter"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2497
+msgid ""
+"Only show Instagram photos that are tagged with at least one of these tags, "
+"comma separated, lowercase."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2500 ../justified-image-grid.php:4654
+msgid "Instagram caching time"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2503 ../justified-image-grid.php:4659
+msgid ""
+"The time it takes to see the Instagram content change on the site. This "
+"greatly speeds up loading as the photo list for each content type is cached, "
+"saving many requests to Instagram! Set in minutes: 4 hours is 240, a day is "
+"1440, a week is 10080."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2506 ../justified-image-grid.php:4664
+msgid "Link to the photo on Instagram"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2511
+msgid "Yes: link title (default position)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2512
+msgid "Add to img alt"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2514 ../justified-image-grid.php:4669
+msgid ""
+"Display a link back to the photo on Instagram in the lightbox.<br/>Highly "
+"recommended!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2522
+msgid ""
+"Feeds are the most flexible and fun image sources. Scroll down for a tool to "
+"convert regular links of popular sites to feed URLs. The only limitation is "
+"that the feed items need to have an image in order to show up. Advanced "
+"users can create a custom feed and connect it to JIG. Note: If the feed "
+"images are small, you need to decrease row height and deviation to avoid "
+"upscaling."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2525
+msgid "Feed URL(s)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2528
+msgid ""
+"Specify the URL of the RSS/Atom feed you wish to use. Can combine multiple "
+"feeds and sorts them by date - put a comma between URLs in that case."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2531 ../justified-image-grid.php:4719
+msgid "RSS links to"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2535 ../justified-image-grid.php:4726
+msgid "Permalink (the link of the feed item)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2536 ../justified-image-grid.php:4727
+msgid "Image (lightbox, a gallery of RSS items)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2538
+msgid ""
+"What should open when clicking on thumbnails from an RSS feed? Go to General "
+"-> Behavior of the plugin -> <strong>Custom link's target</strong> to open "
+"permalink in the lightbox (iframe, videos) or on a new tab."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2541 ../justified-image-grid.php:4734
+msgid "RSS description"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2545 ../justified-image-grid.php:4741
+msgid "Nothing, just the title."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2546 ../justified-image-grid.php:4742
+msgid "Description (full, can be too long)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2547 ../justified-image-grid.php:4743
+msgid "Excerpt: description cut to x words (automatic, HTML off)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2552 ../justified-image-grid.php:4739
+msgid "This controls what text to show as description on the thumbnails."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2555 ../justified-image-grid.php:4753
+msgid "RSS exceprt length (words)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2558
+msgid "Limit the length of automatic excerpt, defaults to 20 - word count."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2561 ../justified-image-grid.php:4763
+msgid "RSS exceprt ending"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2564
+msgid ""
+"Add this to the end of the auto excerpt like - Read more... or "
+"\" [...]\"<br />Converts ( ) to [ ], defaults to [...], enter <strong>none</"
+"strong> to have no ending.\""
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2567 ../justified-image-grid.php:4773
+msgid "RSS lightbox backlink"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2571 ../justified-image-grid.php:4780
+msgid "No I really just want a gallery of RSS images."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2575 ../justified-image-grid.php:4778
+msgid ""
+"This the RSS item's backlink in the lightbox, only used when RSS links to "
+"image, to provide a way of still going to the permalink."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2578 ../justified-image-grid.php:4804
+msgid "RSS lightbox backlink text"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2581
+msgid ""
+"The text to show as RSS lightbox backlink, e.g. Read more, Go to story etc."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2584 ../justified-image-grid.php:4814
+msgid "RSS caching time"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2587 ../justified-image-grid.php:4819
+msgid ""
+"By default the caching is 12 hours (set by WP), you can override that for "
+"this feature. Set in minutes."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2590
+msgid "Tool to get the Feed URL from popular sites"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2593
+msgid ""
+"Enter the regular link to your desired site (following the format of <span "
+"class='rssRegularLink'>regular links</span> below), and get the <span "
+"class='rssFeedLink'>feed URLs</span> generated for you. Then you can easily "
+"add it to the Feed URL(s) - <span class='darkBlue'>rss_url</span> setting "
+"above. It's often not trivial how to get <span class='rssFeedLink'>feed "
+"URLs</span>, so this should be of help."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2596
+msgid "Regular link"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2598
+msgid "Enter a regular link according to the blue examples below."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2601
+msgid "Feed URL"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2603
+msgid "This is the Feed URL that is based on your regular link."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2606
+msgid "Generate Feed URL"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2607
+msgid "Set it as"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2608
+msgid "Append to"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2612
+msgid ""
+"Sites available for this tool with example links (<span class="
+"\"rssRegularLink\">regular links</span>, <span class=\"rssFeedLink\">feed "
+"URLs</span> - the tool converts regular links to feed urls)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2614
+msgid "Youtube"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2616
+msgid "User's recent videos (channel)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2619
+msgid "Vimeo"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2621
+msgid "User's videos"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2622
+msgid "User's likes"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2623
+msgid "Channels"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2624
+msgid "Groups"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2625
+msgid ""
+"Subscriptions, Shares and Watch Later feeds can be found in your own "
+"profile, left side at the bottom"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2628
+msgid "500px"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2630
+msgid "User's photos"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2631
+msgid "User's favorites"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2632
+msgid "Actual feed URLs"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2634
+msgid "Popular Photos"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2635
+msgid "Editors' Choice"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2636
+msgid "Upcoming Photos"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2637
+msgid "Fresh Photos"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2638
+msgid "500px Blog"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2643
+msgid "Pinterest"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2645
+msgid "A user's pins"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2646
+msgid "Pins from a board of a user"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2649
+msgid "deviantART"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2651
+msgid ""
+"For best results, find the RSS icon, it's on the left of the pagination just "
+"after the images. It's for user deviations (favorites, favorites: "
+"collections, galleries, gallery folders, category galleries) and group "
+"deviations (favorites: collections or gallery folders)."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2652
+msgid ""
+"All new deviations by user (featured only need and id that can't be figured "
+"out)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2653
+msgid "A gallery of a user or group"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2654
+msgid "A category gallery of a user"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2655
+msgid "A set of favorites by user or group"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2658
+msgid "Stumbleupon"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2660
+msgid "A user's likes"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2661
+msgid "A channel"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2664
+msgid "Imgur"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2666
+msgid "A /r category"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2667
+msgid "Front page actual feed URL"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2670
+msgid "Tumblr"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2672
+msgid "Append /rss to tumblr blogs that are on their own domain."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2673 ../jig-shortcode-editor.php:2679
+msgid "A blog's recent posts"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2676
+msgid "WordPress"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2678
+msgid ""
+"Append /feed/ to WordPress blogs that are on their own domain. Gravatars are "
+"skipped and the posts must have featured images!"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2680
+msgid "Add /feed to post list views like tags, categories etc."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2684
+msgid ""
+"The RSS feature is not limited to the list, this is just an easier way to "
+"convert your <span class=\"rssRegularLink\">regular links</span> to <span "
+"class=\"rssFeedLink\">feed URLs</span> for a few, selected popular sites. "
+"Use of the tool is optional and the <span class=\"rssFeedLink\">feed URL</"
+"span> is subject to change by the sites without notification."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2691
+msgid "Generate template tag (optional / advanced users)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2694
+msgid "Template tag"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2696
+msgid "add this to a PHP file of your template"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2700
+msgid "Do shortcode"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2702
+msgid "OR add this, whichever you like better (they do the same thing)"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2707
+msgid "Create shortcode"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2708
+msgid "Then copy your shortcode"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:2945 ../jig-shortcode-editor.php:3045
+#: ../jig-shortcode-editor.php:3103 ../jig-shortcode-editor.php:3210
+#: ../jig-shortcode-editor.php:3263 ../jig-shortcode-editor.php:3322
+#: ../jig-shortcode-editor.php:3374
+msgid "AJAX error. Check browser console for more information."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:3540
+msgid "The site is not supported by this tool."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:3543
+msgid "Seems like an invalid link."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:3553
+msgid "The regular link is not supported."
+msgstr ""
+
+#: ../jig-shortcode-editor.php:3996 ../justified-image-grid.php:10038
+msgid "loading"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:4013
+msgid ""
+"error loading cover photo, album is now disabled to prevent further errors"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:4021 ../justified-image-grid.php:9808
+msgid "no photos in this album"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:4032
+msgid "AJAX error, album is now disabled to prevent further errors"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:4068
+msgid "error"
+msgstr ""
+
+#: ../jig-shortcode-editor.php:4146
+msgid ""
+"Please set up IDs (images) or an ID (post/page) in the General settings or "
+"use the Recent posts feature, otherwise the template tag will not work as it "
+"has no image source. You can also use Facebook, Flickr, NextGEN, Instagram "
+"or RSS feeds instead."
+msgstr ""
+
+#: ../justified-image-grid.php:944 ../justified-image-grid.php:945
+#: ../justified-image-grid.php:957 ../justified-image-grid.php:9863
+#: ../justified-image-grid.php:9865 ../justified-image-grid.php:9880
+msgid "Justified Image Grid"
+msgstr ""
+
+#: ../justified-image-grid.php:959
+msgid "Use this tool to get color values for CSS settings:"
+msgstr ""
+
+#: ../justified-image-grid.php:964
+#, php-format
+msgid ""
+"<strong>Use the Shortcode Editor in posts/pages to add galleries to your "
+"content.</strong><br/><br/>Refer to the right side help bubbles or the PDF "
+"documentation for more information. Here you can choose the global settings "
+"that every gallery will start with. You can override these settings on a per-"
+"gallery basis in the %s."
+msgstr ""
+
+#: ../justified-image-grid.php:965
+msgid "Presets"
+msgstr ""
+
+#: ../justified-image-grid.php:966
+msgid ""
+"Clicking one of these will overwrite and apply the styling settings below. "
+"Use them as a base then fine-tune settings. You can't change the presets but "
+"build upon them!"
+msgstr ""
+
+#: ../justified-image-grid.php:972
+msgid "current user"
+msgstr ""
+
+#: ../justified-image-grid.php:973
+msgid "page"
+msgstr ""
+
+#: ../justified-image-grid.php:974
+msgid "other user"
+msgstr ""
+
+#: ../justified-image-grid.php:982
+msgid "Enter the code!"
+msgstr ""
+
+#: ../justified-image-grid.php:1011
+msgid "Enter the page!"
+msgstr ""
+
+#: ../justified-image-grid.php:1037
+msgid "The"
+msgstr ""
+
+#: ../justified-image-grid.php:1037 ../justified-image-grid.php:1252
+#: ../justified-image-grid.php:1350
+msgid "is removed from the list."
+msgstr ""
+
+#: ../justified-image-grid.php:1045
+msgid "The page"
+msgstr ""
+
+#: ../justified-image-grid.php:1045
+msgid "is also removed because it required authentication from user"
+msgstr ""
+
+#: ../justified-image-grid.php:1066 ../justified-image-grid.php:1128
+msgid "The authentication of"
+msgstr ""
+
+#: ../justified-image-grid.php:1068
+msgid "is valid. You can choose from"
+msgstr ""
+
+#: ../justified-image-grid.php:1072 ../justified-image-grid.php:1134
+#: ../justified-image-grid.php:1190
+msgid "It has access from the"
+msgstr ""
+
+#: ../justified-image-grid.php:1074 ../justified-image-grid.php:1136
+#: ../justified-image-grid.php:1192
+msgid "It will expire in"
+msgstr ""
+
+#: ../justified-image-grid.php:1075 ../justified-image-grid.php:1137
+#: ../justified-image-grid.php:1193
+msgid "which is on"
+msgstr ""
+
+#: ../justified-image-grid.php:1130
+msgid "is successful. You can choose from"
+msgstr ""
+
+#: ../justified-image-grid.php:1176 ../justified-image-grid.php:1184
+msgid "The re-authentication of already existing"
+msgstr ""
+
+#: ../justified-image-grid.php:1178
+msgid "is done. It was necessary due to the authorization change in "
+msgstr ""
+
+#: ../justified-image-grid.php:1186
+msgid "is done. You can choose from"
+msgstr ""
+
+#: ../justified-image-grid.php:1211
+msgid "Enter the user name or ID!"
+msgstr ""
+
+#: ../justified-image-grid.php:1277
+msgid "Successfully added "
+msgstr ""
+
+#: ../justified-image-grid.php:1284
+msgid "User"
+msgstr ""
+
+#: ../justified-image-grid.php:1284
+msgid "has been refreshed"
+msgstr ""
+
+#: ../justified-image-grid.php:1324 ../justified-image-grid.php:1381
+msgid "The authentication of user"
+msgstr ""
+
+#: ../justified-image-grid.php:1325
+msgid "is valid."
+msgstr ""
+
+#: ../justified-image-grid.php:1350
+msgid "The user"
+msgstr ""
+
+#: ../justified-image-grid.php:1354
+msgid "Generic error, most like SSL problem."
+msgstr ""
+
+#: ../justified-image-grid.php:1382
+msgid "is successful."
+msgstr ""
+
+#: ../justified-image-grid.php:1398
+msgid "The re-authentication of already existing user"
+msgstr ""
+
+#: ../justified-image-grid.php:1399
+msgid "is done."
+msgstr ""
+
+#: ../justified-image-grid.php:1413
+msgid "Are you sure you wish to wipe all Justified Image Grid settings?"
+msgstr ""
+
+#: ../justified-image-grid.php:1417 ../justified-image-grid.php:1438
+#: ../justified-image-grid.php:1458
+msgid "Please wait..."
+msgstr ""
+
+#: ../justified-image-grid.php:1450
+msgid "There was an error creating the backup."
+msgstr ""
+
+#: ../justified-image-grid.php:1672 ../justified-image-grid.php:1726
+msgid "To add users"
+msgstr ""
+
+#: ../justified-image-grid.php:1672
+msgid "Create a Facebook App"
+msgstr ""
+
+#: ../justified-image-grid.php:1672
+msgid "Fill out the App ID and App Secret fields"
+msgstr ""
+
+#: ../justified-image-grid.php:1672 ../justified-image-grid.php:1726
+#: ../justified-image-grid.php:1750
+msgid "Click Save Changes"
+msgstr ""
+
+#: ../justified-image-grid.php:1726
+msgid "Create a Flickr App"
+msgstr ""
+
+#: ../justified-image-grid.php:1726
+msgid "Fill out the API key field"
+msgstr ""
+
+#: ../justified-image-grid.php:1750
+msgid "To authenticate yourself"
+msgstr ""
+
+#: ../justified-image-grid.php:1750
+msgid "Register an Instagram app"
+msgstr ""
+
+#: ../justified-image-grid.php:1750
+msgid "Fill out the Client ID and Client Secret fields"
+msgstr ""
+
+#: ../justified-image-grid.php:1812
+msgid "Additional tools or utilities"
+msgstr ""
+
+#: ../justified-image-grid.php:1814
+msgid "Advanced"
+msgstr ""
+
+#: ../justified-image-grid.php:1815
+msgid "Backup and uninstall"
+msgstr ""
+
+#: ../justified-image-grid.php:1819
+msgid "Download link"
+msgstr ""
+
+#: ../justified-image-grid.php:1821
+msgid "Other lightbox settings"
+msgstr ""
+
+#: ../justified-image-grid.php:1833
+msgid "Filtering behavior and style"
+msgstr ""
+
+#: ../justified-image-grid.php:1834
+msgid "Settings for the Buttons style"
+msgstr ""
+
+#: ../justified-image-grid.php:1835
+msgid "Settings for the Tag cloud style"
+msgstr ""
+
+#: ../justified-image-grid.php:2315
+msgid ""
+"Are you sure you wish to apply the preset and overwrite your styling "
+"settings?"
+msgstr ""
+
+#: ../justified-image-grid.php:2318
+msgid "Preset 1: Out of the box (default)"
+msgstr ""
+
+#: ../justified-image-grid.php:2353 ../justified-image-grid.php:4827
+msgid "TimThumb & CDN"
+msgstr ""
+
+#: ../justified-image-grid.php:2385
+msgid "has been successfully applied!"
+msgstr ""
+
+#: ../justified-image-grid.php:2444
+msgid ""
+"Only show up to this amount of rows. Leave empty, 0 or -1 for unlimited. "
+"Combined with a fixed row height (0 deviation), this can result a banner."
+msgstr ""
+
+#: ../justified-image-grid.php:2454
+msgid ""
+"The last row is not always full - choose how to handle it. If incomplete, "
+"the last row will fit the available width, but only until the max height "
+"(Row height + Deviation) is reached. Otherwise an incomplete row is visible "
+"and is as tall as the desired row height. You can alter this behavior here."
+msgstr ""
+
+#: ../justified-image-grid.php:2457
+msgid ""
+"Hide: Hide the incomplete row (the gallery forms a perfect justified block)."
+msgstr ""
+
+#: ../justified-image-grid.php:2458
+msgid ""
+"Flexible: Only when using Load More: same as hide, but allows the very last "
+"row to be orphan."
+msgstr ""
+
+#: ../justified-image-grid.php:2459
+msgid ""
+"Match: Match the previous row's height (use for same shape images e.g. logo "
+"showcase)."
+msgstr ""
+
+#: ../justified-image-grid.php:2460
+msgid ""
+"Flexible-match: Only when using Load More: useful for same aspect ratio "
+"images - combines flexible and match."
+msgstr ""
+
+#: ../justified-image-grid.php:2491
+msgid "Limit image count"
+msgstr ""
+
+#: ../justified-image-grid.php:2496
+msgid ""
+"Only show up to this number of images. Leave empty, 0 or -1 for unlimited. "
+"Flickr, Facebook and Instagram have a default limit of ~25."
+msgstr ""
+
+#: ../justified-image-grid.php:2501
+msgid "Hidden limit"
+msgstr ""
+
+#: ../justified-image-grid.php:2506
+msgid ""
+"More images can still be added to the lightbox, until the Hidden limit is "
+"reached. This will be the total number of images. E.g. a Limit of 3 and "
+"Hidden limit of 30 will show an extra 27 images only in the lightbox."
+msgstr ""
+
+#: ../justified-image-grid.php:2526
+msgid ""
+"Highly recommended to leave empty (for best results of the original layout). "
+"This crops your thumbnail to a fixed look. Enter a ratio like 1, 1:1 or 1/1 "
+"for square, 2.35:1 or 16:9 for wide, or just about any value you desire: "
+"4/3, 3/4, 5:4, 4:5, 1.5, 0.5 or similar."
+msgstr ""
+
+#: ../justified-image-grid.php:2536
+msgid ""
+"Use this to avoid cropping or to lock your selected aspect ratio. This lifts "
+"the restriction of a minimum height imposed by 'Row height deviation'."
+msgstr ""
+
+#: ../justified-image-grid.php:2546
+msgid "Randomize thumbnail width"
+msgstr ""
+
+#: ../justified-image-grid.php:2551
+msgid ""
+"A number (without px) to make images randomly cropped or extended within "
+"this range. If your images have the same aspect ratio, this will make the "
+"grid look more interesting and alive. For example, entering 50 will change "
+"image widths by up to +/- 25px."
+msgstr ""
+
+#: ../justified-image-grid.php:2557
+msgid "Order of the images"
+msgstr ""
+
+#: ../justified-image-grid.php:2562
+msgid ""
+"Choose the order the images appear in, only when images/posts are from "
+"WordPress. For Flickr, Facebook, Instagram or NextGEN, the order is set up "
+"in these 3rd party image sources. However, the random order here will work "
+"regardless of the image source."
+msgstr ""
+
+#: ../justified-image-grid.php:2570
+msgid ""
+"Custom order (forced menu_order for recent posts, best used with \"Simple "
+"Custom Post Order\" plugin)"
+msgstr ""
+
+#: ../justified-image-grid.php:2583
+msgid ""
+"Set to Fixed if you are experiencing problems with tabs or having the "
+"\"element is too thin\" error. You must set a width value for the next "
+"setting if you selected any of the Fixed modes."
+msgstr ""
+
+#: ../justified-image-grid.php:2585
+msgid "Responsive fallback, automatic."
+msgstr ""
+
+#: ../justified-image-grid.php:2586
+msgid "Fixed: Non-responsive."
+msgstr ""
+
+#: ../justified-image-grid.php:2587
+msgid "Fixed width for mobile - Responsive on desktop."
+msgstr ""
+
+#: ../justified-image-grid.php:2588
+msgid "Fixed width for desktop - Responsive on mobile."
+msgstr ""
+
+#: ../justified-image-grid.php:2600
+msgid ""
+"The width to use by the previous setting, leave empty or 0 for automatic "
+"width (the default, recommended). For example 1200 (without px)."
+msgstr ""
+
+#: ../justified-image-grid.php:2611
+msgid ""
+"A CSS shorthand margin value: 10px - all four sides, 0 10px - just the "
+"sides, 10px 0 - just the top and bottom. Without any quotes."
+msgstr ""
+
+#: ../justified-image-grid.php:2621
+msgid "Used by every animation. In milliseconds: 200 is fast, 600 is slow."
+msgstr ""
+
+#: ../justified-image-grid.php:2631
+msgid ""
+"To avoid seeing the footer if you have no sidebar, e.g. 800 without px. "
+"Makes the grid take up some space even without images."
+msgstr ""
+
+#: ../justified-image-grid.php:2641
+msgid ""
+"You could specify a grey color like Flickr #cccccc or #eaeaea or even a "
+"loader animation (animated gif). Accepts CSS background property. <br /> "
+"Example of an image on a light grey background:<br />url('http://full.path/"
+"to/image.png') center center no-repeat #eaeaea"
+msgstr ""
+
+#: ../justified-image-grid.php:2646
+msgid "Text to show before the grid"
+msgstr ""
+
+#: ../justified-image-grid.php:2651
+msgid ""
+"Add text before every grid. HTML is accepted. Can be disabled on individual "
+"instances."
+msgstr ""
+
+#: ../justified-image-grid.php:2656
+msgid "Text to show after the grid"
+msgstr ""
+
+#: ../justified-image-grid.php:2661
+msgid "Add text after every instance. Otherwise same as previous setting."
+msgstr ""
+
+#: ../justified-image-grid.php:2667
+msgid "Take over and replace [gallery] WordPress gallery shortcodes"
+msgstr ""
+
+#: ../justified-image-grid.php:2672
+msgid ""
+"Choose yes if you wish to automatically use Justified Image Grid in place of "
+"your current galleries. Useful for already established posts."
+msgstr ""
+
+#: ../justified-image-grid.php:2674
+msgid "Hide [gallery] shortcodes after [justified_image_grid] shortcode."
+msgstr ""
+
+#: ../justified-image-grid.php:2675
+msgid "Yes, act in place of the [gallery] shortcode."
+msgstr ""
+
+#: ../justified-image-grid.php:2676
+msgid "No, leave the [gallery] shortcode alone."
+msgstr ""
+
+#: ../justified-image-grid.php:2684
+msgid "Shortcode alias"
+msgstr ""
+
+#: ../justified-image-grid.php:2689
+msgid ""
+"<strong>Advanced setting!</strong> You can enter another, shorter name for "
+"the shortcode here, for example: jig or justified. Without brackets."
+msgstr ""
+
+#: ../justified-image-grid.php:2699
+msgid ""
+"Animated GIFs are resized, but freezed by (TimThumb) or have bad frames "
+"(Jetpack Photon). If you allow animated GIFs, they won't be resized as "
+"thumbnails, and the 'Thumbnail aspect ratio' and 'Randomize thumbnail width' "
+"settings won't apply for them. However, they'll display properly!"
+msgstr ""
+
+#: ../justified-image-grid.php:2714
+msgid ""
+"Images intentionally show up with white background to prevent some rendering "
+"problems. Only enable if you really want to use transparent PNGs."
+msgstr ""
+
+#: ../justified-image-grid.php:2729
+msgid ""
+"Let the text flow to the right after the last image, useful for a single "
+"image."
+msgstr ""
+
+#: ../justified-image-grid.php:2759
+msgid "Choose yes if you wish to disable right click menu (copy protection)."
+msgstr ""
+
+#: ../justified-image-grid.php:2793
+msgid "Lightbox: video / iframe / different image"
+msgstr ""
+
+#: ../justified-image-grid.php:2800
+msgid "Follow mode for custom links (rel)"
+msgstr ""
+
+#: ../justified-image-grid.php:2807
+msgid "Yes: dofollow."
+msgstr ""
+
+#: ../justified-image-grid.php:2808
+msgid "No: add nofollow."
+msgstr ""
+
+#: ../justified-image-grid.php:2817
+msgid "WP image tags and categories"
+msgstr ""
+
+#: ../justified-image-grid.php:2822
+#, php-format
+msgid ""
+"Enable to use tags and categories for images in the Media Library. Very "
+"simple, if you need more, get a plugin like %s or %s."
+msgstr ""
+
+#: ../justified-image-grid.php:2824
+msgid "Disable, do not change anything."
+msgstr ""
+
+#: ../justified-image-grid.php:2825
+msgid "Enable the ability to add post categories or tags to images."
+msgstr ""
+
+#: ../justified-image-grid.php:2832
+msgid "Media attacher utility"
+msgstr ""
+
+#: ../justified-image-grid.php:2837
+#, php-format
+msgid ""
+"Enable to attach/re-attach images to posts/pages in the Media Library.<br/"
+">For a more complete solution, get the %s plugin."
+msgstr ""
+
+#: ../justified-image-grid.php:2839
+msgid "Disable"
+msgstr ""
+
+#: ../justified-image-grid.php:2840
+msgid "Enable: Move images between posts/pages in the Media Library."
+msgstr ""
+
+#: ../justified-image-grid.php:2847
+msgid "Add images to WordPress SEO XML Sitemap"
+msgstr ""
+
+#: ../justified-image-grid.php:2852
+#, php-format
+msgid ""
+"Keep enabled to add images to the %s plugin's XML Sitemap. This improves "
+"your SEO."
+msgstr ""
+
+#: ../justified-image-grid.php:2854
+msgid "Yes, add images to the sitemap."
+msgstr ""
+
+#: ../justified-image-grid.php:2855
+msgid "No, do NOT add images to the sitemap."
+msgstr ""
+
+#: ../justified-image-grid.php:2864
+msgid "Show/hide developer link"
+msgstr ""
+
+#: ../justified-image-grid.php:2869
+msgid ""
+"Choose Show if you agree to to have a small \"Powered by\" affiliate link to "
+"the Justified Image Grid page on CodeCanyon, below each gallery. This can be "
+"disabled for each grid individually where it is unwanted.<br/>I would "
+"appreciate it if you show the link."
+msgstr ""
+
+#: ../justified-image-grid.php:2871
+msgid "Hide: Do not show the developer link."
+msgstr ""
+
+#: ../justified-image-grid.php:2872
+msgid "Show: I want to support this plugin, show the developer link!"
+msgstr ""
+
+#: ../justified-image-grid.php:2879
+msgid "Link text"
+msgstr ""
+
+#: ../justified-image-grid.php:2884
+msgid "Enter the text for the link. The whole content becomes clickable."
+msgstr ""
+
+#: ../justified-image-grid.php:2890
+msgid "Envato username for the referral link"
+msgstr ""
+
+#: ../justified-image-grid.php:2895
+#, php-format
+msgid ""
+"Enter your envato username to earn money! Receive 30% of the first purchase "
+"or deposit of each referred user. You do not need to activate anything else, "
+"you are automatically eligible."
+msgstr ""
+
+#: ../justified-image-grid.php:2901
+msgid "jQuery source"
+msgstr ""
+
+#: ../justified-image-grid.php:2906
+#, php-format
+msgid ""
+"Choose where would you like to load %s from. Loading from Google CDN is "
+"protocol flexible. Change this ONLY if you experience errors, as this "
+"setting is powerful and will likely override other plugins' choices! If "
+"other plugins break or you are getting a red jQuery error then try these "
+"settings. Fallback means when google is down. While Justified Image Grid is "
+"compatible with any jQuery over v1.7, other scripts in your page may not be "
+"and can stop scripts on the page from working including JIG."
+msgstr ""
+
+#: ../justified-image-grid.php:2908
+msgid "No change, load the one already in use (often best)."
+msgstr ""
+
+#: ../justified-image-grid.php:2909
+msgid "Try to force-load jQuery v1.10.2 that is bundled in WordPress."
+msgstr ""
+
+#: ../justified-image-grid.php:2910
+msgid ""
+"Latest jQuery v1.x from Google with local fallback to jQuery v1.10.2 in "
+"WordPress."
+msgstr ""
+
+#: ../justified-image-grid.php:2911
+msgid ""
+"Latest jQuery v1.x from Google with local fallback to jQuery v1.8.3 by JIG."
+msgstr ""
+
+#: ../justified-image-grid.php:2912
+msgid ""
+"jQuery v2.0.3, fallback to WP's. Does not support Internet Explorer 6, 7, or "
+"8."
+msgstr ""
+
+#: ../justified-image-grid.php:2913
+msgid ""
+"jQuery v2.0.3, fallback to JIG's. Does not support Internet Explorer 6, 7, "
+"or 8."
+msgstr ""
+
+#: ../justified-image-grid.php:2914
+msgid "Load jQuery v1.8.3 bundled with this plugin."
+msgstr ""
+
+#: ../justified-image-grid.php:2915
+msgid ""
+"Force-load jQuery v1.8.3 bundled with this plugin only on pages where JIG is "
+"used (not recommended, last resort)."
+msgstr ""
+
+#: ../justified-image-grid.php:2922
+msgid "jQuery load location"
+msgstr ""
+
+#: ../justified-image-grid.php:2927
+msgid ""
+"Most reliable when jQuery source is changed. This is a sitewide setting! In "
+"a perfect world, footer would be best, however some scripts may get loaded "
+"in the header that would depend on jQuery. Use this wisely."
+msgstr ""
+
+#: ../justified-image-grid.php:2929
+msgid "In the header (forced first - most compatible)."
+msgstr ""
+
+#: ../justified-image-grid.php:2930
+msgid "In the footer (atomatic/lazy)."
+msgstr ""
+
+#: ../justified-image-grid.php:2938
+msgid "Shortcode editor button minimum user role"
+msgstr ""
+
+#: ../justified-image-grid.php:2943
+#, php-format
+msgid ""
+"Show the shortcode editor button for only the chosen role and upwards.<br /"
+">Your role is: %s."
+msgstr ""
+
+#: ../justified-image-grid.php:2945
+msgid "Do not apply a minimum role (unlimited, also good for Multisite)."
+msgstr ""
+
+#: ../justified-image-grid.php:2946
+msgid "Contributor"
+msgstr ""
+
+#: ../justified-image-grid.php:2947
+msgid "Author"
+msgstr ""
+
+#: ../justified-image-grid.php:2948
+msgid "Editor"
+msgstr ""
+
+#: ../justified-image-grid.php:2949
+msgid "Administrator"
+msgstr ""
+
+#: ../justified-image-grid.php:2956
+msgid "Custom CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:2961
+msgid "Extra CSS to style JIG beyond what's possible with the options."
+msgstr ""
+
+#: ../justified-image-grid.php:2969
+msgid "On uninstall"
+msgstr ""
+
+#: ../justified-image-grid.php:2974
+msgid ""
+"Determine what happens the next time you uninstall the plugin. Caches are "
+"transients in wp_options table (used to cache Facebook, Flickr, Instagram) "
+"and a wp_jig_ext_images table (used to cache remote images from Jetpack "
+"Photon, RSS, very old NextGEN installations). This setting will reset on the "
+"next install."
+msgstr ""
+
+#: ../justified-image-grid.php:2976
+msgid ""
+"No change: Keep settings and caches in the database (default, allows smooth "
+"updates)."
+msgstr ""
+
+#: ../justified-image-grid.php:2977
+msgid "Full removal: Remove settings and caches from the database."
+msgstr ""
+
+#: ../justified-image-grid.php:2978
+msgid "Partial removal: Remove settings from the database but keep the caches."
+msgstr ""
+
+#: ../justified-image-grid.php:2985
+msgid "Wipe settings"
+msgstr ""
+
+#: ../justified-image-grid.php:2993
+msgid "Backup settings"
+msgstr ""
+
+#: ../justified-image-grid.php:3001
+msgid "Import settings"
+msgstr ""
+
+#: ../justified-image-grid.php:3010
+msgid "Currently selected tab"
+msgstr ""
+
+#: ../justified-image-grid.php:3035
+msgid ""
+"When off, the images are limited only by 'Hidden limit' and/or 'Limit'. "
+"Enable this to break down loading into smaller batches."
+msgstr ""
+
+#: ../justified-image-grid.php:3038
+msgid "Click: You will need to click 'Load more' to show more images."
+msgstr ""
+
+#: ../justified-image-grid.php:3039
+msgid ""
+"Infinite scroll: Load more images when scrolled to the bottom (the button is "
+"also visible)."
+msgstr ""
+
+#: ../justified-image-grid.php:3053
+msgid "No: Not just mobiles,"
+msgstr ""
+
+#: ../justified-image-grid.php:3061
+msgid "Load more limit (images per load)"
+msgstr ""
+
+#: ../justified-image-grid.php:3066
+msgid ""
+"Set the amount of images to fetch initially, and then per load. This should "
+"be something smaller than the 'Limit' (if set). When you are using the Load "
+"more feature then the 'Hidden limit' is disabled."
+msgstr ""
+
+#: ../justified-image-grid.php:3086
+msgid ""
+"This changes the second line of text on the button. The remaining count, "
+"*count* gets replaced with the actual count. To turn off, clear the field."
+msgstr ""
+
+#: ../justified-image-grid.php:3096
+msgid ""
+"Automatically set the Load more button's width to smallest possible. Its "
+"width will depend on the text it contains."
+msgstr ""
+
+#: ../justified-image-grid.php:3106
+msgid "Load more infinite scroll device fix"
+msgstr ""
+
+#: ../justified-image-grid.php:3111
+#, php-format
+msgid ""
+"Enable this setting if you are having problems with the infinite scroll on "
+"mobile devices. This adds %s to the head of your pages."
+msgstr ""
+
+#: ../justified-image-grid.php:3114
+msgid "On"
+msgstr ""
+
+#: ../justified-image-grid.php:3121
+msgid "Load more CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3126
+#, php-format
+msgid ""
+"CSS settings for the Load more button.<br/>You can use %s to generate "
+"gradients<br/><strong>Click to reset to the %s or the %s.</strong>"
+msgstr ""
+
+#: ../justified-image-grid.php:3132
+msgid "Load more hover CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3137
+#, php-format
+msgid ""
+"CSS settings for the Load more button, on mouse over.<br/>You can use %s to "
+"generate gradients."
+msgstr ""
+
+#: ../justified-image-grid.php:3153
+msgid ""
+"Automatic (on): Choose a taxonomy automatically, this should work in most "
+"cases."
+msgstr ""
+
+#: ../justified-image-grid.php:3171
+msgid "of"
+msgstr ""
+
+#: ../justified-image-grid.php:3184
+msgid ""
+"Choose a taxonomy to filter the thumbnails by. The automatic option will "
+"select the Tag taxonomy for the following image sources: WordPress images "
+"and posts, NextGEN photos, Flickr and Instagram content. You only need the "
+"other options when you wish to filter WordPress content (likely Recent Posts "
+"with a custom Post type) by something else.<br/><br/>Categories and Tags of "
+"posts can be extended to WP images using General settings -> Additional "
+"tools or utilities -> WP image tags and categories<br/><br/>The other "
+"options are very useful if you have products to show off with something like "
+"WooCommerce, or you manage WP images using Media Library Assistant, as all "
+"the custom taxonomies are picked up and are ready to be used for filtering."
+msgstr ""
+
+#: ../justified-image-grid.php:3198
+msgid "Buttons: use equal-size simple buttons."
+msgstr ""
+
+#: ../justified-image-grid.php:3199
+msgid "Tag cloud: use dynamic size tags."
+msgstr ""
+
+#: ../justified-image-grid.php:3227
+msgid "Filter terms custom order"
+msgstr ""
+
+#: ../justified-image-grid.php:3232
+msgid ""
+"Manually enter filter buttons or tags by name, comma separated, Case "
+"Sensitive! Only those that you specify will be used and in the exact order. "
+"This is a manual setting and requires you to know the term names, "
+"furthermore filter_orderby needs to be on custom. This setting is more "
+"useful in the shortcode editor, for each gallery."
+msgstr ""
+
+#: ../justified-image-grid.php:3298
+msgid "No, just one filter term at a time"
+msgstr ""
+
+#: ../justified-image-grid.php:3299
+msgid ""
+"OR (expanding selection, union) - match images by either of the selected "
+"filter terms"
+msgstr ""
+
+#: ../justified-image-grid.php:3300
+msgid ""
+"AND (narrowing selection, intersect) - match images by all of the selected "
+"filter terms"
+msgstr ""
+
+#: ../justified-image-grid.php:3308
+msgid "Filter button CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3313
+msgid "CSS settings for the base state of Filter buttons"
+msgstr ""
+
+#: ../justified-image-grid.php:3319
+msgid "Filter button hover and selected CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3324
+msgid "CSS settings for the hover and selected state of Filter buttons."
+msgstr ""
+
+#: ../justified-image-grid.php:3331
+msgid "Smallest tag's color"
+msgstr ""
+
+#: ../justified-image-grid.php:3336
+msgid ""
+"HEX color value, something light is preferred. You can use the color picker "
+"in the top right corner. This will be used for the tag with the least "
+"associated items."
+msgstr ""
+
+#: ../justified-image-grid.php:3342
+msgid "Smallest tag's font-size"
+msgstr ""
+
+#: ../justified-image-grid.php:3347
+msgid ""
+"A number in px, something small is preferred. This will be used for the tag "
+"with the least associated items."
+msgstr ""
+
+#: ../justified-image-grid.php:3353
+msgid "Largest tag's color"
+msgstr ""
+
+#: ../justified-image-grid.php:3358
+msgid ""
+"HEX color value, something dark is recommended. You can use the color picker "
+"in the top right corner. This will be used for the tag with the most "
+"associated items."
+msgstr ""
+
+#: ../justified-image-grid.php:3364
+msgid "Largest tag's font-size"
+msgstr ""
+
+#: ../justified-image-grid.php:3369
+msgid ""
+"A number in px, something large is recommended. This will be used for the "
+"tag with the most associated items."
+msgstr ""
+
+#: ../justified-image-grid.php:3375
+msgid "Filter tag CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3380
+msgid "CSS settings for the Filter tags."
+msgstr ""
+
+#: ../justified-image-grid.php:3386
+msgid "Filter tag hover and selected CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3391
+msgid "CSS settings for the hover and selected state of Filter tags."
+msgstr ""
+
+#: ../justified-image-grid.php:3412
+msgid ""
+"Decide what happens when an image is clicked, like which lightbox to use. "
+"Refer to the documentation of paid plugins about compatibility settings, if "
+"any. Custom links will automatically skip the lightbox and can be set up in "
+"the image editor of WordPress. To use custom links with NextGEN you'll need "
+"the NGG Custom Fields plugin."
+msgstr ""
+
+#: ../justified-image-grid.php:3417 ../justified-image-grid.php:3443
+msgid "FooBox (not active!) is purchased separately"
+msgstr ""
+
+#: ../justified-image-grid.php:3417 ../justified-image-grid.php:3419
+#: ../justified-image-grid.php:3443
+msgid "here"
+msgstr ""
+
+#: ../justified-image-grid.php:3419
+msgid "Social Gallery (not active!) is purchased separately"
+msgstr ""
+
+#: ../justified-image-grid.php:3422
+msgid ""
+"Jetpack's Carousel for WP images ONLY (not active!) is installed separately, "
+"requires Jetpack"
+msgstr ""
+
+#: ../justified-image-grid.php:3422
+msgid "learn more"
+msgstr ""
+
+#: ../justified-image-grid.php:3423
+msgid "for WP images ONLY."
+msgstr ""
+
+#: ../justified-image-grid.php:3424
+msgid ""
+"I already use a lightbox plugin so I'll set up the link class and/or rel "
+"accordingly."
+msgstr ""
+
+#: ../justified-image-grid.php:3425
+msgid ""
+"No lightbox: The image will be opened by the browser. Disables link class "
+"and rel."
+msgstr ""
+
+#: ../justified-image-grid.php:3426
+msgid "New tab: Open by the browser on a new tab."
+msgstr ""
+
+#: ../justified-image-grid.php:3427
+msgid "Attachment: Point images to the WP image attachment page."
+msgstr ""
+
+#: ../justified-image-grid.php:3428
+msgid ""
+"Turn the links off, only show thumbnails. Disable pointer cursor and "
+"clickability."
+msgstr ""
+
+#: ../justified-image-grid.php:3467
+msgid ""
+"This setting groups images together like gallery[modal]. Which usually means "
+"prev/next arrows. Make the field empty to ungroup or enter auto to group "
+"(also for proper prettyPhoto deeplinking)."
+msgstr ""
+
+#: ../justified-image-grid.php:3472
+msgid "Maximum size for lightbox (the image will link to this size)"
+msgstr ""
+
+#: ../justified-image-grid.php:3479
+msgid "Large: This should be best for most cases."
+msgstr ""
+
+#: ../justified-image-grid.php:3480
+msgid ""
+"Full: It can be too much as it will load the original size in the lightbox."
+msgstr ""
+
+#: ../justified-image-grid.php:3481
+msgid "Medium: If you wish to limit the lightbox to a relatively small size."
+msgstr ""
+
+#: ../justified-image-grid.php:3489
+msgid "WP field for link title (anchor tag's title attribute)"
+msgstr ""
+
+#: ../justified-image-grid.php:3499 ../justified-image-grid.php:3517
+#: ../justified-image-grid.php:3857 ../justified-image-grid.php:3876
+msgid "Alternate Text"
+msgstr ""
+
+#: ../justified-image-grid.php:3507
+msgid "WP field for img alt (image tag's alt attribute)"
+msgstr ""
+
+#: ../justified-image-grid.php:3532
+msgid "The necessary CURL library is missing, this won't work."
+msgstr ""
+
+#: ../justified-image-grid.php:3543
+msgid "Text for the download link"
+msgstr ""
+
+#: ../justified-image-grid.php:3548
+msgid "What text to display as the image download link."
+msgstr ""
+
+#: ../justified-image-grid.php:3571
+msgid "prettyPhoto deeplinking"
+msgstr ""
+
+#: ../justified-image-grid.php:3576
+msgid ""
+"The advanced option uses several server-side logics to make individual "
+"Facebook like possible. The regular deeplinking doesn't work efficitently."
+msgstr ""
+
+#: ../justified-image-grid.php:3578
+msgid ""
+"Advanced deeplinking: Allows individual like with thumbnail on FB, works "
+"with random image order, uses #! hashbang."
+msgstr ""
+
+#: ../justified-image-grid.php:3579
+msgid ""
+"Deeplinking: Regular prettyPhoto deeplinking, the only benefit is short URLs."
+msgstr ""
+
+#: ../justified-image-grid.php:3580
+msgid "No: Don't add #prettyPhoto to the URL of lightbox images."
+msgstr ""
+
+#: ../justified-image-grid.php:3623
+msgid "prettyPhoto JS settings"
+msgstr ""
+
+#: ../justified-image-grid.php:3628
+#, php-format
+msgid ""
+"Extra JavaScript settings for %s. Watch out for commas: every row ends with "
+"a comma except the last one!"
+msgstr ""
+
+#: ../justified-image-grid.php:3635
+msgid "PhotoSwipe JS settings"
+msgstr ""
+
+#: ../justified-image-grid.php:3640 ../justified-image-grid.php:3651
+#, php-format
+msgid "Extra JavaScript settings for %s."
+msgstr ""
+
+#: ../justified-image-grid.php:3646
+msgid "ColorBox JS settings"
+msgstr ""
+
+#: ../justified-image-grid.php:3657
+msgid "ColorBox design"
+msgstr ""
+
+#: ../justified-image-grid.php:3662
+msgid "Choose one of the five built-in themes of ColorBox."
+msgstr ""
+
+#: ../justified-image-grid.php:3664
+msgid "Default (striped background)."
+msgstr ""
+
+#: ../justified-image-grid.php:3665
+msgid "White background, thin black border."
+msgstr ""
+
+#: ../justified-image-grid.php:3666
+msgid "Dark backround, dark frame, arrows in photo."
+msgstr ""
+
+#: ../justified-image-grid.php:3667
+msgid "Bright, round corners, shadow."
+msgstr ""
+
+#: ../justified-image-grid.php:3668
+msgid "Multiple frames from dark to light."
+msgstr ""
+
+#: ../justified-image-grid.php:3676
+msgid "jQuery mobile - link rel external"
+msgstr ""
+
+#: ../justified-image-grid.php:3681
+msgid ""
+"Check this if you are using jQuery mobile (very mobile oriented themes), as "
+"this sets lightbox links to rel=\"external\", when link rel is \"auto\", and "
+"the visitor is really on a mobile device."
+msgstr ""
+
+#: ../justified-image-grid.php:3683
+msgid "No: don't use this."
+msgstr ""
+
+#: ../justified-image-grid.php:3684
+msgid "Yes: add rel external."
+msgstr ""
+
+#: ../justified-image-grid.php:3706
+msgid "Choose how would you like the caption to appear."
+msgstr ""
+
+#: ../justified-image-grid.php:3708
+msgid "Fade in/out."
+msgstr ""
+
+#: ../justified-image-grid.php:3709
+msgid "Slide up/down."
+msgstr ""
+
+#: ../justified-image-grid.php:3710
+msgid "Mixed: Title is always visible but the description slides in on hover."
+msgstr ""
+
+#: ../justified-image-grid.php:3711 ../justified-image-grid.php:3731
+msgid "Fixed: The whole caption is always visible."
+msgstr ""
+
+#: ../justified-image-grid.php:3712
+msgid "Reverse Fade (out/in)."
+msgstr ""
+
+#: ../justified-image-grid.php:3713
+msgid "Reverse Slide (down/up)."
+msgstr ""
+
+#: ../justified-image-grid.php:3714
+msgid ""
+"Reverse Mixed: Title and description are always visible but the description "
+"slides out on hover."
+msgstr ""
+
+#: ../justified-image-grid.php:3715 ../justified-image-grid.php:3732
+msgid "Below the image (outside the thumbnail)."
+msgstr ""
+
+#: ../justified-image-grid.php:3761
+msgid "Title background matches text width"
+msgstr ""
+
+#: ../justified-image-grid.php:3766
+msgid ""
+"The caption background extends over the full width of the thumbnail. With "
+"this setting you can have the caption title background only behind the text. "
+"This is not available for caption description."
+msgstr ""
+
+#: ../justified-image-grid.php:3787
+msgid "Caption height for \"Below the image\""
+msgstr ""
+
+#: ../justified-image-grid.php:3792
+msgid ""
+"Set a uniform caption height that will only be used when caption is set to "
+"\"Below the image\". This helps making it look cool. Any excess text will be "
+"trimmed by ... characters or removed. Accepts a number without px."
+msgstr ""
+
+#: ../justified-image-grid.php:3820
+msgid ""
+"Makes captions appear in the middle of the image, compatible with all "
+"Caption styles. Try the different options to see which suits your needs."
+msgstr ""
+
+#: ../justified-image-grid.php:3832
+msgid "Vertically center: I use custom fonts"
+msgstr ""
+
+#: ../justified-image-grid.php:3837
+msgid ""
+"If the vertical centering is not perfect, you are using custom fonts. So "
+"keep this option turned on! Otherwise you can disable this."
+msgstr ""
+
+#: ../justified-image-grid.php:3847
+msgid "WP field to use for title"
+msgstr ""
+
+#: ../justified-image-grid.php:3866
+msgid "WP field to use for caption (description)"
+msgstr ""
+
+#: ../justified-image-grid.php:3884
+msgid "Caption title CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3889
+msgid "Extra CSS settings for the caption title."
+msgstr ""
+
+#: ../justified-image-grid.php:3895
+msgid "Caption description CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:3900
+msgid "Extra CSS settings for the caption description."
+msgstr ""
+
+#: ../justified-image-grid.php:3911
+msgid ""
+"Set shadow on the text of the caption. The CSS is like 1px 1px 0 black (x, "
+"y, blur, color - respectively). It's only applied when Caption opacity is "
+"set to 1. Doesn't work under IE10 so don't depend on it."
+msgstr ""
+
+#: ../justified-image-grid.php:3921
+msgid ""
+"Use a Facebook-style gradient for the caption background. This sets caption "
+"opacity to 1, and is not compatible with \"Title background matches text "
+"width\" setting. The color will be determined by the CSS below and not the "
+"simple \"Caption background color\" above."
+msgstr ""
+
+#: ../justified-image-grid.php:3923
+msgid "No, use the simple color options above."
+msgstr ""
+
+#: ../justified-image-grid.php:3924
+msgid "Yes, use the CSS gradient."
+msgstr ""
+
+#: ../justified-image-grid.php:3931
+msgid "CSS Gradient for caption background"
+msgstr ""
+
+#: ../justified-image-grid.php:3936
+#, php-format
+msgid ""
+"CSS settings for the gradient caption background. Fades to black by default."
+"<br/>You can use %s to generate gradients."
+msgstr ""
+
+#: ../justified-image-grid.php:3960
+msgid "Other images have colored overlay, hovered returns to normal."
+msgstr ""
+
+#: ../justified-image-grid.php:3961
+msgid "Hovered image has color overlay, others do not."
+msgstr ""
+
+#: ../justified-image-grid.php:3963
+msgid "No overlay."
+msgstr ""
+
+#: ../justified-image-grid.php:4060 ../justified-image-grid.php:4070
+msgid "CSS3 shadow value (no quotes): 0 0 3px black"
+msgstr ""
+
+#: ../justified-image-grid.php:4081 ../justified-image-grid.php:4102
+#: ../justified-image-grid.php:4123
+msgid "A number in pixels, without \"px\" - 0 to turn off."
+msgstr ""
+
+#: ../justified-image-grid.php:4112
+msgid "Any CSS color value, this is usually white."
+msgstr ""
+
+#: ../justified-image-grid.php:4145
+msgid ""
+"Always: The border is visible regardless of the mouse (the width must be "
+"larger than 0)."
+msgstr ""
+
+#: ../justified-image-grid.php:4146
+msgid "Others: The hovered image loses the inner border."
+msgstr ""
+
+#: ../justified-image-grid.php:4147
+msgid "Hovered: Only the hovered image gains the inner border."
+msgstr ""
+
+#: ../justified-image-grid.php:4154
+msgid "Inner border animation"
+msgstr ""
+
+#: ../justified-image-grid.php:4161
+msgid "Width animation only."
+msgstr ""
+
+#: ../justified-image-grid.php:4162
+msgid "Opacity animation only."
+msgstr ""
+
+#: ../justified-image-grid.php:4163
+msgid "Off: Shows/hides the inner border instantly."
+msgstr ""
+
+#: ../justified-image-grid.php:4188 ../justified-image-grid.php:4206
+msgid "Turn special effects off."
+msgstr ""
+
+#: ../justified-image-grid.php:4189
+msgid "Other images are processed, hovered returns to normal."
+msgstr ""
+
+#: ../justified-image-grid.php:4190
+msgid "Hovered image gets processed, the others remain normal looking."
+msgstr ""
+
+#: ../justified-image-grid.php:4191
+msgid "Everything is processed, even on hover."
+msgstr ""
+
+#: ../justified-image-grid.php:4203
+msgid ""
+"Alternative behavior for special effects on mobile devices.<br/>Turn off if "
+"you have lots of images as it may decrease performance."
+msgstr ""
+
+#: ../justified-image-grid.php:4207
+msgid "Everything is processed."
+msgstr ""
+
+#: ../justified-image-grid.php:4225
+msgid "Laplace (edge detection), dark background."
+msgstr ""
+
+#: ../justified-image-grid.php:4226
+msgid "Laplace, light background."
+msgstr ""
+
+#: ../justified-image-grid.php:4233
+msgid "Special effects blend (opacity)"
+msgstr ""
+
+#: ../justified-image-grid.php:4238
+msgid ""
+"Enter a value between 0.1 and 1 to control how much you see the special "
+"effect over the original image. For example, enter 0.5 when using \"Blur\" "
+"to have the Orton effect."
+msgstr ""
+
+#: ../justified-image-grid.php:4243
+msgid "Special effects setting (override)"
+msgstr ""
+
+#: ../justified-image-grid.php:4248
+#, php-format
+msgid ""
+"Advanced setting, only use this if you are not happy with the default "
+"setting of a certain special effect. Refer to %1$s for the effects. Example "
+"(the default for \"glow\": amount:0.3,radius:0.2"
+msgstr ""
+
+#: ../justified-image-grid.php:4264
+msgid "Take over and act in place of NextGEN shortcodes"
+msgstr ""
+
+#: ../justified-image-grid.php:4269
+msgid ""
+"Use Justified Image Grid in place of your previously created NextGEN "
+"galleries, by selecting which ones you wish to take over. Not checking "
+"anything will leave the NextGEN shortcodes alone."
+msgstr ""
+
+#: ../justified-image-grid.php:4271
+msgid "[ngg_images] - NG2 multipurpose shortcode."
+msgstr ""
+
+#: ../justified-image-grid.php:4272
+msgid "[nggallery] - Galleries."
+msgstr ""
+
+#: ../justified-image-grid.php:4273
+msgid "[nggalbum] - Albums."
+msgstr ""
+
+#: ../justified-image-grid.php:4274
+msgid "[album] - The other shortcode for albums."
+msgstr ""
+
+#: ../justified-image-grid.php:4275
+msgid "[nggtags] - Tag albums and tag galleries."
+msgstr ""
+
+#: ../justified-image-grid.php:4276
+msgid "[random] - Random images."
+msgstr ""
+
+#: ../justified-image-grid.php:4277
+msgid "[recent] - Recent images."
+msgstr ""
+
+#: ../justified-image-grid.php:4278
+msgid "[singlepic] - Single pictures."
+msgstr ""
+
+#: ../justified-image-grid.php:4285
+msgid "Take over NextGEN 2 post inserts"
+msgstr ""
+
+#: ../justified-image-grid.php:4290
+msgid ""
+"Take over the inserted galleries that appear as images in the editor. They "
+"are used by NextGEN 2 instead of shortcodes. It's compatible with limit, but "
+"uses the global default sorting method and does not use exclusions."
+msgstr ""
+
+#: ../justified-image-grid.php:4292
+msgid "No change, let them be."
+msgstr ""
+
+#: ../justified-image-grid.php:4293
+msgid "Yes, take over."
+msgstr ""
+
+#: ../justified-image-grid.php:4320
+msgid ""
+"In album views, open the galleries in the lightbox on the same page. Note: "
+"currently not compatible with Social Gallery lightbox."
+msgstr ""
+
+#: ../justified-image-grid.php:4335
+msgid ""
+"Choose yes if you wish to display gallery or album description (if any) "
+"between the breadcrumb and the grid."
+msgstr ""
+
+#: ../justified-image-grid.php:4337
+msgid "No: Don't display the descriptions."
+msgstr ""
+
+#: ../justified-image-grid.php:4338
+msgid "Yes: Display the description between the breadcrumb and the grid."
+msgstr ""
+
+#: ../justified-image-grid.php:4350
+msgid ""
+"Choose yes if you wish to display tags combined, based on AND and not ANY. "
+"Only applies for NG tag galleries."
+msgstr ""
+
+#: ../justified-image-grid.php:4352
+msgid "No: Display images that may only have one of the tags specified."
+msgstr ""
+
+#: ../justified-image-grid.php:4353
+msgid "Yes: Only show images for tags that have all the tags specified."
+msgstr ""
+
+#: ../justified-image-grid.php:4360
+msgid "Remove usually unnecessary NextGEN files from the page"
+msgstr ""
+
+#: ../justified-image-grid.php:4365
+msgid ""
+"To speed up loading, you can choose to disable NextGEN's scripts and styles. "
+"However, if you use NextGEN anywhere on the site without JIG or for any "
+"other reason you need those files, just let them load."
+msgstr ""
+
+#: ../justified-image-grid.php:4367
+msgid "No: Let them load (I'm using NextGEN without JIG somewhere)."
+msgstr ""
+
+#: ../justified-image-grid.php:4368
+msgid "Yes: Prevent its JS and CSS files from loading."
+msgstr ""
+
+#: ../justified-image-grid.php:4375
+msgid "NextGEN custom field for Links"
+msgstr ""
+
+#: ../justified-image-grid.php:4380
+#, php-format
+msgid ""
+"Enter the name of the custom field you set up for links with %s plugin (case "
+"sensitive). You should use the same field for images and galleries. The "
+"field will be in the gallery editing view in NextGEN."
+msgstr ""
+
+#: ../justified-image-grid.php:4385
+msgid "NextGEN breadcrumb CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:4390
+msgid "CSS settings for the breadcrumb."
+msgstr ""
+
+#: ../justified-image-grid.php:4406
+msgid "App ID"
+msgstr ""
+
+#: ../justified-image-grid.php:4411
+msgid "The App ID of the application you have created on Facebook."
+msgstr ""
+
+#: ../justified-image-grid.php:4416
+msgid "App Secret"
+msgstr ""
+
+#: ../justified-image-grid.php:4421
+msgid "The App Secret of the application you have created on Facebook."
+msgstr ""
+
+#: ../justified-image-grid.php:4426
+msgid "Authorization manager for pages and profiles"
+msgstr ""
+
+#: ../justified-image-grid.php:4439
+msgid ""
+"The time it takes to see the Facebook album change on the site. This greatly "
+"speeds up loading as the photo list for each album is cached, saving a "
+"request to Facebook each time the album is shown! Set in minutes: 4 hours is "
+"240, a day is 1440, a week is 10080."
+msgstr ""
+
+#: ../justified-image-grid.php:4439
+msgid "Click here to purge the cache (includes the album covers as well)."
+msgstr ""
+
+#: ../justified-image-grid.php:4444
+msgid "Facebook overview caching time"
+msgstr ""
+
+#: ../justified-image-grid.php:4449
+msgid ""
+"Only used by the Facebook overview feature, this saves a lot of requests to "
+"get the individual album covers. This should be set to some very long time "
+"or you might experience a slowdown when using the overview feature. The "
+"default value, 43200 is four weeks because album covers rarely change! You "
+"can purge the cache using the link above."
+msgstr ""
+
+#: ../justified-image-grid.php:4454
+msgid "Facebook image size in the lightbox"
+msgstr ""
+
+#: ../justified-image-grid.php:4459
+msgid ""
+"Select a preferred image size that opens in the lightbox. Normal is limited "
+"to 720px in width. Larger is the most useful, but if you need bigger, "
+"maximum will pull 4MP photos that are 2048px wide or tall at best. If the "
+"preferred image size is not available, you'll see the next best size."
+msgstr ""
+
+#: ../justified-image-grid.php:4461
+msgid "Normal"
+msgstr ""
+
+#: ../justified-image-grid.php:4462
+msgid "Larger"
+msgstr ""
+
+#: ../justified-image-grid.php:4463
+msgid "Maximum"
+msgstr ""
+
+#: ../justified-image-grid.php:4485
+msgid "Facebook overview slug"
+msgstr ""
+
+#: ../justified-image-grid.php:4490
+msgid ""
+"<strong>Advanced setting!</strong> Make sure you know what you are doing as "
+"to not cause a conflict. Using the overview feature, this appears in the URL."
+msgstr ""
+
+#: ../justified-image-grid.php:4490
+msgid "When changed you must click here to flush rewrite rules."
+msgstr ""
+
+#: ../justified-image-grid.php:4495
+msgid "Facebook breadcrumb CSS"
+msgstr ""
+
+#: ../justified-image-grid.php:4500
+msgid ""
+"CSS settings for the breadcrumb. This is only used when the overview is "
+"selected and the albums are not set to open in the lightbox."
+msgstr ""
+
+#: ../justified-image-grid.php:4515
+msgid "API Key"
+msgstr ""
+
+#: ../justified-image-grid.php:4520
+msgid "Your Flickr API Key, it's mandatory if you wish to use this feature."
+msgstr ""
+
+#: ../justified-image-grid.php:4525
+msgid "Add users"
+msgstr ""
+
+#: ../justified-image-grid.php:4538 ../justified-image-grid.php:4659
+#: ../justified-image-grid.php:4897
+msgid "Click here to purge the cache."
+msgstr ""
+
+#: ../justified-image-grid.php:4559
+msgid "Flickr backlink text"
+msgstr ""
+
+#: ../justified-image-grid.php:4564
+msgid "What text to display as the Flickr backlink."
+msgstr ""
+
+#: ../justified-image-grid.php:4570
+msgid "Flickr backlink target"
+msgstr ""
+
+#: ../justified-image-grid.php:4575
+msgid "Whether or not to open Flickr backlink on a new tab."
+msgstr ""
+
+#: ../justified-image-grid.php:4577 ../justified-image-grid.php:4698
+#: ../justified-image-grid.php:4796
+msgid "New tab (_blank)."
+msgstr ""
+
+#: ../justified-image-grid.php:4578 ../justified-image-grid.php:4699
+#: ../justified-image-grid.php:4797
+msgid "Navigate away (_self)."
+msgstr ""
+
+#: ../justified-image-grid.php:4585
+msgid "Look for and allow hi-res photos"
+msgstr ""
+
+#: ../justified-image-grid.php:4590
+msgid ""
+"Controls the image size in the lightbox. When enabled, the plugin will look "
+"for image sizes larger than 1024px, namely 1600px and 2048px versions. You "
+"might not want this for any reason including performance or copyright "
+"issues. For consistent lightbox experience, if you do not have large "
+"versions of every image displayed then keep this disabled."
+msgstr ""
+
+#: ../justified-image-grid.php:4592
+msgid "No, the largest image to look for is the 1024px version."
+msgstr ""
+
+#: ../justified-image-grid.php:4593
+msgid "Yes, look for image versions 1600px or 2048px."
+msgstr ""
+
+#: ../justified-image-grid.php:4626
+msgid "Client ID"
+msgstr ""
+
+#: ../justified-image-grid.php:4631
+msgid "Instagram App's Client ID."
+msgstr ""
+
+#: ../justified-image-grid.php:4636
+msgid "Client Secret"
+msgstr ""
+
+#: ../justified-image-grid.php:4641
+msgid "Instagram App's Client Secret."
+msgstr ""
+
+#: ../justified-image-grid.php:4646
+msgid "Authorization manager for Instagram"
+msgstr ""
+
+#: ../justified-image-grid.php:4680
+msgid "Instagram backlink text"
+msgstr ""
+
+#: ../justified-image-grid.php:4685
+msgid "What text to display as the Instagram backlink."
+msgstr ""
+
+#: ../justified-image-grid.php:4691
+msgid "Instagram backlink target"
+msgstr ""
+
+#: ../justified-image-grid.php:4696
+msgid "Whether or not to open Instagram backlink on a new tab."
+msgstr ""
+
+#: ../justified-image-grid.php:4724
+msgid "What should open when clicking on thumbnails from an RSS feed?"
+msgstr ""
+
+#: ../justified-image-grid.php:4768
+msgid "Add this to the end of the auto excerpt like \" [...]\""
+msgstr ""
+
+#: ../justified-image-grid.php:4789
+msgid "RSS lightbox backlink target"
+msgstr ""
+
+#: ../justified-image-grid.php:4794
+msgid ""
+"Whether or not to open RSS lightbox backlink on a new tab. To control "
+"thumbnail click target, use the General settings -> Behavior of the plugin -"
+"> Custom link's target"
+msgstr ""
+
+#: ../justified-image-grid.php:4809
+msgid "The text to show as RSS lightbox backlink, e.g. Read more, Go to story"
+msgstr ""
+
+#: ../justified-image-grid.php:4839
+msgid "Enter a number between 0 and 100, 90 is good quality."
+msgstr ""
+
+#: ../justified-image-grid.php:4849
+msgid ""
+"Retina ready means the thumbnails will look crisp on modern mobile devices "
+"or other high resolution displays. The image resolution is multiplied by the "
+"device's pixel aspect ratio."
+msgstr ""
+
+#: ../justified-image-grid.php:4864
+#, php-format
+msgid ""
+"This determines the thumbnails' file size. Same as TimThumb quality. Best "
+"set to auto, which will divide TimThumb quality by the pixel aspect ratio of "
+"the device (will use a minimum of 40 quality). In case of double sized "
+"images it'll serve half the normal quality. Similarly, it'll serve two-"
+"thirds quality for 1.5x images... This ensures that the filesize of "
+"thumbnails are not increased too much so the bandwidth usage is not doubled "
+"for mobile devices. The percieved quality will still be better, study shows: "
+"%s"
+msgstr ""
+
+#: ../justified-image-grid.php:4870
+msgid "Custom TimThumb path (leave empty if unsure)"
+msgstr ""
+
+#: ../justified-image-grid.php:4875
+msgid "Absolute path to your version of timthumb.php (full URL)."
+msgstr ""
+
+#: ../justified-image-grid.php:4881
+msgid "Replace site's hostname with"
+msgstr ""
+
+#: ../justified-image-grid.php:4886
+#, php-format
+msgid ""
+"Enter the hostname of your CDN (e.g. cdn.yourdomain.com), this will replace "
+"your site's hostname which is <strong>%s</strong>"
+msgstr ""
+
+#: ../justified-image-grid.php:4892
+msgid "External image caching time"
+msgstr ""
+
+#: ../justified-image-grid.php:4897
+msgid ""
+"Set in days, but enter <strong>infinite</strong> to cache forever. Speeds up "
+"loading as the dimensions of external images only need to be grabbed for the "
+"first time, currently used by RSS Feeds, Jetpack Photon and very old NextGEN "
+"installations. Only set differently or purge in case you are experiencing "
+"problems."
+msgstr ""
+
+#: ../justified-image-grid.php:4907
+msgid ""
+"Advanced users only! Automatically disabled when using Jetpack Photon. 'No' "
+"disables automatic thumbnail creation and the normal sized images will be "
+"loaded and resized by the browser (most often a bad practice). This brings "
+"good quality at an enormous bandwidth cost, compared to TimThumb. Sharp but "
+"ugly pixelated browser scaling may appear. Fixed aspect ratio and randomize "
+"width features will not be available. Only disable TimThumb if you know what "
+"you are doing, for logos, tesing purposes or as a last resort."
+msgstr ""
+
+#: ../justified-image-grid.php:4948
+msgid ""
+"General layout, appearance and behavior settings, utilities for your "
+"Justified Image Grid."
+msgstr ""
+
+#: ../justified-image-grid.php:4952
+msgid ""
+"Let the images load in batches, speeding up the page load, giving a smoother "
+"experience. It can happen manually by clicking a button or automatically "
+"scrolling."
+msgstr ""
+
+#: ../justified-image-grid.php:4956
+msgid "The lightbox is the modal gallery window that opens your images."
+msgstr ""
+
+#: ../justified-image-grid.php:4960
+msgid "Settings for the caption text over the thumbnails."
+msgstr ""
+
+#: ../justified-image-grid.php:4964
+msgid ""
+"Setup the looks of the color overlay. This is mainly used to darken/lighten "
+"the images on mouse over."
+msgstr ""
+
+#: ../justified-image-grid.php:4968
+msgid ""
+"Apply various special effects on the fly without extra bandwidth usage. "
+"It'll only work with images that reside on the same host as this site. This "
+"is solved for remote images by TimThumb, but it's disabled when you use "
+"Jetpack Photon. Choose the setting that best suits your needs."
+msgstr ""
+
+#: ../justified-image-grid.php:4973
+msgid "You can narrow the thumbnails shown with the plugin by any taxonomy."
+msgstr ""
+
+#: ../justified-image-grid.php:4977
+msgid ""
+"Set up additional settings that change the NextGEN integration experience "
+"for Justified Image Grid."
+msgstr ""
+
+#: ../justified-image-grid.php:4982
+msgid ""
+"You can load photos from Facebook on the fly. This means if an album changes "
+"on Facebook, it will automatically update on your site as well. Thus, the "
+"images are not copied here but served from Facebook's CDN. Please respect "
+"their service and do not abuse it by serving many images at once. So the "
+"thumbnails are cached and your content request to Facbook is cached as well. "
+"Content list caching is optional but advised."
+msgstr ""
+
+#: ../justified-image-grid.php:4984
+msgid ""
+"You only need to enter the App ID and App Secret if you are accessing "
+"profiles or restricted pages. If you want to load images from a public, "
+"unrestricted page, you can go ahead and just add it below (try it). In any "
+"other case you need to create a simple application on Facebook once. "
+msgstr ""
+
+#: ../justified-image-grid.php:4986
+msgid "How to set up an app?"
+msgstr ""
+
+#: ../justified-image-grid.php:4988
+msgid "Quick instructions for setting up a Facebook app"
+msgstr ""
+
+#: ../justified-image-grid.php:4989 ../justified-image-grid.php:5037
+#, php-format
+msgid "Go to %1$s."
+msgstr ""
+
+#: ../justified-image-grid.php:4990
+msgid ""
+"If this is your first time being on this page, you might need to click "
+"\"Allow\"."
+msgstr ""
+
+#: ../justified-image-grid.php:4991
+msgid "Click \"Create New App\" in the top right corner."
+msgstr ""
+
+#: ../justified-image-grid.php:4992
+msgid ""
+"In the \"Create New App\" dialog, enter an \"App Name\" that is relevant to "
+"your site, then hit \"Continue\"."
+msgstr ""
+
+#: ../justified-image-grid.php:4993
+msgid ""
+"You might need to complete a captcha security check and/or verify your "
+"Facebook account."
+msgstr ""
+
+#: ../justified-image-grid.php:4994
+msgid ""
+"Under the \"Website with Facebook Login\" area, add your site URL beginning "
+"with http or https and ending with the domain, then click \"Save Changes\" "
+"there."
+msgstr ""
+
+#: ../justified-image-grid.php:4995
+msgid ""
+"Copy the \"App ID\" and \"App Secret\" fields to the appropriate fields "
+"below."
+msgstr ""
+
+#: ../justified-image-grid.php:4996
+msgid ""
+"Click \"Save Changes\" here! You are done! Now you can add your profile or "
+"restricted pages."
+msgstr ""
+
+#: ../justified-image-grid.php:4997
+msgid ""
+"To add yourself: Click \"Add current Facebook user\", then on Facebook click "
+"\"Go to App\". Click \"Save Changes\" here!"
+msgstr ""
+
+#: ../justified-image-grid.php:4999
+msgid ""
+"Please keep in mind that the authorization (for loading albums from user "
+"profiles or pages that require age/location verification) EXPIRES after 2 "
+"months. The gallery will show a yellow alert in the WordPress administration "
+"area on all pages one week prior to expiration or a red one if it has "
+"expired. To renew you need to authorize the user again, which is done with "
+"just one click."
+msgstr ""
+
+#: ../justified-image-grid.php:5001
+msgid ""
+"To begin, add a page below. If you set up the App ID and App Secret you can "
+"add yourself or another user as well. Click on the added users/pages to "
+"verify their status. Hit X to remove them. Don't forget to save changes! You "
+"will be able to display content belonging to an added user on a per gallery "
+"basis in the in the Shortcode Editor, accessible when you edit a page or "
+"post."
+msgstr ""
+
+#: ../justified-image-grid.php:5007
+msgid ""
+"You can load photos from Flickr on the fly. This means if your content "
+"changes on Flickr, it will update on your site as well. Thus, the images are "
+"not copied here, but served from Flickr's CDN. Please respect their service "
+"and do not abuse it by serving many images at once. So the thumbnails are "
+"cached and your content request to Flickr is cached as well. Content list "
+"caching is optional but advised."
+msgstr ""
+
+#: ../justified-image-grid.php:5009
+msgid ""
+"You must enter an API Key to use the this feature. This plugin does not "
+"support private images, so there is no need to authenticate either. You can "
+"load any public content from Flickr."
+msgstr ""
+
+#: ../justified-image-grid.php:5011
+msgid "How to get the API Key?"
+msgstr ""
+
+#: ../justified-image-grid.php:5013
+msgid "Quick instructions for getting the Flickr API Key"
+msgstr ""
+
+#: ../justified-image-grid.php:5014
+#, php-format
+msgid "Log in to Flickr, then go to %1$s."
+msgstr ""
+
+#: ../justified-image-grid.php:5015
+msgid ""
+"Choose Non-Commercial or Commercial. In most cases Non-Commercial is fine "
+"and this help chooses that."
+msgstr ""
+
+#: ../justified-image-grid.php:5016
+msgid ""
+"Enter a name and a brief description of what you are using this for. The "
+"name can be your site's name. The description can be simple as it is "
+"automatically approved anyway."
+msgstr ""
+
+#: ../justified-image-grid.php:5017
+msgid "Tick the two checkboxes and hit Submit."
+msgstr ""
+
+#: ../justified-image-grid.php:5018
+msgid ""
+"Your API Key (the longer one) is created, copy it from Flickr to the field "
+"on this page."
+msgstr ""
+
+#: ../justified-image-grid.php:5019
+msgid "Click \"Save Changes\" here! You are done! Now you can add users."
+msgstr ""
+
+#: ../justified-image-grid.php:5020
+msgid ""
+"To add yourself: Enter your Flickr username (or NSID) below then click the "
+"button or hit enter. Click \"Save Changes\" here!"
+msgstr ""
+
+#: ../justified-image-grid.php:5022
+msgid ""
+"This product uses the Flickr API but is not endorsed or certified by Flickr."
+msgstr ""
+
+#: ../justified-image-grid.php:5024
+msgid ""
+"Once you have added some users (at least one), you'll be able to load images "
+"from their Photostream or Favorites. You can also access the Groups, "
+"Photosets, and Galleries belonging to a user. The tool select what content "
+"to display is the Shortcode Editor, accessible when you edit a page or post."
+msgstr ""
+
+#: ../justified-image-grid.php:5030
+msgid ""
+"You can display content from Instagram on the fly. This means that when new "
+"photos are added to Instagram, your site will reflect the change soon. So "
+"the images are not copied here, but are server from Instagram's CDN. Please "
+"respect their service and do not abuse it by serving many images at once. So "
+"the thumbnails are cached and your content request to Instagram is cached as "
+"well. Content list caching is optional but advised."
+msgstr ""
+
+#: ../justified-image-grid.php:5032
+msgid ""
+"You must to enter the Client ID and Client Secret if you wish to use the "
+"Instagram feature. You need to register a simple application on Instagram "
+"once. "
+msgstr ""
+
+#: ../justified-image-grid.php:5034
+msgid "How to register an app?"
+msgstr ""
+
+#: ../justified-image-grid.php:5036
+msgid "Instructions for registering an Instagram app"
+msgstr ""
+
+#: ../justified-image-grid.php:5038
+msgid ""
+"If this is your first time on Instagram you need to register an account "
+"first, which is ONLY available on mobile devices, in the Instagram app."
+msgstr ""
+
+#: ../justified-image-grid.php:5039
+msgid ""
+"Log-in to Instagram if you are not logged in already (top right corner)."
+msgstr ""
+
+#: ../justified-image-grid.php:5040
+msgid ""
+"Click \"Register Your Application or \"Manage Clients\" in the top right "
+"corner."
+msgstr ""
+
+#: ../justified-image-grid.php:5041
+msgid "Click \"Register a New Client\"."
+msgstr ""
+
+#: ../justified-image-grid.php:5042
+msgid ""
+"On the \"Register new OAuth Client\" page, enter an \"Application Name\" "
+"that is relevant to your site (the title)."
+msgstr ""
+
+#: ../justified-image-grid.php:5043
+msgid ""
+"Enter something as \"Description\", like \"this is for my Instagram gallery"
+"\"."
+msgstr ""
+
+#: ../justified-image-grid.php:5044
+msgid ""
+"Enter the absolute URL of your website in the \"http://yourdomain.com\" "
+"format into the \"Website\" field."
+msgstr ""
+
+#: ../justified-image-grid.php:5045
+msgid "Copy this URL into the \"OAuth redirect_uri\": "
+msgstr ""
+
+#: ../justified-image-grid.php:5046
+msgid ""
+"Click \"Register\". You should see a green note, \"Successfully registered\"!"
+msgstr ""
+
+#: ../justified-image-grid.php:5047
+msgid ""
+"Copy the \"CLIENT ID\" and \"CLIENT SECRET\" values to the appropriate "
+"fields below."
+msgstr ""
+
+#: ../justified-image-grid.php:5048
+msgid ""
+"Click \"Save Changes\" here! You are done! Now you can authorize yourself."
+msgstr ""
+
+#: ../justified-image-grid.php:5049
+msgid ""
+"To add yourself: Click \"Add current Instagram user\", then on Instagram "
+"click \"Authorize\". Click \"Save Changes\" here!"
+msgstr ""
+
+#: ../justified-image-grid.php:5051
+msgid ""
+"This product uses the Instagram API but is not endorsed or certified by "
+"Instagram."
+msgstr ""
+
+#: ../justified-image-grid.php:5053
+msgid ""
+"Please keep in mind that the authorization MAY EXPIRE in the future. The "
+"gallery will show a red alert in the WordPress administration area on all "
+"pages when this happens. To renew you need to authorize the user again, "
+"which is done with just one click on the 'Authorize current Instagram user' "
+"button. Note that just one authenticated user is enough to access all "
+"Instagram content you may possibly need. The ability to add multiple users "
+"is just a convenience. Click on a user to verify their status. Hit X to "
+"remove. Don't forget to save changes!"
+msgstr ""
+
+#: ../justified-image-grid.php:5055
+msgid ""
+"You will be able to select what content to display from Instagram on a per "
+"gallery basis in the Shortcode Editor, accessible when you edit a page or "
+"post."
+msgstr ""
+
+#: ../justified-image-grid.php:5060
+msgid ""
+"Use any RSS/Atom or other XML based feeds as an image source. Only feed "
+"items with images will be used. Note that most feeds only use small images, "
+"so you may need to decrease row height accordingly. You will have a better "
+"result with an image rich feed with larger images, e.g. feed from an image "
+"sharing site. The first visit to the JIG gallery with the RSS feed will be "
+"slow due to remote image dimensions caching, but after that everything "
+"should be smooth. If you don't see your newest additions to the feed, set a "
+"low caching time below."
+msgstr ""
+
+#: ../justified-image-grid.php:5065
+msgid ""
+"Click here to check permissions to write to the cache folder. This is vital "
+"for the plugin to be working correctly."
+msgstr ""
+
+#: ../justified-image-grid.php:5067
+#, php-format
+msgid ""
+"The permission for the cache folder is: %1$s and it seems to be %2$s. The "
+"plugin folder permission is %3$s."
+msgstr ""
+
+#: ../justified-image-grid.php:5069
+msgid ""
+"Click here to change the permission 0755 - It should fix it in most cases."
+msgstr ""
+
+#: ../justified-image-grid.php:5071
+msgid "As a last resort, click to try 0777 (not recommended)."
+msgstr ""
+
+#: ../justified-image-grid.php:5073
+#, php-format
+msgid ""
+"Tip: To avoid using TimThumb, just install the official WP plugin 'Jetpack' "
+"by Automattic and enable 'Photon'. Jetpack enables you to connect your blog "
+"to a WordPress.com account to use the powerful features normally only "
+"available to WordPress.com users. It's an excellent TimThumb alternative and "
+"will make your images load faster. Note that you won't be able to use "
+"special effects due to cross-domain security policies. It'll also make "
+"Justified Image Grid high resolution display or Retina-ready! Read more at: "
+"%s."
+msgstr ""
+
+#: ../justified-image-grid.php:5126
+msgid "communicating with Facebook"
+msgstr ""
+
+#: ../justified-image-grid.php:5127 ../justified-image-grid.php:5187
+#: ../justified-image-grid.php:5221
+msgid "please be patient, it takes a moment"
+msgstr ""
+
+#: ../justified-image-grid.php:5157
+msgid "Add a new Facebook page"
+msgstr ""
+
+#: ../justified-image-grid.php:5159
+msgid "Add current Facebook user"
+msgstr ""
+
+#: ../justified-image-grid.php:5161
+msgid "Manually load Facebook data"
+msgstr ""
+
+#: ../justified-image-grid.php:5163
+msgid "To add other user, complete the steps below"
+msgstr ""
+
+#: ../justified-image-grid.php:5166
+msgid "Send this link to the other user"
+msgstr ""
+
+#: ../justified-image-grid.php:5168
+msgid "Enter the code the user received"
+msgstr ""
+
+#: ../justified-image-grid.php:5170
+msgid "Add other user"
+msgstr ""
+
+#: ../justified-image-grid.php:5186
+msgid "communicating with Flickr API"
+msgstr ""
+
+#: ../justified-image-grid.php:5207
+msgid "Add a new Flickr user"
+msgstr ""
+
+#: ../justified-image-grid.php:5246
+msgid "Authorize current Instagram user"
+msgstr ""
+
+#: ../justified-image-grid.php:5248
+msgid "Manually load Instagram data"
+msgstr ""
+
+#: ../justified-image-grid.php:5265
+msgid ""
+"This removes all JIG settings from the database and the plugin will start "
+"over using the default settings. It clears everything, including your 3rd "
+"party image source authorization data, but does not clear caches."
+msgstr ""
+
+#: ../justified-image-grid.php:5266
+msgid "Wipe all settings"
+msgstr ""
+
+#: ../justified-image-grid.php:5274
+msgid ""
+"If you wish to back up your settings (without caches), you can do so here. "
+"You can optionally make your backup encrypted if you supply a key. You will "
+"only be able to import with the same key. The key is an arbitrary word like "
+"passwords. Encryption can secure your backup as it may include access tokens "
+"to image sources like Facebook. Click the button here to backup the settings "
+"that you can copy to a document on your computer."
+msgstr ""
+
+#: ../justified-image-grid.php:5275 ../justified-image-grid.php:5286
+msgid "Encryption key"
+msgstr ""
+
+#: ../justified-image-grid.php:5276
+msgid "Generate settings backup"
+msgstr ""
+
+#: ../justified-image-grid.php:5284
+msgid ""
+"If you wish to import a previous backup, you can do so here. All your "
+"current settings will be replaced with the backup. If your backup was "
+"encrypted you can only load it with your key."
+msgstr ""
+
+#: ../justified-image-grid.php:5287
+msgid "Import backup"
+msgstr ""
+
+#: ../justified-image-grid.php:5912
+msgid "Category or tag filtering for images is not enabled!"
+msgstr ""
+
+#: ../justified-image-grid.php:5943
+msgid "No images found for your category or tag filters!"
+msgstr ""
+
+#: ../justified-image-grid.php:6017 ../justified-image-grid.php:6230
+#: ../justified-image-grid.php:6434 ../justified-image-grid.php:6588
+#: ../justified-image-grid.php:6688 ../justified-image-grid.php:6780
+#: ../justified-image-grid.php:6840 ../justified-image-grid.php:6898
+#: ../justified-image-grid.php:8057 ../justified-image-grid.php:8249
+msgid "Cannot create database for caching external image dimensions."
+msgstr ""
+
+#: ../justified-image-grid.php:6091
+#, php-format
+msgid ""
+"There are no photos with those IDs or post %1$s does not have any attached "
+"images!"
+msgstr ""
+
+#: ../justified-image-grid.php:6361
+msgid "There are no recent posts with featured images."
+msgstr ""
+
+#: ../justified-image-grid.php:6367
+msgid "NextGEN gallery is not installed/inactive!"
+msgstr ""
+
+#: ../justified-image-grid.php:6420
+#, php-format
+msgid "The NextGEN gallery with ID/slug: %1$s does not exist or is empty."
+msgstr ""
+
+#: ../justified-image-grid.php:6602 ../justified-image-grid.php:7339
+msgid "Photo"
+msgid_plural "Photos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:6705
+msgid "Album"
+msgid_plural "Albums"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:6708
+msgid "Gallery"
+msgid_plural "Galleries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:6742 ../justified-image-grid.php:6745
+#, php-format
+msgid "There is no content in the NextGEN album: \"%1$s\"!"
+msgstr ""
+
+#: ../justified-image-grid.php:6748
+#, php-format
+msgid "There is no NextGEN album with the ID: \"%1$s\"!"
+msgstr ""
+
+#: ../justified-image-grid.php:6819
+msgid "There are no NextGEN images that could be displayed."
+msgstr ""
+
+#: ../justified-image-grid.php:6880 ../justified-image-grid.php:7018
+msgid "No images could be found with that tag."
+msgstr ""
+
+#: ../justified-image-grid.php:6971
+msgid "Photos"
+msgstr ""
+
+#: ../justified-image-grid.php:7046 ../justified-image-grid.php:10743
+#: ../justified-image-grid.php:10744
+msgid "Album overview"
+msgstr ""
+
+#: ../justified-image-grid.php:7490
+msgid "There are no pictures in any of the albums."
+msgstr ""
+
+#: ../justified-image-grid.php:7494
+msgid "There are no albums."
+msgstr ""
+
+#: ../justified-image-grid.php:7510
+msgid ""
+"No access token found, please authorize a Facebook user for the Facebook "
+"feed feature (even if it's just for a page)."
+msgstr ""
+
+#: ../justified-image-grid.php:7622
+msgid "The requested album cannot be loaded at this time."
+msgstr ""
+
+#: ../justified-image-grid.php:7626
+msgid ""
+"That Facebook ID is unauthorized for use, please go to Settings and add it."
+msgstr ""
+
+#: ../justified-image-grid.php:7768
+#, php-format
+msgid ""
+"Justified Image Grid: %d Flickr images are not shown because they are too "
+"small. Decrease row_height and height_deviation until all your photos show "
+"up. Tip: Start with a combined value of no larger than 200. Your current "
+"maximum height is %d (%d row_height + %d height_deviation)."
+msgstr ""
+
+#: ../justified-image-grid.php:7870
+#, php-format
+msgid ""
+"Justified Image Grid: %d Flickr images are not shown because they are too "
+"small. You can choose to hide this error or upscale them in Settings -> "
+"Flickr -> What to do with small images, or decrease row_height and "
+"height_deviation until all your photos show up. Tip: Start with a combined "
+"value of no larger than 200. Your current maximum height is %d (%d "
+"row_height + %d height_deviation)."
+msgstr ""
+
+#: ../justified-image-grid.php:7873
+msgid "The requested photo source is not recognized."
+msgstr ""
+
+#: ../justified-image-grid.php:7877 ../justified-image-grid.php:7984
+msgid "The requested photo source cannot be loaded at this time."
+msgstr ""
+
+#: ../justified-image-grid.php:7891 ../justified-image-grid.php:10234
+#: ../justified-image-grid.php:10291 ../justified-image-grid.php:10346
+msgid "No access token found, please authorize an Instagram user."
+msgstr ""
+
+#: ../justified-image-grid.php:7976
+msgid "The requested photo source is empty."
+msgstr ""
+
+#: ../justified-image-grid.php:8137
+msgid "The requested RSS feed is empty."
+msgstr ""
+
+#: ../justified-image-grid.php:8141
+msgid "The requested RSS feed cannot be loaded at this time."
+msgstr ""
+
+#: ../justified-image-grid.php:8146 ../justified-image-grid.php:8866
+msgid ""
+"Justified Image Grid error: there are no images to show, the items are empty."
+msgstr ""
+
+#: ../justified-image-grid.php:9500 ../justified-image-grid.php:9564
+#: ../justified-image-grid.php:9614 ../justified-image-grid.php:9716
+msgid "album"
+msgid_plural "albums"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:9502 ../justified-image-grid.php:9505
+#: ../justified-image-grid.php:9566 ../justified-image-grid.php:9569
+msgid "no albums so far, start adding some"
+msgstr ""
+
+#: ../justified-image-grid.php:9509
+msgid ""
+"The state does not match. You may be a victim of CSRF. Make sure that "
+"SESSIONS are enabled in your PHP environment (ask your hosting). It's more "
+"likely that this is the problem!"
+msgstr ""
+
+#: ../justified-image-grid.php:9526
+msgid ""
+"Access token acquisition wasn't successful. Please authorize yourself on "
+"Facebook then click 'Manually load Facebook data'. If you already closed the "
+"Facebook dialog, click 'Add current Facebook user' again."
+msgstr ""
+
+#: ../justified-image-grid.php:9572
+msgid "Invalid code!"
+msgstr ""
+
+#: ../justified-image-grid.php:9576
+msgid ""
+"SSL certificate problem, verify that the CA cert is OK: <a href=\"http://"
+"snippets.webaware.com.au/howto/stop-turning-off-curlopt_ssl_verifypeer-and-"
+"fix-your-php-config/\" target=\"_blank\">check this out for more "
+"information</a>"
+msgstr ""
+
+#: ../justified-image-grid.php:9634 ../justified-image-grid.php:9735
+#: ../justified-image-grid.php:9816
+msgid "No pictures in any album."
+msgstr ""
+
+#: ../justified-image-grid.php:9666
+#, php-format
+msgid ""
+"Demographically or geographically blocked for %1$s, maybe try again with "
+"another user."
+msgstr ""
+
+#: ../justified-image-grid.php:9668
+msgid ""
+"Demographically or geographically blocked. Add a user first then try again."
+msgstr ""
+
+#: ../justified-image-grid.php:9671
+msgid "Choose a user to access this page with"
+msgstr ""
+
+#: ../justified-image-grid.php:9671
+msgid "or"
+msgstr ""
+
+#: ../justified-image-grid.php:9676
+msgid "Private user profile, use authorize other user instead."
+msgstr ""
+
+#: ../justified-image-grid.php:9678 ../justified-image-grid.php:9745
+#: ../justified-image-grid.php:9826
+msgid "Invalid access/expired, please re-authenticate! The error from Facebook"
+msgstr ""
+
+#: ../justified-image-grid.php:9680 ../justified-image-grid.php:9742
+#: ../justified-image-grid.php:9823
+msgid "No albums at all."
+msgstr ""
+
+#: ../justified-image-grid.php:9685
+msgid "Invalid page/not recognized."
+msgstr ""
+
+#: ../justified-image-grid.php:9740 ../justified-image-grid.php:9821
+msgid ""
+"Demographically or geographically blocked - please add this again and choose "
+"a user to authenticate with."
+msgstr ""
+
+#: ../justified-image-grid.php:9767 ../justified-image-grid.php:9773
+#: ../justified-image-grid.php:9779 ../justified-image-grid.php:9801
+#: ../justified-image-grid.php:10064 ../justified-image-grid.php:10091
+msgid "loading image"
+msgstr ""
+
+#: ../justified-image-grid.php:9782
+msgid "limited"
+msgstr ""
+
+#: ../justified-image-grid.php:9805
+msgid "mouse over to load image"
+msgstr ""
+
+#: ../justified-image-grid.php:9863
+#, php-format
+msgid ""
+"Facebook authorization for %1$s expires in %2$s. <a href=\"%3$s\">Please re-"
+"authorize soon!</a>"
+msgstr ""
+
+#: ../justified-image-grid.php:9865
+#, php-format
+msgid ""
+"Facebook authorization for %1$s has EXPIRED. <a href=\"%2$s\">You have to re-"
+"authorize!</a>"
+msgstr ""
+
+#: ../justified-image-grid.php:9880
+#, php-format
+msgid ""
+"Istagram authorization for %1$s has EXPIRED. <a href=\"%2$s\">You have to re-"
+"authorize!</a>"
+msgstr ""
+
+#: ../justified-image-grid.php:9909
+#, php-format
+msgid ""
+"Can'The API key is not valid or not set. The Error from Flickr: %s (code %d)"
+msgstr ""
+
+#: ../justified-image-grid.php:9911 ../justified-image-grid.php:9944
+#, php-format
+msgid ""
+"Can't find the user. Try adding the profile URL or your NSID (%s). The error "
+"from Flickr: %s (code %d)"
+msgstr ""
+
+#: ../justified-image-grid.php:9921
+#, php-format
+msgid ""
+"Can't find the user via that URL. Try adding username or NSID instead. The "
+"error from Flickr: %s (code %d)"
+msgstr ""
+
+#: ../justified-image-grid.php:9942
+#, php-format
+msgid ""
+"The API key is not valid or not set. The Ehe error from Flickr: %s (code %d)"
+msgstr ""
+
+#: ../justified-image-grid.php:9948
+msgid "Invalid user/not recognized."
+msgstr ""
+
+#: ../justified-image-grid.php:9969
+#, php-format
+msgid "Error from Flickr: %s (code %d)"
+msgstr ""
+
+#: ../justified-image-grid.php:10006
+msgid "You don't have any resource on Flickr that this plugin could load!"
+msgstr ""
+
+#: ../justified-image-grid.php:10042
+msgid "hover"
+msgstr ""
+
+#: ../justified-image-grid.php:10068 ../justified-image-grid.php:10095
+msgid "mouse over to load"
+msgstr ""
+
+#: ../justified-image-grid.php:10107
+msgid "You don't have resources of this type on Flickr!"
+msgstr ""
+
+#: ../justified-image-grid.php:10155
+msgid "The state does not match. You may be a victim of CSRF."
+msgstr ""
+
+#: ../justified-image-grid.php:10170
+msgid ""
+"Access token acquisition wasn't successful. Please authorize yourself on "
+"Instagram then click 'Manually load Instagram data'. If you already closed "
+"the Instagram dialog, click 'Add current Instagram user' again."
+msgstr ""
+
+#: ../justified-image-grid.php:10201 ../justified-image-grid.php:10205
+#: ../justified-image-grid.php:10258 ../justified-image-grid.php:10313
+#: ../justified-image-grid.php:10365 ../justified-image-grid.php:10451
+msgid "Error"
+msgstr ""
+
+#: ../justified-image-grid.php:10208 ../justified-image-grid.php:10264
+#: ../justified-image-grid.php:10319 ../justified-image-grid.php:10371
+msgid "Server Error (is SSL set up properly on your server?)"
+msgstr ""
+
+#: ../justified-image-grid.php:10221 ../justified-image-grid.php:10278
+msgid "Empty search query."
+msgstr ""
+
+#: ../justified-image-grid.php:10243
+msgid "Select an Instagram user below or search again"
+msgstr ""
+
+#: ../justified-image-grid.php:10260 ../justified-image-grid.php:10315
+#: ../justified-image-grid.php:10367
+msgid "Connection/CURL problem, please try again."
+msgstr ""
+
+#: ../justified-image-grid.php:10262
+msgid "No users found."
+msgstr ""
+
+#: ../justified-image-grid.php:10300
+msgid ""
+"Your desired tag exists in variations on Instagram. The most relevant is "
+"selected for use."
+msgstr ""
+
+#: ../justified-image-grid.php:10302
+msgid "Your desired tag exists on Instagram and is now selected for use."
+msgstr ""
+
+#: ../justified-image-grid.php:10317
+msgid "There is no such tag."
+msgstr ""
+
+#: ../justified-image-grid.php:10333
+msgid "Can't search for empty coordinates."
+msgstr ""
+
+#: ../justified-image-grid.php:10355
+msgid "Your desired location exists on Instagram and is now selected for use."
+msgstr ""
+
+#: ../justified-image-grid.php:10369
+msgid "There is no Instagram place at that location."
+msgstr ""
+
+#: ../justified-image-grid.php:10456
+msgid "No Instagram content found."
+msgstr ""
+
+#: ../justified-image-grid.php:10458
+msgid "Generic Instagram error."
+msgstr ""
+
+#: ../justified-image-grid.php:11070 ../justified-image-grid.php:11083
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:11070 ../justified-image-grid.php:11072
+#: ../justified-image-grid.php:11082
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:11072 ../justified-image-grid.php:11081
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../justified-image-grid.php:11080
+msgid "second"
+msgstr ""
+
+#: ../justified-image-grid.php:11084
+msgid "week"
+msgstr ""
+
+#: ../justified-image-grid.php:11085
+msgid "month"
+msgstr ""
+
+#: ../justified-image-grid.php:11086
+msgid "year"
+msgstr ""
+
+#: ../justified-image-grid.php:11087
+msgid "decade"
+msgstr ""
+
+#: ../justified-image-grid.php:11088
+msgid "seconds"
+msgstr ""
+
+#: ../justified-image-grid.php:11089
+msgid "minutes"
+msgstr ""
+
+#: ../justified-image-grid.php:11090
+msgid "hours"
+msgstr ""
+
+#: ../justified-image-grid.php:11091
+msgid "days"
+msgstr ""
+
+#: ../justified-image-grid.php:11092
+msgid "weeks"
+msgstr ""
+
+#: ../justified-image-grid.php:11093
+msgid "months"
+msgstr ""
+
+#: ../justified-image-grid.php:11094
+msgid "years"
+msgstr ""
+
+#: ../justified-image-grid.php:11095
+msgid "decades"
+msgstr ""
+
+#: ../justified-image-grid.php:11109
+msgid "ago"
+msgstr ""
+
+#: ../justified-image-grid.php:11112
+msgid "from now"
+msgstr ""
+
+#: ../justified-image-grid.php:11174
+#, php-format
+msgid "Plugin folder %s chmod is <strong>successful</strong> to %s.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11176
+#, php-format
+msgid "Plugin folder %s chmod <strong>failed</strong>.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11179 ../justified-image-grid.php:11189
+#: ../justified-image-grid.php:11194
+#, php-format
+msgid "File %s chmod is <strong>successful</strong> to %s.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11181 ../justified-image-grid.php:11191
+#: ../justified-image-grid.php:11196
+#, php-format
+msgid "File %s chmod <strong>failed</strong>.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11184
+#, php-format
+msgid "Cache folder %s chmod is <strong>successful</strong> to %s.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11186
+#, php-format
+msgid "Cache folder %s chmod <strong>failed</strong>.<br/>"
+msgstr ""
+
+#: ../justified-image-grid.php:11231 ../justified-image-grid.php:11236
+msgid ""
+"The thumbnails cache folder is not writable! <a href=\"options-general.php?"
+"page=justified-image-grid\">Click here to go to the settings where you can "
+"fix this.</a> Unless you do so your images might not appear and the plugin "
+"could only generate whitespace!"
+msgstr ""
+
+#: ../justified-image-grid.php:11231
+msgid "The plugin was trying to fix it but the 0755 permission was not enough."
+msgstr ""
+
+#: ../justified-image-grid.php:11243
+msgid ""
+"The thumbnails cache folder was not writable! This was automatically fixed "
+"for you."
+msgstr ""
+
+#: ../justified-image-grid.php:11248
+msgid "The thumbnails cache folder was tested and it is writable!"
+msgstr ""
+
+#: ../justified-image-grid.php:11255
+msgid ""
+"The CURL library is missing on your server, this will affect the following "
+"features: Jetpack Photon, Download link!"
+msgstr ""
+
+#: ../justified-image-grid.php:11282 ../justified-image-grid.php:11296
+#: ../justified-image-grid.php:11310 ../justified-image-grid.php:11325
+msgid "Cache purged."
+msgstr ""
+
+#: ../justified-image-grid.php:11284 ../justified-image-grid.php:11298
+#: ../justified-image-grid.php:11312 ../justified-image-grid.php:11327
+msgid "Error purging the cache."
+msgstr ""
+
+#: ../justified-image-grid.php:11338
+msgid "Rewrite rules flushed."
+msgstr ""
+
+#: ../justified-image-grid.php:11348
+msgid "Settings have been completely wiped! The page will reload in 3 seconds."
+msgstr ""
+
+#: ../justified-image-grid.php:11350
+msgid ""
+"There was a problem removing the settings, perhaps they were already wiped?"
+msgstr ""
+
+#: ../justified-image-grid.php:11387
+msgid "Settings were successfully imported! The page will reload in 3 seconds."
+msgstr ""
+
+#: ../justified-image-grid.php:11389
+msgid "There was a problem importing settings"
+msgstr ""
+
+#: ../justified-image-grid.php:11392
+msgid "it is encrypted but no key was supplied."
+msgstr ""
+
+#: ../justified-image-grid.php:11395
+msgid ""
+"it is encrypted, a key was supplied but it is invalid - if it is valid then "
+"the data is corrupted."
+msgstr ""
+
+#: ../justified-image-grid.php:11397
+msgid ""
+"it is encrypted, a key was supplied but the mcrypt PHP library is missing."
+msgstr ""
+
+#: ../justified-image-grid.php:11401
+msgid "it is not encrypted but the data is invalid."
+msgstr ""
+
+#: ../justified-image-grid.php:11445
+msgid "JIG Link"
+msgstr ""
+
+#: ../justified-image-grid.php:11448
+msgid ""
+"Use this when creating a gallery with Justified Image Grid and you wish to "
+"point the image link to a custom URL"
+msgstr ""
+
+#: ../justified-image-grid.php:11451
+msgid "JIG target"
+msgstr ""
+
+#: ../justified-image-grid.php:11487
+msgid "Y/m/d"
+msgstr ""
+
+#: ../justified-image-grid.php:11488
+msgid "Re-Attach"
+msgstr ""
+
+#: ../justified-image-grid.php:11490
+msgid "(Unattached)"
+msgstr ""
+
+#: ../justified-image-grid.php:11490
+msgid "Attach"
+msgstr ""

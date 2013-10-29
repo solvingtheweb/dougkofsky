@@ -22,5 +22,11 @@
 
 <?php wp_footer(); ?>
 
+<script>
+	jQuery(document).ready(function($) {
+		jQuery(document).foundation(); // initializes Foundation
+	});
+</script>
+
 </body>
 </html>

@@ -11,13 +11,19 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define( 'DB_USER', '%%DB_USER%%' );
 	define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
 	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
+
+	/** Custom WordPress core location **/
+	define('WP_SITEURL', 'http://dev.solvingtheweb.com/dougkofsky/wp');
+
+	/** Custom home location **/
+	define('WP_HOME', 'http://dev.solvingtheweb.com/dougkofsky');
 }
 
 // ========================
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
+define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/dougkofsky/content' );
 
 // ================================================
 // You almost certainly do not want to change these
