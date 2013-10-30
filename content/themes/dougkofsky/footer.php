@@ -10,7 +10,7 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer row" role="contentinfo">
 		<div class="site-info">
 			<?php do_action( 'dougkofsky_credits' ); ?>
 			<a href="http://wordpress.org/" rel="generator"><?php printf( __( 'Proudly powered by %s', 'dougkofsky' ), 'WordPress' ); ?></a>
