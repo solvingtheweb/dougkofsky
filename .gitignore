@@ -4,3 +4,6 @@
 /db-sync
 /content/upgrade/
 .DS_Store
+/content/themes/dougkofsky/.sass-cache
+*.css
+/content/plugins/justified-image-grid/cache
