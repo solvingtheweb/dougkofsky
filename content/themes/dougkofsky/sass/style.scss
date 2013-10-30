@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: dougkofsky
 Theme URI: http://underscores.me/
 Author: Underscores.me
@@ -11,16 +11,17 @@ Text Domain: dougkofsky
 Domain Path: /languages/
 Tags:
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
  dougkofsky is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
 
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
 */
+
+@import "compass/css3";
+@import "compass/reset";
+@import "app";
+
+
+
+/* OLD STYLES BELOW */
 
 
 /* =Reset
