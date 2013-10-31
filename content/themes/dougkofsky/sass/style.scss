@@ -397,15 +397,23 @@ a:active {
 	clear: both;
 }
 
+/* =Menu
+----------------------------------------------- */
+.site-title a {
+	font-size:emCalc(26px);
+	color:#fff;
+	font-family: "Raleway", Helvetica, Arial;
+}
 
 /* =Menu
 ----------------------------------------------- */
 
 .main-navigation {
-	clear: both;
 	display: block;
-	float: left;
-	width: 100%;
+	text-align:right;
+	font-size:emCalc(16px);
+	font-weight:700;
+	font-family: "Open Sans", Helvetica, Arial;
 }
 .main-navigation ul {
 	list-style: none;
@@ -413,12 +421,17 @@ a:active {
 	padding-left: 0;
 }
 .main-navigation li {
-	float: left;
+	display:inline-block;
 	position: relative;
+	margin-right:34px;
 }
+	.main-navigation li:last-child {
+	margin-right:0;	
+	}
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: #fff;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
