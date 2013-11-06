@@ -87,5 +87,22 @@ get_header('shop'); ?>
 		 */
 		do_action('woocommerce_sidebar');
 	?>
+	
+	<script>
+	jQuery(document).ready(function($){
+		$("ul.products").justifiedGallery({
+			'rowHeight':200,
+			'sizeRangeSuffixes': {
+				'lt100':'',
+				'lt240':'', 
+				'lt320':'', 
+				'lt500':'', 
+				'lt640':'', 
+				'lt1024':''},
+			'justifyLastRow': false
+		});
+	});
+	
+	</script>
 
 <?php get_footer('shop'); ?>
