@@ -159,3 +159,15 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * WooCommerce Hooks
+ */
+	// Remove Breadcrumb Nav
+	remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+	// Remove Read More / Add to Cart Buttons
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+	// Remove ordering dropdown
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	// Remove result count
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
