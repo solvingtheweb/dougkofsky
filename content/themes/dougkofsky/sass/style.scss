@@ -277,11 +277,14 @@ a:active {
 
 /* =Logo
 ----------------------------------------------- */
-.site-title a {
+h1.site-title {
 	font-size:emCalc(26px);
-	color:#fff;
 	font-family: "Raleway", Helvetica, Arial;
+	border:none;
+	margin:26px 0;
 }
+
+.site-title a { color:#fff;}
 
 /* =Menu
 ----------------------------------------------- */
@@ -362,4 +365,19 @@ a:active {
 
 /* =Gallery
 ----------------------------------------------- */
+
+/* =Typography
+----------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Raleway', sans-serif;}
+
+h1 { 
+	font-size: emCalc(58px);
+	font-weight:800;
+	text-align:center;
+	border-bottom: solid 1px #fff;
+	margin:144px 0 82px 0;
+}
+
+
 
