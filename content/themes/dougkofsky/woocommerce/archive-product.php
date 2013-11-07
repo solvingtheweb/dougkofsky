@@ -91,7 +91,7 @@ get_header('shop'); ?>
 	<script>
 	jQuery(document).ready(function($){
 		$("ul.products").justifiedGallery({
-			'rowHeight':200,
+			'rowHeight':190,
 			'sizeRangeSuffixes': {
 				'lt100':'',
 				'lt240':'', 

@@ -48,6 +48,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
+		
+		<?php the_content(); ?>
 
 	</div><!-- .summary -->
 

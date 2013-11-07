@@ -94,7 +94,7 @@ function dougkofsky_scripts() {
 	wp_enqueue_script( 'dougkofsky-foundation-dropdown', get_template_directory_uri() . '/js/foundation/foundation.dropdown.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-section', get_template_directory_uri() . '/js/foundation/foundation.section.js', array('jquery'), '20131023', true );
 
-	wp_enqueue_script( 'dougkofsky-justified-image-gallery', get_template_directory_uri() . '/js/jquery.justifiedgallery.min.js', array(), true );
+	wp_enqueue_script( 'dougkofsky-justified-image-gallery', get_template_directory_uri() . '/js/jquery.justifiedgallery.min.js', array(), '20131106', true );
 
 	wp_enqueue_script( 'dougkofsky-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -110,30 +110,7 @@ function dougkofsky_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dougkofsky_scripts' );
 
-/**
- * WooCommerce Compatibility Fix
- */
 
-	// Remove default woocommerce content wrapper
-	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-	
-	// Add in wrapper based on theme templates
-	add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
-	add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
-
-	function my_theme_wrapper_start() {
-	  echo '<div id="primary" class="content-area row">';
-	  echo '<main id="main" class="site-main" role="main">';
-	}
-
-	function my_theme_wrapper_end() {
-	  echo '</div>';
-	  echo '</main>';
-	}
-	
-	// Declare theme support for Woo Commerce
-	add_theme_support( 'woocommerce' );
 
 
 /**
@@ -161,6 +138,33 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+
+/**
+ * WooCommerce Compatibility Fix
+ */
+
+	// Remove default woocommerce content wrapper
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+	
+	// Add in wrapper based on theme templates
+	add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+	add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+	function my_theme_wrapper_start() {
+	  echo '<div id="primary" class="content-area row">';
+	  echo '<main id="main" class="site-main large-12 columns" role="main">';
+	}
+
+	function my_theme_wrapper_end() {
+	  echo '</div>';
+	  echo '</main>';
+	}
+	
+	// Declare theme support for Woo Commerce
+	add_theme_support( 'woocommerce' );
+
+
 /**
  * WooCommerce Hooks
  */
@@ -172,3 +176,6 @@ require get_template_directory() . '/inc/jetpack.php';
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	// Remove result count
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+	// Remove all tabs
+	remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+

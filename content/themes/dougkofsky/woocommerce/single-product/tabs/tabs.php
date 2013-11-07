@@ -24,7 +24,7 @@ if ( ! empty( $tabs ) ) : ?>
 			<?php foreach ( $tabs as $key => $tab ) : ?>
 
 				<li class="<?php echo $key ?>_tab">
-					<a href="#tab-<?php echo $key ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
+					<a href="#tab-<?php echo $key ?>"><?php apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
 				</li>
 
 			<?php endforeach; ?>
