@@ -87,11 +87,26 @@ textarea {
 	line-height: 1.5;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
+
+
+/* =Typography
+----------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 { 
+	font-family: 'Raleway', sans-serif;
+	clear:both;
 	color:#fff;
 }
+
+h1 { 
+	font-size: emCalc(58px);
+	font-weight:800;
+	text-align:center;
+	border-bottom: solid 1px #fff;
+	margin:144px 0 82px 0;
+}
+
+
 hr {
 	background-color: #ccc;
 	border: 0;
@@ -372,19 +387,16 @@ h1.site-title {
 	text-align:center;
 }
 
-
-/* =Typography
------------------------------------------------ */
-
-h1, h2, h3, h4, h5, h6 { font-family: 'Raleway', sans-serif;}
-
-h1 { 
-	font-size: emCalc(58px);
-	font-weight:800;
-	text-align:center;
-	border-bottom: solid 1px #fff;
-	margin:144px 0 82px 0;
+h1.product_title {
+	font-size: emCalc(36px);
+	font-weight:400;
+	border-bottom: none;
+	text-align:left;
+	margin: 0;
 }
+
+
+
 
 
 

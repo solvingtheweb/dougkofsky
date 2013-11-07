@@ -28,7 +28,6 @@
 
 		<nav id="site-navigation" class="main-navigation large-8 columns" role="navigation">
 			<h1 class="menu-toggle"><?php _e( 'Menu', 'dougkofsky' ); ?></h1>
-			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'dougkofsky' ); ?></a>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
