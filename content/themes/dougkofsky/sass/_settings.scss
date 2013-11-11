@@ -79,14 +79,14 @@ $default-float: left;
 
 // Colors
 
-// $primary-color: #2ba6cb;
+ $primary-color: #359158;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
 // Make sure border radius matches unless we want it different.
 
-// $global-radius: 3px;
+ $global-radius: 5px;
 // $global-rounded: 1000px;
 
 // Inset shadow shiny edges and depressions.
@@ -297,7 +297,7 @@ $default-float: left;
 // $form-label-pointer: pointer;
 // $form-label-font-size: em-calc(14);
 // $form-label-font-weight: 500;
-// $form-label-font-color: lighten(#000, 30%);
+ $form-label-font-color: #fff;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
@@ -368,7 +368,7 @@ $default-float: left;
 
 // We use these to control button text styles.
 
-// $button-font-family: inherit;
+ $button-font-family: "Helvetica Neue", Helvetica, Arial;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: em-calc(16);
@@ -1179,7 +1179,7 @@ $default-float: left;
 
 // These control the background color for the table and even rows
 
-// $table-bg: #fff;
+ $table-bg: #000;
 // $table-even-row-bg: #f9f9f9;
 
 // These control the table cell border style
