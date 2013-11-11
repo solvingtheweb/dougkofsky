@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	 do_action( 'woocommerce_before_single_product' );
 ?>
 
-<div itemscope itemtype="http://schema.org/Product" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div itemscope itemtype="http://schema.org/Product" id="product-<?php the_ID(); ?>" class="row" <?php post_class(); ?>>
 
 	<?php
 		/**
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
-	<div class="summary entry-summary">
+	<div class="summary entry-summary large-8 large-offset-1 columns">
 
 		<?php
 			/**
@@ -53,6 +53,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		
 
 	</div><!-- .summary -->
+
+	<div class="large-3 columns">
+		<a class="button" href="#">Purchase a Print</a>
+		<h4>Share this:</h4>
+		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
+		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
+		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+	</div>
 
 	<?php
 		/**

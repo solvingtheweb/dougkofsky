@@ -25,7 +25,9 @@ get_header('shop'); ?>
 
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
-			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
+			<header class="entry-header">
+				<h1 class="entry-title"><?php woocommerce_page_title(); ?></h1>
+			</header><!-- .entry-header -->
 
 		<?php endif; ?>
 

@@ -70,48 +70,28 @@ a img {
 	border: 0;
 }
 
-
-/* =Global
------------------------------------------------ */
-
-body,
-button,
-input,
-select,
-textarea {
-	background:#000;
-	color: #FFFFFF;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
-}
-
-
-
 /* =Typography
 ----------------------------------------------- */
 
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 { 
 	font-family: 'Raleway', sans-serif;
-	clear:both;
 	color:#fff;
 }
 
 h1 { 
 	font-size: emCalc(58px);
 	font-weight:800;
-	text-align:center;
 	border-bottom: solid 1px #fff;
-	margin:144px 0 82px 0;
+	display:inline-block;
 }
 
-
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+header.entry-header { 
+	text-align:center;
+	margin:144px 0 82px 0;
 }
 
 /* Text elements */
@@ -130,6 +110,33 @@ li > ol {
 b, strong {
 	font-weight: bold;
 }
+
+
+/* =Global
+----------------------------------------------- */
+
+body,
+button,
+input,
+select,
+textarea {
+	background:#000;
+	color: #FFFFFF;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+
+#content { margin-bottom:60px;}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
@@ -236,10 +243,10 @@ textarea {
 
 /* Links */
 a {
-	color: royalblue;
+	color: #359158;
 }
 a:visited {
-	color: purple;
+	color: #359158;
 }
 a:hover,
 a:focus,
@@ -252,11 +259,15 @@ a:active {
 	display: inline;
 	float: left;
 	margin-right: 1.5em;
+	margin-left: -12%;
+	margin-top: 20px;
 }
 .alignright {
 	display: inline;
 	float: right;
 	margin-left: 1.5em;
+	margin-right: -12%;
+	margin-top: 20px;
 }
 .aligncenter {
 	clear: both;
@@ -290,13 +301,29 @@ a:active {
 	clear: both;
 }
 
+/* =Header
+----------------------------------------------- */
+
+.site-header-container {
+	background:rgba(0,0,0,.78)
+}
+
+/* =Footer
+----------------------------------------------- */
+
+.site-footer-container {
+	background: #151618;
+	padding: 20px 0;
+	text-align: center;
+	color: #999999;
+}
+
 /* =Logo
 ----------------------------------------------- */
 h1.site-title {
 	font-size:emCalc(26px);
-	font-family: "Raleway", Helvetica, Arial;
 	border:none;
-	margin:26px 0;
+	margin:24px 0;
 }
 
 .site-title a { color:#fff;}
@@ -305,6 +332,7 @@ h1.site-title {
 ----------------------------------------------- */
 
 .main-navigation {
+	margin-top:30px;
 	display: block;
 	text-align:right;
 	font-size:emCalc(16px);
@@ -381,6 +409,10 @@ h1.site-title {
 /* =Gallery
 ----------------------------------------------- */
 
+.justifiedGallery {
+	margin:0 0 10px;
+}
+
 /* =Product Detail
 ----------------------------------------------- */
 .images {
@@ -395,8 +427,18 @@ h1.product_title {
 	margin: 0;
 }
 
+.wp-caption-text {
+background: #222325;
+text-align: center;
+padding: 8px;
+}
 
 
+/* =Home Page
+----------------------------------------------- */
+
+#mypanorama {
+}
 
 
 
