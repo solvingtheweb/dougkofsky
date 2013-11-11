@@ -93,6 +93,7 @@ function dougkofsky_scripts() {
 	wp_enqueue_script( 'dougkofsky-foundation-alerts', get_template_directory_uri() . '/js/foundation/foundation.alerts.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-dropdown', get_template_directory_uri() . '/js/foundation/foundation.dropdown.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-section', get_template_directory_uri() . '/js/foundation/foundation.section.js', array('jquery'), '20131023', true );
+	wp_enqueue_script( 'dougkofsky-foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '20131023', true );	
 
 	wp_enqueue_script( 'dougkofsky-justified-image-gallery', get_template_directory_uri() . '/js/jquery.justifiedgallery.min.js', array(), '20131106', true );
 
@@ -175,11 +176,13 @@ require get_template_directory() . '/inc/jetpack.php';
 	// Remove Breadcrumb Nav
 	remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
 	// Remove Read More / Add to Cart Buttons
-	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 	// Remove ordering dropdown
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	// Remove result count
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 	// Remove all tabs
 	remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
-
+	// Remove Sale Banner
+	remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+	

@@ -34,8 +34,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	?>
 
 	<div class="summary entry-summary large-8 large-offset-1 columns">
-
+		<h1 class="product_title"><?php the_title(); ?></h1>
+		<?php the_content(); ?>
+		
+		<div id="addToCartModal" class="reveal-modal tiny">
 		<?php
+			do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+			
 			/**
 			 * woocommerce_single_product_summary hook
 			 *
@@ -48,14 +53,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
+		<a class="close-reveal-modal">x</a>
+		</div>
 		
-		<?php the_content(); ?>
-		
-
 	</div><!-- .summary -->
 
 	<div class="large-3 columns">
-		<a class="button" href="#">Purchase a Print</a>
+		<a class="button" href="#" data-reveal-id="addToCartModal">Purchase a Print</a>
 		<h4>Share this:</h4>
 		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
 		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
