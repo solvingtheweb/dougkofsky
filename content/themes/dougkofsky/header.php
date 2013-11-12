@@ -24,9 +24,20 @@
 <div id="page" class="hfeed site" style="
 	<?php
 	$postID = get_the_id();
+	if (is_page()) :
 	?>
-	background:url('<?php the_field('background_image'); ?>') no-repeat top center;
-	background-size:100% auto;
+		background:url('<?php the_field('background_image'); ?>') no-repeat top center;
+		background-size:100% auto;
+	<?php else : ?>
+		<?php if (has_post_thumbnail( $postID ) ) : ?>
+			
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postID ), 'single-post-thumbnail' ); ?>
+		<?php endif; ?>
+		<!--
+		background:url('<?php echo $image[0]; ?>') no-repeat top center;
+		background-size:200% auto;
+	-->
+	<?php endif; ?>
 	">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header-container" role="banner">
