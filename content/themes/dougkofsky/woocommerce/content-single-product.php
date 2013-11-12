@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	 do_action( 'woocommerce_before_single_product' );
 ?>
 
-<div itemscope itemtype="http://schema.org/Product" id="product-<?php the_ID(); ?>" class="row" <?php post_class(); ?>>
-
+<div itemscope itemtype="http://schema.org/Product" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="row">
 	<?php
 		/**
 		 * woocommerce_show_product_images hook
@@ -32,38 +32,72 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		 */
 		do_action( 'woocommerce_before_single_product_summary' );
 	?>
-
-	<div class="summary entry-summary large-8 large-offset-1 columns">
-		<h1 class="product_title"><?php the_title(); ?></h1>
-		<?php the_content(); ?>
-		
-		<div id="addToCartModal" class="reveal-modal tiny">
-		<?php
-			do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+	</div>
+	<!-- 
+	<div class="row">
+		<div class="work-nav large-12 columns">
 			
-			/**
-			 * woocommerce_single_product_summary hook
-			 *
-			 * @hooked woocommerce_template_single_title - 5
-			 * @hooked woocommerce_template_single_price - 10
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked woocommerce_template_single_add_to_cart - 30
-			 * @hooked woocommerce_template_single_meta - 40
-			 * @hooked woocommerce_template_single_sharing - 50
-			 */
-			do_action( 'woocommerce_single_product_summary' );
-		?>
-		<a class="close-reveal-modal">x</a>
+			<?php
+				$parentid = $post->post_parent;
+				$pagelist = get_pages('child_of='. $parentid .'&sort_column=menu_order&sort_order=asc');
+				$pages = array();
+				foreach ($pagelist as $page){
+					$pages[] += $page->ID;
+				}
+			    $firstID = $pages[0];
+				$current = array_search(get_the_ID(), $pages);
+				$prevID = $pages[$current-1];
+				$nextID = $pages[$current+1];
+			?>
+			
+				<?php if (!empty($prevID)) { ?>
+					<a href="<?php echo get_permalink($prevID); ?>" title="<?php get_the_title($prevID); ?>" class="page-previous"></a>
+				<?php } if (!empty($nextID)) { ?>
+					<a href="<?php echo get_permalink($nextID); ?>" title="<?php get_the_title($nextID); ?>" class="page-next"></a>
+				<?php } else { ?>
+					<a href="<?php echo get_permalink($firstID); ?>" title="<?php get_the_title($nextID); ?>" class="page-next"></a>
+				<?php } ?>
+			
 		</div>
-		
-	</div><!-- .summary -->
-
-	<div class="large-3 columns">
-		<a class="button" href="#" data-reveal-id="addToCartModal">Purchase a Print</a>
-		<h4>Share this:</h4>
-		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
-		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
-		<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+	</div> -->
+	<div class="row">
+		<div class="summary entry-summary large-8 large-offset-1 columns">
+			<h1 class="product_title"><?php the_title(); ?></h1>
+			<?php the_content(); ?>
+			
+			<div id="addToCartModal" class="reveal-modal tiny">
+			<?php
+				do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+				
+				/**
+				 * woocommerce_single_product_summary hook
+				 *
+				 * @hooked woocommerce_template_single_title - 5
+				 * @hooked woocommerce_template_single_price - 10
+				 * @hooked woocommerce_template_single_excerpt - 20
+				 * @hooked woocommerce_template_single_add_to_cart - 30
+				 * @hooked woocommerce_template_single_meta - 40
+				 * @hooked woocommerce_template_single_sharing - 50
+				 */
+				do_action( 'woocommerce_single_product_summary' );
+			?>
+			<a class="close-reveal-modal">x</a>
+			</div>
+			
+		</div><!-- .summary -->
+    	
+		<div id="product-sidebar" class="large-3 columns">
+			<hr>
+			<button href="#" class="button radius" data-reveal-id="addToCartModal">Purchase a Print</button>
+			<hr>
+			<div class="social">
+				<h4>Share this:</h4>
+				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
+				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
+				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+			</div>
+			<hr>
+		</div>
 	</div>
 
 	<?php

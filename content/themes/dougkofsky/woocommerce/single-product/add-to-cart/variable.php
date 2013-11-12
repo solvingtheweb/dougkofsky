@@ -64,10 +64,7 @@ global $woocommerce, $product, $post;
 								}
 							}
 						?>
-					</select> <?php
-						if ( sizeof($attributes) == $loop )
-							echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
-					?></td>
+					</select> </td>
 				</tr>
 	        <?php endforeach;?>
 		</tbody>

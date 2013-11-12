@@ -115,11 +115,7 @@ b, strong {
 /* =Global
 ----------------------------------------------- */
 
-body,
-button,
-input,
-select,
-textarea {
+body {
 	background:#000;
 	color: #FFFFFF;
 	font-family: sans-serif;
@@ -131,7 +127,7 @@ textarea {
 #content { margin-bottom:60px;}
 
 hr {
-	background-color: #ccc;
+	background-color: rgba(255, 255, 255, .2);
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -345,7 +341,7 @@ h1.product_title {
 	font-weight:400;
 	border-bottom: none;
 	text-align:left;
-	margin: 0;
+	margin: 20px 0;
 }
 
 .wp-caption-text {
@@ -366,12 +362,39 @@ padding: 8px;
 	color: #ffffff;
 	font-weight: 400;
 	}
+	.reveal-modal h1.product_title {
+		margin: 20px 0;
+		line-height:1em;
+	}
+	.reveal-modal .label {
+		background-color:#000;
+		font-weight:normal;
+	}
+	.reveal-modal span.price {
+		display:block;
+		font-family: 'Raleway', sans-serif;
+		font-size:emCalc(28px);
+		font-weight:300;
+		padding:15px 0;
+	}
 	
-.label {
-	background-color:#000;
+#product-sidebar {
+	text-align:center;
+	margin-top:70px;
 }
-
-
+	#product-sidebar button {
+		margin-bottom:0;
+	}
+	#product-sidebar h4 {
+		margin-bottom:10px;
+	}
+	#product-sidebar .social a {
+		margin-right:10px;
+	}
+		#product-sidebar .social a:last-child {
+			margin-right: 0;
+		}
+	
 /* =Home Page
 ----------------------------------------------- */
 
