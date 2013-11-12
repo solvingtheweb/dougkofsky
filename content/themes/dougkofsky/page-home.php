@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="primary" class="content-area row">
 		<main id="main" class="site-main large-10 large-centered columns" role="main">
 
-			<script type="text/javascript">
+			<!--<script type="text/javascript">
 			   
 				jQuery(document).ready(function($){
 				

@@ -10,6 +10,8 @@
 
 	</div><!-- #content -->
 
+	<div class="push"></div>
+
 	<footer id="colophon" class="site-footer-container" role="contentinfo">
 		<div class="site-footer row">
 			<div class="site-info large-12 columns">
