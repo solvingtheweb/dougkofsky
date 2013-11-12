@@ -33,33 +33,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		do_action( 'woocommerce_before_single_product_summary' );
 	?>
 	</div>
-	<!-- 
+	
 	<div class="row">
 		<div class="work-nav large-12 columns">
-			
-			<?php
-				$parentid = $post->post_parent;
-				$pagelist = get_pages('child_of='. $parentid .'&sort_column=menu_order&sort_order=asc');
-				$pages = array();
-				foreach ($pagelist as $page){
-					$pages[] += $page->ID;
-				}
-			    $firstID = $pages[0];
-				$current = array_search(get_the_ID(), $pages);
-				$prevID = $pages[$current-1];
-				$nextID = $pages[$current+1];
-			?>
-			
-				<?php if (!empty($prevID)) { ?>
-					<a href="<?php echo get_permalink($prevID); ?>" title="<?php get_the_title($prevID); ?>" class="page-previous"></a>
-				<?php } if (!empty($nextID)) { ?>
-					<a href="<?php echo get_permalink($nextID); ?>" title="<?php get_the_title($nextID); ?>" class="page-next"></a>
+	
+				<?php if (get_previous_post_link()) { ?>
+					<span class="page-previous"><?php previous_post_link('%link'); ?></span>
+					
+				<?php } if (get_next_post_link()) { ?>
+					<span class="page-next"><?php next_post_link('%link'); ?></span>
+					
 				<?php } else { ?>
 					<a href="<?php echo get_permalink($firstID); ?>" title="<?php get_the_title($nextID); ?>" class="page-next"></a>
 				<?php } ?>
 			
 		</div>
-	</div> -->
+	</div> 
 	<div class="row">
 		<div class="summary entry-summary large-8 large-offset-1 columns">
 			<h1 class="product_title"><?php the_title(); ?></h1>
@@ -82,6 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				do_action( 'woocommerce_single_product_summary' );
 			?>
 			<a class="close-reveal-modal">x</a>
+			
 			</div>
 			
 		</div><!-- .summary -->

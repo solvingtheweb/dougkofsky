@@ -96,6 +96,8 @@ function dougkofsky_scripts() {
 	wp_enqueue_script( 'dougkofsky-foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '20131023', true );	
 
 	wp_enqueue_script( 'dougkofsky-justified-image-gallery', get_template_directory_uri() . '/js/jquery.justifiedgallery.min.js', array(), '20131106', true );
+	
+	wp_enqueue_script( 'dougkofsky-chosen', get_template_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '20131023', true );
 
 	wp_enqueue_script( 'dougkofsky-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 

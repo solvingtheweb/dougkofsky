@@ -22,6 +22,7 @@ Tags:
 
 
 
+
 /* OLD STYLES BELOW */
 
 
@@ -346,6 +347,30 @@ h1.site-title {
 	text-align:center;
 }
 
+span.page-previous {
+	display:block;
+	float:left;
+	//width:29px;
+	//height:51px;
+	//background-image: url('images/arrow_left.png');
+}
+	span.page-previous:hover {
+		background-image: url('images/arrow_left_press.png');
+		-webkit-transition: all 0.15s linear;
+		-moz-transition: all 0.15s linear;
+		transition: all 0.15s linear;
+	}
+span.page-next {
+	display:block;
+	float:right;
+	//width:29px;
+	//height:51px;
+	background-image: url('images/arrow_right.png');
+}
+	span.page-next:hover {
+		background-image: url('images/arrow_right_press.png');
+	}
+
 h1.product_title {
 	font-size: emCalc(36px);
 	font-weight:400;
@@ -404,6 +429,7 @@ padding: 8px;
 		#product-sidebar .social a:last-child {
 			margin-right: 0;
 		}
+		
 	
 /* =Home Page
 ----------------------------------------------- */
@@ -411,5 +437,5 @@ padding: 8px;
 #mypanorama {
 }
 
-
+@import "chosen";
 

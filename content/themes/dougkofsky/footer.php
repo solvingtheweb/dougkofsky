@@ -26,6 +26,9 @@
 <script>
 	jQuery(document).ready(function($) {
 		jQuery(document).foundation(); // initializes Foundation
+		
+		// initialize chosen
+		$("#size").chosen({disable_search_threshold: 10, width: '330px'});
 	});
 </script>
 
