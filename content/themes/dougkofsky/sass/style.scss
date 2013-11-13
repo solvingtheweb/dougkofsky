@@ -335,31 +335,37 @@ h1.site-title {
 ----------------------------------------------- */
 .images {
 	text-align:center;
+	margin-bottom:34px;
 }
-
-span.page-previous {
+span.page-previous, span.page-next {
+	text-indent:-9999px;
+}
+span.page-previous a {
 	display:block;
 	float:left;
-	//width:29px;
-	//height:51px;
-	//background-image: url('images/arrow_left.png');
+	width:13px;
+	height:33px;
+	background-image: url('images/leftArrow.png');
+	opacity: 0.6;
 }
-	span.page-previous:hover {
-		background-image: url('images/arrow_left_press.png');
-		-webkit-transition: all 0.15s linear;
-		-moz-transition: all 0.15s linear;
-		transition: all 0.15s linear;
+	span.page-previous a:hover {
+		opacity:1;
 	}
-span.page-next {
+span.page-next a{
 	display:block;
 	float:right;
-	//width:29px;
-	//height:51px;
-	background-image: url('images/arrow_right.png');
+	width:13px;
+	height:33px;
+	background-image: url('images/rightArrow.png');
+	opacity:.6;
 }
-	span.page-next:hover {
-		background-image: url('images/arrow_right_press.png');
+	span.page-next a:hover {
+		opacity:1;
 	}
+	
+.product-main {
+	margin-top:-64px;
+}
 
 h1.product_title {
 	font-size: emCalc(36px);
@@ -405,7 +411,7 @@ padding: 8px;
 	
 #product-sidebar {
 	text-align:center;
-	margin-top:70px;
+	margin-top:10px;
 }
 	#product-sidebar button {
 		margin-bottom:0;
