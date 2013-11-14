@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	</div>
 	
 	<div class="row">
-		<div class="work-nav large-12 columns">
+		<div class="product-nav large-12 columns">
 	
 				<?php if (get_previous_post_link()) { ?>
 					<span class="page-previous"><?php previous_post_link('%link'); ?></span>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		</div>
 	</div> 
 	<div class="row">
-		<div class="summary entry-summary large-8 large-offset-1 columns">
+		<div class="summary entry-summary product-main large-8 large-offset-1 columns">
 			<h1 class="product_title"><?php the_title(); ?></h1>
 			<?php the_content(); ?>
 			
@@ -88,6 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			</div>
 			<hr>
 		</div>
+		
 	</div>
 
 	<?php
