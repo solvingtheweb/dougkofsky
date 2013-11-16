@@ -445,3 +445,38 @@ padding: 8px;
 
 @import "chosen";
 
+/* =Shopping Cart
+----------------------------------------------- */
+
+table.shop_table { width:100%;}
+
+table tr th, table tr td {
+background: #000;
+color:#fff;
+}
+
+table.shop_table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
+padding: 0.5em 0.625em 0.625em;
+color: #fff;
+background: #000;
+}
+
+.product-quantity .quantity .minus {
+	float: left;
+	width: 15%;
+	height: 30px;
+	margin-right: 4px;
+}
+
+.product-quantity .quantity .qty {
+	width: 30%;
+	float: left;
+	height: 30px;
+}
+
+.product-quantity .quantity .plus {
+	float: left;
+	width: 15%;
+	height: 30px;
+	margin-left: 4px;
+}
