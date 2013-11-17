@@ -5,5 +5,5 @@
 /content/upgrade/
 .DS_Store
 /content/themes/dougkofsky/.sass-cache
-/content/themes/*.css
+/content/themes/*/*.css
 /content/plugins/justified-image-grid/cache
