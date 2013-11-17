@@ -36,17 +36,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	
 	<div class="row">
 		<div class="product-nav large-12 columns">
-	
-				<?php if (get_previous_post_link()) { ?>
-					<span class="page-previous"><?php previous_post_link('%link'); ?></span>
-					
-				<?php } if (get_next_post_link()) { ?>
-					<span class="page-next"><?php next_post_link('%link'); ?></span>
-					
-				<?php } else { ?>
-					<a href="<?php echo get_permalink($firstID); ?>" title="<?php get_the_title($nextID); ?>" class="page-next"></a>
-				<?php } ?>
 			
+				<span class="page-next"><?php next_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
+				<span class="page-previous"><?php previous_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
 		</div>
 	</div> 
 	<div class="row">
