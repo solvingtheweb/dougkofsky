@@ -9,11 +9,19 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 		<div class="social">
-			<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
-			<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
-			<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+			<?php
+			$args = array( 'post_type' => 'social_links');
+			$loop = new WP_Query( $args );
+			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<a href="<?php the_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Share on <?php the_title(); ?>"></a>
+			<?php endwhile;	
+			wp_reset_query(); 
+			?>
 		</div>
+		<?php } ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
