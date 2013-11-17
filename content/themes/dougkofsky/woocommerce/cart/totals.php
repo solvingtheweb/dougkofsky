@@ -13,7 +13,7 @@ global $woocommerce;
 
 $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 ?>
-<div class="cart_totals <?php if ( $woocommerce->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?>">
+<div class="cart_totals <?php if ( $woocommerce->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?> large-5 columns prefix-2">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
