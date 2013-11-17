@@ -15,7 +15,7 @@ global $woocommerce, $product, $post;
 <?php do_action('woocommerce_before_add_to_cart_form'); ?>
 
 <form action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
-	<table class="variations" cellspacing="0">
+	<table class="variations stuff" cellspacing="0">
 		<tbody>
 			<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
 				<tr>
@@ -77,6 +77,7 @@ global $woocommerce, $product, $post;
 		<div class="variations_button">
 			<input type="hidden" name="variation_id" value="" />
 			<?php woocommerce_quantity_input(); ?>
+			<br />
 			<button type="submit" class="single_add_to_cart_button button alt"><?php echo apply_filters('single_add_to_cart_text', __( 'Add to cart', 'woocommerce' ), $product->product_type); ?></button>
 		</div>
 	</div>

@@ -333,6 +333,23 @@ h1.site-title {
 	}
 }
 
+/* =Messages 
+----------------------------------------------- */
+
+.alert-box.success { 
+	background:#2b606f;
+	border-color:#447887;
+}
+
+.woocommerce-message .button {
+	background: none;
+	border: solid 1px rgba(255,255,255,.2);
+	border-radius: 4px;
+	box-shadow: none;
+	margin-right: 10px;
+	margin-bottom:0;
+}
+
 
 /* =Gallery
 ----------------------------------------------- */
@@ -347,6 +364,11 @@ h1.site-title {
 	text-align:center;
 	margin-bottom:34px;
 }
+
+#addToCartModal .images {
+	margin-bottom:0;
+}
+
 span.page-previous, span.page-next {
 	text-indent:-9999px;
 }
@@ -418,6 +440,14 @@ padding: 8px;
 		font-weight:300;
 		padding:15px 0;
 	}
+
+	.reveal-modal #size_chosen {
+		width: 100% !important;
+	}
+
+	table.variations tr, table.variations tr td {
+		background:none;
+	}
 	
 #product-sidebar {
 	text-align:center;
@@ -448,35 +478,76 @@ padding: 8px;
 /* =Shopping Cart
 ----------------------------------------------- */
 
-table.shop_table { width:100%;}
+.woocommerce table {
+	width:100%;
+}
+
+table.shop_table { 
+	margin-bottom:30px;
+}
 
 table tr th, table tr td {
-background: #000;
-color:#fff;
+	color:#fff;
+	padding: 1.5em 0.625em;
+}
+table tr {
+	background:#151618;
 }
 
-table.shop_table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
-padding: 0.5em 0.625em 0.625em;
-color: #fff;
-background: #000;
+table thead tr {
+	background: #151618;
+}
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
+	color: #fff;
 }
 
-.product-quantity .quantity .minus {
+table tr {
+	background: #222325;
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+	background: #151618;
+}
+
+td.product-name a {
+	margin-bottom: 10px;
+	display: block;
+}
+
+td.product-name dl.variation dt {
+	float:left;
+	margin-right: .3em;
+}
+
+.quantity {
+	max-width: 212px;
+	height: 30px;
+}
+.quantity .minus {
 	float: left;
 	width: 15%;
 	height: 30px;
 	margin-right: 4px;
 }
 
-.product-quantity .quantity .qty {
+.quantity .qty {
 	width: 30%;
 	float: left;
 	height: 30px;
+	margin:0;
 }
 
-.product-quantity .quantity .plus {
+.quantity .plus {
 	float: left;
 	width: 15%;
 	height: 30px;
 	margin-left: 4px;
+}
+
+.shop_table .actions div { /* moves checkout buttons right */
+	float:right;
+}
+
+.shop_table .actions .button {
+	margin-bottom:0;
 }
