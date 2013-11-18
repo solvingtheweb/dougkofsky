@@ -74,8 +74,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<hr>
 			<div class="social">
 				<h4>Share this:</h4>
-				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
-				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
+				<a href="http://www.twitter.com/home?status=Check%20this%20out%20<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
 				<?php if(get_field('flickr_link')) : ?>  
 			    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
 				<?php endif; ?>
