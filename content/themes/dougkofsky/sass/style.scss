@@ -333,6 +333,18 @@ h1.site-title {
 	}
 }
 
+/* =Page Headers
+----------------------------------------------- */
+.social-header {
+	margin-top:20px;
+}
+.social-header a {
+	margin-right:10px;
+}
+	.social-header a:last-child {
+		margin-right:0;
+	}
+
 /* =Messages 
 ----------------------------------------------- */
 

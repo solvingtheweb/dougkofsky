@@ -76,7 +76,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				<h4>Share this:</h4>
 				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
 				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
-				<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+				<?php if(get_field('flickr_link')) : ?>  
+			    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+				<?php endif; ?>
 			</div>
 			<hr>
 		</div>

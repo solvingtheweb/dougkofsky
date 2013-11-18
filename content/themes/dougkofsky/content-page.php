@@ -9,17 +9,18 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
+		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
-		<div class="social">
-			<?php
-			$args = array( 'post_type' => 'social_links');
-			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<a href="<?php the_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Share on <?php the_title(); ?>"></a>
-			<?php endwhile;	
-			wp_reset_query(); 
-			?>
-		</div>
+			<div class="social social-header">
+				<?php
+				$args = array( 'post_type' => 'social_links');
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					<a href="<?php the_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Find me on <?php the_title(); ?>"></a>
+				<?php endwhile;	
+				wp_reset_query(); 
+				?>
+			</div>
 		<?php } ?>
 
 	</header><!-- .entry-header -->
