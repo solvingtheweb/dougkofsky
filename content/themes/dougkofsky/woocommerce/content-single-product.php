@@ -69,8 +69,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		</div><!-- .summary -->
     	
 		<div id="product-sidebar" class="large-3 columns">
+			<?php
+			global $product;
+			if ( $product->get_price_html() ) : ?>
 			<hr>
 			<button href="#" class="button radius" data-reveal-id="addToCartModal">Purchase a Print</button>
+			<?php endif; ?>
 			<hr>
 			<div class="social">
 				<h4>Share this:</h4>

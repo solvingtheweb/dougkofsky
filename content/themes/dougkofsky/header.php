@@ -52,6 +52,19 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</div>
+		
 	</header><!-- #masthead -->
+	<?php global $woocommerce; ?>
+	<?php if($woocommerce->cart->cart_contents_count) : ?>
+	<div class="mini-cart-container">
+		<div class="mini-cart row">
+			<div class="large-12 columns">
+				<a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"> Your Cart</a>
+				<span><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count); ?> | </span>
+				<a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="Checkout">Checkout</a>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
 
 	<div id="content" class="site-content">
