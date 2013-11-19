@@ -39,7 +39,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 	border: 0;
 	font-family: inherit;
-	font-size: 100%;
+	/*font-size: 100%;*/
 	font-style: inherit;
 	font-weight: inherit;
 	margin: 0;
@@ -183,6 +183,11 @@ a:active {
 }
 
 /* Alignment */
+
+.alignleft, .alignright, .aligncenter { /* fixes strange width calculation for image, which resulted in caption extending past image width */
+	width: auto !important;
+}
+
 .alignleft {
 	display: inline;
 	float: left;
@@ -197,6 +202,11 @@ a:active {
 	margin-right: -12%;
 	margin-top: 20px;
 }
+
+.summary.product-main .alignright {
+	margin-right:0;
+}
+
 .aligncenter {
 	clear: both;
 	display: block;
@@ -280,7 +290,7 @@ h1.site-title {
 	margin-top:30px;
 	display: block;
 	text-align:right;
-	font-size:emCalc(16px);
+	font-size:emCalc(15px);
 	font-weight:700;
 	font-family: "Open Sans", Helvetica, Arial;
 }
@@ -292,7 +302,7 @@ h1.site-title {
 .main-navigation li {
 	display:inline-block;
 	position: relative;
-	margin-right:34px;
+	margin-right:3%;
 }
 	.main-navigation li:last-child {
 	margin-right:0;	
@@ -366,8 +376,8 @@ h1.site-title {
 ----------------------------------------------- */
 
 .alert-box.success { 
-	background:#2b606f;
-	border-color:#447887;
+	background:#30475b;
+	border-color:#3d5366;
 }
 
 .woocommerce-message .button {
@@ -377,6 +387,7 @@ h1.site-title {
 	box-shadow: none;
 	margin-right: 10px;
 	margin-bottom:0;
+	padding: 8px 13px;
 }
 
 
@@ -434,6 +445,7 @@ h1.product_title {
 	border-bottom: none;
 	text-align:left;
 	margin: 20px 0;
+	display:block;
 }
 
 .wp-caption-text {
