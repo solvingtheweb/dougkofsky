@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce;
 ?>
-
+<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
 <?php if ( ( $woocommerce->cart->needs_shipping() || get_option('woocommerce_require_shipping_address') == 'yes' ) && ! $woocommerce->cart->ship_to_billing_address_only() ) : ?>
 
 	<?php
@@ -32,9 +32,9 @@ global $woocommerce;
 		<label for="shiptobilling-checkbox" class="checkbox"><?php _e( 'Ship to billing address?', 'woocommerce' ); ?></label>
 	</p>
 
-	<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
-
 	<div class="shipping_address">
+
+		
 
 		<?php do_action('woocommerce_before_checkout_shipping_form', $checkout); ?>
 

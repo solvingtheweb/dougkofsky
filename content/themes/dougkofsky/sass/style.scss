@@ -81,6 +81,7 @@ a img {
 h1, h2, h3, h4, h5, h6 { 
 	font-family: 'Raleway', sans-serif;
 	color:#fff;
+	margin-bottom:10px;
 }
 
 h1 { 
@@ -90,9 +91,13 @@ h1 {
 	display:inline-block;
 }
 
+h3 {
+	margin-bottom:10px;
+}
+
 header.entry-header { 
 	text-align:center;
-	margin:144px 0 82px 0;
+	margin:80px 0 82px 0;
 }
 
 /* Text elements */
@@ -239,16 +244,31 @@ a:active {
 	clear: both;
 }
 
+/* =Forms
+----------------------------------------------- */
+
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+margin: 3px 8px 12px 0;
+float: left;
+}
+
+form label abbr { 
+	color:#f75858;
+	border-bottom:none !important;
+}
+
+
 /* =Header
 ----------------------------------------------- */
 
 .site-header-container {
-	background:rgba(0,0,0,.78)
+	background:rgba(20,20,20,.75)
 }
 
 .mini-cart-container {
-	background:rgba(20,20,20,.65);
+	background: rgba(40, 40, 40, .65);
 	padding:10px 0;
+	margin-bottom:20px;
 	text-align:center;
 	font-family: 'Open Sans', sans-serif;
 	font-size:emCalc(14px);
@@ -276,12 +296,17 @@ a:active {
 /* =Logo
 ----------------------------------------------- */
 h1.site-title {
-	font-size:emCalc(26px);
+	font-size:emCalc(24px);
 	border:none;
-	margin:24px 0;
+	margin:15px 0;
 }
 
 .site-title a { color:#fff;}
+
+.site-title img {
+	width:50px;
+	margin-right:15px;
+}
 
 /* =Menu
 ----------------------------------------------- */
@@ -378,6 +403,10 @@ h1.site-title {
 .alert-box.success { 
 	background:#30475b;
 	border-color:#3d5366;
+}
+
+ul.woocommerce-error {
+	margin:0 0 20px;
 }
 
 .woocommerce-message .button {
@@ -488,6 +517,7 @@ padding: 8px;
 
 	table.variations tr, table.variations tr td {
 		background:none;
+		vertical-align:baseline;
 	}
 	
 #product-sidebar {
@@ -516,30 +546,21 @@ padding: 8px;
 
 @import "chosen";
 
-/* =Shopping Cart
+/* =Table Styles
 ----------------------------------------------- */
 
-.woocommerce table {
-	width:100%;
-}
-
-table.shop_table { 
-	margin-bottom:30px;
-}
-
-table tr th, table tr td {
+table, // table background reset
+table thead, table thead tr, table thead tr th, table thead tr td, 
+table tr, table tr th, table tr td,
+table tr.even, table tr.alt, table tr:nth-of-type(even),
+table tfoot, table tfoot tr th, table tfoot tr td { 
+	background:none;
 	color:#fff;
-	padding: 1.5em 0.625em;
-}
-table tr {
-	background:#151618;
 }
 
-table thead tr {
-	background: #151618;
-}
-table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
-	color: #fff;
+table { 
+	margin-bottom:30px;
+	background:#151618;
 }
 
 table tr {
@@ -548,6 +569,25 @@ table tr {
 
 table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	background: #151618;
+}
+
+table tr td {
+	vertical-align:middle;
+}
+
+table thead tr th, table thead tr td, table tr th, table tr td, table tfoot tr th, table tfoot tr td {
+	padding: 1.5em 1em;
+}
+
+tfoot {
+	border-top: solid 30px transparent;
+}
+
+/* =Shopping Cart
+----------------------------------------------- */
+
+.woocommerce table {
+	width:100%;
 }
 
 td.product-name a {
@@ -591,4 +631,50 @@ td.product-name dl.variation dt {
 
 .shop_table .actions .button {
 	margin-bottom:0;
+}
+
+/* =Checkout Page
+----------------------------------------------- */
+
+form.checkout .col-1, form.checkout .col-2, form.checkout #payment, form.checkout #order_details {
+	background:#222325;
+	padding:30px;
+	margin-bottom:20px;
+}
+
+.form-row {
+clear: both;
+}
+
+.payment_methods.methods {
+	margin: 0 0 30px;
+}
+
+	.payment_methods.methods li {
+		clear:both;
+		border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+		padding: 15px 30px 14px 30px;
+		margin: 0 -30px;
+	}
+
+		.payment_methods.methods li label img {
+			float:right;
+		}
+
+		.payment_methods.methods li .payment_box {
+			margin: 20px 0 0;
+		}
+
+#order_review table { background:none;}
+
+#order_review table tr {
+	border-bottom: solid 1px rgba(255,255,255,.1);
+	background:none;
+}
+
+#order_review table td:first-child, #order_review table th:first-child { padding-left:0;}
+#order_review table td:last-child, #order_review table th:last-child { padding-right:0;}
+
+#cc-expire-month, #cc-expire-year {
+	width:45%;
 }
