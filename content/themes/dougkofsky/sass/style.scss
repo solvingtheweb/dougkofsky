@@ -79,7 +79,7 @@ a img {
 }
 
 h1, h2, h3, h4, h5, h6 { 
-	font-family: 'Raleway', sans-serif;
+	font-family: Georgia, serif;
 	color:#fff;
 	margin-bottom:10px;
 }
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { 
 	font-size: emCalc(58px);
 	font-weight:800;
-	border-bottom: solid 1px #fff;
+	/*border-bottom: solid 1px #fff;*/
 	display:inline-block;
 }
 
@@ -283,6 +283,30 @@ form label abbr {
 	color:#555659;
 }
 
+/* =Logo
+----------------------------------------------- */
+h1.site-title {
+	font-size:emCalc(20px);
+	border: none;
+	margin: 15px 0;
+	display:table;
+}
+
+.site-title img {
+	width:50px;
+	margin-right:15px;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.site-title a { 
+	color:#fff;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+
+
 /* =Footer
 ----------------------------------------------- */
 
@@ -291,21 +315,6 @@ form label abbr {
 	padding: 20px 0;
 	text-align: center;
 	color: #999999;
-}
-
-/* =Logo
------------------------------------------------ */
-h1.site-title {
-	font-size:emCalc(24px);
-	border:none;
-	margin:15px 0;
-}
-
-.site-title a { color:#fff;}
-
-.site-title img {
-	width:50px;
-	margin-right:15px;
 }
 
 /* =Menu
@@ -387,6 +396,18 @@ h1.site-title {
 
 /* =Page Headers
 ----------------------------------------------- */
+
+h1.entry-title {
+	font-family: Georgia;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: .75em;
+	font-size: 2.5em;
+	text-shadow: 0 1px 8px rgba(0,0,0, .9);
+}
+
+h1.entry-title .small {font-size:50%;}
+
 .social-header {
 	margin-top:20px;
 }
