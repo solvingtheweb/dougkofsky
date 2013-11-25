@@ -1229,18 +1229,18 @@ $default-float: left;
 // Tooltip Variables
 //
 
-// $has-tip-border-bottom: dotted 1px #ccc;
+$has-tip-border-bottom: none;
 // $has-tip-font-weight: bold;
 // $has-tip-font-color: #333;
-// $has-tip-border-bottom-hover: dotted 1px darken($primary-color, 20%);
+$has-tip-border-bottom-hover: none;
 // $has-tip-font-color-hover: $primary-color;
 // $has-tip-cursor-type: help;
 
 // $tooltip-padding: em-calc(8);
-// $tooltip-bg: #000;
+$tooltip-bg: #fff;
 // $tooltip-font-size: em-calc(15);
 // $tooltip-font-weight: bold;
-// $tooltip-font-color: #fff;
+$tooltip-font-color: #000;
 // $tooltip-line-height: 1.3;
 // $tooltip-close-font-size: em-calc(10);
 // $tooltip-close-font-weight: normal;
