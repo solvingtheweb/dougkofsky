@@ -13,7 +13,13 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area row">
-		<main id="main" class="site-main large-10 large-centered columns" role="main">
+		<?php
+		$postID = get_the_id();
+		if( is_page(38) ) : ?>
+			<main id="main" class="site-main" role="main">
+		<?php else : ?>
+			<main id="main" class="site-main large-10 large-centered columns" role="main">
+		<?php endif; ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
