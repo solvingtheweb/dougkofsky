@@ -10,7 +10,7 @@
 	if ( ! container )
 		return;
 
-	button = container.getElementsByTagName( 'h1' )[0];
+	button = container.getElementsByTagName( 'div' )[0];
 	if ( 'undefined' === typeof button )
 		return;
 

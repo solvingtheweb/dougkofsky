@@ -25,12 +25,12 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header-container" role="banner">
 		<div class="site-header row">
-			<div class="site-branding large-5 columns">
-				<h1 class="site-title"><img src="<?php bloginfo('template_url'); ?>/images/dougkofsky_avatar.jpg" alt="Doug Kofsky Avatar" /><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<div class="site-branding large-4 columns">
+				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url'); ?>/images/DKP_logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></div>
 			</div>
 
-			<nav id="site-navigation" class="main-navigation large-7 columns" role="navigation">
-				<h1 class="menu-toggle"><?php _e( 'Menu', 'dougkofsky' ); ?></h1>
+			<nav id="site-navigation" class="main-navigation large-8 columns" role="navigation">
+				<div class="menu-toggle"><?php _e( 'Menu', 'dougkofsky' ); ?></div>
 
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #site-navigation -->

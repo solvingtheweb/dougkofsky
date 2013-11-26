@@ -125,16 +125,15 @@ $default-float: left;
 
 // Media Queries
 
-$small-screen-max: 480px;
+$x-small-screen: 600px;
 $small-screen: 768px;
-// $medium-screen: 1280px;
+$medium-screen: 1280px;
 // $large-screen: 1440px;
 
 // $screen: "only screen";
+$x-small: "only screen and (min-width: #{$x-small-screen})";
 // $small: "only screen and (min-width: #{$small-screen})";
-$small-max: "only screen and (max-width: #{$small-screen-max})";
-// $medium: "only screen and (min-width: #{$medium-screen})";
-$medium-max: "only screen and (max-width: #{$small-screen})";
+$medium: "only screen and (min-width: #{$medium-screen})";
 // $large: "only screen and (min-width: #{$large-screen})";
 // $landscape: "only screen and (orientation: landscape)";
 // $portrait: "only screen and (orientation: portrait)";

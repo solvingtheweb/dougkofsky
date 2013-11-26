@@ -42,50 +42,55 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		</div>
 	</div> 
 	<div class="row">
-		<div class="summary entry-summary product-main large-8 large-offset-1 columns">
+		<div class="large-10 columns large-centered">
 			<h1 class="product_title"><?php the_title(); ?></h1>
-			<?php the_content(); ?>
-			
-			<div id="addToCartModal" class="reveal-modal tiny">
-			<?php
-				do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-				
-				/**
-				 * woocommerce_single_product_summary hook
-				 *
-				 * @hooked woocommerce_template_single_title - 5
-				 * @hooked woocommerce_template_single_price - 10
-				 * @hooked woocommerce_template_single_excerpt - 20
-				 * @hooked woocommerce_template_single_add_to_cart - 30
-				 * @hooked woocommerce_template_single_meta - 40
-				 * @hooked woocommerce_template_single_sharing - 50
-				 */
-				do_action( 'woocommerce_single_product_summary' );
-			?>
-			<a class="close-reveal-modal">x</a>
-			
-			</div>
-			
-		</div><!-- .summary -->
+			<div class="row">
+				<div id="product-sidebar" class="large-4 push-8 columns">
+					<?php
+					global $product;
+					if ( $product->get_price_html() ) : ?>
+					<hr>
+					<button href="#" class="button radius" data-reveal-id="addToCartModal">Purchase a Print</button>
+					<?php endif; ?>
+					<hr>
+					<div class="social">
+						<h4>Share this:</h4>
+						<a href="http://www.twitter.com/home?status=Check%20this%20out%20<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
+						<?php if(get_field('flickr_link')) : ?>  
+					    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
+						<?php endif; ?>
+					</div>
+					<hr>
+				</div>
+
+				<div class="summary entry-summary product-main large-8 pull-4 columns">
+					<?php the_content(); ?>
+					
+					<div id="addToCartModal" class="reveal-modal tiny">
+					<?php
+						do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+						
+						/**
+						 * woocommerce_single_product_summary hook
+						 *
+						 * @hooked woocommerce_template_single_title - 5
+						 * @hooked woocommerce_template_single_price - 10
+						 * @hooked woocommerce_template_single_excerpt - 20
+						 * @hooked woocommerce_template_single_add_to_cart - 30
+						 * @hooked woocommerce_template_single_meta - 40
+						 * @hooked woocommerce_template_single_sharing - 50
+						 */
+						do_action( 'woocommerce_single_product_summary' );
+					?>
+					<a class="close-reveal-modal">x</a>
+					
+					</div>
+					
+				</div><!-- .summary -->
     	
-		<div id="product-sidebar" class="large-3 columns">
-			<?php
-			global $product;
-			if ( $product->get_price_html() ) : ?>
-			<hr>
-			<button href="#" class="button radius" data-reveal-id="addToCartModal">Purchase a Print</button>
-			<?php endif; ?>
-			<hr>
-			<div class="social">
-				<h4>Share this:</h4>
-				<a href="http://www.twitter.com/home?status=Check%20this%20out%20<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/twitter_button.png" alt="Share on Twitter"></a>
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/facebook_button.png" alt="Share on Facebook"></a>
-				<?php if(get_field('flickr_link')) : ?>  
-			    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button.png" alt="View on Flickr"></a>
-				<?php endif; ?>
 			</div>
-			<hr>
-		</div>
+		</div><!-- large-10 -->
 		
 	</div>
 
