@@ -5,6 +5,11 @@
 if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define( 'WP_LOCAL_DEV', true );
 	include( dirname( __FILE__ ) . '/local-config.php' );
+	/** Custom WordPress core location **/
+	define('WP_SITEURL', 'http://localhost:8888/dougkofsky/wp');
+
+	/** Custom home location **/
+	define('WP_HOME', 'http://localhost:8888/dougkofsky');
 } else {
 	define( 'WP_LOCAL_DEV', false );
 	define( 'DB_NAME', '%%DB_NAME%%' );
@@ -13,10 +18,10 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
 
 	/** Custom WordPress core location **/
-	define('WP_SITEURL', 'http://dev.solvingtheweb.com/dougkofsky/wp');
+	define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp');
 
 	/** Custom home location **/
-	define('WP_HOME', 'http://dev.solvingtheweb.com/dougkofsky');
+	define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] .);
 }
 
 // ========================

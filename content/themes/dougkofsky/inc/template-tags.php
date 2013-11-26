@@ -121,7 +121,7 @@ if ( ! function_exists( 'dougkofsky_the_attached_image' ) ) :
  */
 function dougkofsky_the_attached_image() {
 	$post                = get_post();
-	$attachment_size     = apply_filters( 'dougkofsky_attachment_size', array( 1200, 1200 ) );
+	$attachment_size     = apply_filters( 'dougkofsky_attachment_size', array( 4200, 4200 ) );
 	$next_attachment_url = wp_get_attachment_url();
 
 	/**
@@ -159,9 +159,8 @@ function dougkofsky_the_attached_image() {
 			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
 	}
 
-	printf( '<a href="%1$s" rel="attachment">%2$s</a>',
-		esc_url( $next_attachment_url ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
+	printf( '%1$s',
+		wp_get_attachment_image( $post->ID, 'full' )
 	);
 }
 endif;

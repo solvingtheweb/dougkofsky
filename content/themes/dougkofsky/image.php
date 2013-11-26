@@ -23,7 +23,21 @@ get_header(); ?>
 				<div class="entry-content full-image">
 					<div class="entry-attachment">
 						<div class="attachment">
+							<div class="mountainblock"></div>
 							<?php dougkofsky_the_attached_image(); ?>
+							<script type="text/javascript">
+								jQuery( document ).ready(function( $ ) {					
+									var img = $(".attachment-full"); // Get img elem
+									var pic_real_width, pic_real_height;
+									$("<img/>") // Make in memory copy of image to avoid css issues
+									    .attr("src", $(img).attr("src"))
+									    .load(function() {
+									        pic_real_width = this.width;   // Note: $(this).width() will not
+									        pic_real_height = this.height; // work for in memory images.
+											$(".mountainblock").css({"width": + pic_real_width, "height": + pic_real_height});
+									    });
+								});
+							</script>	
 						</div><!-- .attachment -->
 					</div><!-- .entry-attachment -->
 
