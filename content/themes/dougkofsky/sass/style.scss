@@ -474,7 +474,7 @@ form label abbr {
 /* =Page Headers
 ----------------------------------------------- */
 
-header.entry-header { 
+header.entry-header, header.page-header { 
 	text-align:center;
 	margin:40px 0;
 
@@ -483,14 +483,21 @@ header.entry-header {
 	}
 }
 
-h1.entry-title {
+h1.entry-title, h1.page-title {
 	text-shadow: 0 1px 8px rgba(0,0,0, .5);
-	line-height:.75em;
 	border-bottom: solid 1px #fff;
 	padding-bottom:.35em;
 }
 
-h1.entry-title .small {font-size:50%;}
+h1.entry-title .small {
+	font-size:50%;
+	display:block;
+	margin-bottom:-64px; /* needed to bring small header span closer to large headline */
+
+	@media #{$x-small} {
+		margin-bottom:-96px;
+	}
+}
 
 .social-header {
 	margin-top:20px;
@@ -616,7 +623,6 @@ padding: 8px;
 		line-height:1em;
 	}
 	.reveal-modal .label {
-		background-color:#000;
 		font-weight:normal;
 	}
 	.reveal-modal span.price {
@@ -631,6 +637,10 @@ padding: 8px;
 		width: 100% !important;
 	}
 
+	table.variations {
+		background:none;
+		margin-bottom:0;
+	}
 	table.variations tr, table.variations tr td {
 		background:none;
 		vertical-align:baseline;
