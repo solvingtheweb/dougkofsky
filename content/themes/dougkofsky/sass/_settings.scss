@@ -125,12 +125,14 @@ $default-float: left;
 
 // Media Queries
 
+$xx-small-screen: 480px;
 $x-small-screen: 600px;
 $small-screen: 768px;
-$medium-screen: 1280px;
-// $large-screen: 1440px;
+$medium-screen: 960px;
+// $large-screen: 1280px;
 
 // $screen: "only screen";
+$xx-small: "only screen and (min-width: #{$xx-small-screen})";
 $x-small: "only screen and (min-width: #{$x-small-screen})";
 // $small: "only screen and (min-width: #{$small-screen})";
 $medium: "only screen and (min-width: #{$medium-screen})";
