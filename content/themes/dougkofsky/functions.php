@@ -91,27 +91,11 @@ function dougkofsky_scripts() {
 	// Set up the foundation JS
 	wp_enqueue_script( 'dougkofsky-foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-alerts', get_template_directory_uri() . '/js/foundation/foundation.alerts.js', array('jquery'), '20131023', true );
-	wp_enqueue_script( 'dougkofsky-foundation-dropdown', get_template_directory_uri() . '/js/foundation/foundation.dropdown.js', array('jquery'), '20131023', true );
-	wp_enqueue_script( 'dougkofsky-foundation-section', get_template_directory_uri() . '/js/foundation/foundation.section.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-tooltips', get_template_directory_uri() . '/js/foundation/foundation.tooltips.js', array('jquery'), '20131023', true );	
-
-	wp_enqueue_script( 'dougkofsky-justified-image-gallery', get_template_directory_uri() . '/js/jquery.justifiedgallery.min.js', array(), '20131106', true );
-	
 	wp_enqueue_script( 'dougkofsky-chosen', get_template_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '20131023', true );
-
 	wp_enqueue_script( 'dougkofsky-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'dougkofsky-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'dougkofsky-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
-
+	
 	if ( is_page_template('page-home.php') ) {
 		wp_enqueue_script( 'dougkofsky-panorama', get_template_directory_uri() . '/js/jquery.panorama.min.js', array( 'jquery' ), '20120202' );
 	}
