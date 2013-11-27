@@ -1,4 +1,6 @@
 <?php
+
+/* Template Name: Gallery */
 /**
  * The template for displaying all pages.
  *
@@ -12,9 +14,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area row">
+	<div id="primary" class="content-area row" style="max-width:100%;">
 
-		<main id="main" class="site-main large-10 large-centered columns" role="main">
+		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
