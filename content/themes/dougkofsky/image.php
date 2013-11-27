@@ -31,7 +31,8 @@ get_header(); ?>
 											$(".mountainblock").css({"width": + pic_real_width, "height": + pic_real_height});
 									    });
 								});
-							</script>	
+							</script>
+							
 						</div><!-- .attachment -->
 					</div><!-- .entry-attachment -->
 					<nav role="navigation" id="image-navigation" class="image-navigation">
