@@ -84,7 +84,11 @@ add_action( 'widgets_init', 'dougkofsky_widgets_init' );
  */
 function dougkofsky_scripts() {
 	wp_enqueue_style( 'dougkofsky-style', get_stylesheet_uri() );
-
+	
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null);
+	wp_enqueue_script('jquery');
+	
 	// Set up Modernizr
 	wp_enqueue_script( 'dougkofsky-modernizr', get_template_directory_uri() . '/js/vendor/custom.modernizr.js', array(), '20131023' );
 
