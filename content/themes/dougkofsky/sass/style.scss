@@ -565,12 +565,9 @@ ul.woocommerce-error {
 	text-align:center;
 	margin-bottom:34px;
 }
-.tooltip {
-	left:45% !important;
-	
-}
-	.tooltip > .nub {
-		left:50%;
+	.images a {
+		cursor:-moz-zoom-in;
+		cursor:-webkit-zoom-in;
 	}
 
 #addToCartModal .images {

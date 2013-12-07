@@ -95,8 +95,7 @@ function dougkofsky_scripts() {
 	// Set up the foundation JS
 	wp_enqueue_script( 'dougkofsky-foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-foundation-alerts', get_template_directory_uri() . '/js/foundation/foundation.alerts.js', array('jquery'), '20131023', true );
-	wp_enqueue_script( 'dougkofsky-foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '20131023', true );
-	wp_enqueue_script( 'dougkofsky-foundation-tooltips', get_template_directory_uri() . '/js/foundation/foundation.tooltips.js', array('jquery'), '20131023', true );	
+	wp_enqueue_script( 'dougkofsky-foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '20131023', true );	
 	wp_enqueue_script( 'dougkofsky-chosen', get_template_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '20131023', true );
 	wp_enqueue_script( 'dougkofsky-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	
