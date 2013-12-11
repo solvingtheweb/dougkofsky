@@ -147,8 +147,15 @@ require get_template_directory() . '/inc/jetpack.php';
 	add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
 
 	function my_theme_wrapper_start() {
-	  echo '<div id="primary" class="content-area row">';
-	  echo '<main id="main" class="site-main large-12 columns" role="main">';
+		if (is_single()){
+			echo '<div id="primary" class="content-area">';
+		    echo '<main id="main" class="site-main" role="main">';
+		}
+		else {
+			echo '<div id="primary" class="content-area row">';
+			echo '<main id="main" class="site-main large-12 columns" role="main">';
+		}
+	  
 	}
 
 	function my_theme_wrapper_end() {

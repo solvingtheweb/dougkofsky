@@ -20,7 +20,7 @@ global $post, $woocommerce, $product;
 			$image_title 		= esc_attr( get_the_title( get_post_thumbnail_id() ) );
 			$image_link  		= get_attachment_link( get_post_thumbnail_id() );
 			$image       		= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
-				'title' => $image_title
+				'title' => "Click to View Full Size"
 				) );
 			$attachment_count   = count( $product->get_gallery_attachment_ids() );
 
@@ -41,9 +41,9 @@ global $post, $woocommerce, $product;
 
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 
-	<div class="product-nav">
+
 		<span class="page-next"><?php next_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
 		<span class="page-previous"><?php previous_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
-	</div>
+
 
 </div>
