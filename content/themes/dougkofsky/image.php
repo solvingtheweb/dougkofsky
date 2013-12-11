@@ -39,8 +39,6 @@ get_header(); ?>
 						
 						<a href="<?php echo get_permalink($post->post_parent); ?>">&larr; Back to Photo Details</a>
 						
-						<div class="nav-previous"><?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', 'dougkofsky' ) ); ?></div>
-						<div class="nav-next"><?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', 'dougkofsky' ) ); ?></div>
 					</nav><!-- #image-navigation -->
 
 				</div><!-- .entry-content -->
