@@ -38,6 +38,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				<h1 class="product_title"><?php the_title(); ?></h1>
 				<div class="row">
 					<div id="product-sidebar" class="large-4 push-8 columns">
+						<div class="next_prev_thumbs">
+							<div class="next_thumb">
+								<?php next_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link') ); ?>
+							</div>
+							<div class="previous_thumb">
+								<?php previous_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link') ); ?>
+							</div>
+						</div>
 						<?php
 						global $product;
 						if ( $product->get_price_html() ) : ?>
