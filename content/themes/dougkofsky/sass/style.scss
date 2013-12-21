@@ -21,6 +21,15 @@ Tags:
 @import "jquery.justifiedgallery";
 
 
+/* Mixins */
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 
 
 /* OLD STYLES BELOW */
@@ -605,6 +614,47 @@ ul.woocommerce-error {
 			
 		}
 
+.next_prev_thumbs {
+	margin-bottom:40px;
+	@extend %clearfix;
+}
+.previous_thumb, .current_thumb, .next_thumb{
+	position:relative;
+	width:119px;
+	height:60px;
+	overflow:hidden;
+	float:left;
+}
+	.next_thumb img, .previous_thumb img {
+		width:100%;
+		min-height:60px;
+	}
+	
+	.previous_thumb_arrow {
+		position:absolute;
+		top:10px;
+		left:10px;
+		width:13px;
+		height:33px;
+		background-image: url('images/leftArrow.png');
+		opacity: 0.6;
+	}
+	.next_thumb_arrow {
+		position:absolute;
+		top:10px;
+		right:10px;
+		width:13px;
+		height:33px;
+		background-image: url('images/rightArrow.png');
+		opacity: 0.6;
+	}
+	.previous_thumb:hover .previous_thumb_arrow, .next_thumb:hover .next_thumb_arrow {
+		opacity:1;
+	}
+
+.current_thumb {
+	border:2px solid rgba(255,255,255, .5);
+}
 
 #addToCartModal .images {
 	margin-bottom:0;
