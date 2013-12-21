@@ -572,6 +572,7 @@ ul.woocommerce-error {
 	}
 	.images img {
 		width:100%;
+		max-height:850px;
 	}
 	.images .page-next, .images .page-previous {
 		position:relative;
@@ -718,9 +719,8 @@ padding: 8px;
 .full-image {
 	position: relative;
 	text-align:center;
-	overflow:scroll;
+	overflow-x:scroll;
 }
-
 	.full-image .attachment {
 		position:relative;
 	}
@@ -733,6 +733,28 @@ padding: 8px;
 
 	.full-image img {
 		max-width:none;
+	}
+	.full-image::-webkit-scrollbar {
+	    -webkit-appearance: none;
+	}
+
+	.full-image::-webkit-scrollbar:vertical {
+	    width: 11px;
+	}
+
+	.full-image::-webkit-scrollbar:horizontal {
+	    height: 11px;
+	}
+
+	.full-image::-webkit-scrollbar-thumb {
+	    border-radius: 8px;
+	    
+	    background-color: rgba(255, 255, 255, .3);
+	}
+
+	.full-image::-webkit-scrollbar-track { 
+	    background-color: rgba(255,255,255, .1);
+	    border-radius: 8px; 
 	}
 
 #image-navigation {
