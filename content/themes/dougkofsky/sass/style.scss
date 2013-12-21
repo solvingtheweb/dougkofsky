@@ -617,19 +617,22 @@ ul.woocommerce-error {
 }
 .previous_thumb, .current_thumb, .next_thumb{
 	position:relative;
-	width:119px;
+	width:32%;
 	height:60px;
+	margin-right:2%;
 	overflow:hidden;
 	float:left;
 }
-	.next_thumb img, .previous_thumb img {
-		width:100%;
+	.next_thumb {
+		margin-right:0;
+	}
+	.next_thumb img, .previous_thumb img, .current_thumb img {
 		min-height:60px;
 	}
 	
 	.previous_thumb_arrow {
 		position:absolute;
-		top:10px;
+		top:14px;
 		left:10px;
 		width:13px;
 		height:33px;
@@ -638,7 +641,7 @@ ul.woocommerce-error {
 	}
 	.next_thumb_arrow {
 		position:absolute;
-		top:10px;
+		top:14px;
 		right:10px;
 		width:13px;
 		height:33px;
@@ -695,7 +698,7 @@ h1.product_title {
 
 	@media #{$small} {
 		font-size: emCalc(36px);
-		margin-top: -42px;
+		margin-top: 0;
 		margin-bottom:20px;
 		padding:0;
 	}
@@ -749,7 +752,6 @@ padding: 8px;
 	
 #product-sidebar {
 	text-align:center;
-	margin-top:10px;
 }
 	#product-sidebar button {
 		margin-bottom:0;
