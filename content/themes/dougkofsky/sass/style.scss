@@ -546,6 +546,7 @@ h1.entry-title .small {
 	background:#30475b;
 	border-color:#3d5366;
 	padding: 6px;
+	margin:0 0.9375em;
 	border-radius: 4px;
 }
 
@@ -571,12 +572,20 @@ ul.woocommerce-error {
 	margin:0 0 10px;
 }
 
+#jig1 .jig-loadMoreButton {
+	max-width:300px;
+	background: #222;
+	border: none;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
 /* =Product Detail
 ----------------------------------------------- */
 .images {
 	position:relative;
 	text-align:center;
-	margin-bottom:34px;
+	margin: 0 0.9375em 34px;
 }
 	.images a.woocommerce-main-image {
 		cursor:-moz-zoom-in;
@@ -747,7 +756,7 @@ padding: 8px;
 	}
 	table.variations tr, table.variations tr td {
 		background:none;
-		vertical-align:baseline;
+		vertical-align:middle;
 	}
 	
 #product-sidebar {
