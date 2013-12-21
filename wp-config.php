@@ -15,16 +15,16 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define('WP_HOME', 'http://localhost:8888/dougkofsky');
 } else {
 	define( 'WP_LOCAL_DEV', false );
-	define( 'DB_NAME', '%%DB_NAME%%' );
-	define( 'DB_USER', '%%DB_USER%%' );
-	define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
-	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
+	define( 'DB_NAME', 'dougkofsky' );
+	define( 'DB_USER', 'root' );
+	define( 'DB_PASSWORD', 'str1p3rs34s0n!' );
+	define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 
 	/** Custom WordPress core location **/
-	define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp');
+	define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/dougkofsky/wp');
 
 	/** Custom home location **/
-	define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] .'');
+	define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] .'/dougkofsky');
 }
 
 // ========================
