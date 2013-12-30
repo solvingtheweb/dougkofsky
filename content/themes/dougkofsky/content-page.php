@@ -14,7 +14,7 @@
 			<div class="social social-header">
 				<?php if(get_field('social_links', 'option')): ?>
 					<?php while(has_sub_field('social_links', 'option')): ?>						
-						<a href="<?php the_sub_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Find me on <?php the_sub_field('social_network_name'); ?>"></a>
+						<a href="<?php the_sub_field('social_network_url'); ?>"><img src="<?php the_sub_field('social_network_icon'); ?>" alt="Find me on <?php the_sub_field('social_network_name'); ?>"></a>
 					<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
