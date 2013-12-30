@@ -12,14 +12,11 @@
 		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 			<div class="social social-header">
-				<?php
-				$args = array( 'post_type' => 'social_links');
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post(); ?>
-					<a href="<?php the_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Find me on <?php the_title(); ?>"></a>
-				<?php endwhile;	
-				wp_reset_query(); 
-				?>
+				<?php if(get_field('social_links', 'option')): ?>
+					<?php while(has_sub_field('social_links', 'option')): ?>						
+						<a href="<?php the_sub_field('social_network_url'); ?>"><img src="<?php the_field('social_network_icon'); ?>" alt="Find me on <?php the_sub_field('social_network_name'); ?>"></a>
+					<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
 		<?php } ?>
 
