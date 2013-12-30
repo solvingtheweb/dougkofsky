@@ -54,7 +54,7 @@
 	<header id="masthead" class="site-header-container" role="banner">
 		<div class="site-header row">
 			<div class="site-branding large-4 columns">
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url'); ?>/images/DKP_logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></div>
+				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php the_field('logo', 'option')" alt="<?php bloginfo( 'name' ); ?>" /></a></div>
 			</div>
 
 			<nav id="site-navigation" class="main-navigation large-8 columns" role="navigation">
