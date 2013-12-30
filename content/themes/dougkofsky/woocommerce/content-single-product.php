@@ -64,15 +64,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     						<?php if(get_field('social_links', 'option')): ?>
 								<?php while(has_sub_field('social_links', 'option')): ?>
 									<?php if(get_sub_field('social_network_name') === "Twitter") : ?>						
-									<a href="http://www.twitter.com/home?status=Doug%20Kofsky%20Photography%20-%20<?php the_permalink(); ?>" title="Share on Twitter" onclick="window.open(this.href, 'mywin','left=200,top=60,width=500,height=500,toolbar=1,resizable=1'); return false;"><img src="<?php the_sub_field('social_network_icon');?>" alt="Share on Twitter"></a>
+										<a href="http://www.twitter.com/home?status=Doug%20Kofsky%20Photography%20-%20<?php the_permalink(); ?>" title="Share on Twitter" onclick="window.open(this.href, 'mywin','left=200,top=60,width=500,height=500,toolbar=1,resizable=1'); return false;"><img src="<?php the_sub_field('social_network_icon');?>" alt="Share on Twitter"></a>
 									<?php elseif(get_sub_field('social_network_name') === "Facebook") : ?>
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="Share on Facebook" target="_blank" onclick="window.open(this.href, 'mywin','left=200,top=60,width=500,height=500,toolbar=1,resizable=1'); return false;"><img src="<?php the_sub_field('social_network_icon');?>" alt="Share on Facebook"></a>
+										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="Share on Facebook" target="_blank" onclick="window.open(this.href, 'mywin','left=200,top=60,width=500,height=500,toolbar=1,resizable=1'); return false;"><img src="<?php the_sub_field('social_network_icon');?>" alt="Share on Facebook"></a>
 									<?php endif; ?>
 								<?php endwhile; ?>
 							<?php endif; ?>
-							<?php if(get_field('flickr_link')) : ?>  
-						    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/flickr_button2.png" alt="View on Flickr"></a>
+							<?php if(get_field('social_links', 'option')): ?>
+								<?php while(has_sub_field('social_links', 'option')): ?>
+									<?php if(get_sub_field('social_network_name') === "Flickr") : ?>
+										<?php if(get_field('flickr_link')) : ?>  
+									    	<a href="<?php the_field('flickr_link'); ?>"><img src="<?php the_sub_field('social_network_icon');?>" alt="View on Flickr"></a>
+										<?php endif; ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
 							<?php endif; ?>
+							
 						</div>
 						<hr>
 					</div>
