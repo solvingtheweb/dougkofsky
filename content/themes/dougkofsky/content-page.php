@@ -15,7 +15,7 @@
 			<?php if(get_field('main_headline')): ?>
 				<div class="main_headline"><?php the_field('main_headline'); ?></div>
 			<?php else : ?>
-				<?php the_title(); ?>
+				<div class="main_headline"><?php the_title(); ?></div>
 			<?php endif; ?>
 			<?php if(get_field('lower_headline')): ?>
 				<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
