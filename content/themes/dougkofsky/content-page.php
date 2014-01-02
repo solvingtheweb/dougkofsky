@@ -8,7 +8,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title">
+			<div class="upper_headline"><?php the_field('upper_headline'); ?></div>
+			<div class="main_headline"><?php the_field('main_headline'); ?></div>
+			<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
+		</h1>
 		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 			<div class="social social-header">
