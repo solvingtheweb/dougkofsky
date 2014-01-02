@@ -9,18 +9,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title">
-			<?php if(get_field_objects(654)): ?>
-				<?php if(get_field('upper_headline')): ?>
-					<div class="upper_headline"><?php the_field('upper_headline'); ?></div>
-				<?php endif; ?>
-				<?php if(get_field('upper_headline')): ?>
-					<div class="main_headline"><?php the_field('main_headline'); ?></div>
-				<?php endif; ?>
-				<?php if(get_field('upper_headline')): ?>
-					<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
-				<?php endif; ?>
+			<?php if(get_field('upper_headline')): ?>
+				<div class="upper_headline"><?php the_field('upper_headline'); ?></div>
+			<?php endif; ?>
+			<?php if(get_field('main_headline')): ?>
+				<div class="main_headline"><?php the_field('main_headline'); ?></div>
 			<?php else : ?>
 				<?php the_title(); ?>
+			<?php endif; ?>
+			<?php if(get_field('lower_headline')): ?>
+				<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
 			<?php endif; ?>
 		</h1>
 		
