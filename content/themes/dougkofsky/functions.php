@@ -187,3 +187,18 @@ require get_template_directory() . '/inc/jetpack.php';
 	// Remove First Price
 	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 	
+	// Set Max Qty to 3
+		// Simple products
+		add_filter( 'woocommerce_quantity_input_args', 'jk_woocommerce_quantity_input_args', 10, 2 );
+		function jk_woocommerce_quantity_input_args( $args, $product ) {
+	    	$args['max_value'] 		= 3; 	// Maximum value
+	    	return $args;
+		}
+
+		// Variations
+		add_filter( 'woocommerce_available_variation', 'jk_woocommerce_available_variation' );
+		function jk_woocommerce_available_variation( $args ) {
+			$args['max_qty'] = 3; 		// Maximum value (variations)
+	    	return $args;
+		}
+	
