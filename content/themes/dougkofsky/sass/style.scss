@@ -597,9 +597,11 @@ ul.woocommerce-error {
 	.images .page-next, .images .page-previous {
 		position:relative;
 		z-index:99;
+		width:10%;
+		height:100%;
 		@media #{$small} {
 			position:absolute;
-			top:50%;
+			top:0;
 		}
 		
 	}
@@ -673,25 +675,33 @@ ul.woocommerce-error {
 
 span.page-previous, span.page-next {
 	text-indent:-9999px;
+	
 }
+
+	span.page-previous a, span.page-next a {
+		display:block;
+		width:100%;
+		height:100%;
+		background-repeat:no-repeat;
+		-webkit-transition: opacity .5s ease-in-out;
+		-moz-transition: opacity .5s ease-in-out;
+		-ms-transition: opacity .5s ease-in-out;
+		-o-transition: opacity .5s ease-in-out;
+		transition: opacity .5s ease-in-out;
+		opacity: 0.6;
+	}
 span.page-previous a {
-	display:block;
 	float:left;
-	width:13px;
-	height:33px;
 	background-image: url('images/leftArrow.png');
-	opacity: 0.6;
+	background-position:left center;
 }
 	span.page-previous a:hover {
 		opacity:1;
 	}
 span.page-next a{
-	display:block;
 	float:right;
-	width:13px;
-	height:33px;
 	background-image: url('images/rightArrow.png');
-	opacity:.6;
+	background-position:right center;
 }
 	span.page-next a:hover {
 		opacity:1;
