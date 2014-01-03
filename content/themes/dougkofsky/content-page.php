@@ -8,7 +8,19 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title">
+			<?php if(get_field('upper_headline')): ?>
+				<div class="upper_headline"><?php the_field('upper_headline'); ?></div>
+			<?php endif; ?>
+			<?php if(get_field('main_headline')): ?>
+				<div class="main_headline"><?php the_field('main_headline'); ?></div>
+			<?php else : ?>
+				<div class="main_headline"><?php the_title(); ?></div>
+			<?php endif; ?>
+			<?php if(get_field('lower_headline')): ?>
+				<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
+			<?php endif; ?>
+		</h1>
 		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 			<div class="social social-header">
