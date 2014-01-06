@@ -35,9 +35,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	<div class="large-12 columns">
 		<div class="row">
 			<div class="large-10 columns large-centered">
-				<h1 class="product_title"><?php the_title(); ?></h1>
 				<div class="row">
-					<div id="product-sidebar" class="large-4 push-8 columns">
+					<div class="large-4 push-8 columns">
 						<div class="next_prev_thumbs">
 							<div class="previous_thumb">
 								<?php previous_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link', 'loop' => true) ); ?>
@@ -50,8 +49,36 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								<?php next_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link', 'loop' => true) ); ?>
 								<div class="next_thumb_arrow"></div>
 							</div>
-							
 						</div>
+					</div>
+					<div class="summary entry-summary product-main large-8 pull-4 columns">
+						<h1 class="product_title"><?php the_title(); ?></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="summary entry-summary product-main large-8 columns">
+						<?php the_content(); ?>
+						
+						<div id="addToCartModal" class="reveal-modal tiny">
+							<?php
+								do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+								
+								/**
+								 * woocommerce_single_product_summary hook
+								 *
+								 * @hooked woocommerce_template_single_title - 5
+								 * @hooked woocommerce_template_single_price - 10
+								 * @hooked woocommerce_template_single_excerpt - 20
+								 * @hooked woocommerce_template_single_add_to_cart - 30
+								 * @hooked woocommerce_template_single_meta - 40
+								 * @hooked woocommerce_template_single_sharing - 50
+								 */
+								do_action( 'woocommerce_single_product_summary' );
+							?>
+							<a class="close-reveal-modal">x</a>
+						</div>
+					</div><!-- .summary -->
+					<div id="product-sidebar" class="large-4 columns">
 						<?php
 						global $product;
 						if ( $product->get_price_html() ) : ?>
@@ -83,31 +110,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						</div>
 						<hr>
 					</div>
-    	
-					<div class="summary entry-summary product-main large-8 pull-4 columns">
-						<?php the_content(); ?>
-						
-						<div id="addToCartModal" class="reveal-modal tiny">
-						<?php
-							do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-							
-							/**
-							 * woocommerce_single_product_summary hook
-							 *
-							 * @hooked woocommerce_template_single_title - 5
-							 * @hooked woocommerce_template_single_price - 10
-							 * @hooked woocommerce_template_single_excerpt - 20
-							 * @hooked woocommerce_template_single_add_to_cart - 30
-							 * @hooked woocommerce_template_single_meta - 40
-							 * @hooked woocommerce_template_single_sharing - 50
-							 */
-							do_action( 'woocommerce_single_product_summary' );
-						?>
-						<a class="close-reveal-modal">x</a>
-						
-						</div>
-						
-					</div><!-- .summary -->
     		
 				</div>
 			</div><!-- large-10 -->
