@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						<?php endif; ?>
 						<hr>
 						<div class="social">
-							<h4>Share this:</h4>
+							<h6>Share this:</h6>
     						<?php if(get_field('social_links', 'option')): ?>
 								<?php while(has_sub_field('social_links', 'option')): ?>
 									<?php if(get_sub_field('social_network_name') === "Twitter") : ?>						

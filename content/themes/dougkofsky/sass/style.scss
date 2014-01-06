@@ -354,7 +354,7 @@ form label abbr {
 	}
 
 	@media #{$small} {
-		font-size:emCalc(22px);
+		font-size:emCalc(30px);
 		line-height:81px;
 		margin:0;
 		width:100%;
@@ -538,6 +538,14 @@ h1.entry-title .small {
 	.social-header a:last-child {
 		margin-right:0;
 	}
+
+/* =Social Icons
+----------------------------------------------- */
+
+.social img {
+	width: 38px;
+}
+
 
 /* =Messages 
 ----------------------------------------------- */

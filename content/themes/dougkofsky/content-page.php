@@ -9,17 +9,33 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title">
-			<?php if(get_field('upper_headline')): ?>
-				<div class="upper_headline"><?php the_field('upper_headline'); ?></div>
-			<?php endif; ?>
-			<?php if(get_field('main_headline')): ?>
-				<div class="main_headline"><?php the_field('main_headline'); ?></div>
-			<?php else : ?>
-				<div class="main_headline"><?php the_title(); ?></div>
-			<?php endif; ?>
-			<?php if(get_field('lower_headline')): ?>
-				<div class="lower_headline"><?php the_field('lower_headline'); ?></div>
-			<?php endif; ?>
+
+			<?php
+				$upper_headline = get_field('upper_headline');
+				$main_headline = get_field('main_headline');
+				$lower_headline = get_field('lower_headline');
+				 
+				if($upper_headline || $main_headline || $lower_headline )
+				{
+					if($upper_headline)
+					{
+					echo '<div class="upper_headline">' . $upper_headline . '</div>';
+					}
+					if($main_headline)
+					{
+					echo '<div class="main_headline">' . $main_headline . '</div>';
+					}
+					if($lower_headline)
+					{
+					echo '<div class="lower_headline">' . $lower_headline . '</div>';
+					}
+				}
+				else
+				{
+				echo '<div class="main_headline">' . get_the_title() . '</div>';
+				}
+			 
+			?>
 		</h1>
 		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
