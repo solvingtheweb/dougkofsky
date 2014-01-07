@@ -41,9 +41,9 @@ global $post, $woocommerce, $product;
 
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 
-
+	<div class="pagination-overlay">
 		<span class="page-next"><?php next_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
 		<span class="page-previous"><?php previous_post_link_plus('format=%link&order_by=menu_order&meta_key=&loop=1&thumb=0&max_length=0&in_same_cat=0&excats=&num_results=1'); ?></span>
-
+	</div>
 
 </div>

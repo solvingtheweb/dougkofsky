@@ -603,6 +603,12 @@ ul.woocommerce-error {
 		max-width:100%;
 		max-height:850px;
 	}
+	.pagination-overlay {
+		display:none;
+		@media #{$x-small} {
+			display:block;
+		}
+	}
 	.images .page-next, .images .page-previous {
 		position:relative;
 		z-index:99;
@@ -634,7 +640,6 @@ ul.woocommerce-error {
 		}
 
 .next_prev_thumbs {
-	margin-bottom:40px;
 	@extend %clearfix;
 }
 .previous_thumb, .current_thumb, .next_thumb{
@@ -650,6 +655,7 @@ ul.woocommerce-error {
 	}
 	.next_thumb img, .previous_thumb img, .current_thumb img {
 		min-height:60px;
+		width:100%;
 	}
 	
 	.previous_thumb_arrow {
@@ -723,14 +729,13 @@ h1.product_title {
 	border-bottom: none;
 	text-align:left;
 	display:block;
-	margin-top: -34px;
-	padding: 0 40px;
+	margin-top: 20px;
+	padding: 0;
 
 	@media #{$small} {
 		font-size: emCalc(36px);
 		margin-top: 0;
 		margin-bottom:20px;
-		padding:0;
 	}
 }
 
