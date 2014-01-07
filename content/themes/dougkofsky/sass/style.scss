@@ -182,7 +182,8 @@ hr {
 	background-color: rgba(255, 255, 255, .2);
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	/*margin-bottom: 1.5em;*/
+	margin:12px 0;
 }
 
 img {
@@ -634,7 +635,7 @@ ul.woocommerce-error {
 		}
 
 .next_prev_thumbs {
-	margin-bottom:40px;
+	margin-bottom:18px;
 	@extend %clearfix;
 }
 .previous_thumb, .current_thumb, .next_thumb{
@@ -784,7 +785,7 @@ padding: 8px;
 	text-align:center;
 }
 	#product-sidebar button {
-		margin-bottom:0;
+		margin:12px 0;
 	}
 	#product-sidebar h4 {
 		margin-bottom:10px;
