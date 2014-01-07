@@ -94,16 +94,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
-	font-size: emCalc(32px);
+	font-size: emCalc(32px)!important;
 	font-weight:800;
 	display:inline-block;
 
 	@media #{$xx-small} {
-		font-size: emCalc(40px);
+		font-size: emCalc(40px)!important;
 	}
 
 	@media #{$x-small} {
-		font-size: emCalc(58px);
+		font-size: emCalc(58px)!important;
 	}
 }
 
