@@ -737,6 +737,20 @@ ul.woocommerce-error {
 	border:2px solid rgba(255,255,255, .5);
 }
 
+span.post-link {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+	span.post-link span.page-previous a {
+		margin-left:10px;
+	}
+	span.post-link span.page-next a {
+		margin-right:10px;
+	}
+
 #addToCartModal .images {
 	margin-bottom:0;
 }

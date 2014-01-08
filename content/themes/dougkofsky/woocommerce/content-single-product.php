@@ -39,15 +39,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 					<div class="large-4 push-8 columns">
 						<div class="next_prev_thumbs">
 							<div class="previous_thumb">
-								<?php previous_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link', 'loop' => true) ); ?>
-								<div class="previous_thumb_arrow"></div>
+								<?php previous_post_link_plus( array('thumb' => 'thumbnail', 'format' => '<span class="page-previous">%link</span>', 'loop' => true) ); ?>
 							</div>
 							<div class="current_thumb">
 								<?php echo get_the_post_thumbnail($post->ID, 'thumbnail'); ?>
 							</div>
 							<div class="next_thumb">
-								<?php next_post_link_plus( array('thumb' => 'thumbnail', 'link' => false, 'format' => '%link', 'loop' => true) ); ?>
-								<div class="next_thumb_arrow"></div>
+								<?php next_post_link_plus( array('thumb' => 'thumbnail', 'format' => '<span class="page-next">%link</span>', 'loop' => true) ); ?>
+								
 							</div>
 						</div>
 					</div>
