@@ -91,6 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Raleway', sans-serif;
 	color:#fff;
 	margin-bottom:10px;
+	text-shadow: 0 4px 8px rgba(0,0,0,.7);
 }
 
 h1 { 
@@ -114,6 +115,7 @@ h3 {
 /* Text elements */
 p {
 	margin-bottom: 1.5em;
+	text-shadow: 0 1px 8px rgba(0,0,0, .5);
 }
 ul, ol {
 	list-style:none;
@@ -356,7 +358,7 @@ form label abbr {
 
 	@media #{$small} {
 		font-size:emCalc(30px);
-		line-height:81px;
+		line-height:75px;
 		margin:0;
 		width:100%;
 	}
@@ -369,7 +371,6 @@ form label abbr {
 
 .site-title a { 
 	color:#fff;
-	vertical-align:middle;
 }
 
 /* =Menu
@@ -507,11 +508,7 @@ form label abbr {
 
 header.entry-header, header.page-header { 
 	text-align:center;
-	margin:80px 0 40px;
-}
-
-div.entry-title, h1.page-title {
-	text-shadow: 0 1px 8px rgba(0,0,0, .5);
+	margin:60px 0 40px;
 }
 
 div.entry-title .small {
