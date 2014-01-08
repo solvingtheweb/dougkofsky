@@ -665,7 +665,7 @@ ul.woocommerce-error {
 		z-index:99;
 		width:10%;
 		height:100%;
-		@media #{$small} {
+		@media #{$x-small} {
 			position:absolute;
 			top:0;
 		}
@@ -674,7 +674,7 @@ ul.woocommerce-error {
 		.images .page-next {
 			display:block;
 			margin-right:20px;
-			@media #{$small} {
+			@media #{$x-small} {
 				right:40px;
 				margin-right:0;
 			}
@@ -683,7 +683,7 @@ ul.woocommerce-error {
 		.images .page-previous {
 			display:block;
 			margin-left:40px;
-			@media #{$small} {
+			@media #{$x-small} {
 				left:40px;
 				margin-left:0;
 			}
