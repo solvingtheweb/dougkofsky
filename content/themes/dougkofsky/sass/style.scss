@@ -94,16 +94,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
-	font-size: emCalc(32px)!important;
+	font-size: emCalc(32px);
 	font-weight:800;
 	display:inline-block;
 
 	@media #{$xx-small} {
-		font-size: emCalc(40px)!important;
+		font-size: emCalc(40px);
 	}
 
 	@media #{$x-small} {
-		font-size: emCalc(58px)!important;
+		font-size: emCalc(58px);
 	}
 }
 
@@ -509,13 +509,13 @@ header.entry-header, header.page-header {
 	margin:80px 0 40px;
 }
 
-h1.entry-title, h1.page-title {
+div.entry-title, h1.page-title {
 	text-shadow: 0 1px 8px rgba(0,0,0, .5);
 	border-bottom: solid 1px #fff;
 	padding-bottom:.35em;
 }
 
-h1.entry-title .small {
+div.entry-title .small {
 	font-size:50%;
 	display:block;
 	margin-bottom:-52px; /* needed to bring small header span closer to large headline */
@@ -528,6 +528,57 @@ h1.entry-title .small {
 		margin-bottom:-96px;
 	}
 }
+	div.entry-title h1 {
+		display:block;
+	}
+	div.entry-title h1.main_headline {
+		font-size:emCalc(20px)!important;
+		
+		@media #{$xx-small} {
+			font-size:emCalc(26px)!important;
+		}
+		@media #{$x-small} {
+			font-size:emCalc(30px)!important;
+		}
+		@media #{$small} {
+			font-size:emCalc(48px)!important;
+		}
+		@media #{$medium} {
+			font-size:emCalc(65px)!important;
+		}
+	}
+	div.entry-title h1.lower_headline {
+		font-size:emCalc(12px)!important;
+		
+		@media #{$xx-small} {
+			font-size:emCalc(14px)!important;
+		}
+		@media #{$x-small} {
+			font-size:emCalc(16px)!important;
+		}
+		@media #{$small} {
+			font-size:emCalc(18px)!important;
+		}
+		@media #{$medium} {
+			font-size:emCalc(21px)!important;
+		}
+	}
+	div.entry-title h1.upper_headline {
+		font-size:emCalc(12px)!important;
+		
+		@media #{$xx-small} {
+			font-size:emCalc(14px)!important;
+		}
+		@media #{$x-small} {
+			font-size:emCalc(16px)!important;
+		}
+		@media #{$small} {
+			font-size:emCalc(18px)!important;
+		}
+		@media #{$medium} {
+			font-size:emCalc(21px)!important;
+		}
+	}
 
 .social-header {
 	margin-top:20px;

@@ -8,7 +8,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title">
+		<div class="entry-title">
 
 			<?php
 				$upper_headline = get_field('upper_headline');
@@ -19,24 +19,24 @@
 				{
 					if($upper_headline)
 					{
-					echo '<div class="upper_headline">' . $upper_headline . '</div>';
+					echo '<h1 class="upper_headline">' . $upper_headline . '</h1>';
 					}
 					if($main_headline)
 					{
-					echo '<div class="main_headline">' . $main_headline . '</div>';
+					echo '<h1 class="main_headline">' . $main_headline . '</h1>';
 					}
 					if($lower_headline)
 					{
-					echo '<div class="lower_headline">' . $lower_headline . '</div>';
+					echo '<h1 class="lower_headline">' . $lower_headline . '</h1>';
 					}
 				}
 				else
 				{
-				echo '<div class="main_headline">' . get_the_title() . '</div>';
+				echo '<h1 class="main_headline">' . get_the_title() . '</h1>';
 				}
 			 
 			?>
-		</h1>
+		</div>
 		
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 			<div class="social social-header">
