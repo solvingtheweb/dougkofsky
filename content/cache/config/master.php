@@ -728,5 +728,6 @@ return array(
 	),
 	'plugin.license_key' => '',
 	'plugin.type' => '',
+	'wordpress.home' => 'http://162.243.233.67/dougkofsky',
 	'pgcache.bad_behavior_path' => '',
 );
