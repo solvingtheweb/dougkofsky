@@ -7,7 +7,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header" style="
+		<?php if(get_field('top_headline_margin')) { 
+			echo 'margin-top:' . get_field('top_headline_margin') . 'px;'; 
+		}
+
+		if(get_field('bottom_headline_margin')) {
+			echo 'margin-bottom:' . get_field('bottom_headline_margin') . 'px;';
+		}
+		?>"
+
+		>
 		<div class="entry-title">
 
 			<?php
