@@ -60,7 +60,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						
 						<div id="addToCartModal" class="reveal-modal tiny">
 							<?php
-								do_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+								
+								woocommerce_get_template( 'single-product/product-image-modal.php' );
 								
 								/**
 								 * woocommerce_single_product_summary hook
