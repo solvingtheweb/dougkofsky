@@ -51,8 +51,10 @@
 		<?php if (get_the_ID() == '86' || get_the_ID() == '90') { ?>
 			<div class="social social-header">
 				<?php if(get_field('social_links', 'option')): ?>
-					<?php while(has_sub_field('social_links', 'option')): ?>						
+					<?php while(has_sub_field('social_links', 'option')): ?>
+						<?php if(get_sub_field('social_network_url')) : ?>						
 						<a href="<?php the_sub_field('social_network_url'); ?>"><img src="<?php the_sub_field('social_network_icon'); ?>" alt="Find me on <?php the_sub_field('social_network_name'); ?>"></a>
+						<?php endif; ?>
 					<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
