@@ -131,6 +131,8 @@ $small-screen: 768px;
 $medium-screen: 960px;
 // $large-screen: 1280px;
 
+
+
 // $screen: "only screen";
 $xx-small: "only screen and (min-width: #{$xx-small-screen})";
 $x-small: "only screen and (min-width: #{$x-small-screen})";
@@ -139,6 +141,14 @@ $medium: "only screen and (min-width: #{$medium-screen})";
 // $large: "only screen and (min-width: #{$large-screen})";
 // $landscape: "only screen and (orientation: landscape)";
 // $portrait: "only screen and (orientation: portrait)";
+
+$x-small-max: "only screen and (max-width: #{$x-small-screen})";
+$small-max: "only screen and (max-width: #{$small-screen})";
+$medium-max: "only screen and (max-width: #{$medium-screen})";
+
+$x-small-range: "only screen and (min--width: #{$xx-small-screen}) and (max-width:#{$x-small-screen})";
+$small-range: "only screen and (min-width: #{$x-small-screen}) and (max-width:#{$small-screen})";
+$medium-range: "only screen and (min-width: #{$small-screen}) and (max-width:#{$medium-screen})";
 
 //// Cursors
 

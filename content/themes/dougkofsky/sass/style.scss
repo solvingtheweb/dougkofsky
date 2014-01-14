@@ -276,6 +276,7 @@ a:active {
 
 .wp-caption {
 	padding-right:10px;
+	max-width:100%
 }
 
 /* Clearing */
@@ -527,55 +528,58 @@ div.entry-title .small {
 		margin-bottom:-96px;
 	}
 }
+
+div.entry-title {
+	display:inline-block;
+	border-bottom:solid 1px #fff;
+}
 	div.entry-title h1 {
 		display:block;
 	}
 	div.entry-title h1.main_headline {
-		font-size:emCalc(20px)!important;
 		
-		@media #{$xx-small} {
-			font-size:emCalc(26px)!important;
+		
+		@media #{$x-small-max} {
+			font-size:emCalc(26px) !important;
 		}
-		@media #{$x-small} {
-			font-size:emCalc(30px)!important;
+		@media #{$small-range} {
+			font-size:emCalc(30px) !important;
 		}
-		@media #{$small} {
-			font-size:emCalc(48px)!important;
+		@media #{$medium-range} {
+			font-size:emCalc(48px) !important;
 		}
 		@media #{$medium} {
-			font-size:emCalc(65px)!important;
+			font-size:emCalc(65px) !important;
 		}
 	}
 	div.entry-title h1.lower_headline {
-		font-size:emCalc(12px)!important;
 		
-		@media #{$xx-small} {
-			font-size:emCalc(14px)!important;
+		@media #{$x-small-max} {
+			font-size:emCalc(14px) !important;
 		}
-		@media #{$x-small} {
-			font-size:emCalc(16px)!important;
+		@media #{$small-range} {
+			font-size:emCalc(16px) !important;
 		}
-		@media #{$small} {
-			font-size:emCalc(18px)!important;
+		@media #{$medium-range} {
+			font-size:emCalc(18px) !important;
 		}
 		@media #{$medium} {
-			font-size:emCalc(21px)!important;
+			font-size:emCalc(21px);
 		}
 	}
 	div.entry-title h1.upper_headline {
-		font-size:emCalc(12px)!important;
 		
-		@media #{$xx-small} {
-			font-size:emCalc(14px)!important;
+		@media #{$x-small-max} {
+			font-size:emCalc(14px) !important;
 		}
-		@media #{$x-small} {
-			font-size:emCalc(16px)!important;
+		@media #{$small-range} {
+			font-size:emCalc(16px) !important;
 		}
-		@media #{$small} {
-			font-size:emCalc(18px)!important;
+		@media #{$medium-range} {
+			font-size:emCalc(18px) !important;
 		}
 		@media #{$medium} {
-			font-size:emCalc(21px)!important;
+			font-size:emCalc(21px);
 		}
 	}
 
@@ -632,8 +636,8 @@ ul.woocommerce-error {
 
 #jig1 .jig-loadMoreButton {
 	max-width:300px;
-	background: #222;
-	border: none;
+	background: #222 !important;
+	border: none !important;
 	font-size: 14px;
 	text-transform: uppercase;
 }
