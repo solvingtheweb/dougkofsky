@@ -40,7 +40,14 @@ add_action( 'wp_restore_post_revision', 'siteorigin_panels_revisions_restore', 1
  * @return mixed
  */
 function siteorigin_panels_revisions_fields( $fields ) {
-	$fields['panels_data_field'] = __('Page Builder Content', 'so-panels');
+	// Prevent the autosave message.
+	// TODO figure out how to include Page Builder data into the autosave.
+	if(!function_exists('get_current_screen')) return $fields;
+
+	$screen = get_current_screen();
+	if(!empty($screen) && $screen->base == 'post') return $fields;
+
+	$fields['panels_data_field'] = __('Page Builder Content', 'siteorigin-panels');
 	return $fields;
 
 }

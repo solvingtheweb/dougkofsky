@@ -56,6 +56,7 @@ Most standard widgets work with Page Builder, but here are some of our favorites
 
 * [Black Studio TinyMCE](http://wordpress.org/plugins/black-studio-tinymce-widget/) for a visual content editing widget.
 * [Meta Slider](http://wordpress.org/plugins/ml-slider/) for a responsive slider widget.
+* [Price Table Widget](http://wordpress.org/plugins/so-price-table-widget/) for a responsive price table.
 
 [Contact me](mailto:greg@siteorigin.com) if you've created a widget that would work well with Page Builder so I can add it to our recommended plugins list. Your plugin will also be recommended within Page Builder itself.
 
@@ -88,6 +89,33 @@ Page Builder is actively developed and updated, so generally I'd recommend that 
 I've tried to ensure that Page Builder is compatible with most plugin widgets. It's best to just download Page Builder and test for yourself.
 
 == Changelog ==
+
+= 1.4.3 =
+* Improved HTML5 validation be moving styles to header and footer.
+* Basic improvements to memory efficiency.
+* Black Studio TinyMCE height set to 350 pixels by default.
+* Fixed: Black Studio TinyMCE update error.
+
+= 1.4.2 =
+* All existing widget forms are loaded with the initial interface, rather than through AJAX. Improves performance.
+* Added safety check to ensure Page Builder data loaded before into the interface before saving into the database. Helps prevent content loss.
+* Small usability improvements.
+* Fixed: Embedded video widget.
+* Fixed: Conflict with GPP Slideshow plugin.
+* Fixed: Possible z-index conflicts with other plugins that have jQuery UI CSS.
+* Fixed: Constant notification about autosave being more recent than current version.
+
+= 1.4.1 =
+* Fixed: Issue that was removing content for widgets with a lot of data.
+* Fixed: Issue with duplicating widgets.
+
+= 1.4.0 =
+* Changed how widget forms are loaded to improve page load times.
+* Several improvements to increase compatibility with various plugins and widgets.
+* Properly handle widgets with form arrays.
+* CSS fixes.
+* Fixed compatibility issues with Black Studio TinyMCE.
+* Added more development hooks and filters.
 
 = 1.3.10 =
 * Updated to latest jPlayer.

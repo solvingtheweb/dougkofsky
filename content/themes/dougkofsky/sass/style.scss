@@ -532,55 +532,53 @@ div.entry-title .small {
 div.entry-title {
 	display:inline-block;
 	border-bottom:solid 1px #fff;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 	div.entry-title h1 {
 		display:block;
 	}
 	div.entry-title h1.main_headline {
 		
-		
 		@media #{$x-small-max} {
-			font-size:emCalc(26px) !important;
+			font-size:emCalc(18px);
+			letter-spacing:7px;
 		}
 		@media #{$small-range} {
-			font-size:emCalc(30px) !important;
+			font-size:emCalc(30px);
 		}
 		@media #{$medium-range} {
-			font-size:emCalc(48px) !important;
+			font-size:emCalc(48px);
 		}
-		@media #{$medium} {
-			font-size:emCalc(65px) !important;
-		}
+		
 	}
 	div.entry-title h1.lower_headline {
 		
 		@media #{$x-small-max} {
-			font-size:emCalc(14px) !important;
+			font-size:emCalc(14px);
+			letter-spacing: 3px;
+			line-height: 22px;
 		}
 		@media #{$small-range} {
-			font-size:emCalc(16px) !important;
+			font-size:emCalc(16px);
 		}
 		@media #{$medium-range} {
-			font-size:emCalc(18px) !important;
+			font-size:emCalc(18px);
 		}
-		@media #{$medium} {
-			font-size:emCalc(21px);
-		}
+		
 	}
 	div.entry-title h1.upper_headline {
 		
 		@media #{$x-small-max} {
-			font-size:emCalc(14px) !important;
+			font-size:emCalc(14px);
 		}
 		@media #{$small-range} {
-			font-size:emCalc(16px) !important;
+			font-size:emCalc(16px);
 		}
 		@media #{$medium-range} {
-			font-size:emCalc(18px) !important;
+			font-size:emCalc(18px);
 		}
-		@media #{$medium} {
-			font-size:emCalc(21px);
-		}
+		
 	}
 
 .social-header {

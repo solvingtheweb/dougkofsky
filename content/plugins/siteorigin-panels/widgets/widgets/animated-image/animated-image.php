@@ -3,26 +3,26 @@
 class SiteOrigin_Panels_Widget_Animated_Image extends SiteOrigin_Panels_Widget  {
 	function __construct() {
 		parent::__construct(
-			__('Animated Image (PB)', 'so-panels'),
+			__('Animated Image (PB)', 'siteorigin-panels'),
 			array(
-				'description' => __('An image that animates in when it enters the screen.', 'so-panels'),
+				'description' => __('An image that animates in when it enters the screen.', 'siteorigin-panels'),
 				'default_style' => 'simple',
 			),
 			array(),
 			array(
 				'image' => array(
 					'type' => 'text',
-					'label' => __('Image URL', 'so-panels'),
+					'label' => __('Image URL', 'siteorigin-panels'),
 				),
 				'animation' => array(
 					'type' => 'select',
-					'label' => __('Animation', 'so-panels'),
+					'label' => __('Animation', 'siteorigin-panels'),
 					'options' => array(
-						'fade' => __('Fade In', 'so-panels'),
-						'slide-up' => __('Slide Up', 'so-panels'),
-						'slide-down' => __('Slide Down', 'so-panels'),
-						'slide-left' => __('Slide Left', 'so-panels'),
-						'slide-right' => __('Slide Right', 'so-panels'),
+						'fade' => __('Fade In', 'siteorigin-panels'),
+						'slide-up' => __('Slide Up', 'siteorigin-panels'),
+						'slide-down' => __('Slide Down', 'siteorigin-panels'),
+						'slide-left' => __('Slide Left', 'siteorigin-panels'),
+						'slide-right' => __('Slide Right', 'siteorigin-panels'),
 					)
 				),
 			)

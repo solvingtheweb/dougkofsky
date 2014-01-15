@@ -172,7 +172,6 @@ jQuery( function ( $ ) {
     // Handle adding a new panel
     $( '#panels-dialog .panel-type' ).click( function () {
         var panel = $('#panels-dialog').panelsCreatePanel( $( this ).attr('data-class') );
-
         panels.addPanel(panel, null, null, true);
 
         // Close the add panel dialog
@@ -291,8 +290,10 @@ jQuery( function ( $ ) {
 
         // Clear the old form wrapper and copy across all the dialog forms so they're included when we submit
         clearFormCloned();
+
         $('#panels .panel').each( function(){
             var dialog = $(this).data('dialog');
+            dialog.trigger('panelscloneprepare');
             cloned.push( dialog.clone().hide().appendTo($form) );
         } );
         
@@ -304,5 +305,8 @@ jQuery( function ( $ ) {
         });
         cloned = [];
     }
+
+    // Add a hidden field to show that the JS is complete. If this doesn't run we assume that JS is broken and the interface hasn't loaded properly
+    $('#panels').append('<input name="panels_js_complete" type="hidden" value="1" />');
 
 } );
