@@ -151,6 +151,19 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 	 */
 	public function form($instance){
 
+		?>
+		<p>
+			<?php _e("We're moving this widget into a separate plugin in order to keep Page Builder core light weight.", 'siteorigin-panels') ?>
+			<?php
+			printf(
+				__("Either find an alternative in our <a href='%s' target='_blank'>recommended widgets</a> or install the <a href='%s' target='_blank'>Legacy Widgets plugin</a> to continue using it.", 'siteorigin-panels'),
+				admin_url('plugin-install.php?tab=favorites&user=siteorigin-pagebuilder'),
+				'http://siteorigin.com/page-builder-legacy-widgets/'
+			)
+			?>
+		</p>
+		<?php
+
 		foreach($this->form_args as $field_id => $field_args) {
 			if(isset($field_args['default']) && !isset($instance[$field_id])) {
 				$instance[$field_id] = $field_args['default'];
@@ -201,7 +214,7 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		if( !empty( $styles ) ) {
 			?>
 			<p>
-				<label for="<?php echo $this->get_field_id('origin_style') ?>"><?php _e('Style', 'so-panels') ?></label>
+				<label for="<?php echo $this->get_field_id('origin_style') ?>"><?php _e('Style', 'siteorigin-panels') ?></label>
 				<select name="<?php echo $this->get_field_name('origin_style') ?>" id="<?php echo $this->get_field_id('origin_style') ?>">
 					<?php foreach($this->get_styles() as $style_id => $style_info) : $presets = $this->get_style_presets($style_id); ?>
 						<?php if(!empty($presets)) : foreach($presets as $preset_id => $preset) : ?>
@@ -225,7 +238,7 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 
 			?>
 			<p>
-				<label for="<?php echo $this->get_field_id('origin_style_'.$id) ?>"><?php printf(__('%s Style', 'so-panels'), $sub[0]) ?></label>
+				<label for="<?php echo $this->get_field_id('origin_style_'.$id) ?>"><?php printf(__('%s Style', 'siteorigin-panels'), $sub[0]) ?></label>
 				<select name="<?php echo $this->get_field_name('origin_style_'.$id) ?>" id="<?php echo $this->get_field_id('origin_style_'.$id) ?>">
 					<?php foreach($the_widget->get_styles() as $style_id => $style_info) : $presets = $the_widget->get_style_presets($style_id); ?>
 						<?php if(!empty($presets)) : foreach($presets as $preset_id => $preset) : ?>
@@ -581,58 +594,58 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		$this->form_args['query_post_type'] = array(
 			'type' => 'select',
 			'options' => $post_types,
-			'label' => __('Post Type', 'so-panels')
+			'label' => __('Post Type', 'siteorigin-panels')
 		);
 
 		// Add the posts per page field
 		$this->form_args['query_posts_per_page'] = array(
 			'type' => 'number',
 			'default' => 10,
-			'label' => __('Posts Per Page', 'so-panels'),
+			'label' => __('Posts Per Page', 'siteorigin-panels'),
 		);
 
 		$this->form_args['query_orderby'] = array(
 			'type' => 'select',
-			'label' => __('Order By', 'so-panels'),
+			'label' => __('Order By', 'siteorigin-panels'),
 			'options' => array(
-				'none'  => __('None', 'so-panels'),
-				'ID'  => __('Post ID', 'so-panels'),
-				'author'  => __('Author', 'so-panels'),
-				'name'  => __('Name', 'so-panels'),
-				'name'  => __('Name', 'so-panels'),
-				'date'  => __('Date', 'so-panels'),
-				'modified'  => __('Modified', 'so-panels'),
-				'parent'  => __('Parent', 'so-panels'),
-				'rand'  => __('Random', 'so-panels'),
-				'comment_count'  => __('Comment Count', 'so-panels'),
-				'menu_order'  => __('Menu Order', 'so-panels'),
+				'none'  => __('None', 'siteorigin-panels'),
+				'ID'  => __('Post ID', 'siteorigin-panels'),
+				'author'  => __('Author', 'siteorigin-panels'),
+				'name'  => __('Name', 'siteorigin-panels'),
+				'name'  => __('Name', 'siteorigin-panels'),
+				'date'  => __('Date', 'siteorigin-panels'),
+				'modified'  => __('Modified', 'siteorigin-panels'),
+				'parent'  => __('Parent', 'siteorigin-panels'),
+				'rand'  => __('Random', 'siteorigin-panels'),
+				'comment_count'  => __('Comment Count', 'siteorigin-panels'),
+				'menu_order'  => __('Menu Order', 'siteorigin-panels'),
 			)
 		);
 
 		$this->form_args['query_order'] = array(
 			'type' => 'select',
-			'label' => __('Order', 'so-panels'),
+			'label' => __('Order', 'siteorigin-panels'),
 			'options' => array(
-				'ASC'  => __('Ascending', 'so-panels'),
-				'DESC'  => __('Descending', 'so-panels'),
+				'ASC'  => __('Ascending', 'siteorigin-panels'),
+				'DESC'  => __('Descending', 'siteorigin-panels'),
 			)
 		);
 
 		$this->form_args['query_sticky'] = array(
 			'type' => 'select',
-			'label' => __('Sticky Posts', 'so-panels'),
+			'label' => __('Sticky Posts', 'siteorigin-panels'),
 			'options' => array(
-				''  => __('Default', 'so-panels'),
-				'ignore'  => __('Ignore Sticky', 'so-panels'),
-				'exclude'  => __('Exclude Sticky', 'so-panels'),
-				'only'  => __('Only Sticky', 'so-panels'),
+				''  => __('Default', 'siteorigin-panels'),
+				'ignore'  => __('Ignore Sticky', 'siteorigin-panels'),
+				'exclude'  => __('Exclude Sticky', 'siteorigin-panels'),
+				'only'  => __('Only Sticky', 'siteorigin-panels'),
 			)
 		);
 
 		$this->form_args['query_additional'] = array(
 			'type' => 'text',
-			'label' => __('Additional Arguments', 'so-panels'),
-			'description' => sprintf(__('Additional query arguments. See <a href="%s" target="_blank">query_posts</a>.', 'so-panels'), 'http://codex.wordpress.org/Function_Reference/query_posts'),
+			'label' => __('Additional Arguments', 'siteorigin-panels'),
+			'description' => sprintf(__('Additional query arguments. See <a href="%s" target="_blank">query_posts</a>.', 'siteorigin-panels'), 'http://codex.wordpress.org/Function_Reference/query_posts'),
 		);
 	}
 

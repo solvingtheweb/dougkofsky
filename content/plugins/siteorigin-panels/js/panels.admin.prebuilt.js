@@ -54,7 +54,6 @@ jQuery(function($){
                 }
             }
         ]
-        
     } );
     
     // Turn the dropdown into a chosen selector

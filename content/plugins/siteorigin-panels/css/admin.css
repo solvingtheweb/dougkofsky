@@ -86,7 +86,7 @@ html {
 	width: 10px;
 	
 	background: rgba(0, 150, 211, 0);
-	cursor: move;
+	cursor: col-resize;
 	-webkit-transition: background 0.25s ease-in-out;
 	-moz-transition: background 0.25s ease-in-out;
 	-o-transition: background 0.25s ease-in-out;
@@ -291,6 +291,7 @@ html {
 	background-image: -o-linear-gradient(bottom, #f1f2f2, #f5f6f6);
 	background-image: linear-gradient(to top, #f1f2f2, #f5f6f6);
 	cursor: pointer;
+	font-size: 12px;
 	padding: 2px 2px 2px 15px;
 	z-index: 10;
 }
@@ -404,37 +405,37 @@ html {
 #so-panels-panels {
 	position: relative;
 	
-	border: 1px solid #CCC;
+	border: 1px solid #e5e5e5;
 	z-index: 9;
 }
 
 #so-panels-panels h3.hndle {
-	background: #eee;
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#e5e5e5), to(#f4f4f4));
-	background-image: -webkit-linear-gradient(bottom, #e5e5e5, #f4f4f4);
-	background-image: -moz-linear-gradient(bottom, #e5e5e5, #f4f4f4);
-	background-image: -o-linear-gradient(bottom, #e5e5e5, #f4f4f4);
-	background-image: linear-gradient(to top, #e5e5e5, #f4f4f4);
-	border-bottom: 1px solid #CCC;
+	background: #F5F5F5;
+	border-bottom: 1px solid #dedede;
 	padding: 4px 9px 4px 9px;
 }
 
 #so-panels-panels h3.hndle button {
-	background: #eee;
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#e3e3e3), to(#ffffff));
-	background-image: -webkit-linear-gradient(bottom, #e3e3e3, #ffffff);
-	background-image: -moz-linear-gradient(bottom, #e3e3e3, #ffffff);
-	background-image: -o-linear-gradient(bottom, #e3e3e3, #ffffff);
-	background-image: linear-gradient(to top, #e3e3e3, #ffffff);
-	border-color: #aaa;
-	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.06);
-	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.06);
-	box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+	background: #f0f0f0;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #f6f6f6));
+	background: -ms-linear-gradient(bottom, #f0f0f0, #f6f6f6);
+	background: -moz-linear-gradient(center bottom, #f0f0f0 0%, #f6f6f6 100%);
+	background: -o-linear-gradient(#f6f6f6, #f0f0f0);
+	border-color: #C0C0C0;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
 	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f0f0f0', GradientType=0);
 	float: left;
 	margin-right: 2px;
+	outline: none;
 	padding: 7px 8px;
 	visibility: visible;
+}
+
+#so-panels-panels h3.hndle button:hover {
+	background: #FFFFFF;
 }
 
 #so-panels-panels h3.hndle button:active {
@@ -500,6 +501,10 @@ html {
 
 .so-gallery-widget-select-attachments {
 	float: right;
+}
+
+.panel-dialog .so-gallery-widget-select-attachments {
+	display: inline-block !important;
 }
 
 #panels-home-page #post-body-wrapper {
@@ -749,23 +754,24 @@ html {
 .ui-dialog.panels-admin-dialog .ui-dialog-titlebar-close {
 	position: relative;
 	
-	background: #e3e3e3;
-	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e3e3e3), color-stop(1, #ffffff));
-	background: -ms-linear-gradient(bottom, #e3e3e3, #ffffff);
-	background: -moz-linear-gradient(center bottom, #e3e3e3 0%, #ffffff 100%);
-	background: -o-linear-gradient(#ffffff, #e3e3e3);
-	border: 1px solid #aaa;
+	background: #f0f0f0;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #f6f6f6));
+	background: -ms-linear-gradient(bottom, #f0f0f0, #f6f6f6);
+	background: -moz-linear-gradient(center bottom, #f0f0f0 0%, #f6f6f6 100%);
+	background: -o-linear-gradient(#f6f6f6, #f0f0f0);
+	border: 1px solid #C0C0C0;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.06);
-	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.06);
-	box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
 	cursor: pointer;
 	display: inline-block;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e3e3e3', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f0f0f0', GradientType=0);
 	margin: 0;
 	margin-right: .1em;
+	outline: none;
 	overflow: visible;
 	padding: 5px;
 	text-align: center;
@@ -860,11 +866,11 @@ html {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	padding: 0 !important;
-	z-index: 80002;
+	z-index: 80002 !important;
 }
 
 .ui-dialog.panels-admin-dialog .ui-dialog-buttonpane {
@@ -926,6 +932,7 @@ html {
 }
 
 .ui-dialog.panels-admin-dialog .ui-dialog-content {
+	background: #ffffff no-repeat center center;
 	max-height: 600px;
 	overflow: auto;
 	padding: 12px;
@@ -941,7 +948,6 @@ html {
 
 .ui-dialog.panels-admin-dialog .ui-dialog-content label {
 	color: #333;
-	display: inline-block;
 }
 
 .ui-dialog.panels-admin-dialog .ui-dialog-content p:hover label {
@@ -965,6 +971,10 @@ html {
 	margin-top: 5px;
 }
 
+.ui-dialog.panels-admin-dialog .ui-dialog-content.ui-dialog-content-loading {
+	background-image: url('./images/ajax-loader-small.gif');
+}
+
 .ui-dialog.panels-admin-dialog .ui-dialog-buttonpane {
 	padding: 5px;
 }
@@ -985,12 +995,13 @@ html {
 	color: #fff;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e9fd2', endColorstr='#21759b', GradientType=0);
 	margin-right: 8px;
+	outline: none;
 	padding: 6px 12px;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .ui-dialog.panels-admin-dialog.panels-ajax-loading .ui-dialog-buttonpane {
-	background: #f1f1f1 url(./images/ajax-loader.gif) no-repeat 15px 17px;
+	background: #f1f1f1 url(./images/ajax-loader-small-grey.gif) no-repeat 15px 22px;
 }
 
 #so-panels-recommended-plugins {
