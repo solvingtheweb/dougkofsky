@@ -21,7 +21,7 @@ Tags:
 @import "jquery.justifiedgallery";
 @import "compass/layout/sticky-footer";
 
-@include sticky-footer(54px, "#content", "#content_footer", "#footer");
+@include sticky-footer(54px, "#page", "#page_footer", "#footer");
 
 
 /* Mixins */
