@@ -7,18 +7,20 @@
  * @package dougkofsky
  */
 ?>
-
+		<div id="content_footer"></div>
 	</div><!-- #content -->
 
-	<div class="push"></div>
+	
 
-	<footer id="colophon" class="site-footer-container" role="contentinfo">
-		<div class="site-footer row">
-			<div class="site-info large-12 columns">
-				&copy;<?php the_time('Y'); ?> Doug Kofsky
-			</div><!-- .site-info -->
-		</div>
-	</footer><!-- #colophon -->
+	<div id="footer">
+		<footer id="colophon" class="site-footer-container" role="contentinfo">
+			<div class="site-footer row">
+				<div class="site-info large-12 columns">
+					&copy;<?php the_time('Y'); ?> Doug Kofsky
+				</div><!-- .site-info -->
+			</div>
+		</footer><!-- #colophon -->
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
