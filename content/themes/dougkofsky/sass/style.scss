@@ -258,6 +258,10 @@ a:active {
 	}
 }
 
+.alignnone {
+	margin-bottom:20px;
+}
+
 @media #{$small} {
 	.summary.product-main .alignright {
 		margin-right:0;
@@ -303,6 +307,13 @@ a:active {
 .site-content:after,
 .site-footer:after {
 	clear: both;
+}
+
+/* =Page Builder by Site Origin
+----------------------------------------------- */
+
+.panel-grid-cell {
+	line-height:0;
 }
 
 /* =Forms
@@ -664,7 +675,7 @@ ul.woocommerce-error {
 	.images .page-next, .images .page-previous {
 		position:relative;
 		z-index:99;
-		width:10%;
+		width:25%;
 		height:100%;
 		@media #{$x-small} {
 			position:absolute;
@@ -674,9 +685,9 @@ ul.woocommerce-error {
 	}
 		.images .page-next {
 			display:block;
-			margin-right:20px;
+			margin-right:40px;
 			@media #{$x-small} {
-				right:40px;
+				right:0;
 				margin-right:0;
 			}
 			
@@ -685,7 +696,7 @@ ul.woocommerce-error {
 			display:block;
 			margin-left:40px;
 			@media #{$x-small} {
-				left:40px;
+				left:0;
 				margin-left:0;
 			}
 			
@@ -775,7 +786,7 @@ span.page-previous, span.page-next {
 span.page-previous a {
 	float:left;
 	background-image: url('images/leftArrow.png');
-	background-position:left center;
+	background-position:left 40px center;
 }
 	span.page-previous a:hover {
 		opacity:1;
@@ -783,7 +794,7 @@ span.page-previous a {
 span.page-next a{
 	float:right;
 	background-image: url('images/rightArrow.png');
-	background-position:right center;
+	background-position:right 40px center;
 }
 	span.page-next a:hover {
 		opacity:1;
