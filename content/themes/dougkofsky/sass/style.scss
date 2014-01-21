@@ -324,6 +324,13 @@ margin: 3px 8px 12px 0;
 float: left;
 }
 
+select {
+    height: 30px;
+    line-height: 30px;
+    padding-top: 5px;
+    width: 100%;
+}
+
 form label abbr { 
 	color:#f75858;
 	border-bottom:none !important;
@@ -617,7 +624,7 @@ div.entry-title {
 	background:#30475b;
 	border-color:#3d5366;
 	padding: 6px;
-	margin:0 0.9375em;
+	margin:0 0.9375em 20px;
 	border-radius: 4px;
 }
 
@@ -1065,7 +1072,17 @@ clear: both;
 	background:none;
 }
 
-#order_review table td:first-child, #order_review table th:first-child { padding-left:0;}
+#order_review table thead, #order_review table tfoot tr.cart-subtotal {
+	font-weight:bold;
+}
+
+#order_review table tfoot tr.total .amount {
+	font-weight:bold;
+	font-size:18px;
+	color:#46cf7a;
+}
+
+#order_review table td:first-child, #order_review table th:first-child { padding-left:0; width:60%;}
 #order_review table td:last-child, #order_review table th:last-child { padding-right:0;}
 
 #cc-expire-month, #cc-expire-year {
