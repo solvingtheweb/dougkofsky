@@ -107,8 +107,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								<?php endwhile; ?>
 							<?php endif; ?>
 							
-						</div>
+						</div>	
 						<hr>
+
+						<?php
+							$prev_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+
+							$home_url = get_home_url();
+							$home_id = $home_url .= '/';
+
+							if ( $prev_url == $home_url ) {
+								echo '<a href="#" onclick="javascript:history.go(-1);return false;">Back to Mountainscapes</a>';
+							} else {
+								echo '<a href="' . get_permalink( 38 ) . '">Back to Mountainscapes</a>';
+							}
+						?>
 					</div>
     		
 				</div>
