@@ -7,8 +7,7 @@
 
 (function($){
 
-    var newPanelId = 0;
-
+    var newPanelIdInit = 0;
     panels.undoManager = new UndoManager();
     
     /**
@@ -17,18 +16,32 @@
     $.fn.getPanelData = function(){
         var $$ = $(this);
         var data = {};
+        var parts;
 
         $$.data('dialog').find( '*[name]' ).not( '[data-info-field]' ).each( function () {
-            var name = /widgets\[[0-9]+\]\[([^\]]+)\]/.exec($(this).attr('name'));
+            var $$ = $(this);
+            var name = /widgets\[[0-9]+\]\[(.*)\]/.exec($$.attr('name'));
             name = name[1];
-            data[name] = $( this ).val();
+
+            parts = name.split('][');
+            var sub = data;
+            for(var i = 0; i < parts.length; i++) {
+                if(i == parts.length - 1) {
+                    sub[parts[i]] = ($$.attr('type') == 'checkbox') ? $$.is(':checked') : $$.val();
+                }
+                else {
+                    if(typeof sub[parts[i]] == 'undefined') sub[parts[i]] = [];
+                    sub = sub[parts[i]];
+                }
+            }
+
         } );
 
         return data;
     }
 
     /**
-     * Create and return a new panel
+     * Create and return a new panel object
      *
      * @param type
      * @param data
@@ -36,7 +49,7 @@
      * @return {*}
      */
     $.fn.panelsCreatePanel = function ( type, data ) {
-        newPanelId++;
+        var newPanelId = newPanelIdInit++;
 
         var dialogWrapper = $( this );
         var $$ = dialogWrapper.find('.panel-type' ).filter(function() { return $(this).data('class') === type });
@@ -50,9 +63,6 @@
 
         var dialog;
 
-        var formHtml = $$.attr( 'data-form' );
-        formHtml = formHtml.replace( /\{\$id\}/g, newPanelId );
-
         panel
             .data( {
                 // We need this data to update the title
@@ -63,7 +73,8 @@
                 dialog.dialog( 'open' );
                 return false;
             } )
-            .end().find( '.description' ).html( $$.find( '.description' ).html() );
+            .end().find( '.description' ).html( $$.find( '.description' ).html() )
+            .end().find( '.title h4' ).html( $$.find( 'h3' ).html() );
 
         // Create the dialog buttons
         var dialogButtons = {};
@@ -124,7 +135,6 @@
 
         dialog = $( '<div class="panel-dialog dialog-form"></div>' )
             .addClass('widget-dialog-' + type.toLowerCase())
-            .html( formHtml )
             .dialog( {
                 dialogClass: 'panels-admin-dialog',
                 autoOpen:    false,
@@ -133,14 +143,11 @@
                 resizable:   false,
                 title:       panels.i10n.messages.editWidget.replace( '%s', $$.attr( 'data-title' ) ),
                 minWidth:    760,
-                maxHeight:   Math.round($(window).height() * 0.925),
+                maxHeight:   Math.min( Math.round($(window).height() * 0.875), 800),
                 create:      function(event, ui){
                     $(this ).closest('.ui-dialog' ).find('.show-in-panels' ).show();
                 },
                 open:        function () {
-                    // This gives panel types a chance to influence the form
-                    $( this ).trigger( 'panelsopen', panel, dialog );
-
                     // This fixes a weird a focus issue
                     $(this ).closest('.ui-dialog' ).find('a' ).blur();
 
@@ -166,8 +173,44 @@
                 }
             });
 
+        // Load the widget form from the server
+        dialog.addClass('ui-dialog-content-loading');
+
         // This is so we can access the dialog (and its forms) later.
         panel.data('dialog', dialog).disableSelection();
+
+        var loadForm = function (result){
+            // the newPanelId is defined at the top of this function.
+            result = result.replace( /\{\$id\}/g, newPanelId );
+            dialog.html(result).dialog("option", "position", "center");
+
+            panel.panelsSetPanelTitle();
+
+            // This is to refresh the dialog positions
+            $( window ).resize();
+            $( document ).trigger('panelssetup', panel, dialog);
+            $( '#panels-container .panels-container' ).trigger( 'refreshcells' );
+
+            // This gives panel types a chance to influence the form
+            dialog.removeClass('ui-dialog-content-loading').trigger( 'panelsopen', panel, dialog );
+        };
+
+        if(typeof data != 'undefined' && typeof data['_panels_form'] != 'undefined' ) {
+            loadForm( data['_panels_form'] );
+        }
+        else {
+            // Load the panels data
+            $.post(
+                ajaxurl,
+                {
+                    'action' : 'so_panels_widget_form',
+                    'widget' : type.replace('\\\\', '\\'),
+                    'instance' : JSON.stringify(data)
+                },
+                loadForm,
+                'html'
+            );
+        }
 
         // Add the action buttons
         panel.find('.title .actions')
@@ -194,33 +237,11 @@
                 })
             );
 
-        if ( data != undefined ) {
-            // Populate the form values
-            for ( c in data ) {
-                if ( c != 'info' ) {
-                    var de = dialog.find( '*[name$="[' + c + ']"]' );
-
-                    if ( de.attr( 'type' ) == 'checkbox' ) {
-                        de.prop( 'checked', Boolean( data[c] ) );
-                    }
-                    else {
-                        de.val( data[c] );
-                    }
-                }
-            }
-        }
-
-        panel.panelsSetPanelTitle();
-
-        // This is to refresh the dialog positions
-        $( window ).resize();
-        $(document).trigger('panelssetup', panel, dialog);
-
         return panel;
     }
 
     /**
-     * Add a new Panel (well, widget)
+     * Add a widget to the interface.
      *
      * @param panel The new panel (Widget) we're adding.
      * @param container The container we're adding it to
@@ -230,7 +251,11 @@
     panels.addPanel = function(panel, container, position, animate){
         if(container == null) container = $( '#panels-container .cell.cell-selected .panels-container' ).eq(0);
         if(container.length == 0) container = $( '#panels-container .cell .panels-container' ).eq(0);
-        if(container.length == 0) return;
+        if(container.length == 0) {
+            // There are no containers, so lets add one.
+            panels.createGrid(1, [1]);
+            container = $( '#panels-container .cell .panels-container' ).eq(0);
+        }
 
         if (position == null) container.append( panel );
         else {
