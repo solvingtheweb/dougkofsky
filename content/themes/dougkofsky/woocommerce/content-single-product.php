@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						</div>	
 						<hr>
 
-						<a href="<?php get_attachment_link( get_post_thumbnail_id() ); ?>" class="magnify_button">View Larger Size</a><br />
+						<a href="<?php echo get_attachment_link(get_post_thumbnail_id()); ?>" class="magnify_button">View Larger Size</a><br />
 
 						<?php
 							$prev_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
