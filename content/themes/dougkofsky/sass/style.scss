@@ -772,9 +772,6 @@ span.post-link {
 		margin-right:10px;
 	}
 
-#addToCartModal .images {
-	margin-bottom:0;
-}
 
 span.page-previous, span.page-next {
 	text-indent:-9999px;
@@ -837,6 +834,14 @@ padding: 8px;
 	background-color: #000000;
 	border-color:white;
 }
+
+.reveal-modal.tiny {
+
+	@media #{$small} {
+		width:40%;
+		margin-left:-20%;
+	}
+}
 	.reveal-modal .close-reveal-modal {
 	font-size: 1.375em;
 	position: absolute;
@@ -844,6 +849,11 @@ padding: 8px;
 	right: 0.6875em;
 	color: #ffffff;
 	font-weight: 400;
+	}
+
+	.reveal-modal img {
+		max-height:200px;
+		margin:0;
 	}
 	.reveal-modal h1.product_title {
 		margin: 20px 0;
@@ -871,10 +881,26 @@ padding: 8px;
 	table.variations tr, table.variations tr td {
 		background:none;
 		vertical-align:middle;
+		padding:0;
 	}
+
+	.reveal-modal ul.price-selection {
+		margin:10px 0;
+	}
+
+		.reveal-modal ul.price-selection li {
+			margin: 0;
+			border-bottom: solid 1px #333;
+			padding: 10px 0;
+		}
+
+		.reveal-modal ul.price-selection li:first-child {
+			border-top: solid 1px #333;
+		}
 	
 #product-sidebar {
 	text-align:center;
+	margin-bottom:60px;
 }
 	#product-sidebar button {
 		margin:12px 0;
@@ -1002,6 +1028,7 @@ td.product-name dl.variation dt {
 .quantity {
 	max-width: 212px;
 	height: 30px;
+	margin-top: 10px;
 }
 .quantity .minus {
 	float: left;
