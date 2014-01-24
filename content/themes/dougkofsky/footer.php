@@ -7,11 +7,14 @@
  * @package dougkofsky
  */
 ?>
-
+		
 	</div><!-- #content -->
 
-	<div class="push"></div>
+	
 
+	<div id="page_footer"></div>
+</div><!-- #page -->
+<div id="footer">
 	<footer id="colophon" class="site-footer-container" role="contentinfo">
 		<div class="site-footer row">
 			<div class="site-info large-12 columns">
@@ -19,8 +22,7 @@
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->
-</div><!-- #page -->
-
+</div>
 <?php wp_footer(); ?>
 
 <script>

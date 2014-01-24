@@ -19,6 +19,9 @@ Tags:
 @import "compass/reset";
 @import "app";
 @import "jquery.justifiedgallery";
+@import "compass/layout/sticky-footer";
+
+@include sticky-footer(64px, "#page", "#page_footer", "#footer");
 
 
 /* Mixins */
