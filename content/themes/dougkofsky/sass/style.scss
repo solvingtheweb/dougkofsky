@@ -119,6 +119,7 @@ h3 {
 p {
 	margin-bottom: 1.5em;
 	text-shadow: 0 4px 8px rgba(0,0,0,.7);
+	font-weight:600;
 }
 	p.form-row {
 		text-shadow: none;
@@ -897,6 +898,10 @@ padding: 8px;
 		.reveal-modal ul.price-selection li:first-child {
 			border-top: solid 1px #333;
 		}
+
+		.reveal-modal ul.price-selection li label span {
+			font-weight:bold;
+		}
 	
 #product-sidebar {
 	text-align:center;
@@ -1028,7 +1033,7 @@ td.product-name dl.variation dt {
 .quantity {
 	max-width: 212px;
 	height: 30px;
-	margin-top: 10px;
+	margin:10px 0 30px;
 }
 .quantity .minus {
 	float: left;

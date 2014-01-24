@@ -60,12 +60,12 @@ global $woocommerce, $product, $post;
     <?php do_action('woocommerce_before_add_to_cart_button'); ?>
  
     <div class="single_variation_wrap" style="display:none;">
+        <div class="single_variation"></div>
         <div class="variations_button">
             <strong>Choose a Quantity:</strong>
             <input type="hidden" name="variation_id" value="" />
             <?php woocommerce_quantity_input(); ?>
         </div>
-        <div class="single_variation"></div>
         <button type="submit" class="single_add_to_cart_button button alt"><?php echo apply_filters('single_add_to_cart_text', __('Add to cart', 'woocommerce'), $product->product_type); ?></button>
     </div>
     <div><input type="hidden" name="product_id" value="<?php echo esc_attr( $post->ID ); ?>" /></div>
