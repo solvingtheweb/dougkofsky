@@ -110,6 +110,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						</div>	
 						<hr>
 
+						<a href="<?php get_attachment_link( get_post_thumbnail_id() ); ?>" class="magnify_button">View Larger Size</a><br />
+
 						<?php
 							$prev_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 
@@ -117,9 +119,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 							$home_id = $home_url .= '/';
 
 							if ( $prev_url == $home_url ) {
-								echo '<a href="#" onclick="javascript:history.go(-1);return false;">Back to Mountainscapes</a>';
+								echo '<a href="#" class="back_button" onclick="javascript:history.go(-1);return false;">&laquo; Back to Mountainscapes</a>';
 							} else {
-								echo '<a href="' . get_permalink( 38 ) . '">Back to Mountainscapes</a>';
+								echo '<a href="' . get_permalink( 38 ) . '" class="back_button">&laquo; Back to Mountainscapes</a>';
 							}
 						?>
 					</div>

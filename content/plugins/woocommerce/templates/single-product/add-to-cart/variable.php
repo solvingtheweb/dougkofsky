@@ -2,14 +2,13 @@
 /**
  * Variable product add to cart
  *
- * @author 		WooThemes // edited by John @blackCrowValley
+ * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.5
  */
 
 global $woocommerce, $product, $post;
 ?>
-
 <script type="text/javascript">
     var product_variations_<?php echo $post->ID; ?> = <?php echo json_encode( $available_variations ) ?>;
 </script>
@@ -25,7 +24,6 @@ global $woocommerce, $product, $post;
 					<td class="value"><select id="<?php echo esc_attr( sanitize_title($name) ); ?>" name="attribute_<?php echo sanitize_title($name); ?>">
 						<option value=""><?php echo __('Choose an option', 'woocommerce') ?>&hellip;</option>
 						<?php
-							$finalSort = array();
 							if ( is_array( $options ) ) {
 
 								if ( empty( $_POST ) )
@@ -40,25 +38,13 @@ global $woocommerce, $product, $post;
 
 									foreach ( $terms as $term ) {
 										if ( ! in_array( $term->slug, $options ) ) continue;
-										$finalSort[$term->slug] = '<option value="' . $term->slug . '" ' . selected( $selected_value, $term->slug, false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
+										echo '<option value="' . $term->slug . '" ' . selected( $selected_value, $term->slug, false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
 									}
 								} else {
 									foreach ( $options as $option )
 										echo '<option value="' . $option . '" ' . selected( $selected_value, $option, false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $option ) . '</option>';
 								}
-						        // Set sorting option here.
-						        $sortingStyle = get_option('sorter_data');
-						        if( $sortingStyle == "Ascending" ){
-							ksort ($finalSort);
 							}
-							if( $sortingStyle == "Descending" ){
-							krsort ($finalSort);
-							}
-							foreach ($finalSort as $key => $val) {
-    								echo $val;
-							}	
-							}
-							
 						?>
 					</select> <?php
 						if ( sizeof($attributes) == $loop )
