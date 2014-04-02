@@ -18,7 +18,7 @@
 	<footer id="colophon" class="site-footer-container" role="contentinfo">
 		<div class="site-footer row">
 			<div class="site-info large-12 columns">
-				&copy;<?php the_time('Y'); ?> Doug Kofsky
+				&copy;<?php echo date('Y'); ?> Doug Kofsky
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->

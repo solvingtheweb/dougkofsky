@@ -1,7 +1,7 @@
 /**
  * navigation.js
  *
- * Handles toggling the navigation menu for small screens.
+ * Handles toggling the navigation menu for small screens, and keyboard navigation between prints.
  */
 ( function() {
 	var container, button, menu;
@@ -32,3 +32,17 @@
 			container.className += ' toggled';
 	};
 } )();
+
+// Keyboard Navigation
+(function($){
+   $(document).ready(function () {
+      $(document).keydown(function(e) {
+         var url = false;
+         if (e.which == 37) {  // Left arrow key code
+            url = $('.page-previous a').attr('href');    }
+         else if (e.which == 39) {  // Right arrow key code
+            url = $('.page-next a').attr('href');    }
+         if (url) { window.location = url;   }
+     });
+   });
+})(jQuery);
