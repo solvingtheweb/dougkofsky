@@ -368,7 +368,7 @@ form label abbr {
 .mini-cart-container {
 	background: rgba(40, 40, 40, .65);
 	padding:10px 0;
-	margin-bottom:20px;
+	/*margin-bottom:20px;*/
 	text-align:center;
 	font-family: 'Open Sans', sans-serif;
 	font-size:emCalc(14px);
@@ -550,7 +550,11 @@ form label abbr {
 
 header.entry-header, header.page-header { 
 	text-align:center;
-	margin:60px 0 40px;
+	margin:60px 0;
+
+	@media #{$x-small-max} {
+		margin:20px 0 !important;
+	}
 }
 
 div.entry-title .small {
@@ -945,11 +949,10 @@ padding: 8px;
 /* =Image Attachment Template
 ----------------------------------------------- */
 
-body.single-attachment #masthead, body.single-attachment .mini-cart-container {
+body.single-attachment #masthead, body.single-attachment .mini-cart-container, body.single-attachment #footer {
 	display:none;
 }
 .full-image {
-	display:block;
 	position: relative;
 	text-align:center;
 	overflow-x:scroll;
@@ -957,6 +960,9 @@ body.single-attachment #masthead, body.single-attachment .mini-cart-container {
 	.full-image .attachment {
 		position:relative;
 	}
+		.full-image .attachment a {
+			display:block;
+		}
 		.full-image .attachment .mountainblock {
 			position:absolute;
 			width:100%;
@@ -991,7 +997,12 @@ body.single-attachment #masthead, body.single-attachment .mini-cart-container {
 	}
 
 #image-navigation {
-	margin:20px 0;
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    padding: 20px 0;
 }
 
 	
