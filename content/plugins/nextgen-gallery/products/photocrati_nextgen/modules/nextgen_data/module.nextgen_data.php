@@ -15,7 +15,7 @@ class M_NextGen_Data extends C_Base_Module
             'photocrati-nextgen-data',
             'NextGEN Data Tier',
             "Provides a data tier for NextGEN gallery based on the DataMapper module",
-            '0.3',
+            '0.10',
             'http://www.photocrati.com',
             'Photocrati Media',
             'http://www.photocrati.com'
@@ -28,7 +28,6 @@ class M_NextGen_Data extends C_Base_Module
     {
         $this->get_registry()->add_adapter('I_Component_Factory', 'A_NextGen_Data_Factory');
 		#$this->get_registry()->add_adapter('I_CustomPost_DataMapper', 'A_Attachment_DataMapper', 'attachment');
-		$this->get_registry()->add_adapter('I_CustomTable_DataMapper', 'A_CustomTable_Sorting_DataMapper');
         $this->get_registry()->add_adapter('I_Installer', 'A_NextGen_Data_Installer');
     }
 
@@ -61,27 +60,36 @@ class M_NextGen_Data extends C_Base_Module
             'C_Image_Wrapper' => 'class.image_wrapper.php',
             'C_Image_Wrapper_Collection' => 'class.image_wrapper_collection.php',
             'C_Nextgen_Metadata' => 'class.nextgen_metadata.php',
+			'Mixin_NextGen_Table_Extras'	=>	'mixin.nextgen_table_extras.php',
             'C_Ngglegacy_Gallerystorage_Driver' => 'class.ngglegacy_gallerystorage_driver.php',
             'C_Ngglegacy_Thumbnail' => 'class.ngglegacy_thumbnail.php',
-            'C_Wordpress_Gallerystorage_Driver' => 'class.wordpress_gallerystorage_driver.php',
-            'I_Album' => 'interface.album.php',
-            'I_Gallery' => 'interface.gallery.php',
-            'I_Image' => 'interface.image.php',
-            'I_Album_Mapper' => 'interface.album_mapper.php',
-            'I_Component_Config' => 'interface.component_config.php',
-            'I_Gallerystorage_Driver' => 'interface.gallerystorage_driver.php',
-            'I_Gallery_Mapper' => 'interface.gallery_mapper.php',
-            'I_Gallery_Storage' => 'interface.gallery_storage.php',
-            'I_Gallery_Type' => 'interface.gallery_type.php',
-            'I_Image_Mapper' => 'interface.image_mapper.php'
+            'C_Wordpress_Gallerystorage_Driver' => 'class.wordpress_gallerystorage_driver.php'
         );
     }
     
     
     function _register_hooks()
     {
+		add_action('init', array(&$this, 'register_custom_post_types'));
     	add_filter('posts_orderby', array($this, 'wp_query_order_by'), 10, 2);
     }
+
+	function register_custom_post_types()
+	{
+		$types = array(
+			'ngg_album'		=>	'NextGEN Gallery - Album',
+			'ngg_gallery'	=>	'NextGEN Gallery - Gallery',
+			'ngg_pictures'	=>	'NextGEN Gallery - Image',
+		);
+
+		foreach ($types as $type => $label) {
+			register_post_type($type, array(
+				'label'					=>	$label,
+				'publicly_queryable'	=>	FALSE,
+				'exclude_from_search'	=>	TRUE,
+			));
+		}
+	}
     
     function wp_query_order_by($order_by, $wp_query)
     {
@@ -95,5 +103,20 @@ class M_NextGen_Data extends C_Base_Module
     	
     	return $order_by;
     }
+
+	static function strip_html($data, $just_scripts=FALSE)
+	{
+		$retval = $data;
+
+		if (!$just_scripts)
+			$retval = wp_strip_all_tags($retval, TRUE);
+		else {
+			$retval = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $retval );
+			$retval= preg_replace('/[\r\n\t ]+/', ' ', $retval);
+		}
+		$retval = preg_replace("/\son[^=]+=/", '', $retval);
+
+		return $retval;
+	}
 }
 new M_NextGen_Data();

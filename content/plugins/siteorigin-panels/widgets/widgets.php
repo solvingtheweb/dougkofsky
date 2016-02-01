@@ -16,27 +16,15 @@ function origin_widgets_init(){
 		$class = str_replace(' ', '_', $class);
 
 		$class = 'SiteOrigin_Panels_Widget_'.$class;
-		if(class_exists($class)) register_widget($class);
+		if( class_exists($class) ) register_widget($class);
 	}
 }
 add_action('widgets_init', 'origin_widgets_init');
 
 function origin_widgets_enqueue($prefix){
-	if($prefix == 'widgets.php') wp_enqueue_script('origin-widgets-admin-script', plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE) . 'widgets/js/admin.min.js', array('jquery'), SITEORIGIN_PANELS_VERSION);
+	if($prefix == 'widgets.php') wp_enqueue_script('origin-widgets-admin-script', plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'/widgets/js/admin.js', array('jquery'), SITEORIGIN_PANELS_VERSION);
 }
 add_action('admin_enqueue_scripts', 'origin_widgets_enqueue');
-
-function origin_widgets_display_css(){
-	if(is_admin()) return;
-	if(empty($_GET['action']) || $_GET['action'] != 'origin_widgets_css') return;
-	if(empty($_GET['class']) || empty($_GET['style']) || empty($_GET['preset'])) return;
-	if(strpos($_GET['class'], 'SiteOrigin_Panels_Widget_') !== 0) return;
-
-	header("Content-type: text/css");
-	echo origin_widgets_generate_css($_GET['class'], $_GET['style'], $_GET['preset'], $_GET['ver']);
-	exit();
-}
-add_action('init', 'origin_widgets_display_css');
 
 function origin_widgets_generate_css($class, $style, $preset, $version = null){
 	$widget = new $class();
@@ -49,9 +37,9 @@ function origin_widgets_generate_css($class, $style, $preset, $version = null){
 	$css = get_site_transient('origin_wcss:'.$key);
 	if($css === false || ( defined('SITEORIGIN_PANELS_NOCACHE') && SITEORIGIN_PANELS_NOCACHE ) ) {
 
-		echo "/* Regenerate Cache */\n\n";
 		// Recreate the CSS
-		$css = $widget->create_css($style, $preset);
+		$css = "/* Regenerate Cache */\n\n" ;
+		$css .= $widget->create_css($style, $preset);
 		$css = preg_replace('#/\*.*?\*/#s', '', $css);
 		$css = preg_replace('/\s*([{}|:;,])\s+/', '$1', $css);
 		$css = preg_replace('/\s\s+(.*)/', '$1', $css);
@@ -62,6 +50,21 @@ function origin_widgets_generate_css($class, $style, $preset, $version = null){
 
 	return $css;
 }
+
+function origin_widgets_footer_css(){
+	global $origin_widgets_generated_css;
+	if( !empty( $origin_widgets_generated_css ) ) {
+		echo '<style type="text/css">';
+		foreach( $origin_widgets_generated_css as $id => $css ) {
+			if( empty($css) ) continue;
+			echo $css;
+			$origin_widgets_generated_css[$id] = '';
+		}
+		echo '</style>';
+	}
+}
+add_action('wp_head', 'origin_widgets_footer_css');
+add_action('wp_footer', 'origin_widgets_footer_css');
 
 /**
  * Class SiteOrigin_Panels_Widget
@@ -150,19 +153,6 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 	 * @return string|void
 	 */
 	public function form($instance){
-
-		?>
-		<p>
-			<?php _e("We're moving this widget into a separate plugin in order to keep Page Builder core light weight.", 'siteorigin-panels') ?>
-			<?php
-			printf(
-				__("Either find an alternative in our <a href='%s' target='_blank'>recommended widgets</a> or install the <a href='%s' target='_blank'>Legacy Widgets plugin</a> to continue using it.", 'siteorigin-panels'),
-				admin_url('plugin-install.php?tab=favorites&user=siteorigin-pagebuilder'),
-				'http://siteorigin.com/page-builder-legacy-widgets/'
-			)
-			?>
-		</p>
-		<?php
 
 		foreach($this->form_args as $field_id => $field_args) {
 			if(isset($field_args['default']) && !isset($instance[$field_id])) {
@@ -309,21 +299,15 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		}
 
 		// Dynamically generate the CSS
+		global $origin_widgets_generated_css;
+		if( empty($origin_widgets_generated_css) ) {
+			$origin_widgets_generated_css = array();
+		}
+
 		if(!empty($instance['origin_style'])) {
 			$filename = $this->origin_id.'-'.$style.'-'.$preset;
-			if(siteorigin_panels_setting('inline-css')) {
-				static $inlined_css = array();
-				if(empty($inlined_css[$filename])) {
-					$inlined_css[$filename] = true;
-					?><style type="text/css" media="all"><?php echo origin_widgets_generate_css(get_class($this), $style, $preset) ?></style><?php
-				}
-			}
-			else {
-				wp_enqueue_style( 'origin-widget-'.$filename, add_query_arg(array(
-					'class' => get_class($this),
-					'style' => $style,
-					'preset' => $preset,
-				), site_url('?action=origin_widgets_css') ), array(), SITEORIGIN_PANELS_VERSION );
+			if( !isset($origin_widgets_generated_css[$filename]) ) {
+				$origin_widgets_generated_css[$filename] = origin_widgets_generate_css(get_class($this), $style, $preset);
 			}
 		}
 
@@ -389,7 +373,7 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		}
 		if(empty($style_file)) return '';
 
-		if(!class_exists('lessc')) include plugin_dir_path(__FILE__).'lib/lessc.inc.php';
+		if( !class_exists('lessc') ) include plugin_dir_path(__FILE__) . 'lib/lessc.inc.php';
 
 		foreach($this->get_widget_folders() as $folder => $folder_url) {
 			$filename = rtrim($folder, '/') . '/' . $this->origin_id.'/styles/'.$style.'.less';
@@ -645,7 +629,11 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		$this->form_args['query_additional'] = array(
 			'type' => 'text',
 			'label' => __('Additional Arguments', 'siteorigin-panels'),
-			'description' => sprintf(__('Additional query arguments. See <a href="%s" target="_blank">query_posts</a>.', 'siteorigin-panels'), 'http://codex.wordpress.org/Function_Reference/query_posts'),
+			'description' => preg_replace(
+				'/1\{ *(.*?) *\}/',
+				'<a href="http://codex.wordpress.org/Function_Reference/query_posts">$1</a>',
+				__('Additional query arguments. See 1{query_posts}.', 'siteorigin-panels')
+			)
 		);
 	}
 
@@ -689,3 +677,322 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 		return new WP_Query($query);
 	}
 }
+
+// All the standard bundled widgets
+
+/**
+ * A gallery widget
+ *
+ * Class SiteOrigin_Panels_Widgets_Gallery
+ */
+class SiteOrigin_Panels_Widgets_Gallery extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'siteorigin-panels-gallery',
+			__( 'Gallery (PB)', 'siteorigin-panels' ),
+			array(
+				'description' => __( 'Displays a gallery.', 'siteorigin-panels' ),
+			)
+		);
+	}
+
+	function widget( $args, $instance ) {
+		echo $args['before_widget'];
+
+		$shortcode_attr = array();
+		foreach($instance as $k => $v){
+			if(empty($v)) continue;
+			$shortcode_attr[] = $k.'="'.esc_attr($v).'"';
+		}
+
+		echo do_shortcode('[gallery '.implode(' ', $shortcode_attr).']');
+
+		echo $args['after_widget'];
+	}
+
+	function update( $new, $old ) {
+		return $new;
+	}
+
+	function form( $instance ) {
+		global $_wp_additional_image_sizes;
+
+		$types = apply_filters('siteorigin_panels_gallery_types', array());
+
+		$instance = wp_parse_args($instance, array(
+			'ids' => '',
+			'size' => apply_filters('siteorigin_panels_gallery_default_size', ''),
+			'type' => apply_filters('siteorigin_panels_gallery_default_type', ''),
+			'columns' => 3,
+			'link' => '',
+
+		));
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'ids' ) ?>"><?php _e( 'Gallery Images', 'siteorigin-panels' ) ?></label>
+			<a href="#" onclick="return false;" class="so-gallery-widget-select-attachments hidden"><?php _e('edit gallery', 'siteorigin-panels') ?></a>
+			<input type="text" class="widefat" value="<?php echo esc_attr($instance['ids']) ?>" name="<?php echo $this->get_field_name('ids') ?>" />
+		</p>
+		<p class="description">
+			<?php _e("Comma separated attachment IDs. Defaults to all current page's attachments.", 'siteorigin-panels') ?>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'size' ) ?>"><?php _e( 'Image Size', 'siteorigin-panels' ) ?></label>
+			<select name="<?php echo $this->get_field_name( 'size' ) ?>" id="<?php echo $this->get_field_id( 'size' ) ?>">
+				<option value="" <?php selected(empty($instance['size'])) ?>><?php esc_html_e('Default', 'siteorigin-panels') ?></option>
+				<option value="large" <?php selected('large', $instance['size']) ?>><?php esc_html_e( 'Large', 'siteorigin-panels' ) ?></option>
+				<option value="medium" <?php selected('medium', $instance['size']) ?>><?php esc_html_e( 'Medium', 'siteorigin-panels' ) ?></option>
+				<option value="thumbnail" <?php selected('thumbnail', $instance['size']) ?>><?php esc_html_e( 'Thumbnail', 'siteorigin-panels' ) ?></option>
+				<option value="full" <?php selected('full', $instance['size']) ?>><?php esc_html_e( 'Full', 'siteorigin-panels' ) ?></option>
+				<?php if(!empty($_wp_additional_image_sizes)) : foreach ( $_wp_additional_image_sizes as $name => $info ) : ?>
+					<option value="<?php echo esc_attr( $name ) ?>" <?php selected($name, $instance['size']) ?>><?php echo esc_html( $name ) ?></option>
+				<?php endforeach; endif; ?>
+			</select>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'type' ) ?>"><?php _e( 'Gallery Type', 'siteorigin-panels' ) ?></label>
+			<input type="text" class="regular" value="<?php echo esc_attr($instance['type']) ?>" name="<?php echo $this->get_field_name('type') ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'columns' ) ?>"><?php _e( 'Columns', 'siteorigin-panels' ) ?></label>
+			<input type="text" class="regular" value="<?php echo esc_attr($instance['columns']) ?>" name="<?php echo $this->get_field_name('columns') ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'link' ) ?>"><?php _e( 'Link To', 'siteorigin-panels' ) ?></label>
+			<select name="<?php echo $this->get_field_name( 'link' ) ?>" id="<?php echo $this->get_field_id( 'link' ) ?>">
+				<option value="" <?php selected('', $instance['link']) ?>><?php esc_html_e('Attachment Page', 'siteorigin-panels') ?></option>
+				<option value="file" <?php selected('file', $instance['link']) ?>><?php esc_html_e('File', 'siteorigin-panels') ?></option>
+				<option value="none" <?php selected('none', $instance['link']) ?>><?php esc_html_e('None', 'siteorigin-panels') ?></option>
+			</select>
+		</p>
+
+	<?php
+	}
+}
+
+/**
+ * An image widget
+ *
+ * Class SiteOrigin_Panels_Widgets_Image
+ */
+class SiteOrigin_Panels_Widgets_Image extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'siteorigin-panels-image',
+			__( 'Image (PB)', 'siteorigin-panels' ),
+			array(
+				'description' => __( 'Displays a simple image.', 'siteorigin-panels' ),
+			)
+		);
+	}
+
+	/**
+	 * @param array $args
+	 * @param array $instance
+	 */
+	function widget( $args, $instance ) {
+		echo $args['before_widget'];
+		if(!empty($instance['href'])) echo '<a href="' . $instance['href'] . '">';
+		echo '<img src="'.esc_url($instance['src']).'" />';
+		if(!empty($instance['href'])) echo '</a>';
+		echo $args['after_widget'];
+	}
+
+	function update($new, $old){
+		$new = wp_parse_args($new, array(
+			'src' => '',
+			'href' => '',
+		));
+		return $new;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args($instance, array(
+			'src' => '',
+			'href' => '',
+		));
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'src' ) ?>"><?php _e( 'Image URL', 'siteorigin-panels' ) ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'src' ) ?>" name="<?php echo $this->get_field_name( 'src' ) ?>" value="<?php echo esc_attr($instance['src']) ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'href' ) ?>"><?php _e( 'Destination URL', 'siteorigin-panels' ) ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'href' ) ?>" name="<?php echo $this->get_field_name( 'href' ) ?>" value="<?php echo esc_attr($instance['href']) ?>" />
+		</p>
+	<?php
+	}
+}
+
+/**
+ * A widget that lets you embed video.
+ */
+class SiteOrigin_Panels_Widgets_EmbeddedVideo extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'siteorigin-panels-embedded-video',
+			__( 'Embedded Video (PB)', 'siteorigin-panels' ),
+			array(
+				'description' => __( 'Embeds a video.', 'siteorigin-panels' ),
+			)
+		);
+	}
+
+	/**
+	 * Display the video using
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
+	function widget( $args, $instance ) {
+		$embed = new WP_Embed();
+
+		if(!wp_script_is('fitvids'))
+			wp_enqueue_script('fitvids', plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'widgets/js/jquery.fitvids.js', array('jquery'), SITEORIGIN_PANELS_VERSION);
+
+		if(!wp_script_is('siteorigin-panels-embedded-video'))
+			wp_enqueue_script('siteorigin-panels-embedded-video', plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'widgets/js/embedded-video.js', array('jquery', 'fitvids'), SITEORIGIN_PANELS_VERSION);
+
+		echo $args['before_widget'];
+		?><div class="siteorigin-fitvids"><?php echo $embed->run_shortcode( '[embed]' . $instance['video'] . '[/embed]' ) ?></div><?php
+		echo $args['after_widget'];
+	}
+
+	/**
+	 * Display the embedded video form.
+	 *
+	 * @param array $instance
+	 * @return string|void
+	 */
+	function form( $instance ) {
+		$instance = wp_parse_args( $instance, array(
+			'video' => '',
+		) );
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'video' ) ?>"><?php _e( 'Video', 'siteorigin-panels' ) ?></label>
+			<input type="text" class="widefat" name="<?php echo $this->get_field_name( 'video' ) ?>" id="<?php echo $this->get_field_id( 'video' ) ?>" value="<?php echo esc_attr( $instance['video'] ) ?>" />
+		</p>
+		<?php
+	}
+
+	function update( $new, $old ) {
+		$new['video'] = str_replace( 'https://', 'http://', $new['video'] );
+		return $new;
+	}
+}
+
+class SiteOrigin_Panels_Widgets_Video extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'siteorigin-panels-video',
+			__( 'Self Hosted Video (PB)', 'siteorigin-panels' ),
+			array(
+				'description' => __( 'A self hosted video player.', 'siteorigin-panels' ),
+			)
+		);
+	}
+
+	function widget( $args, $instance ) {
+		if ( empty($instance['url']) ) return;
+		if ( !function_exists('wp_video_shortcode') ) return;
+
+		$instance = wp_parse_args($instance, array(
+			'url' => '',
+			'poster' => '',
+			'autoplay' => false,
+		));
+
+		echo $args['before_widget'];
+		echo wp_video_shortcode( array(
+			'src' => $instance['url'],
+			'poster' => $instance['poster'],
+			'autoplay' => $instance['autoplay'],
+		) );
+		echo $args['after_widget'];
+	}
+
+	function update( $new, $old ) {
+		$new['url'] = esc_url_raw( $new['url'] );
+		$new['poster'] = esc_url_raw( $new['poster'] );
+		$new['autoplay'] = !empty($new['autoplay']) ? 1 : 0;
+		return $new;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args($instance, array(
+			'url' => '',
+			'poster' => '',
+			'skin' => 'siteorigin',
+			'ratio' => 1.777,
+			'autoplay' => false,
+		));
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('url') ?>"><?php _e('Video URL', 'siteorigin-panels') ?></label>
+			<input id="<?php echo $this->get_field_id('url') ?>" name="<?php echo $this->get_field_name('url') ?>" type="text" class="widefat" value="<?php echo esc_attr($instance['url']) ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('poster') ?>"><?php _e('Poster URL', 'siteorigin-panels') ?></label>
+			<input id="<?php echo $this->get_field_id('poster') ?>" name="<?php echo $this->get_field_name('poster') ?>" type="text" class="widefat" value="<?php echo esc_attr($instance['poster']) ?>" />
+			<small class="description"><?php _e('An image that displays before the video starts playing.', 'siteorigin-panels') ?></small>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('autoplay') ?>">
+				<input id="<?php echo $this->get_field_id('autoplay') ?>" name="<?php echo $this->get_field_name('autoplay') ?>" type="checkbox" value="1" <?php checked($instance['autoplay']) ?> />
+				<?php _e('Auto Play Video', 'siteorigin-panels') ?>
+			</label>
+		</p>
+	<?php
+	}
+}
+
+/**
+ * A shortcode for self hosted video.
+ *
+ * @param array $atts
+ * @return string
+ */
+function siteorigin_panels_video_shortcode($atts){
+	/**
+	 * @var string $url
+	 * @var string $poster
+	 * @var string $skin
+	 */
+	$instance = shortcode_atts( array(
+		'url' => '',
+		'src' => '',
+		'poster' => plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'video/poster.jpg',
+		'skin' => 'siteorigin',
+		'ratio' => 1.777,
+		'autoplay' => 0,
+	), $atts );
+
+	if(!empty($instance['src'])) $instance['url'] = $instance['src'];
+	if(empty($instance['url'])) return;
+
+	ob_start();
+	the_widget('SiteOrigin_Panels_Widgets_Video', $instance);
+	return ob_get_clean();
+
+}
+add_shortcode('self_video', 'siteorigin_panels_video_shortcode');
+
+/**
+ * Register the widgets.
+ */
+function siteorigin_panels_widgets_init(){
+	register_widget('SiteOrigin_Panels_Widgets_Gallery');
+	register_widget('SiteOrigin_Panels_Widgets_Image');
+	register_widget('SiteOrigin_Panels_Widgets_EmbeddedVideo');
+	register_widget('SiteOrigin_Panels_Widgets_Video');
+}
+add_action('widgets_init', 'siteorigin_panels_widgets_init');

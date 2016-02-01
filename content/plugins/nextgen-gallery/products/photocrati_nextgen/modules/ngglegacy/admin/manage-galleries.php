@@ -10,14 +10,35 @@ function nggallery_manage_gallery_main() {
 	//Build the pagination for more than 25 galleries
     $_GET['paged'] = isset($_GET['paged']) && ($_GET['paged'] > 0) ? absint($_GET['paged']) : 1;
 
-    $items_per_page = 25;
+	$items_per_page = apply_filters('ngg_manage_galleries_items_per_page', 25);
 
 	$start = ( $_GET['paged'] - 1 ) * $items_per_page;
 
-    $order = ( isset ( $_GET['order'] ) && $_GET['order'] == 'desc' ) ? 'DESC' : 'ASC';
-    $orderby = ( isset ( $_GET['orderby'] ) && ( in_array( $_GET['orderby'], array('gid', 'title', 'author') )) ) ? $_GET['orderby'] : 'gid';
+    if (!empty($_GET['order']) && in_array(strtoupper($_GET['order']), array('DESC', 'ASC')))
+		$order = $_GET['order'];
+	else
+		$order = apply_filters('ngg_manage_galleries_items_order', 'ASC');
 
-	$gallerylist = $nggdb->find_all_galleries( $orderby, $order , TRUE, $items_per_page, $start, false);
+	if (!empty($_GET['orderby']) && in_array($_GET['orderby'], array('gid', 'title', 'author')))
+		$orderby = $_GET['orderby'];
+	else
+		$orderby = apply_filters('ngg_manage_galleries_items_orderby', 'gid');
+
+	$mapper = C_Gallery_Mapper::get_instance();
+	$total_number_of_galleries = $mapper->count();
+	$gallerylist = $mapper->select()->order_by($orderby, $order)->limit($items_per_page, $start)->run_query();
+
+    // Need for upgrading from 2.0.40 to 2.0.52 or later.
+    // For some reason, the installer doesn't always run.
+    // TODO: Remove in 2.1
+    if (!$gallerylist){
+        global $wpdb;
+        if ($wpdb->get_results("SELECT gid FROM {$wpdb->nggallery} LIMIT 1")) {
+            $installer = new C_NggLegacy_Installer();
+            $installer->install();
+            $gallerylist = $mapper->select()->order_by($orderby, $order)->limit($items_per_page, $start)->run_query();
+        }
+    }
 	$wp_list_table = new _NGG_Galleries_List_Table('nggallery-manage-gallery');
 
 	?>
@@ -149,7 +170,6 @@ function nggallery_manage_gallery_main() {
 	//-->
 	</script>
 	<div class="wrap">
-		<?php //include('templates/social_media_buttons.php'); ?>
 		<?php screen_icon( 'nextgen-gallery' ); ?>
 		<h2><?php echo _n( 'Manage Galleries', 'Manage Galleries', 2, 'nggallery'); ?></h2>
 		<form class="search-form" action="" method="get">
@@ -160,7 +180,7 @@ function nggallery_manage_gallery_main() {
 			<input type="submit" value="<?php _e( 'Search Images', 'nggallery' ); ?>" class="button" />
 		</p>
 		</form>
-		<form id="editgalleries" class="nggform" method="POST" action="<?php echo $ngg->manage_page->base_page . '&amp;paged=' . $_GET['paged']; ?>" accept-charset="utf-8">
+		<form id="editgalleries" class="nggform" method="POST" action="<?php echo $ngg->manage_page->base_page . '&amp;paged=' . esc_attr($_GET['paged']); ?>" accept-charset="utf-8">
 		<?php wp_nonce_field('ngg_bulkgallery') ?>
 		<input type="hidden" name="page" value="manage-galleries" />
 
@@ -185,10 +205,10 @@ function nggallery_manage_gallery_main() {
 			</div>
 
 
-        <?php $ngg->manage_page->pagination( 'top', $_GET['paged'], $nggdb->paged['total_objects'], $nggdb->paged['objects_per_page']  ); ?>
+        <?php $ngg->manage_page->pagination( 'top', $_GET['paged'], $total_number_of_galleries, $items_per_page  ); ?>
 
 		</div>
-		<table class="wp-list-table widefat fixed" cellspacing="0">
+		<table class="wp-list-table widefat" cellspacing="0">
 			<thead>
 			<tr>
 <?php $wp_list_table->print_column_headers(true); ?>
@@ -207,6 +227,7 @@ if($gallerylist) {
 	$gallery_columns = $wp_list_table->get_columns();
 	$hidden_columns  = get_hidden_columns('nggallery-manage-gallery');
 	$num_columns     = count($gallery_columns) - count($hidden_columns);
+	$image_mapper	 = C_Image_Mapper::get_instance();
 
 	foreach($gallerylist as $gallery) {
 		$alternate = ( !isset($alternate) || $alternate == 'class="alternate"' ) ? '' : 'class="alternate"';
@@ -245,10 +266,10 @@ if($gallerylist) {
         			<td class="title column-title">
         				<?php if (nggAdmin::can_manage_this_gallery($gallery->author)) { ?>
         					<a href="<?php echo wp_nonce_url( $ngg->manage_page->base_page . '&amp;mode=edit&amp;gid=' . $gid, 'ngg_editgallery')?>" class='edit' title="<?php _e('Edit'); ?>" >
-        						<?php echo esc_html( nggGallery::i18n($name) ); ?>
+        						<?php echo esc_html( M_I18N::translate($name) ); ?>
         					</a>
         				<?php } else { ?>
-        					<?php echo esc_html( nggGallery::i18n($gallery->title) ); ?>
+        					<?php echo esc_html( M_I18N::translate($gallery->title) ); ?>
         				<?php } ?>
                         <div class="row-actions"></div>
         			</td>
@@ -256,7 +277,7 @@ if($gallerylist) {
     			break;
     			case 'description' :
     			    ?>
-					<td <?php echo $attributes ?>><?php echo esc_html( nggGallery::i18n($gallery->galdesc) ); ?>&nbsp;</td>
+					<td <?php echo $attributes ?>><?php echo esc_html( M_I18N::translate($gallery->galdesc) ); ?>&nbsp;</td>
 					<?php
     			break;
     			case 'author' :
@@ -270,6 +291,12 @@ if($gallerylist) {
         			<?php
     			break;
     			case 'quantity' :
+					$gallery->counter = count(
+						$image_mapper->select($image_mapper->get_primary_key_column())->
+							where(array("galleryid = %d", $gallery->{$gallery->id_field}))->
+							run_query(FALSE, FALSE, TRUE)
+					);
+
     			    ?>
         			<td <?php echo $attributes ?>><?php echo $gallery->counter; ?></td>
         			<?php
@@ -291,7 +318,7 @@ if($gallerylist) {
 			</tbody>
 		</table>
         <div class="tablenav bottom">
-		<?php $ngg->manage_page->pagination( 'bottom', $_GET['paged'], $nggdb->paged['total_objects'], $nggdb->paged['objects_per_page']  ); ?>
+		<?php $ngg->manage_page->pagination( 'bottom', $_GET['paged'], $total_number_of_galleries, $items_per_page  ); ?>
         </div>
 		</form>
 	</div>
@@ -398,7 +425,8 @@ class _NGG_Galleries_List_Table extends WP_List_Table {
 	var $_screen;
 	var $_columns;
 
-	function _NGG_Galleries_List_Table( $screen ) {
+	function __construct($screen)
+	{
 		if ( is_string( $screen ) )
 			$screen = convert_to_screen( $screen );
 
@@ -424,7 +452,7 @@ class _NGG_Galleries_List_Table extends WP_List_Table {
 			$sortable[$id] = $data;
 		}
 
-		return array( $columns, $hidden, $sortable );
+		return array( $columns, $hidden, $sortable, null );
 	}
 
     // define the columns to display, the syntax is 'internal name' => 'display name'

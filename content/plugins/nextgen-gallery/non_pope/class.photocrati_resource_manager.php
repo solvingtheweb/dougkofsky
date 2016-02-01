@@ -4,6 +4,8 @@ class C_Photocrati_Resource_Manager
 {
 	static $instance = NULL;
 
+	public $marker = '<!-- ngg_resource_manager_marker -->';
+
 	var $buffer = '';
 	var $styles = '';
 	var $scripts = '';
@@ -21,8 +23,18 @@ class C_Photocrati_Resource_Manager
 	{
 		// Validate the request
 		$this->validate_request();
+		add_action('init', array(&$this, 'start_buffer'), -1);
+		add_action('wp_footer', array(&$this, 'print_marker'), -1);
+	}
 
-		add_action('init',array(&$this, 'start_buffer'), 1);
+	/**
+	 * Created early as possible in the wp_footer action this is the string to which we
+	 * will move JS resources after
+	 */
+	function print_marker()
+	{
+		// is_feed() is important to not break Wordpress feeds and the WooCommerce api
+		if ($this->valid_request && !is_feed()) print $this->marker;
 	}
 
 	/**
@@ -31,23 +43,32 @@ class C_Photocrati_Resource_Manager
 	 */
 	function validate_request()
 	{
+		$this->valid_request = $this->is_valid_request();
+	}
+
+	function is_valid_request()
+	{
 		$retval = TRUE;
 
 		if (is_admin()) {
 			if (isset($_REQUEST['page']) && !preg_match("#^(ngg|nextgen)#", $_REQUEST['page'])) $retval = FALSE;
 		}
 
-		if (strpos($_SERVER['REQUEST_URI'], 'wp-admin/update') !== FALSE) $retval = FALSE;
+		if (preg_match("#wp-admin/update|wp-login|wp-signup#", $_SERVER['REQUEST_URI'])) $retval = FALSE;
 		else if (isset($_GET['display_gallery_iframe'])) 				  $retval = FALSE;
-        else if (defined('WP_ADMIN') && WP_ADMIN && defined('DOING_AJAX') && DOING_AJAX) $retval = FALSE;
+		else if (defined('WP_ADMIN') && WP_ADMIN && defined('DOING_AJAX') && DOING_AJAX) $retval = FALSE;
 		else if (preg_match("/(js|css|xsl|xml|kml)$/", $_SERVER['REQUEST_URI'])) $retval = FALSE;
+		else if (preg_match("#/feed(/?)$#i", $_SERVER['REQUEST_URI']) || !empty($_GET['feed'])) $retval = FALSE;
 		elseif (preg_match("/\\.(\\w{3,4})$/", $_SERVER['REQUEST_URI'], $match)) {
 			if (!in_array($match[1], array('htm', 'html', 'php'))) {
 				$retval = FALSE;
 			}
 		}
+		elseif ((isset($_SERVER['PATH_INFO']) && strpos($_SERVER['PATH_INFO'], 'nextgen-pro-lightbox-gallery') !== FALSE) OR strpos($_SERVER['REQUEST_URI'], 'nextgen-pro-lightbox-gallery') !== FALSE) {
+			$retval = FALSE;
+		}
 
-		$this->valid_request = $retval;
+		return $retval;
 	}
 
 	/**
@@ -55,6 +76,9 @@ class C_Photocrati_Resource_Manager
 	 */
 	function start_buffer()
 	{
+		if (defined('NGG_DISABLE_RESOURCE_MANAGER') && NGG_DISABLE_RESOURCE_MANAGER)
+			return;
+
 		if (apply_filters('run_ngg_resource_manager', $this->valid_request)) {
 			ob_start(array(&$this, 'output_buffer_handler'));
 			ob_start(array(&$this, 'get_buffer'));
@@ -112,6 +136,7 @@ class C_Photocrati_Resource_Manager
 	function move_resources()
 	{
 		if ($this->valid_request) {
+
 			// Move stylesheets to head
 			if ($this->styles) {
 				$this->buffer = str_ireplace('</head>', $this->styles.'</head>', $this->buffer);
@@ -119,11 +144,11 @@ class C_Photocrati_Resource_Manager
 
 			// Move the scripts to the bottom of the page
 			if ($this->scripts) {
-				$this->buffer = str_ireplace('</body>', $this->scripts.'</body>', $this->buffer);
+				$this->buffer = str_ireplace($this->marker, $this->marker . $this->scripts, $this->buffer);
 			}
 
 			if ($this->other_output) {
-				$this->buffer = str_replace('</body>', $this->other_output.'</body>', $this->buffer);
+				$this->buffer = str_replace($this->marker, $this->marker . $this->other_output, $this->buffer);
 			}
 		}
 	}
@@ -139,8 +164,8 @@ class C_Photocrati_Resource_Manager
 
 			// If W3TC is installed and activated, we can't output the
 			// scripts and manipulate the buffer, so we can only provide a warning
-			if (defined('W3TC') && defined('WP_DEBUG') && WP_DEBUG) {
-				if (defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', TRUE);
+			if (defined('W3TC') && defined('WP_DEBUG') && WP_DEBUG && !is_admin()) {
+				if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', TRUE);
 				if (!did_action('wp_footer')) {
 					error_log("We're sorry, but your theme's page template didn't make a call to wp_footer(), which is required by NextGEN Gallery. Please add this call to your page templates.");
 				}
@@ -157,15 +182,17 @@ class C_Photocrati_Resource_Manager
 			// The output_buffer() function has been called in the PHP shutdown callback
 			// This will allow us to print the scripts ourselves and manipulate the buffer
 			if ($in_shutdown === TRUE) {
-				ob_start();
-				if (!did_action('wp_footer')) {
-					wp_footer();
+				if ($this->valid_request) {
+					ob_start();
+					if (!did_action('wp_footer')) {
+						wp_footer();
+					}
+					else {
+						wp_print_footer_scripts();
+					}
+					$this->other_output = ob_get_clean();
+					$this->buffer = str_ireplace('</body>', $this->marker.'</body>', $this->buffer);
 				}
-				else {
-					wp_print_footer_scripts();
-				}
-				$this->other_output = ob_get_clean();
-
 			}
 
 			// W3TC isn't activated and we're not in the shutdown callback.

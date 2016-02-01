@@ -15,7 +15,7 @@ class M_Cache extends C_Base_Module
 			'photocrati-cache',
 			'Cache',
 			'Handles clearing of NextGen caches',
-			'0.1',
+			'0.2',
 			'http://www.nextgen-gallery.com',
 			'Photocrati Media',
 			'http://www.photocrati.com'
@@ -33,8 +33,7 @@ class M_Cache extends C_Base_Module
     function get_type_list()
     {
         return array(
-            'C_Cache' => 'class.cache.php',
-            'I_Cache' => 'interface.cache.php'
+            'C_Cache' => 'class.cache.php'
         );
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+define('NGG_AJAX_SLUG', 'photocrati_ajax');
+
 /*
  {
 		Module: photocrati-ajax,
@@ -8,81 +10,118 @@
  */
 class M_Ajax extends C_Base_Module
 {
-	function define()
-	{
-		parent::define(
-			'photocrati-ajax',
-			'AJAX',
-			'Provides AJAX functionality',
-			'0.4',
-			'http://www.photocrati.com',
-			'Photocrati Media',
-			'http://www.photocrati.com'
-		);
-
-		include_once('class.ajax_option_handler.php');
-		C_NextGen_Settings::add_option_handler('C_Ajax_Option_Handler', array(
+    function define()
+    {
+        parent::define(
+            'photocrati-ajax',
+            'AJAX',
+            'Provides AJAX functionality',
+            '0.8',
+            'http://www.photocrati.com',
+            'Photocrati Media',
+            'http://www.photocrati.com'
+        );
+		C_NextGen_Settings::get_instance()->add_option_handler('C_Ajax_Option_Handler', array(
 			'ajax_slug',
 			'ajax_url',
 			'ajax_js_url'
 		));
 
-		include_once('class.ajax_installer.php');
-		C_Photocrati_Installer::add_handler($this->module_id, 'C_Ajax_Installer');
+        if (is_multisite()) C_NextGen_Global_Settings::get_instance()->add_option_handler('C_Ajax_Option_Handler', array(
+            'ajax_slug',
+            'ajax_url',
+            'ajax_js_url'
+        ));
+    }
+
+    function _register_utilities()
+    {
+        $this->get_registry()->add_utility('I_Ajax_Controller', 'C_Ajax_Controller');
+
+    }
+
+    /**
+     * Hooks into the WordPress framework
+     */
+    function _register_hooks()
+    {
+        add_action('init', array(get_class(), 'register_scripts'), 9);
+        add_action('ngg_routes', array(&$this, 'define_routes'));
+	    add_action('init', array(&$this, 'serve_ajax_request'));
+    }
+
+	function serve_ajax_request()
+	{
+		if (isset($_REQUEST[NGG_AJAX_SLUG])) {
+			$controller = C_Ajax_Controller::get_instance();
+			$controller->index_action();
+			throw new E_Clean_Exit;
+		}
 	}
 
-	function _register_adapters()
-	{
-		$this->get_registry()->add_adapter('I_Router', 'A_Ajax_Routes');
-	}
+    function define_routes($router)
+    {
+        $app = $router->create_app('/photocrati_ajax');
+        $app->route('/', 'I_Ajax_Controller#index');
+    }
 
-	function _register_utilities()
-	{
-		$this->get_registry()->add_utility('I_Ajax_Controller', 'C_Ajax_Controller');
-
-	}
-
-	/**
-	 * Hooks into the WordPress framework
-	 */
-	function _register_hooks()
-	{
-		add_action('init', array(&$this, 'enqueue_scripts'));
-	}
-
-
-	/**
-	 * Loads a single script to provide the photocrati_ajax settings to the web browser
-	 */
-	function enqueue_scripts()
-	{
+    /**
+     * Loads a single script to provide the photocrati_ajax settings to the web browser
+     */
+    static function register_scripts()
+    {
         $settings = C_NextGen_Settings::get_instance();
-        $router   = $this->get_registry()->get_utility('I_Router');
+        $router   = C_Router::get_instance();
 
-        $site_url = $router->get_base_url(TRUE);
-        $home_url = $router->get_base_url();
-
-        wp_register_script('photocrati_ajax', $settings->ajax_js_url);
-        wp_enqueue_script('photocrati_ajax');
+        wp_register_script('photocrati_ajax', $router->get_static_url('photocrati-ajax#ajax.min.js'), array('jquery'));
 
         $vars = array(
-            'url' => $router->get_url($settings->ajax_slug, FALSE),
-            'wp_site_url' => $home_url,
-            'wp_site_static_url' => str_replace('/index.php', '', $site_url)
+            'url' => $settings->get('ajax_url'),
+            'wp_home_url' => $router->get_base_url('home'),
+            'wp_site_url' => $router->get_base_url('site'),
+            'wp_root_url' => $router->get_base_url('root'),
+            'wp_plugins_url' => $router->get_base_url('plugins'),
+            'wp_content_url' => $router->get_base_url('content'),
+            'wp_includes_url' => includes_url(),
+            'ngg_param_slug'          => C_NextGen_Settings::get_instance()->get('router_param_slug', 'nggallery')
         );
         wp_localize_script('photocrati_ajax', 'photocrati_ajax', $vars);
-	}
+    }
 
     function get_type_list()
     {
         return array(
-            'A_Ajax_Routes' => 'adapter.ajax_routes.php',
             'C_Ajax_Installer' => 'class.ajax_installer.php',
             'C_Ajax_Controller' => 'class.ajax_controller.php',
-            'I_Ajax_Controller' => 'interface.ajax_controller.php',
             'M_Ajax' => 'module.ajax.php'
         );
     }
+}
+
+class C_Ajax_Option_Handler {
+	private $slug = NGG_AJAX_SLUG;
+
+	function get_router() {
+		return C_Router::get_instance();
+	}
+
+	function get( $key, $default = null ) {
+		$retval = $default;
+
+		switch ( $key ) {
+			case 'ajax_slug':
+				$retval = $this->slug;
+				break;
+			case 'ajax_url':
+				$retval = site_url( "/?{$this->slug}=1" );
+				if ( is_ssl() && strpos( $retval, 'https' ) === false ) {
+					$retval = str_replace( 'http', 'https', $retval );
+				}
+				break;
+		}
+
+		return $retval;
+	}
 }
 
 new M_Ajax();

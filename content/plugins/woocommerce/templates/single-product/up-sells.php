@@ -2,20 +2,32 @@
 /**
  * Single Product Up-Sells
  *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/up-sells.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
+ * will need to copy the new files to your theme to maintain compatibility. We try to do this.
+ * as little as possible, but it does happen. When this occurs the version of the template file will.
+ * be bumped and the readme will list any important changes.
+ *
+ * @see 	    http://docs.woothemes.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
-global $product, $woocommerce, $woocommerce_loop;
+global $product, $woocommerce_loop;
 
 $upsells = $product->get_upsells();
 
-if ( sizeof( $upsells ) == 0 ) return;
+if ( sizeof( $upsells ) === 0 ) {
+	return;
+}
 
-$meta_query = $woocommerce->query->get_meta_query();
+$meta_query = WC()->query->get_meta_query();
 
 $args = array(
 	'post_type'           => 'product',
@@ -30,7 +42,7 @@ $args = array(
 
 $products = new WP_Query( $args );
 
-$woocommerce_loop['columns'] 	= $columns;
+$woocommerce_loop['columns'] = $columns;
 
 if ( $products->have_posts() ) : ?>
 
@@ -42,7 +54,7 @@ if ( $products->have_posts() ) : ?>
 
 			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
 
-				<?php woocommerce_get_template_part( 'content', 'product' ); ?>
+				<?php wc_get_template_part( 'content', 'product' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 

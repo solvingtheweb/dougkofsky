@@ -1,0 +1,19 @@
+<wpml-config>
+  <admin-texts>
+    <key name="jig_settings">
+        <key name="please_log_in"/>
+        <key name="view_rest_of_gallery"/>
+        <key name="download_link_text"/>
+        <key name="flickr_link_text"/>
+        <key name="instagram_link_text"/>
+        <key name="developer_link_text"/>
+        <key name="load_more_text"/>
+        <key name="load_more_count_text"/>
+        <key name="filter_all_text"/>
+        <key name="l2_filter_all_text"/>
+        <key name="rss_link_text"/>
+        <key name="text_before"/>
+        <key name="text_after"/>
+    </key>    
+  </admin-texts>
+</wpml-config>

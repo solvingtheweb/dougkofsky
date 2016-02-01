@@ -2,15 +2,15 @@
 /**
  * Indian states
  *
- * @author 		WooThemes
- * @category 	i18n
- * @package 	WooCommerce/i18n
+ * @author      WooThemes
+ * @category    i18n
+ * @package     WooCommerce/i18n
  * @version     2.0.0
  */
 global $states;
 
 $states['IN'] = array(
-	'AP' => __( 'Andra Pradesh', 'woocommerce' ),
+	'AP' => __( 'Andhra Pradesh', 'woocommerce' ),
 	'AR' => __( 'Arunachal Pradesh', 'woocommerce' ),
 	'AS' => __( 'Assam', 'woocommerce' ),
 	'BR' => __( 'Bihar', 'woocommerce' ),
@@ -34,8 +34,9 @@ $states['IN'] = array(
 	'RJ' => __( 'Rajasthan', 'woocommerce' ),
 	'SK' => __( 'Sikkim', 'woocommerce' ),
 	'TN' => __( 'Tamil Nadu', 'woocommerce' ),
+	'TS' => __( 'Telangana', 'woocommerce' ),
 	'TR' => __( 'Tripura', 'woocommerce' ),
-	'UT' => __( 'Uttaranchal', 'woocommerce' ),
+	'UK' => __( 'Uttarakhand', 'woocommerce' ),
 	'UP' => __( 'Uttar Pradesh', 'woocommerce' ),
 	'WB' => __( 'West Bengal', 'woocommerce' ),
 	'AN' => __( 'Andaman and Nicobar Islands', 'woocommerce' ),

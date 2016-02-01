@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('POPE_VERSION')) { die('Use autoload.php'); }
+
 /**
  * A factory for hatching (instantiating) components
  */
@@ -7,9 +9,9 @@ class C_Component_Factory extends C_Component
 {
     static $_instances = array();
 
-    function define()
+    function define($context=FALSE)
     {
-		parent::define();
+		parent::define($context);
         $this->implement('I_Component_Factory');
     }
 

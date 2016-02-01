@@ -135,22 +135,90 @@ var acf = {
 	*  @return	N/A
 	*/
 	
-	$(document).on('submit', '#post', function(){
+	var acf_submit = {
 		
-		// validate post title
-		var title = $('#titlewrap #title');
-		
-		if( !title.val() )
-		{
-			alert( acf.l10n.title );
+		init: function(){
 			
-			title.focus();
+			// events
+			$(document).on('submit', '#post', this.submit);
+			
+			
+			// return
+			return this;
+			
+			
+		},
 		
-			return false;
+		submit: function( e ){
+			
+			// validate post title
+			var $title = $('#titlewrap #title'),
+				$spinner = $('#submitdiv .spinner').last(),
+				$submit = $('#submitdiv input[type="submit"]').last();
+			
+			
+			// title empty
+			if( !$title.val() ) {
+				
+				// prevent default
+				e.preventDefault();
+				
+				
+				// hide spinner
+				acf_submit.hide_spinner( $spinner );
+				acf_submit.enable_submit( $submit );
+				
+				
+				// alert
+				alert( acf.l10n.title );
+				
+				
+				// focus
+				$title.focus();
+			
+			}
+			
+		},
+		
+		hide_spinner: function( $spinner ){
+			
+			// bail early if no spinner
+			if( !$spinner.exists() ) return;
+			
+			
+			// vars
+			var wp_version = acf.wp_version;
+			
+			
+			// hide
+			if( parseFloat(wp_version) >= 4.2 ) {
+				
+				$spinner.removeClass('is-active');
+			
+			} else {
+				
+				$spinner.css('display', 'none');
+			
+			}
+			
+		},
+		
+		enable_submit: function( $submit ){
+			
+			// bail early if no submit
+			if( !$submit.exists() ) {
+				
+				return;
+				
+			}
+			
+			
+			// remove class
+			$submit.removeClass('disabled button-disabled button-primary-disabled');
+			
 		}
-
 		
-	});
+	}.init();
 	
 	
 	/*
@@ -431,6 +499,12 @@ var acf = {
 		field.after( new_field );
 		
 		
+		// set select values
+		new_field.find('select').each(function(){
+			$(this).val( $(this).attr('data-val') ).trigger('change');
+		});
+		
+		
 		// open up form
 		if( field.hasClass('form_open') )
 		{
@@ -445,13 +519,7 @@ var acf = {
 		// update new_field label / name
 		var label = new_field.find('tr.field_label:first input[type="text"]'),
 			name = new_field.find('tr.field_name:first input[type="text"]');
-					
-		
-		// set select values
-		new_field.find('select').each(function(){
-			$(this).val( $(this).attr('data-val') ).trigger('change');
-		});
-		
+				
 		
 		name.val('');
 		label.val( label.val() + ' (' + acf.l10n.copy + ')' );
@@ -571,7 +639,8 @@ var acf = {
 					'ű': 'u',
 					'í': 'i',
 					' ' : '_',
-					'\'' : ''
+					'\'' : '',
+					'\\?' : ''
 				};
 			
 			$.each( replace, function(k, v){
@@ -850,7 +919,7 @@ var acf = {
 	$(document).ready(function(){
 		
 		// custom Publish metabox
-		$('#submitdiv #publish').attr('class', 'acf-button');
+		$('#submitdiv #publish').attr('class', 'acf-button large');
 		$('#submitdiv a.submitdelete').attr('class', 'delete-field-group').attr('id', 'submit-delete');
 		
 		

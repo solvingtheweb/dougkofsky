@@ -20,14 +20,14 @@
  * loaded by timthumb. This will save you having to re-edit these variables
  * everytime you download a new version
 */
-define ('VERSION', '2.8.11');																		// Version of this script 
+define ('VERSION', '2.8.14');																		// Version of this script 
 //Load a config file if it exists. Otherwise, use the values below
 if( file_exists(dirname(__FILE__) . '/timthumb-config.php'))	require_once('timthumb-config.php');
 if(! defined('DEBUG_ON') )					define ('DEBUG_ON', false);								// Enable debug logging to web server error log (STDERR)
 if(! defined('DEBUG_LEVEL') )				define ('DEBUG_LEVEL', 1);								// Debug level 1 is less noisy and 3 is the most noisy
 if(! defined('MEMORY_LIMIT') )				define ('MEMORY_LIMIT', '30M');							// Set PHP memory limit
 if(! defined('BLOCK_EXTERNAL_LEECHERS') ) 	define ('BLOCK_EXTERNAL_LEECHERS', false);				// If the image or webshot is being loaded on an external site, display a red "No Hotlinking" gif.
-
+if(! defined('DISPLAY_ERROR_MESSAGES') )	define ('DISPLAY_ERROR_MESSAGES', true);				// Display error messages. Set to false to turn off errors (good for production websites)
 //Image fetching and caching
 if(! defined('ALLOW_EXTERNAL') )			define ('ALLOW_EXTERNAL', TRUE);						// Allow image fetching from external websites. Will check against ALLOWED_SITES if ALLOW_ALL_EXTERNAL_SITES is false
 if(! defined('ALLOW_ALL_EXTERNAL_SITES') ) 	define ('ALLOW_ALL_EXTERNAL_SITES', false);				// Less secure. 
@@ -47,17 +47,23 @@ if(! defined('BROWSER_CACHE_MAX_AGE') ) 	define ('BROWSER_CACHE_MAX_AGE', 864000
 if(! defined('BROWSER_CACHE_DISABLE') ) 	define ('BROWSER_CACHE_DISABLE', false);				// Use for testing if you want to disable all browser caching
 
 //Image size and defaults
-if(! defined('MAX_WIDTH') ) 			define ('MAX_WIDTH', 1500);									// Maximum image width
-if(! defined('MAX_HEIGHT') ) 			define ('MAX_HEIGHT', 1500);								// Maximum image height
-if(! defined('NOT_FOUND_IMAGE') )		define ('NOT_FOUND_IMAGE', '');								// Image to serve if any 404 occurs 
-if(! defined('ERROR_IMAGE') )			define ('ERROR_IMAGE', '');									// Image to serve if an error occurs instead of showing error message 
-if(! defined('PNG_IS_TRANSPARENT') ) 	define ('PNG_IS_TRANSPARENT', FALSE);						// Define if a png image should have a transparent background color. Use False value if you want to display a custom coloured canvas_colour 
-if(! defined('DEFAULT_Q') )				define ('DEFAULT_Q', 90);									// Default image quality. Allows overrid in timthumb-config.php
-if(! defined('DEFAULT_ZC') )			define ('DEFAULT_ZC', 1);									// Default zoom/crop setting. Allows overrid in timthumb-config.php
-if(! defined('DEFAULT_F') )				define ('DEFAULT_F', '');									// Default image filters. Allows overrid in timthumb-config.php
-if(! defined('DEFAULT_S') )				define ('DEFAULT_S', 0);									// Default sharpen value. Allows overrid in timthumb-config.php
-if(! defined('DEFAULT_CC') )			define ('DEFAULT_CC', 'ffffff');							// Default canvas colour. Allows overrid in timthumb-config.php
+if(! defined('MAX_WIDTH') )					define ('MAX_WIDTH', 1500);								// Maximum image width
+if(! defined('MAX_HEIGHT') )				define ('MAX_HEIGHT', 1500);							// Maximum image height
+if(! defined('NOT_FOUND_IMAGE') )			define ('NOT_FOUND_IMAGE', '');							// Image to serve if any 404 occurs 
+if(! defined('ERROR_IMAGE') )				define ('ERROR_IMAGE', '');								// Image to serve if an error occurs instead of showing error message 
+if(! defined('PNG_IS_TRANSPARENT') )		define ('PNG_IS_TRANSPARENT', FALSE);					// Define if a png image should have a transparent background color. Use False value if you want to display a custom coloured canvas_colour 
+if(! defined('DEFAULT_Q') )					define ('DEFAULT_Q', 90);								// Default image quality. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_ZC') )				define ('DEFAULT_ZC', 1);								// Default zoom/crop setting. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_F') )					define ('DEFAULT_F', '');								// Default image filters. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_S') )					define ('DEFAULT_S', 0);								// Default sharpen value. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_CC') )				define ('DEFAULT_CC', 'ffffff');						// Default canvas colour. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_WIDTH') )				define ('DEFAULT_WIDTH', 100);							// Default thumbnail width. Allows overrid in timthumb-config.php
+if(! defined('DEFAULT_HEIGHT') )			define ('DEFAULT_HEIGHT', 100);							// Default thumbnail height. Allows overrid in timthumb-config.php
 
+/**
+ * Additional Parameters:
+ * LOCAL_FILE_BASE_DIRECTORY = Override the DOCUMENT_ROOT. This is best used in timthumb-config.php
+ */
 
 //Image compression is enabled if either of these point to valid paths
 
@@ -135,6 +141,8 @@ if(! isset($ALLOWED_SITES)){
 		'tinypic.com',
 	);
 }
+
+
 // -------------------------------------------------------------
 // -------------- STOP EDITING CONFIGURATION HERE --------------
 // -------------------------------------------------------------
@@ -180,7 +188,7 @@ class timthumb {
 		exit(0);
 	}
 	public function __construct(){
-		global $ALLOWED_SITES;
+		global $ALLOWED_SITES, $ALLOWED_HOTLINKERS;;
 		$this->startTime = microtime(true);
 		date_default_timezone_set('UTC');
 		$this->debug(1, "Starting new request from " . $this->getIP() . " to " . $_SERVER['REQUEST_URI']);
@@ -207,7 +215,7 @@ class timthumb {
 		$this->cleanCache();
 		
 		$this->myHost = preg_replace('/^www\./i', '', $_SERVER['HTTP_HOST']);
-		$this->src = $this->param('src');
+		$this->src = urldecode($this->param('src'));
 		$this->url = parse_url($this->src);
 		$this->src = preg_replace('/https?:\/\/(?:www\.)?' . $this->myHost . '/i', '', $this->src);
 		
@@ -215,18 +223,50 @@ class timthumb {
 			$this->error("No image specified");
 			return false;
 		}
-		if(BLOCK_EXTERNAL_LEECHERS && array_key_exists('HTTP_REFERER', $_SERVER) && (! preg_match('/^https?:\/\/(?:www\.)?' . $this->myHost . '(?:$|\/)/i', $_SERVER['HTTP_REFERER']))){
-			// base64 encoded red image that says 'no hotlinkers'
-			// nothing to worry about! :)
-			$imgData = base64_decode("R0lGODlhUAAMAIAAAP8AAP///yH5BAAHAP8ALAAAAABQAAwAAAJpjI+py+0Po5y0OgAMjjv01YUZ\nOGplhWXfNa6JCLnWkXplrcBmW+spbwvaVr/cDyg7IoFC2KbYVC2NQ5MQ4ZNao9Ynzjl9ScNYpneb\nDULB3RP6JuPuaGfuuV4fumf8PuvqFyhYtjdoeFgAADs=");
-			header('Content-Type: image/gif');
-			header('Content-Length: ' . sizeof($imgData));
-			header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-			header("Pragma: no-cache");
-			header('Expires: ' . gmdate ('D, d M Y H:i:s', time()));
-			echo $imgData;
-			return false;
-			exit(0);
+		if($this->param('jigrss') == 'yes'){
+			$block_external_leechers = false;
+		}else{
+			$block_external_leechers = BLOCK_EXTERNAL_LEECHERS;
+		}
+
+		if($block_external_leechers && !empty($_SERVER['HTTP_REFERER'])){
+			$allowed = false;			
+			if(!empty($ALLOWED_HOTLINKERS)){
+				foreach($ALLOWED_HOTLINKERS as $site){
+					if($site == 'SAME_HOST' && !empty($_SERVER['SERVER_NAME'])){
+						$site = $_SERVER['SERVER_NAME'];
+						if(strpos($site, 'www.') === 0){
+							$site = str_replace('www.', '', $site);
+						}
+						$site = str_replace('.', '\.', $site);				
+						if (preg_match('/^https?:\/\/(?:[^\/]*?)'.$site.'(?:[\/:]|$)/i', $_SERVER['HTTP_REFERER'])) {
+							$allowed = true;
+							break;
+						}
+					}else{
+						$site = str_replace(array('.','*'), array('\.','([^\/]*)'), $site);
+						if (preg_match('/^https?:\/\/'.$site.'(?:[\/:]|$)/i', $_SERVER['HTTP_REFERER'])) {
+							$allowed = true;
+							break;
+						}
+					}
+
+				}
+			}
+			if(!$allowed && !preg_match('/^https?:\/\/(?:www\.)?' . $this->myHost . '(?:$|\/)/i', $_SERVER['HTTP_REFERER'])){
+				// base64 encoded red image that says 'no hotlinkers'
+				// nothing to worry about! :)
+				$imgData = base64_decode("R0lGODlhUAAMAIAAAP8AAP///yH5BAAHAP8ALAAAAABQAAwAAAJpjI+py+0Po5y0OgAMjjv01YUZ\nOGplhWXfNa6JCLnWkXplrcBmW+spbwvaVr/cDyg7IoFC2KbYVC2NQ5MQ4ZNao9Ynzjl9ScNYpneb\nDULB3RP6JuPuaGfuuV4fumf8PuvqFyhYtjdoeFgAADs=");
+				header('Content-Type: image/gif');
+				header('Content-Length: ' . strlen($imgData));
+				header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+				header("Pragma: no-cache");
+				header('Expires: ' . gmdate ('D, d M Y H:i:s', time()));
+				echo $imgData;
+				return false;
+				exit(0);
+			}
+			
 		}
 		if(preg_match('/^https?:\/\/[^\/]+/i', $this->src)){
 			$this->debug(2, "Is a request for an external URL: " . $this->src);
@@ -262,6 +302,11 @@ class timthumb {
 			asort($arr);
 			$this->cachefile = $this->cacheDirectory . '/' . FILE_CACHE_PREFIX . $cachePrefix . md5($this->salt . implode('', $arr) . $this->fileCacheVersion) . FILE_CACHE_SUFFIX;
 		} else {
+			// Tilde fix
+			if (preg_match('%(?:/~.+?)(/.*)%i', $this->param('src'), $regs)) {
+				$this->src = $regs[1];
+			}
+			// End of tilde fix
 			$this->localImage = $this->getLocalImagePath($this->src);
 			if(! $this->localImage){
 				$this->isURL = true;
@@ -422,13 +467,16 @@ class timthumb {
 	}
 	protected function serveErrors(){
 		header ($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+		if ( ! DISPLAY_ERROR_MESSAGES ) {
+			return;
+		}
 		$html = '<ul>';
 		foreach($this->errors as $err){
 			$html .= '<li>' . htmlentities($err) . '</li>';
 		}
 		$html .= '</ul>';
 		echo '<h1>A TimThumb error has occured</h1>The following error(s) occured:<br />' . $html . '<br />';
-		echo '<br />Query String : ' . htmlentities ($_SERVER['QUERY_STRING']);
+		echo '<br />Query String : ' . htmlentities( $_SERVER['QUERY_STRING'], ENT_QUOTES );
 		echo '<br />TimThumb version : ' . VERSION . '</pre>';
 	}
 	protected function serveInternalImage(){
@@ -534,13 +582,14 @@ class timthumb {
 
 		// set default width and height if neither are set already
 		if ($new_width == 0 && $new_height == 0) {
-		    $new_width = 100;
-		    $new_height = 100;
+		    $new_width = (int) DEFAULT_WIDTH;
+		    $new_height = (int) DEFAULT_HEIGHT;
 		}
 
 		// ensure size limits can not be abused
-		$new_width = min ($new_width, MAX_WIDTH);
-		$new_height = min ($new_height, MAX_HEIGHT);
+		// JIG edit: it's wrong to limit here
+		//$new_width = min ($new_width, MAX_WIDTH);
+		//$new_height = min ($new_height, MAX_HEIGHT);
 
 		// set memory limit to be able to have enough space to resize larger images
 		$this->setMemoryLimit();
@@ -562,6 +611,30 @@ class timthumb {
 			$new_height = floor ($height * ($new_width / $width));
 		} else if ($new_height && !$new_width) {
 			$new_width = floor ($width * ($new_height / $height));
+		}
+
+
+		// ensure size limits can not be abused
+		// JIG reworked limiting
+		$working_ratio = $new_width/$new_height;
+		if($new_width > MAX_WIDTH){
+			$new_width = MAX_WIDTH;
+			$new_height = floor($new_width/$working_ratio);
+		}
+		if($new_height > MAX_HEIGHT){
+			$new_height = MAX_HEIGHT;
+			$new_width = floor($new_height*$working_ratio);
+		}
+
+		// ensure no upscaling
+		// JIG reworked limiting: why upscale on server side anyway?
+		if($new_width > $width){
+			$new_width = $width;
+			$new_height = floor($new_width/$working_ratio);
+		}
+		if($new_height > $height){
+			$new_height = $height;
+			$new_width = floor($new_height*$working_ratio);
 		}
 
 		// scale down and add borders
@@ -861,7 +934,11 @@ class timthumb {
 				return $this->realpath($file);
 			}
 			return $this->error("Could not find your website document root and the file specified doesn't exist in timthumbs directory. We don't support serving files outside timthumb's directory without a document root for security reasons.");
-		} //Do not go past this point without docRoot set
+		} else if ( ! is_dir( $this->docRoot ) ) {
+			$this->error("Server path does not exist. Ensure variable \$_SERVER['DOCUMENT_ROOT'] is set correctly");
+		}
+		
+		//Do not go past this point without docRoot set
 
 		//Try src under docRoot
 		if(file_exists ($this->docRoot . '/' . $src)) {
@@ -952,9 +1029,12 @@ class timthumb {
 		if(! preg_match('/^https?:\/\/[a-zA-Z0-9\.\-]+/i', $url)){
 			return $this->error("Invalid URL supplied.");
 		}
-		$url = preg_replace('/[^A-Za-z0-9\-\.\_\~:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,\;\=]+/', '', $url); //RFC 3986
-		//Very important we don't allow injection of shell commands here. URL is between quotes and we are only allowing through chars allowed by a the RFC 
-		// which AFAIKT can't be used for shell injection. 
+		$url = preg_replace('/[^A-Za-z0-9\-\.\_:\/\?\&\+\;\=]+/', '', $url); //RFC 3986 plus ()$ chars to prevent exploit below. Plus the following are also removed: @*!~#[]',
+		// 2014 update by Mark Maunder: This exploit: http://cxsecurity.com/issue/WLB-2014060134
+		// uses the $(command) shell execution syntax to execute arbitrary shell commands as the web server user. 
+		// So we're now filtering out the characters: '$', '(' and ')' in the above regex to avoid this. 
+		// We are also filtering out chars rarely used in URLs but legal accoring to the URL RFC which might be exploitable. These include: @*!~#[]',
+		// We're doing this because we're passing this URL to the shell and need to make very sure it's not going to execute arbitrary commands. 
 		if(WEBSHOT_XVFB_RUNNING){
 			putenv('DISPLAY=:100.0');
 			$command = "$cuty $proxy --max-wait=$timeout --user-agent=\"$ua\" --javascript=$jsOn --java=$javaOn --plugins=$pluginsOn --js-can-open-windows=off --url=\"$url\" --out-format=$format --out=$tempfile";

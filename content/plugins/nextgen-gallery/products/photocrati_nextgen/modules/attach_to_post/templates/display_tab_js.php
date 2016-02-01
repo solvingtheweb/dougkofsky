@@ -69,7 +69,8 @@ jQuery(function($){
 
 		text_field: 'title',
 
-        initialize: function(){
+        initialize: function(options) {
+            this.options = options || {};
 			_.each(this.options, function(value, key){
 				this[key] = value;
 			}, this);
@@ -132,7 +133,7 @@ jQuery(function($){
 				});
                 this.$el.append(option.render().el);
             }, this);
-			if (this.multiple) this.$el.prop('multiple', true);
+			if (this.multiple) this.$el.prop('multiple', true).attr('multiple', 'multiple');
 			if (this.width) this.$el.width(this.width);
             return this;
         },
@@ -145,7 +146,8 @@ jQuery(function($){
 
             model: null,
 
-            initialize: function(){
+            initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -159,7 +161,7 @@ jQuery(function($){
                     value:    this.value_field == 'id' ? this.model.id : this.model.get(this.value_field),
                 });
                 if (self.model.get('selected') == true) {
-                    this.$el.attr('selected', 'selected');
+					this.$el.prop('selected', true).attr('selected', 'selected');
                 }
                 return this;
             }
@@ -170,9 +172,10 @@ jQuery(function($){
 	Ngg.Views.Chosen								= Backbone.View.extend({
 		tagName: 'span',
 
-		initialize: function(){
+		initialize: function(options) {
+            this.options = options || {};
 			this.collection = this.options.collection;
-			if (!this.options.multiple) this.options.include_blank = true;
+			this.options.include_blank = true;
 			this.select_tag = new Ngg.Views.SelectTag(this.options);
 			this.collection.on('change', this.selection_changed, this);
 		},
@@ -199,41 +202,22 @@ jQuery(function($){
 				var container = this.select_tag.$el.select2('container').detach();
 				this.$el.append(container);
 				this.$el.detach();
-
 			}
 			else this.select_tag.$el.select2(this.select2_opts);
 
-			// Hack for multi-select elements
-			if (this.options.multiple && this.collection.selected().length == 0)
-				this.select_tag.$el.select2('val', '');
+			// Ensure that values are pre-populated
+			if (this.options.multiple) {
+				var selected = [];
+				_.each(this.collection.selected_ids(), function(id){
+					selected.push(id.toString());
+				});
+				if (selected.length == 0) selected = '';
+				this.select_tag.$el.select2('val', selected);
+			}
+
 
 			// For IE, ensure that the text field has a width
 			this.$el.find('.select2-input').width(this.options.width-20);
-
-			// For IE8, ensure that the selection is being displayed
-			if (!this.options.multiple) {
-				var selected_value = this.$el.find('.select2-choice span:first');
-				if (selected_value.text().length == 0 && this.collection.selected().length > 0) {
-					var selected_item = this.collection.selected().pop();
-					selected_value.text(selected_item.get(this.select_tag.text_field));
-				}
-			}
-			else {
-				var selected_values = this.$el.find('.select2-search-choice');
-				if (this.collection.selected().length > 0 && selected_values.length == 0) {
-					this.select_tag.$el.select2('val', '');
-					var data = [];
-					var value_field = this.select_tag.value_field;
-					_.each(this.collection.selected(), function(item){
-						var value = value_field == 'id' ? item.id : item.get(value_field);
-						data.push({
-							id: 	value,
-							text: 	item.get(this.select_tag.text_field)
-						});
-					}, this);
-					this.select_tag.$el.select2('data', data);
-				}
-			}
 
 			return this;
 		}
@@ -296,6 +280,7 @@ jQuery(function($){
 			var self = this;
 			this.in_progress = true;
 			$.post(this.fetch_url, this._create_request(limit, offset), function(response){
+                if (typeof(_) == 'undefined') return;
 				if (!_.isObject(response)) response = JSON.parse(response);
 
 				if (response.items) {
@@ -608,7 +593,7 @@ jQuery(function($){
 				width: 500
 			});
 
-            this.$el.html('<tr><td><label>Sources</label></td><td id="source_column"></td></tr>');
+            this.$el.html('<tr><td><label><?php _e('Sources', 'nggallery'); ?></label></td><td id="source_column"></td></tr>');
             this.$el.find('#source_column').append(chosen.render().el);
 
             var selected = this.sources.selected();
@@ -642,7 +627,7 @@ jQuery(function($){
                 type: 'text',
                 name: 'slug',
                 value: this.slug,
-                placeholder: '(optional)',
+                placeholder: '<?php _e('(optional)', 'nggallery'); ?>',
                 id: 'field_slug'
             });
 
@@ -650,8 +635,8 @@ jQuery(function($){
                 self.displayed_gallery.set('slug', $(this).val());
             });
 
-            var tooltip = 'Sets an SEO-friendly name to this gallery for URLs. Currently only in use by the Pro Lightbox.';
-            this.$el.append('<tr><td id="slug_label"><label for="field_slug" class="tooltip" title="' + tooltip + '">Slug</label></td><td id="slug_column"></td></tr>');
+            var tooltip = '<?php _e('Sets an SEO-friendly name to this gallery for URLs. Currently only in use by the Pro Lightbox.', 'nggallery'); ?>';
+            this.$el.append('<tr><td id="slug_label"><label for="field_slug" class="tooltip" title="' + tooltip + '"><?php _e('Slug', 'nggallery'); ?></label></td><td id="slug_column"></td></tr>');
             this.$el.find('#slug_column').append(input);
 
             return this;
@@ -761,8 +746,23 @@ jQuery(function($){
 			render: function() {
 				// Create all elements
 				var image_container = $('<div/>').addClass('image_container');
+
+                // 2.0.66 did not support plugins_url, 2.0.66.3+ does
+                var installed_at_version = this.model.get('installed_at_version');
+                var baseurl = photocrati_ajax.wp_plugins_url;
+                var preview_image_relpath = this.model.get('preview_image_relpath');
+                if (typeof installed_at_version == 'undefined') {
+                    baseurl = photocrati_ajax.wp_site_url;
+                    baseurl = baseurl.replace(/(.*)\/index\.php$/i, "$1");
+                    // those who installed 2.0.66.3 lack the 'installed_at_version' setting but have a
+                    // plugin-relative path
+                    if (preview_image_relpath.indexOf('/nextgen-gallery') == 0) {
+                        baseurl = photocrati_ajax.wp_plugins_url;
+                    }
+                }
+
 				var img = $('<img/>').attr({
-					src: photocrati_ajax.wp_site_static_url + '/' + this.model.get('preview_image_relpath'),
+					src: baseurl + '/' + preview_image_relpath,
 					title: this.model.get('title'),
 					alt: this.model.get('alt')
 				});
@@ -808,6 +808,9 @@ jQuery(function($){
 				this.entities.remove(model, {silent: true});
 				this.entities.add(model, {at: model.changed.sortorder, silent: true});
 				this.displayed_gallery.set('sortorder', this.entities.entity_ids());
+				if (typeof(console) != 'undefined' && typeof(console.log) != 'undefined') {
+					console.log(this.entities.entity_ids());
+				}
 				this.displayed_gallery.set('order_by', 'sortorder');
 			}, this);
 
@@ -853,7 +856,7 @@ jQuery(function($){
 
 		render_no_images_notice: function(){
 			this.$el.empty();
-			this.$el.append("<p class='no_entities'>No entities to display for this source.</p>");
+			this.$el.append("<p class='no_entities'><?php _e('No entities to display for this source.', 'nggallery'); ?></p>");
 		},
 
 		render: function(){
@@ -916,7 +919,8 @@ jQuery(function($){
 				this.entities.reset();
 			},
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -934,7 +938,8 @@ jQuery(function($){
 		ExcludeButtons: Backbone.View.extend({
 			className: 'header_row',
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -970,7 +975,8 @@ jQuery(function($){
 					click: 'clicked'
 				},
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -993,7 +999,8 @@ jQuery(function($){
 		SortButtons: Backbone.View.extend({
 			className: 'header_row',
 
-			initialize: 		function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -1014,6 +1021,8 @@ jQuery(function($){
 					}
 				]);
 				this.sortdirection_options.on('change:selected', this.sortdirection_changed, this);
+				this.displayed_gallery.on('change:order_by', this.displayed_gallery_order_changed, this);
+				this.displayed_gallery.on('change.order_direction', this.displayed_gallery_order_dir_changed, this);
 			},
 
 			populate_sorting_fields: function(){
@@ -1052,6 +1061,15 @@ jQuery(function($){
 				this.sortorder_options.push(this.create_sortorder_option('sortorder' ,'Custom'));
 				this.sortorder_options.push(this.create_sortorder_option('name', 'Name'));
 				this.sortorder_options.push(this.create_sortorder_option('galdesc', 'Description'));
+			},
+
+			displayed_gallery_order_changed: function(e){
+				this.sortorder_options.findWhere({value: e.get('order_by')}).set('selected', true);
+			},
+
+
+			displayed_gallery_order_dir_changed: function(e){
+				this.sortdirection_options.findWhere({value: e.get('order_direction')}).set('selected', true);
 			},
 
 			sortoption_changed: function(model){
@@ -1122,7 +1140,8 @@ jQuery(function($){
 			Button: Backbone.View.extend({
 				tagName: 'a',
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -1157,15 +1176,21 @@ jQuery(function($){
 				drop: 'item_dropped'
 			},
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
 				this.model.on('change', this.render, this);
+				if (this.model.get('sortorder') == 0) {
+					this.model.set('sortorder', -1, {silent: true});
+				}
 				this.id = this.model.get('id_field')+'_'+this.model.entity_id()
 			},
 
 			item_dropped: function(e, index){
+				Ngg.DisplayTab.instance.displayed_gallery.set('order_by', 'sortorder');
+				//Ngg.DisplayTab.instance.displayed_gallery.set('order_direction', 'ASC');
 				this.model.set('sortorder', index);
 			},
 
@@ -1208,7 +1233,8 @@ jQuery(function($){
 					this.model.set('exclude', e.target.checked);
 				},
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -1241,11 +1267,11 @@ jQuery(function($){
 		render: function(){
 			var select = new Ngg.Views.Chosen({
 				collection: this.galleries,
-				placeholder: 'Select a gallery',
+				placeholder: '<?php _e('Select a gallery', 'nggallery'); ?>',
 				multiple: true,
 				width: 500
 			});
-			var html = $('<tr><td><label>Galleries</label></td><td class="galleries_column"></td></tr>');
+			var html = $('<tr><td><label><?php _e('Galleries', 'nggallery'); ?></label></td><td class="galleries_column"></td></tr>');
 			this.$el.empty();
 			this.$el.append(html);
 			this.$el.find('.galleries_column').append(select.render().el);
@@ -1269,7 +1295,7 @@ jQuery(function($){
 				width: 500
 			});
 			this.$el.empty();
-			this.$el.append('<tr><td><label>Albums</label></td><td class="albums_column"></td></tr>');
+			this.$el.append('<tr><td><label><?php _e('Albums', 'nggallery'); ?></label></td><td class="albums_column"></td></tr>');
 			this.$el.find('.albums_column').append(album_select.render().el);
 			return this;
 		}
@@ -1375,7 +1401,7 @@ jQuery(function($){
 			var request = <?php echo $sec_token?>;
 			request = _.extend(request, {
 				action: 'save_displayed_gallery',
-				displayed_gallery: this.displayed_gallery.toJSON()
+				displayed_gallery: JSON.stringify(this.displayed_gallery.toJSON())
 			});
 
 			var self = this;
@@ -1393,7 +1419,7 @@ jQuery(function($){
 					self.displayed_gallery.set('id', id);
 					var editor = parent.tinyMCE.activeEditor;
 					var preview_url = ngg_displayed_gallery_preview_url + '/id--'+id;
-					var snippet = "<img class='ngg_displayed_gallery mceItem' src='" + preview_url + "'/>";
+					var snippet = "<img data-mce-placeholder='1' class='ngg_displayed_gallery mceItem' src='" + preview_url + "'/>";
 					if (editor.getContent().indexOf(preview_url) < 0)
 						editor.execCommand('mceInsertContent', false, snippet);
 					else {
@@ -1472,10 +1498,11 @@ jQuery(function($){
 			this.display_types = new Ngg.DisplayTab.Models.Display_Type_Collection(
 				<?php echo $display_types ?>
 			);
-			this.display_type_order_base = <?php echo NEXTGEN_DISPLAY_PRIORITY_BASE; ?>;
-			this.display_type_order_step = <?php echo NEXTGEN_DISPLAY_PRIORITY_STEP; ?>;
+			this.display_type_order_base = <?php echo NGG_DISPLAY_PRIORITY_BASE; ?>;
+			this.display_type_order_step = <?php echo NGG_DISPLAY_PRIORITY_STEP; ?>;
 			this.entities = new Ngg.DisplayTab.Models.Entity_Collection();
 			this.entities.extra_data.displayed_gallery = this.displayed_gallery;
+			this.image_key = "<?php echo $image_primary_key ?>";
 
 			// Pre-select current displayed gallery values
 			if (this.displayed_gallery.get('source')) {
@@ -1663,6 +1690,8 @@ jQuery(function($){
     });
     Ngg.DisplayTab.instance = new Ngg.DisplayTab.App();
     Ngg.DisplayTab.instance.render();
+    
+    window.Ngg = Ngg;
 
     // Invoke styling libraries
     $('span.tooltip, label.tooltip').tooltip();

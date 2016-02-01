@@ -24,6 +24,22 @@ Tags:
 @include sticky-footer(64px, "#page", "#page_footer", "#footer");
 
 
+
+/* =Woo Commerce Overrides
+----------------------------------------------- */
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+	width:auto;
+	float:none;
+}
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+	width:auto;
+	float:none;
+}
+
+
+
 /* Mixins */
 
 %clearfix {
@@ -624,7 +640,7 @@ div.entry-title {
 /* =Messages 
 ----------------------------------------------- */
 
-.alert-box.success { 
+.woocommerce-message { 
 	background:#30475b;
 	border-color:#3d5366;
 	padding: 6px;
@@ -863,6 +879,7 @@ padding: 8px;
 	}
 	.reveal-modal .label {
 		font-weight:normal;
+		display:none;
 	}
 	.reveal-modal span.price {
 		display:block;
@@ -876,33 +893,37 @@ padding: 8px;
 		width: 100% !important;
 	}
 
-	table.variations {
+	.reveal-modal table.variations {
 		background:none;
 		margin-bottom:0;
 	}
-	table.variations tr, table.variations tr td {
+	.reveal-modal table.variations tr, .reveal-modal table.variations tr td {
 		background:none;
 		vertical-align:middle;
 		padding:0;
 	}
 
-	.reveal-modal ul.price-selection {
-		margin:10px 0;
+	.reveal-modal table.variations td.value div {
+		margin: 0;
+	    border-bottom: solid 1px #333;
+	    padding: 10px 0;
 	}
 
-		.reveal-modal ul.price-selection li {
-			margin: 0;
-			border-bottom: solid 1px #333;
-			padding: 10px 0;
-		}
+	.reveal-modal table.variations td.value div:first-child {
+	    border-top: solid 1px #333;
+	}
 
-		.reveal-modal ul.price-selection li:first-child {
-			border-top: solid 1px #333;
-		}
+	.reveal-modal table.variations td.value div label span {
+		font-weight: bold;
+	}
 
-		.reveal-modal ul.price-selection li label span {
-			font-weight:bold;
-		}
+	.reveal-modal table.variations .reset_variations {
+		display:none !important;
+	}
+
+	.reveal-modal .product_meta {
+		display:none;
+	}
 	
 #product-sidebar {
 	text-align:center;
@@ -923,7 +944,12 @@ padding: 8px;
 
 /* =Image Attachment Template
 ----------------------------------------------- */
+
+body.single-attachment #masthead, body.single-attachment .mini-cart-container {
+	display:none;
+}
 .full-image {
+	display:block;
 	position: relative;
 	text-align:center;
 	overflow-x:scroll;
@@ -989,17 +1015,39 @@ table tfoot, table tfoot tr th, table tfoot tr td {
 	color:#fff;
 }
 
+table.light, table.light thead, table.light thead tr, table.light thead tr th, table.light thead tr td, table.light tr, table.light tr th, table.light tr td, table.light tr.even, table.light tr.alt, table.light tr:nth-of-type(even), table.light tfoot, table.light tfoot tr th, table.light tfoot tr td, table.light a, table.light p {
+	color:#222;
+	text-shadow:none;
+}
+
 table { 
 	margin-bottom:30px;
 	background:#151618;
 }
 
+table.light {
+	background:#fff;
+}
+
+table.light th {
+	background:#fff;
+	border-bottom: solid 1px rgba(0,0,0,.1);
+}
 table tr {
 	background: #222325;
 }
 
+table.light tr {
+	background:#fff;
+	border-bottom: solid 1px rgba(0,0,0,.1);
+}
+
 table tr.even, table tr.alt, table tr:nth-of-type(even) {
 	background: #151618;
+}
+
+table.light tr.even, table.light tr.alt, table.light tr:nth-of-type(even) {
+	background: #fff;
 }
 
 table tr td {
@@ -1007,7 +1055,7 @@ table tr td {
 }
 
 table thead tr th, table thead tr td, table tr th, table tr td, table tfoot tr th, table tfoot tr td {
-	padding: 1.5em 1em;
+	padding: .5em 1em;
 }
 
 tfoot {
@@ -1017,8 +1065,20 @@ tfoot {
 /* =Shopping Cart
 ----------------------------------------------- */
 
+
+.woocommerce-cart .woocommerce form th.product-thumbnail, .woocommerce-cart .woocommerce form td.product-thumbnail {
+	display:none;
+	@media #{$large} {
+		display:block;
+	}
+}
+
 .woocommerce table {
 	width:100%;
+}
+
+td.product-thumbnail {
+	max-width: 10em;
 }
 
 td.product-name a {
@@ -1029,6 +1089,7 @@ td.product-name a {
 td.product-name dl.variation dt {
 	float:left;
 	margin-right: .3em;
+	margin-bottom:0;
 }
 
 .quantity {
@@ -1044,7 +1105,6 @@ td.product-name dl.variation dt {
 }
 
 .quantity .qty {
-	width: 30%;
 	float: left;
 	height: 30px;
 	margin:0;
@@ -1068,10 +1128,30 @@ td.product-name dl.variation dt {
 /* =Checkout Page
 ----------------------------------------------- */
 
-form.checkout .col-1, form.checkout .col-2, form.checkout #payment, form.checkout #order_details {
-	background:#222325;
+form.checkout .col-1, form.checkout .col-2, form.checkout #order_details {
+	background:#fff;
 	padding:30px;
 	margin-bottom:20px;
+}
+
+form.checkout h3 {
+	color: #222;
+	text-shadow:none;
+}
+
+form.checkout p {
+	color:#222;
+	text-shadow:none;
+}
+form.checkout label {
+	color:#222;
+}
+
+form.checkout input {
+    background-color: rgba(0,0,0,.05);
+	border: 1px solid rgba(0,0,0,.1);
+	color: rgba(0,0,0,0.75);
+
 }
 
 .form-row {
@@ -1088,25 +1168,21 @@ clear: both;
 
 	.payment_methods.methods li {
 		clear:both;
-		border-bottom: solid 1px rgba(255, 255, 255, 0.1);
-		padding: 15px 30px 14px 30px;
-		margin: 0 -30px;
+		border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+		padding: 15px 0 14px 0;
 	}
 
 		.payment_methods.methods li label img {
 			float:right;
+			padding-left: 20px;
+			max-width:220px;
 		}
 
 		.payment_methods.methods li .payment_box {
-			margin: 20px 0 0;
+			margin: 10px 0 0;
 		}
 
 #order_review table { background:none;}
-
-#order_review table tr {
-	border-bottom: solid 1px rgba(255,255,255,.1);
-	background:none;
-}
 
 #order_review table thead, #order_review table tfoot tr.cart-subtotal {
 	font-weight:bold;

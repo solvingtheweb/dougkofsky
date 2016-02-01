@@ -1,6 +1,6 @@
 <p>
     <label for='<?php echo $self->get_field_id('title'); ?>'>
-        <?php _e('Title:'); ?>
+        <?php _e('Title', 'nggallery'); ?>:
     </label>
 
     <input class='widefat'
@@ -12,7 +12,7 @@
 
 <p>
     <label for='<?php echo $self->get_field_id('galleryid'); ?>'>
-        <?php _e('Select Gallery:', 'nggallery'); ?>
+        <?php _e('Select Gallery', 'nggallery'); ?>:
     </label>
 
     <select size='1'
@@ -29,15 +29,28 @@
                 echo '<option value="' . $table->gid . '" ';
                 if ($table->gid == $instance['galleryid'])
                     echo 'selected="selected" ';
-                echo '>' . $table->name . '</option>';
+                echo '>' . $table->title . '</option>';
             }
         } ?>
     </select>
 </p>
 
+<p id ='<?php echo $self->get_field_id('limit'); ?>_container' <?php if (0 != $instance['galleryid']) { ?>style="display: none;" <?php } ?>>
+    <label for='<?php echo $self->get_field_id('limit'); ?>'>
+        <?php _e('Limit', 'nggallery'); ?>:
+    </label>
+    <input id='<?php echo $self->get_field_id('limit'); ?>'
+           name='<?php echo $self->get_field_name('limit'); ?>'
+           type='number'
+           min='0'
+           step='1'
+           style="padding: 3px; width: 45px;"
+           value="<?php echo $limit; ?>"/>
+</p>
+
 <p>
     <label for='<?php echo $self->get_field_id('height'); ?>'>
-        <?php _e('Height:', 'nggallery'); ?>
+        <?php _e('Height', 'nggallery'); ?>:
     </label>
 
     <input id='<?php echo $self->get_field_id('height'); ?>'
@@ -49,7 +62,7 @@
 
 <p>
     <label for='<?php echo $self->get_field_id('width'); ?>'>
-        <?php _e('Width:', 'nggallery'); ?>
+        <?php _e('Width', 'nggallery'); ?>:
     </label>
 
     <input id='<?php echo $self->get_field_id('width'); ?>'
@@ -58,3 +71,16 @@
            style='padding: 3px; width: 45px;'
            value='<?php echo $width; ?>'/>
 </p>
+
+<!-- only show the limit field when 'all images' is selected -->
+<script type="text/javascript">
+    (function($) {
+        $('#<?php echo $self->get_field_id('galleryid'); ?>').on('change', function() {
+            if ($(this).val() == 0) {
+                $('#<?php echo $self->get_field_id('limit'); ?>_container').show();
+            } else {
+                $('#<?php echo $self->get_field_id('limit'); ?>_container').hide();
+            }
+        });
+    })(jQuery);
+</script>

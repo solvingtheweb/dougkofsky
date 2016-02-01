@@ -19,7 +19,6 @@ function nggallery_sortorder($galleryID = 0){
 		if (is_array($sortArray)){
 			$neworder = array();
 			foreach($sortArray as $pid) {
-				$pid = substr($pid, 4); // get id from "pid-x"
 				$neworder[] = (int) $pid;
 			}
 			$sortindex = 1;
@@ -27,8 +26,7 @@ function nggallery_sortorder($galleryID = 0){
 				$wpdb->query("UPDATE $wpdb->nggpictures SET sortorder = '$sortindex' WHERE pid = $pic_id");
 				$sortindex++;
 			}
-
-			C_Photocrati_Cache::flush();
+			C_Photocrati_Transient_Manager::flush('displayed_gallery_rendering');
 
 			do_action('ngg_gallery_sort', $galleryID);
 
@@ -59,26 +57,22 @@ function nggallery_sortorder($galleryID = 0){
 
 ?>
 	<script type="text/javascript">
-		// seralize the ImageOrder
-		function saveImageOrder()
-		{
-			var serial = "";
-			var objects = document.getElementsByTagName('div');
-			for(var no=0;no<objects.length;no++){
-				if(objects[no].className=='imageBox' || objects[no].className=='imageBoxHighlighted'){
-					if (serial.length > 0)	serial = serial + '&'
-					serial = serial + "sortArray[]=" + objects[no].id;
-				}
-			}
-			jQuery('input[name=sortorder]').val(serial);
-			// debug( 'This is the new order of the images(IDs) : <br>' + orderString );
-
-		}
 		jQuery(document).ready(function($) {
 			if ($(this).data('ready')) return;
 
 			// Enable sorting
 			$(".jqui-sortable").sortable({items: 'div.imageBox'});
+
+			$('#sortGallery').submit(function(e){
+				var serial = "";
+				var $images = $('div.imageBox');
+				for (var i=0; i<$images.length; i++) {
+					var image_id = $images[i].id.split('-').pop();
+					if (serial.length > 0) serial = serial + '&';
+					serial = serial + "sortArray[]=" + image_id;
+				}
+				$('input[name=sortorder]').val(serial);
+			});
 
 			// Listen for events in other frames
 			if (window.Frame_Event_Publisher) {
@@ -93,15 +87,15 @@ function nggallery_sortorder($galleryID = 0){
 
 	</script>
 	<div class="wrap">
-		<form id="sortGallery" method="POST" action="<?php echo $clean_url ?>" onsubmit="saveImageOrder()" accept-charset="utf-8">
+		<form id="sortGallery" method="POST" action="<?php echo $clean_url ?>" accept-charset="utf-8">
 			<h2><?php _e('Sort Gallery', 'nggallery') ?></h2>
 			<div class="tablenav">
 				<div class="alignleft actions">
 					<?php wp_nonce_field('ngg_updatesortorder') ?>
-					<input class="button-primary action" type="submit" name="updateSortorder" onclick="saveImageOrder()" value="<?php _e('Update Sort Order', 'nggallery') ?>" />
+					<input class="button-primary action" type="submit" name="updateSortorder" value="<?php _e('Update Sort Order', 'nggallery') ?>" />
 				</div>
 				<div class="alignright actions">
-					<a href="<?php echo esc_url( $back_url ); ?>" class="button"><?php _e('Back to gallery', 'nggallery'); ?></a>
+					<a href="<?php echo nextgen_esc_url( $back_url ); ?>" class="button"><?php _e('Back to gallery', 'nggallery'); ?></a>
 				</div>
 			</div>
 			<input name="sortorder" type="hidden" />
@@ -123,7 +117,7 @@ function nggallery_sortorder($galleryID = 0){
 				foreach($picturelist as $picture) {
 					?>
 					<div class="imageBox" id="pid-<?php echo $picture->pid ?>">
-						<div class="imageBox_theImage" style="background-image:url('<?php echo esc_url( $picture->thumbURL ); ?>')"></div>
+						<div class="imageBox_theImage" style="background-image:url('<?php echo nextgen_esc_url( $picture->thumbURL ); ?>')"></div>
 						<div class="imageBox_label"><span><?php echo esc_html( stripslashes($picture->alttext) ); ?></span></div>
 					</div>
 					<?php

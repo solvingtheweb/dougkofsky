@@ -1,0 +1,94 @@
+*** Amazon Payments Advanced Changelog ***
+
+2016.01.18 - version 1.5.3
+* Fix client side script URL for UK and DE markets when "Login App" enabled.
+* Show regional URLs for "Login App" setup instructions. (US, UK, and DE)
+* Retrieve billing address from order details, if available.
+
+2016.01.14 - version 1.5.2
+* Fix - Shipping address retrieval refactor bug.
+* Tweak - Disable gateway if more that $500/month recurring charges added to cart (Amazon limit).
+* Fix - Only enqueue client scripts for the Cart, Checkout, and Order Pay pages.
+
+2015.12.14 - version 1.5.1
+* Fix - Amazon provided ZIP+4 bug in local devlivery options.
+
+2015.12.07 - version 1.5.0
+* Add support for Subscriptions.
+* Add support for Deposits.
+* Tweak - Send store name and WC order number as note when authorizing payment.
+* Fix - Only attempt to capture shipping info for zero-total orders when the total is actually zero.
+* Fix - Shipping calculations not updated when selecting new address in Amazon widget.
+
+2015.11.20 - version 1.4.6
+* Fix - Show Amazon as an available payment method, even before the customer has logged in with Amazon.
+* Fix - Show "Pay with Amazon" button when hiding standard checkout button.
+
+2015.11.03 - version 1.4.5
+* Fix - undefined variable usage warning when retrieving the registration URL by location.
+* Fix - retrieve shipping address from API for "free" orders.
+
+2015.10.27 - version 1.4.4
+* Tweak - Created woocommerce_amazon_payments_init filter.
+
+2015.06.23 - version 1.4.3
+* Fix - Potential XSS security issues.
+* Tweak - Refactored plugin code and created new class to handle with API requests.
+
+2015.06.11 - version 1.4.2
+* Fix - "Pay With Amazon" button that disappeare when changing the Shipping method on the Cart Page.
+* Fix - "Pay With Amazon" button position on Storefront and some other themes.
+* Fix - Fixed an error on Checkout Page when enabled the "Automatically generate username from customer email" and "Automatically generate customer password" options
+
+2015.04.21 - version 1.4.1
+* Fix - Potential XSS with add_query_arg
+
+2015.04.07 - version 1.4.0
+* Support account creation when forced.
+* Fix compatibility issue with German Market Plugin.
+
+2015.03.12 - version 1.3.0
+* Ensure there is an address line 1.
+* Obtain and store the billing address if available after auth.
+* remove_accents in seller note.
+* Check for subscriptions after cart is loaded.
+* Option to hide standard checkout button.
+
+2014.09.27 - version 1.2.7
+* Disable login when subscription is in cart.
+
+2014.06.25 - version 1.2.6
+* Update registration url.
+* Bug fix for two button rendering.
+* Change for responsive widgets.
+* Standardized textdomain.
+* Improved handling for parsing first and last names.
+
+2014.06.06 - version 1.2.5
+* Fix for checking out when guest accounts are disabled.
+
+2014.03.14 - version 1.2.4
+* Remove urlencode from store name.
+
+2014.03.07 - version 1.2.3
+* Changed the request timeouts.
+
+2014.02.27 - version 1.2.2
+* Small bug fixes to prevent notices.
+
+2014.02.14 - version 1.2.1
+* CSS Tweak.
+* Fix reg link.
+
+2013.10.30 - version 1.2.0
+* Support for authorizing (and capturing) after an order is placed.
+* DE and UK support.
+* Correct encoding of site title.
+
+2013.09.16 - version 1.1.0
+* Added global to allow hook manipulation.
+* Added img for login button to improve performance.
+* Added option to control the cart button display (button, banner or disabled).
+
+2013.08.01 - version 1.0.0
+* First Release.

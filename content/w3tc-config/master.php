@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'version' => '0.9.3',
+	'version' => '0.9.4.1',
 	'cluster.messagebus.debug' => false,
 	'cluster.messagebus.enabled' => false,
 	'cluster.messagebus.sns.region' => '',
@@ -383,27 +383,6 @@ return array(
 	),
 	'cdn.reject.ssl' => false,
 	'cdncache.enabled' => false,
-	'cloudflare.enabled' => false,
-	'cloudflare.email' => '',
-	'cloudflare.key' => '',
-	'cloudflare.zone' => '',
-	'cloudflare.ips.ip4' => array(
-		0 => '204.93.240.0/24',
-		1 => '204.93.177.0/24',
-		2 => '199.27.128.0/21',
-		3 => '173.245.48.0/20',
-		4 => '103.22.200.0/22',
-		5 => '141.101.64.0/18',
-		6 => '108.162.192.0/18',
-		7 => '190.93.240.1/20',
-		8 => '188.114.96.0/20',
-		9 => '198.41.128.0/17',
-	),
-	'cloudflare.ips.ip6' => array(
-		0 => '2400:cb00::/32',
-		1 => '2606:4700::/32',
-		2 => '2803:f800::/32',
-	),
 	'varnish.enabled' => false,
 	'varnish.debug' => false,
 	'varnish.servers' => array(
@@ -444,7 +423,7 @@ return array(
 	'browsercache.other.etag' => false,
 	'browsercache.other.w3tc' => false,
 	'browsercache.other.replace' => false,
-	'browsercache.timestamp' => '',
+	'browsercache.timestamp' => '1451581422',
 	'browsercache.replace.exceptions' => array(
 	),
 	'mobile.enabled' => false,
@@ -662,7 +641,6 @@ return array(
 	'notes.zlib_output_compression' => true,
 	'notes.no_permalink_rules' => true,
 	'notes.browsercache_rules_no404wp' => true,
-	'notes.cloudflare_plugin' => true,
 	'timelimit.email_send' => 180,
 	'timelimit.varnish_purge' => 300,
 	'timelimit.cache_flush' => 600,
@@ -673,7 +651,6 @@ return array(
 	'timelimit.cdn_import' => 600,
 	'timelimit.cdn_test' => 300,
 	'timelimit.cdn_container_create' => 300,
-	'timelimit.cloudflare_api_request' => 180,
 	'timelimit.domain_rename' => 120,
 	'timelimit.minify_recommendations' => 600,
 	'minify.auto.filename_length' => 150,
@@ -713,13 +690,13 @@ return array(
 			'sidebar_excluded' => '',
 			'genesis_footer' => '1',
 			'wp_footer' => '0',
-			'fragment_reject_logged_roles' => '1',
-			'fragment_reject_logged_roles_on_actions' => array(
+			'reject_logged_roles' => '1',
+			'reject_logged_roles_on_actions' => array(
 				0 => 'genesis_loop',
 				1 => 'wp_head',
 				2 => 'wp_footer',
 			),
-			'fragment_reject_roles' => array(
+			'reject_roles' => array(
 				0 => 'administrator',
 			),
 		),

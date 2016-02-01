@@ -13,7 +13,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 			'photocrati-nextgen_xmlrpc',
 			'NextGEN Gallery XML-RPC',
 			'Provides an XML-RPC API for NextGEN Gallery',
-			'0.1',
+			'0.4',
 			'http://www.nextgen-gallery.com',
 			'Photocrati Media',
 			'http://www.photocrati.com'
@@ -28,12 +28,15 @@ class M_NextGen_XmlRpc extends C_Base_Module
 	function add_methods($methods)
 	{
 		$methods['ngg.installed'] = array(&$this, 'get_version');
+		$methods['ngg.setPostThumbnail'] = array(&$this, 'set_post_thumbnail');
+
 		// Image methods
 		$methods['ngg.getImage'] = array(&$this, 'get_image');
 		$methods['ngg.getImages'] = array(&$this, 'get_images');
 		$methods['ngg.uploadImage'] = array(&$this, 'upload_image');
 		$methods['ngg.editImage'] = array(&$this, 'edit_image');
 		$methods['ngg.deleteImage'] = array(&$this, 'delete_image');
+
 		// Gallery methods
 		$methods['ngg.getGallery'] = array(&$this, 'get_gallery');
 		$methods['ngg.getGalleries'] = array(&$this, 'get_galleries');
@@ -57,7 +60,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 	 */
 	function get_version()
 	{
-		return array('version' => NEXTGEN_GALLERY_PLUGIN_VERSION);
+		return array('version' => NGG_PLUGIN_VERSION);
 	}
 
 	/**
@@ -66,7 +69,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 	 * @param $password
 	 * @return bool|WP_Error|WP_User
 	 */
-	function login($username, $password, $blog_id=1)
+	function _login($username, $password, $blog_id=1)
 	{
 		$retval = FALSE;
 
@@ -80,7 +83,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		return $retval;
 	}
 
-	function can_manage_gallery($gallery_id_or_obj, $check_upload_capability=FALSE)
+	function _can_manage_gallery($gallery_id_or_obj, $check_upload_capability=FALSE)
 	{
 		$retval = FALSE;
 
@@ -90,18 +93,43 @@ class M_NextGen_XmlRpc extends C_Base_Module
 			$gallery_mapper = C_Gallery_Mapper::get_instance();
 			$gallery = $gallery_mapper->find($gallery_id_or_obj);
 		}
+		else $gallery = $gallery_id_or_obj;
 
-		$security = $this->get_registry()->get_utility('I_Security_Manager');
-		$actor	  = $security->get_current_actor();
-		if ($actor->get_entity_id() == $gallery->author) 			$retval = TRUE;
-		elseif ($actor->is_allowed('nextgen_edit_gallery_unowned')) $retval = TRUE;
+		if ($gallery) {
+			$security = $this->get_registry()->get_utility('I_Security_Manager');
+			$actor	  = $security->get_current_actor();
+			if ($actor->get_entity_id() == $gallery->author) 			$retval = TRUE;
+			elseif ($actor->is_allowed('nextgen_edit_gallery_unowned')) $retval = TRUE;
 
-		// Optionally, check if the user can upload to this gallery
-		if ($retval && $check_upload_capability) {
-			$retval = $actor->is_allowed('nextgen_upload_image');
+			// Optionally, check if the user can upload to this gallery
+			if ($retval && $check_upload_capability) {
+				$retval = $actor->is_allowed('nextgen_upload_image');
+			}
 		}
 
 		return $retval;
+	}
+
+	function _add_gallery_properties($gallery)
+	{
+		if (is_object($gallery)) {
+
+			$image_mapper	= C_Image_Mapper::get_instance();
+			$storage		= C_Gallery_Storage::get_instance();
+
+			// Vladimir's Lightroom plugins requires the 'id' to be a string
+			// Ask if he can accept integers as well. Currently, integers break
+			// his plugin
+			$gallery->gid = (string) $gallery->gid;
+
+			// Set other gallery properties
+			$image_counter = array_pop($image_mapper->select('DISTINCT COUNT(*) as counter')->where(array("galleryid = %d", $gallery->gid))->run_query(FALSE, FALSE, TRUE));
+			$gallery->counter = $image_counter->counter;
+			$gallery->abspath = $storage->get_gallery_abspath($gallery);
+		}
+		else return FALSE;
+
+		return TRUE;
 	}
 
 	/**
@@ -117,7 +145,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$image_id	= intval($args[3]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Try to find the image
 			$image_mapper = C_Image_Mapper::get_instance();
@@ -128,10 +156,10 @@ class M_NextGen_XmlRpc extends C_Base_Module
 				if (($gallery = $gallery_mapper->find($image->galleryid))) {
 
 					// Does the user have sufficient capabilities?
-					if ($this->can_manage_gallery($gallery)) {
+					if ($this->_can_manage_gallery($gallery)) {
 						$storage = C_Gallery_Storage::get_instance();
-						$image->imageURL	= $storage->get_image_url($image);
-						$image->thumbURL	= $storage->get_thumb_url($image);
+						$image->imageURL	= $storage->get_image_url($image,'full', TRUE);
+						$image->thumbURL	= $storage->get_thumb_url($image, TRUE);
 						$image->imagePath	= $storage->get_image_abspath($image);
 						$image->thumbPath	= $storage->get_thumb_abspath($image);
 						$retval = $return_model ? $image : $image->get_entity();
@@ -168,14 +196,14 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$gallery_id	= intval($args[3]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Try to find the gallery
 			$mapper = C_Gallery_Mapper::get_instance();
 			if (($gallery = $mapper->find($gallery_id, TRUE))) {
 
 				// Does the user have sufficient capabilities?
-				if ($this->can_manage_gallery($gallery)) {
+				if ($this->_can_manage_gallery($gallery)) {
 					$retval = $gallery->get_images();
 				}
 				else {
@@ -213,20 +241,23 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$password   = strval($args[2]);
 		$data		= $args[3];
 		$gallery_id = isset($data['gallery_id']) ? $data['gallery_id'] : $data['gallery'];
+        if (!isset($data['override'])) $data['override'] = FALSE;
+        if (!isset($data['overwrite']))$data['overwrite']= FALSE;
+        $data['override'] = $data['overwrite'];
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Try to find the gallery
 			$mapper = C_Gallery_Mapper::get_instance();
 			if (($gallery = $mapper->find($gallery_id, TRUE))) {
 
 				// Does the user have sufficient capabilities?
-				if ($this->can_manage_gallery($gallery, TRUE)) {
+				if ($this->_can_manage_gallery($gallery, TRUE)) {
 
 					// Upload the image
 					$storage	= C_Gallery_Storage::get_instance();
-					$image		= $storage->upload_base64_image($gallery, $data['bits'], $data['name'], $data['image_id']);
+					$image		= $storage->upload_base64_image($gallery, $data['bits'], $data['name'], $data['image_id'], $data['override']);
 					if ($image) {
 						$storage = C_Gallery_Storage::get_instance();
 						$image->imageURL	= $storage->get_image_url($image);
@@ -274,6 +305,11 @@ class M_NextGen_XmlRpc extends C_Base_Module
 				$retval->$key = $value;
 			}
 
+			// Unset any dynamic properties not part of the schema
+			foreach (array('imageURL', 'thumbURL', 'imagePath', 'thumbPath') as $key) {
+				unset($retval->$key);
+			}
+
 			$retval = $retval->save();
 		}
 
@@ -306,7 +342,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$title		= strval($args[3]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			$security = $this->get_registry()->get_utility('I_Security_Manager');
 			if ($security->is_allowed('nextgen_edit_gallery')) {
@@ -336,26 +372,63 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$gallery_id = intval($args[3]);
 		$name		= strval($args[4]);
 		$title		= strval($args[5]);
-		$image_id	= intval($args[6]);
-		$properties = isset($args[7]) ? (array) $args[7] : array();
+		$galdesc    = strval($args[6]);
+		$image_id	= intval($args[7]);
+		$properties = isset($args[8]) ? (array) $args[8] : array();
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			$mapper = C_Gallery_Mapper::get_instance();
 			if (($gallery = $mapper->find($gallery_id, TRUE))) {
-				if ($this->can_manage_gallery($gallery)) {
+				if ($this->_can_manage_gallery($gallery)) {
 					$gallery->name	= $name;
 					$gallery->title = $title;
+					$gallery->galdesc = $galdesc;
 					$gallery->previewpic = $image_id;
 					foreach ($properties as $key => $value) {
 						$gallery->$key = $value;
 					}
+
+					// Unset dynamic properties not part of the schema
+					unset($gallery->counter);
+					unset($gallery->abspath);
+
 					$retval = $gallery->save();
 				}
 				else $retval = new IXR_Error(403, "You don't have permission to modify this gallery");
 			}
 			else $retval = new IXR_Error(404, "Gallery #{$gallery_id} doesn't exist");
+		}
+
+		return $retval;
+	}
+
+	/**
+	 * Returns all galleries
+	 * @param $args (blog_id, username, password)
+	 */
+	function get_galleries($args)
+	{
+		$retval		= new IXR_Error(403, 'Invalid username or password');
+		$blog_id	= intval($args[0]);
+		$username	= strval($args[1]);
+		$password   = strval($args[2]);
+
+		// Authenticate the user
+		if ($this->_login($username, $password, $blog_id)) {
+
+			// Do we have permission?
+			$security = $this->get_registry()->get_utility('I_Security_Manager');
+			if ($security->is_allowed('nextgen_edit_gallery')) {
+				$mapper 		= C_Gallery_Mapper::get_instance();
+				$retval			= array();
+				foreach ($mapper->find_all() as $gallery) {
+					$this->_add_gallery_properties($gallery);
+					$retval[$gallery->{$gallery->id_field}] = (array)$gallery;
+				}
+			}
+			else $retval = new IXR_Error( 401, __( 'Sorry, you must be able to manage galleries' ) );
 		}
 
 		return $retval;
@@ -374,12 +447,14 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$gallery_id	= intval($args[3]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 			$mapper = C_Gallery_Mapper::get_instance();
 			if (($gallery = $mapper->find($gallery_id, TRUE))) {
-				if ($this->can_manage_gallery($gallery)) {
+				if ($this->_can_manage_gallery($gallery)) {
+					$this->_add_gallery_properties($gallery);
 					$retval = $return_model ? $gallery : $gallery->get_entity();
 				}
+				else $retval = new IXR_Error(403, "Sorry, but you don't have permission to manage gallery #{$gallery->gid}");
 			}
 			else $retval = FALSE;
 		}
@@ -395,7 +470,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 	{
 		$retval = $this->get_gallery($args, TRUE);
 
-		if (!($retval instanceof IXR_Error)) {
+		if (!($retval instanceof IXR_Error) and is_object($retval)) {
 			$retval = $retval->destroy();
 		}
 
@@ -412,14 +487,14 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$blog_id	= intval($args[0]);
 		$username	= strval($args[1]);
 		$password   = strval($args[2]);
-		$title		= intval($args[3]);
+		$title		= strval($args[3]);
 		$previewpic = isset($args[4]) ? intval($args[4]): 0;
 		$desc		= isset($args[5]) ? strval($args[5]) : '';
 		$sortorder  = isset($args[6]) ? $args[6] : '';
 		$page_id	= isset($args[7]) ? intval($args[7]) : 0;
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Is request allowed?
 			$security = $this->get_registry()->get_utility('I_Security_Manager');
@@ -431,7 +506,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 					'previewpic'	=>	$previewpic,
 					'albumdesc'		=>	$desc,
 					'sortorder'		=>	$sortorder,
-					'page_id'		=>	$page_id
+					'pageid'		=>	$page_id
 				));
 
 				if ($album->save()) $retval = $album->id();
@@ -456,7 +531,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$password   = strval($args[2]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Are we allowed?
 			$security = $this->get_registry()->get_utility('I_Security_Manager');
@@ -496,21 +571,23 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$album_id	= intval($args[3]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
+		if ($this->_login($username, $password, $blog_id)) {
 
 			// Are we allowed?
 			$security = $this->get_registry()->get_utility('I_Security_Manager');
 			if ($security->is_allowed('nextgen_edit_album')) {
 				$mapper = C_Album_Mapper::get_instance();
-				$album = $mapper->find($album_id, TRUE);
+				if (($album = $mapper->find($album_id, TRUE))) {
+					// Vladimir's Lightroom plugins requires the 'id' to be a string
+					// Ask if he can accept integers as well. Currently, integers break
+					// his plugin
+					$album->id = (string) $album->id;
+					$album->galleries = $album->sortorder;
 
-				// Vladimir's Lightroom plugins requires the 'id' to be a string
-				// Ask if he can accept integers as well. Currently, integers break
-				// his plugin
-				$album->id = (string) $album->id;
-				$album->galleries = $album->sortorder;
+					$retval = $return_model ? $album : $album->get_entity();
+				}
+				else $retval = FALSE;
 
-				$retval = $return_model ? $album : $album->get_entity();
 			}
 			else $retval = new IXR_Error(403, "Sorry, you must be able to manage albums");
 		}
@@ -557,42 +634,27 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		return $retval;
 	}
 
-
 	/**
-	 * Returns all galleries
-	 * @param $args (blog_id, username, password)
+	 * Sets the post thumbnail for a post to a NextGEN Gallery image
+	 * @param $args (blog_id, username, password, post_id, image_id)
+	 *
+	 * @return IXR_Error|int attachment id
 	 */
-	function get_galleries($args)
+	function set_post_thumbnail($args)
 	{
 		$retval		= new IXR_Error(403, 'Invalid username or password');
 		$blog_id	= intval($args[0]);
 		$username	= strval($args[1]);
 		$password   = strval($args[2]);
+		$post_ID    = intval($args[3]);
+		$image_id   = intval($args[4]);
 
 		// Authenticate the user
-		if ($this->login($username, $password, $blog_id)) {
-
-			// Do we have permission?
-			$security = $this->get_registry()->get_utility('I_Security_Manager');
-			if ($security->is_allowed('nextgen_edit_gallery')) {
-				$mapper 		= C_Gallery_Mapper::get_instance();
-				$image_mapper	= C_Image_Mapper::get_instance();
-				$storage		= C_Gallery_Storage::get_instance();
-				$retval			= array();
-				foreach ($mapper->find_all() as $gallery) {
-					// Vladimir's Lightroom plugins requires the 'id' to be a string
-					// Ask if he can accept integers as well. Currently, integers break
-					// his plugin
-					$gallery->gid = (string) $gallery->gid;
-
-					// Set other gallery properties
-					$image_counter = array_pop($image_mapper->select('COUNT(*) as counter')->where(array("galleryid = %d", $gallery->gid))->run_query());
-					$gallery->counter = $image_counter->counter;
-					$gallery->abspath = $storage->get_gallery_abspath($gallery);
-					$retval[$gallery->{$gallery->id_field}] = (array)$gallery;
-				}
+		if ($this->_login($username, $password, $blog_id)) {
+			if ( current_user_can( 'edit_post', $post_ID )) {
+				$retval = C_Gallery_Storage::get_instance()->set_post_thumbnail($post_ID, $image_id);
 			}
-			else $retval = new IXR_Error( 401, __( 'Sorry, you must be able to manage galleries' ) );
+			else $retval = new IXR_Error(403, "Sorry but you need permission to do this");
 		}
 
 		return $retval;

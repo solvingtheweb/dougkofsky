@@ -12,8 +12,8 @@
  * @author    Sunny Johal - Titanium Themes <support@titaniumthemes.com>
  * @license   GPL-2.0+
  * @link      http://wordpress.org/plugins/easy-google-fonts/
- * @copyright Copyright (c) 2013, Titanium Themes
- * @version   1.2.2
+ * @copyright Copyright (c) 2014, Titanium Themes
+ * @version   1.3.9
  * 
  */
 if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
@@ -45,7 +45,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * settings page and menu.
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		function __construct() {
@@ -65,7 +65,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return    object    A single instance of this class.
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_instance() {
@@ -84,7 +84,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * Add any custom actions in this function.
 		 * 
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public function register_actions() {
@@ -96,11 +96,10 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * Add any custom filters in this function.
 		 * 
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public function register_filters() {
-
 		}
 		
 		/**
@@ -120,7 +119,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return array $fonts - All websafe fonts with their properties
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_default_fonts() {
@@ -128,20 +127,20 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 
 				// Declare default font list
 				$font_list = array(
-						'Arial'               => array( 'weights' => array( '400', '400italic' ) ),
-						'Century Gothic'      => array( 'weights' => array( '400', '400italic' ) ),
-						'Courier New'         => array( 'weights' => array( '400', '400italic' ) ),
-						'Georgia'             => array( 'weights' => array( '400', '400italic' ) ),
-						'Helvetica'           => array( 'weights' => array( '400', '400italic' ) ),
-						'Impact'              => array( 'weights' => array( '400', '400italic' ) ),
-						'Lucida Console'      => array( 'weights' => array( '400', '400italic' ) ),
-						'Lucida Sans Unicode' => array( 'weights' => array( '400', '400italic' ) ),
-						'Palatino Linotype'   => array( 'weights' => array( '400', '400italic' ) ),
-						'sans-serif'          => array( 'weights' => array( '400', '400italic' ) ),
-						'serif'               => array( 'weights' => array( '400', '400italic' ) ),
-						'Tahoma'              => array( 'weights' => array( '400', '400italic' ) ),
-						'Trebuchet MS'        => array( 'weights' => array( '400', '400italic' ) ),
-						'Verdana'             => array( 'weights' => array( '400', '400italic' ) ),
+						'Arial'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Century Gothic'      => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Courier New'         => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Georgia'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Helvetica'           => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Impact'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Lucida Console'      => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Lucida Sans Unicode' => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Palatino Linotype'   => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'sans-serif'          => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'serif'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Tahoma'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Trebuchet MS'        => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+						'Verdana'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
 				);
 			
 				// Build font list to return
@@ -210,7 +209,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return array $fonts - All websafe fonts with their properties
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_google_fonts() {
@@ -232,7 +231,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 			$json  = array();
 			
 			// Check if transient is set
-			if ( false === get_transient( 'tt_font_google_fonts' ) ) {
+			if ( false === get_transient( 'tt_font_google_fonts_list' ) ) {
 
 				/*
 				 * First we want to try to update the font transient with the
@@ -252,7 +251,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 				// Check it is a valid request
 				if ( ! is_wp_error( $response ) ) {
 
-					$font_list = json_decode( $response['body'], true );
+					$font_list = self::json_decode( $response['body'], true );
 
 					// Make sure that the valid response from google is not an error message
 					if ( ! isset( $font_list['error'] ) ) {
@@ -276,7 +275,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 					$json            = $fonts_from_repo;
 				}
 
-				$font_output = json_decode( $json, true );
+				$font_output = self::json_decode( $json, true );
 
 				foreach ( $font_output['items'] as $item ) {
 						
@@ -292,6 +291,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 
 					$atts = array( 
 						'name'         => $item['family'],
+						'category'     => $item['category'],
 						'font_type'    => 'google',
 						'font_weights' => $item['variants'],
 						'subsets'      => $item['subsets'],
@@ -309,10 +309,10 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 				$fonts = apply_filters( 'tt_font_google_fonts_array', $fonts );
 				
 				// Set transient for google fonts
-				set_transient( 'tt_font_google_fonts', $fonts, 14 * DAY_IN_SECONDS );
+				set_transient( 'tt_font_google_fonts_list', $fonts, 14 * DAY_IN_SECONDS );
 
 			} else {
-				$fonts = get_transient( 'tt_font_google_fonts' );
+				$fonts = get_transient( 'tt_font_google_fonts_list' );
 			}
 
 			return apply_filters( 'tt_font_get_google_fonts', $fonts );
@@ -327,7 +327,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return array All fonts with their properties
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_all_fonts() {
@@ -358,7 +358,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return string $api_key - The Google API Key
 		 * 
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_google_api_key() {
@@ -379,7 +379,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return string $api_key - The Google API Key
 		 * 
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function set_google_api_key( $api_key ) {
@@ -398,7 +398,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return string $api_key - The Google API Key
 		 * 
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function is_valid_google_api_key( $api_key = '' ) {
@@ -408,7 +408,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 			// Check it is a valid request
 			if ( ! is_wp_error( $response ) ) {
 				
-				$font_list = json_decode( $response['body'], true );
+				$font_list = self::json_decode( $response['body'], true );
 
 				// Make sure that the valid response from google is not an error message
 				if ( ! isset( $font_list['error'] ) ) {
@@ -430,12 +430,13 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * all of the fonts as an array to the user.
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function delete_font_transients() {
 			delete_transient( 'tt_font_default_fonts' );
-			delete_transient( 'tt_font_google_fonts' );			
+			delete_transient( 'tt_font_google_fonts_list' );		
+			delete_transient( 'tt_font_google_fonts' );		
 		}
 
 		/**
@@ -451,7 +452,7 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 		 * @return array $fonts - All websafe fonts with their properties
 		 *
 		 * @since 1.2
-		 * @version 1.2.2
+		 * @version 1.3.9
 		 * 
 		 */
 		public static function get_font( $id = '' ) {
@@ -473,6 +474,28 @@ if ( ! class_exists( 'EGF_Font_Utilities' ) ) :
 			} else {
 				return false;
 			}			
+		}
+
+		/**
+		 * Decode JSON
+		 *
+		 * Attempts to decode json into an array.
+		 * This new function accounts for servers
+		 * running an older version of PHP with
+		 * magic quotes gpc enabled.
+		 * 
+		 *
+		 * @param  string  $str   - JSON string to convert into an array
+		 * @param  boolean $accoc [- Whether to return an associative array
+		 * @return array - Decoded JSON array
+		 *
+		 * @since 1.3.7
+		 * @version 1.3.9
+		 * 
+		 */
+		public static function json_decode( $str = '', $accoc = false ) {
+			$json_string = get_magic_quotes_gpc() ? stripslashes( $str ) : $str;
+			return json_decode( $json_string, $accoc );
 		}
 	}
 endif;

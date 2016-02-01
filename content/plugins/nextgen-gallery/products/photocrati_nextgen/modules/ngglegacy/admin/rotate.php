@@ -36,8 +36,16 @@ $thumb->resize(350,350);
 $resizedPreviewInfo = $thumb->newDimensions;
 $thumb->destruct();
 
-$preview_image		= trailingslashit( home_url() ) . 'index.php?callback=image&amp;pid=' . $picture->pid . '&amp;width=350&amp;height=350';
+// Generate a url to a preview image
+$storage            = C_Gallery_Storage::get_instance();
+$thumbnail_manager  = C_Dynamic_Thumbnails_Manager::get_instance();
+$dynamic_size       = $thumbnail_manager->get_size_name(array(
+	'width'     =>  350,
+	'height'    =>  350,
 
+));
+//$preview_image		= trailingslashit( home_url() ) . 'index.php?callback=image&amp;pid=' . $picture->pid . '&amp;width=350&amp;height=350';
+$preview_image      = $storage->get_image_url($id, $dynamic_size);
 ?>
 
 <script type='text/javascript'>
@@ -79,11 +87,11 @@ $preview_image		= trailingslashit( home_url() ) . 'index.php?callback=image&amp;
 <table width="98%" align="center" style="border:1px solid #DADADA">
 	<tr style="height : 360px;">
 		<td valign="middle" align="center" style="background-color:#DADADA; width : 370px;">
-			<img src="<?php echo esc_url( $preview_image ); ?>" alt="" id="imageToEdit" />	
+			<img src="<?php echo nextgen_esc_url( $preview_image ); ?>" alt="" id="imageToEdit" />	
 		</td>
 		<td>
 			<input type="radio" name="ra" value="cw" /><?php esc_html_e('90&deg; clockwise', 'nggallery'); ?><br />
-			<input type="radio" name="ra" value="ccw" /><?php esc_html_e('90&deg; anticlockwise', 'nggallery'); ?><br />
+			<input type="radio" name="ra" value="ccw" /><?php esc_html_e('90&deg; counter-clockwise', 'nggallery'); ?><br />
 			<input type="radio" name="ra" value="fv" /><?php esc_html_e('Flip vertically', 'nggallery'); ?><br />
 			<input type="radio" name="ra" value="fh" /><?php esc_html_e('Flip horizontally', 'nggallery'); ?>
 		</td>		

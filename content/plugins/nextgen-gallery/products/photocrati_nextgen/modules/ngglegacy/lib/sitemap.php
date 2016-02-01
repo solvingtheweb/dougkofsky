@@ -44,11 +44,11 @@ class nggSitemaps {
   		remove_all_shortcodes();
 
         // We cannot parse at this point a album, just galleries & single images
-		C_NextGen_Shortcode_Manager::add( 'singlepic', array(&$this, 'add_images' ) );
-		C_NextGen_Shortcode_Manager::add( 'thumb', array(&$this, 'add_images' ) );
-		C_NextGen_Shortcode_Manager::add( 'nggallery', array(&$this, 'add_gallery') );
-		C_NextGen_Shortcode_Manager::add( 'imagebrowser', array(&$this, 'add_gallery' ) );
-		C_NextGen_Shortcode_Manager::add( 'slideshow', array(&$this, 'add_gallery' ) );
+        C_NextGen_Shortcode_Manager::add('singlepic',    array(&$this, 'add_images'));
+        C_NextGen_Shortcode_Manager::add('thumb',        array(&$this, 'add_images'));
+        C_NextGen_Shortcode_Manager::add('nggallery',    array(&$this, 'add_gallery'));
+        C_NextGen_Shortcode_Manager::add('imagebrowser', array(&$this, 'add_gallery'));
+        C_NextGen_Shortcode_Manager::add('slideshow',    array(&$this, 'add_gallery'));
 
         // Search now for shortcodes
         do_shortcode( $p->post_content );
@@ -70,21 +70,25 @@ class nggSitemaps {
             'id'        => 0
         ), $atts ));
 
-        // backward compat for user which uses the name instead, still deprecated
-        if( !is_numeric($id) )
-            $id = $wpdb->get_var( $wpdb->prepare ("SELECT gid FROM $wpdb->nggallery WHERE name = '%s' ", $id) );
+	    $gallery_mapper = C_Gallery_Mapper::get_instance();
+	    if (!is_numeric($id)) {
+		    if (($gallery = array_shift($gallery_mapper->select()->where(array('name = %s', $id))->limit(1)->run_query()))) {
+			    $id = $gallery->{$gallery->id_field};
+		    }
+		    else $id = NULL;
+	    }
 
-        $images = nggdb::get_gallery($id, 'pid', 'ASC', true, 1000);
-
-        foreach ($images as $image) {
-            $newimage = array();
-            $newimage['src']   = $newimage['sc'] = $image->imageURL;
-            if ( !empty($image->title) )
-                $newimage['title'] = $image->title;
-            if ( !empty($image->alttext) )
-                $newimage['alt']   = $image->alttext;
-            $this->images[] = $newimage;
-        }
+	    if ($id) {
+		    $gallery_storage = C_Gallery_Storage::get_instance();
+		    $image_mapper = C_Image_Mapper::get_instance();
+		    foreach ($image_mapper->find_all_for_gallery($id) as $image) {
+			    $this->images[] = array(
+				    'src'   =>  $gallery_storage->get_image_url($image),
+				    'title' =>  $image->title,
+				    'alt'   =>  $image->alttext
+			    );
+		    }
+	    }
 
         return '';
     }

@@ -37,7 +37,18 @@ $thumb->resize(350,350);
 $resizedPreviewInfo = $thumb->newDimensions;
 $thumb->destruct();
 
-$preview_image		= NGGALLERY_URLPATH . 'nggshow.php?pid=' . $picture->pid . '&amp;width=350&amp;height=350';
+// Generate a url to a preview image
+$storage            = C_Gallery_Storage::get_instance();
+$thumbnail_manager  = C_Dynamic_Thumbnails_Manager::get_instance();
+$dynamic_size       = $thumbnail_manager->get_size_name(array(
+	'width'     =>  350,
+	'height'    =>  350,
+
+));
+//$preview_image		= NGGALLERY_URLPATH . 'nggshow.php?pid=' . $picture->pid . '&amp;width=350&amp;height=350';
+$preview_image      = $storage->get_image_url($id, $dynamic_size);
+
+
 $imageInfo			= @getimagesize($picture->imagePath);
 $rr = round($imageInfo[0] / $resizedPreviewInfo['newWidth'], 2);
 
@@ -145,7 +156,7 @@ if ($thumbnail_crop_frame != null)
 <table width="98%" align="center" style="border:1px solid #DADADA">
 	<tr>
 		<td rowspan="3" valign="middle" align="center" width="350" style="background-color:#DADADA;">
-			<img src="<?php echo esc_url( $preview_image ); ?>" alt="" id="imageToEdit" />	
+			<img src="<?php echo nextgen_esc_url( $preview_image ); ?>" alt="" id="imageToEdit" />	
 		</td>
 		<td width="300" style="background-color : #DADADA;">
 			<small style="margin-left:6px; display:block;"><?php esc_html_e('Select the area for the thumbnail from the picture on the left.', 'nggallery'); ?></small>
@@ -154,10 +165,10 @@ if ($thumbnail_crop_frame != null)
 	<tr>
 		<td align="center" width="300" height="320">
 			<div id="previewNewThumb" style="display:none;width:<?php echo $WidthHtmlPrev; ?>px;height:<?php echo $HeightHtmlPrev; ?>px;overflow:hidden; margin-left:5px;">
-				<img src="<?php echo esc_url( $preview_image ); ?>" id="imageToEditPreview" />
+				<img src="<?php echo nextgen_esc_url( $preview_image ); ?>" id="imageToEditPreview" />
 			</div>
 			<div id="actualThumb">
-				<img src="<?php echo esc_url( $picture->thumbURL ); ?>?<?php echo time()?>" />
+				<img src="<?php echo nextgen_esc_url( $picture->thumbURL ); ?>?<?php echo time()?>" />
 			</div>
 		</td>
 	</tr>

@@ -18,11 +18,21 @@ div.pp_default .pp_nav .pp_play,div.pp_default .pp_nav .pp_pause{background:url(
 div.pp_default .pp_nav .pp_pause{background-position:-51px -29px}
 div.pp_default a.pp_arrow_previous,div.pp_default a.pp_arrow_next{background:url(../images/prettyphoto/default/sprite.png) -31px -3px no-repeat;height:20px;width:20px;margin:4px 0 0}
 div.pp_default a.pp_arrow_next{float:left;background-position:-82px -3px}
-div.pp_default .pp_content_container .pp_details{margin-top:5px}
-div.pp_default .pp_nav{clear:none;height:30px;position:relative}
-div.pp_default .pp_nav .currentTextHolder{font-family:Georgia;font-style:italic;color:#999;font-size:11px;left:75px;line-height:25px;float:left;top:2px;margin:0;padding:0 0 0 10px}
+div.pp_default .pp_content_container .pp_details{margin-top:10px}
+div.pp_default .pp_nav{clear:none;height:30px;position:relative;margin-bottom: 0;}
+.pp_nav .currentTextHolder{
+	font-style:italic;
+	color:#999;
+	font-size:11px;
+	line-height:14px;
+	margin:5px 0 0 8px;
+	float:left;
+	white-space:nowrap;
+	position: static !important;
+}
+.pp_default .currentTextHolder{margin-top: 8px;}
 div.pp_default .pp_close:hover,div.pp_default .pp_nav .pp_play:hover,div.pp_default .pp_nav .pp_pause:hover,div.pp_default .pp_arrow_next:hover,div.pp_default .pp_arrow_previous:hover{opacity:0.7}
-div.pp_default .pp_description{font-size:11px;font-weight:700;line-height:14px;margin:5px 50px 5px 0}
+div.pp_default .pp_description{font-size:12px;font-weight:700;line-height:1.4;margin:6px 40px 5px 2px}
 div.pp_default .pp_bottom .pp_left{background:url(../images/prettyphoto/default/sprite.png) -78px -127px no-repeat}
 div.pp_default .pp_bottom .pp_middle{background:url(../images/prettyphoto/default/sprite_x.png) bottom left repeat-x}
 div.pp_default .pp_bottom .pp_right{background:url(../images/prettyphoto/default/sprite.png) -112px -127px no-repeat}
@@ -36,7 +46,7 @@ div.light_rounded .pp_expand:hover{background:url(../images/prettyphoto/light_ro
 div.light_rounded .pp_contract{background:url(../images/prettyphoto/light_rounded/sprite.png) 0 -26px no-repeat;cursor:pointer}
 div.light_rounded .pp_contract:hover{background:url(../images/prettyphoto/light_rounded/sprite.png) 0 -47px no-repeat;cursor:pointer}
 div.light_rounded .pp_close{width:75px;height:22px;background:url(../images/prettyphoto/light_rounded/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.light_rounded .pp_nav .pp_play{background:url(../images/prettyphoto/light_rounded/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
+div.light_rounded .pp_nav .pp_play{background:url(../images/prettyphoto/light_rounded/sprite.png) -1px -101px no-repeat;height:15px;width:14px}
 div.light_rounded .pp_nav .pp_pause{background:url(../images/prettyphoto/light_rounded/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
 div.light_rounded .pp_arrow_previous{background:url(../images/prettyphoto/light_rounded/sprite.png) 0 -71px no-repeat}
 div.light_rounded .pp_arrow_next{background:url(../images/prettyphoto/light_rounded/sprite.png) -22px -71px no-repeat}
@@ -54,7 +64,7 @@ div.dark_rounded .pp_contract{background:url(../images/prettyphoto/dark_rounded/
 div.dark_rounded .pp_contract:hover{background:url(../images/prettyphoto/dark_rounded/sprite.png) 0 -47px no-repeat;cursor:pointer}
 div.dark_rounded .pp_close{width:75px;height:22px;background:url(../images/prettyphoto/dark_rounded/sprite.png) -1px -1px no-repeat;cursor:pointer}
 div.dark_rounded .pp_description{margin-right:85px;color:#fff}
-div.dark_rounded .pp_nav .pp_play{background:url(../images/prettyphoto/dark_rounded/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
+div.dark_rounded .pp_nav .pp_play{background:url(../images/prettyphoto/dark_rounded/sprite.png) -1px -101px no-repeat;height:15px;width:14px}
 div.dark_rounded .pp_nav .pp_pause{background:url(../images/prettyphoto/dark_rounded/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
 div.dark_rounded .pp_arrow_previous{background:url(../images/prettyphoto/dark_rounded/sprite.png) 0 -71px no-repeat}
 div.dark_rounded .pp_arrow_next{background:url(../images/prettyphoto/dark_rounded/sprite.png) -22px -71px no-repeat}
@@ -70,8 +80,8 @@ div.dark_square .pp_contract{background:url(../images/prettyphoto/dark_square/sp
 div.dark_square .pp_contract:hover{background:url(../images/prettyphoto/dark_square/sprite.png) 0 -47px no-repeat;cursor:pointer}
 div.dark_square .pp_close{width:75px;height:22px;background:url(../images/prettyphoto/dark_square/sprite.png) -1px -1px no-repeat;cursor:pointer}
 div.dark_square .pp_nav{clear:none}
-div.dark_square .pp_nav .pp_play{background:url(../images/prettyphoto/dark_square/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.dark_square .pp_nav .pp_pause{background:url(../images/prettyphoto/dark_square/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
+div.dark_square .pp_nav .pp_play{background:url(../images/prettyphoto/dark_square/sprite.png) -3px -101px no-repeat;height:15px;width:14px}
+div.dark_square .pp_nav .pp_pause{background:url(../images/prettyphoto/dark_square/sprite.png) -26px -100px no-repeat;height:15px;width:14px}
 div.dark_square .pp_arrow_previous{background:url(../images/prettyphoto/dark_square/sprite.png) 0 -71px no-repeat}
 div.dark_square .pp_arrow_next{background:url(../images/prettyphoto/dark_square/sprite.png) -22px -71px no-repeat}
 div.dark_square .pp_next:hover{background:url(../images/prettyphoto/dark_square/btnNext.png) center right no-repeat;cursor:pointer}
@@ -81,40 +91,38 @@ div.light_square .pp_expand:hover{background:url(../images/prettyphoto/light_squ
 div.light_square .pp_contract{background:url(../images/prettyphoto/light_square/sprite.png) 0 -26px no-repeat;cursor:pointer}
 div.light_square .pp_contract:hover{background:url(../images/prettyphoto/light_square/sprite.png) 0 -47px no-repeat;cursor:pointer}
 div.light_square .pp_close{width:75px;height:22px;background:url(../images/prettyphoto/light_square/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.light_square .pp_nav .pp_play{background:url(../images/prettyphoto/light_square/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.light_square .pp_nav .pp_pause{background:url(../images/prettyphoto/light_square/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
+div.light_square .pp_nav .pp_play{background:url(../images/prettyphoto/light_square/sprite.png) -3px -101px no-repeat;height:15px;width:14px}
+div.light_square .pp_nav .pp_pause{background:url(../images/prettyphoto/light_square/sprite.png) -26px -100px no-repeat;height:15px;width:14px}
 div.light_square .pp_arrow_previous{background:url(../images/prettyphoto/light_square/sprite.png) 0 -71px no-repeat}
 div.light_square .pp_arrow_next{background:url(../images/prettyphoto/light_square/sprite.png) -22px -71px no-repeat}
 div.light_square .pp_next:hover{background:url(../images/prettyphoto/light_square/btnNext.png) center right no-repeat;cursor:pointer}
 div.light_square .pp_previous:hover{background:url(../images/prettyphoto/light_square/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.facebook .pp_top .pp_left{background:url(../images/prettyphoto/facebook/sprite.png) -88px -53px no-repeat}
-div.facebook .pp_top .pp_middle{background:url(../images/prettyphoto/facebook/contentPatternTop.png) top left repeat-x}
-div.facebook .pp_top .pp_right{background:url(../images/prettyphoto/facebook/sprite.png) -110px -53px no-repeat}
-div.facebook .pp_content_container .pp_left{background:url(../images/prettyphoto/facebook/contentPatternLeft.png) top left repeat-y}
-div.facebook .pp_content_container .pp_right{background:url(../images/prettyphoto/facebook/contentPatternRight.png) top right repeat-y}
-div.facebook .pp_expand{background:url(../images/prettyphoto/facebook/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.facebook .pp_expand:hover{background:url(../images/prettyphoto/facebook/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.facebook .pp_contract{background:url(../images/prettyphoto/facebook/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.facebook .pp_contract:hover{background:url(../images/prettyphoto/facebook/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.facebook .pp_close{width:22px;height:22px;background:url(../images/prettyphoto/facebook/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.facebook .pp_description{margin:0 37px 0 0}
-div.facebook .pp_loaderIcon{background:url(../images/prettyphoto/facebook/loader.gif) center center no-repeat}
-div.facebook .pp_arrow_previous{background:url(../images/prettyphoto/facebook/sprite.png) 0 -71px no-repeat;height:22px;margin-top:0;width:22px}
-div.facebook .pp_arrow_previous.disabled{background-position:0 -96px;cursor:default}
-div.facebook .pp_arrow_next{background:url(../images/prettyphoto/facebook/sprite.png) -32px -71px no-repeat;height:22px;margin-top:0;width:22px}
-div.facebook .pp_arrow_next.disabled{background-position:-32px -96px;cursor:default}
-div.facebook .pp_nav{margin-top:0}
-div.facebook .pp_nav p{font-size:15px;padding:0 3px 0 4px}
-div.facebook .pp_nav .pp_play{background:url(../images/prettyphoto/facebook/sprite.png) -1px -123px no-repeat;height:22px;width:22px}
-div.facebook .pp_nav .pp_pause{background:url(../images/prettyphoto/facebook/sprite.png) -32px -123px no-repeat;height:22px;width:22px}
-div.facebook .pp_next:hover{background:url(../images/prettyphoto/facebook/btnNext.png) center right no-repeat;cursor:pointer}
-div.facebook .pp_previous:hover{background:url(../images/prettyphoto/facebook/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.facebook .pp_bottom .pp_left{background:url(../images/prettyphoto/facebook/sprite.png) -88px -80px no-repeat}
-div.facebook .pp_bottom .pp_middle{background:url(../images/prettyphoto/facebook/contentPatternBottom.png) top left repeat-x}
-div.facebook .pp_bottom .pp_right{background:url(../images/prettyphoto/facebook/sprite.png) -110px -80px no-repeat}
+div.pp_facebook .pp_top .pp_left{background:url(../images/prettyphoto/facebook/sprite.png) -88px -53px no-repeat}
+div.pp_facebook .pp_top .pp_middle{background:url(../images/prettyphoto/facebook/contentPatternTop.png) top left repeat-x}
+div.pp_facebook .pp_top .pp_right{background:url(../images/prettyphoto/facebook/sprite.png) -110px -53px no-repeat}
+div.pp_facebook .pp_content_container .pp_left{background:url(../images/prettyphoto/facebook/contentPatternLeft.png) top left repeat-y}
+div.pp_facebook .pp_content_container .pp_right{background:url(../images/prettyphoto/facebook/contentPatternRight.png) top right repeat-y}
+div.pp_facebook .pp_expand{background:url(../images/prettyphoto/facebook/sprite.png) -31px -26px no-repeat;cursor:pointer}
+div.pp_facebook .pp_expand:hover{background:url(../images/prettyphoto/facebook/sprite.png) -31px -47px no-repeat;cursor:pointer}
+div.pp_facebook .pp_contract{background:url(../images/prettyphoto/facebook/sprite.png) 0 -26px no-repeat;cursor:pointer}
+div.pp_facebook .pp_contract:hover{background:url(../images/prettyphoto/facebook/sprite.png) 0 -47px no-repeat;cursor:pointer}
+div.pp_facebook .pp_close{width:22px;height:22px;background:url(../images/prettyphoto/facebook/sprite.png) -1px -1px no-repeat;cursor:pointer}
+div.pp_facebook .pp_description{margin:0 37px 0 0}
+div.pp_facebook .pp_loaderIcon{background:url(../images/prettyphoto/facebook/loader.gif) center center no-repeat}
+div.pp_facebook .pp_arrow_previous{background:url(../images/prettyphoto/facebook/sprite.png) 0 -71px no-repeat;height:22px;margin-top:0;width:22px}
+div.pp_facebook .pp_arrow_previous.disabled{background-position:0 -96px;cursor:default}
+div.pp_facebook .pp_arrow_next{background:url(../images/prettyphoto/facebook/sprite.png) -32px -71px no-repeat;height:22px;margin-top:0;width:22px}
+div.pp_facebook .pp_arrow_next.disabled{background-position:-32px -96px;cursor:default}
+div.pp_facebook .pp_nav .pp_play{background:url(../images/prettyphoto/facebook/sprite.png) -1px -123px no-repeat;height:22px;width:22px}
+div.pp_facebook .pp_nav .pp_pause{background:url(../images/prettyphoto/facebook/sprite.png) -32px -123px no-repeat;height:22px;width:22px}
+div.pp_facebook .pp_next:hover{background:url(../images/prettyphoto/facebook/btnNext.png) center right no-repeat;cursor:pointer}
+div.pp_facebook .pp_previous:hover{background:url(../images/prettyphoto/facebook/btnPrevious.png) center left no-repeat;cursor:pointer}
+div.pp_facebook .pp_bottom .pp_left{background:url(../images/prettyphoto/facebook/sprite.png) -88px -80px no-repeat}
+div.pp_facebook .pp_bottom .pp_middle{background:url(../images/prettyphoto/facebook/contentPatternBottom.png) top left repeat-x}
+div.pp_facebook .pp_bottom .pp_right{background:url(../images/prettyphoto/facebook/sprite.png) -110px -80px no-repeat}
 div.pp_pic_holder a:focus{outline:none}
-div.pp_overlay{background:#000;display:none;left:0;position:absolute;top:0;width:100%;z-index:9500}
-div.pp_pic_holder{display:none;position:absolute;width:100px;z-index:10000}
+div.pp_overlay{background:#000;display:none;left:0;position:fixed;top:0;width:100%;z-index:100001}
+div.pp_pic_holder{display:none;position:absolute;width:100px;z-index:100003;margin-left: 3px;}
 .pp_content{height:40px;min-width:40px}
 * html .pp_content{width:40px}
 .pp_content_container{position:relative;text-align:left;width:100%}
@@ -122,21 +130,21 @@ div.pp_pic_holder{display:none;position:absolute;width:100px;z-index:10000}
 .pp_content_container .pp_right{padding-right:20px}
 .pp_content_container .pp_details{float:left;margin:10px 0 2px}
 .pp_description{display:none;margin:0}
-.pp_social{display:block !important;}
-.pp_social{float:left;margin:7px 0 0;}
-.pp_social .facebook{float:left;width:75px;overflow:hidden}
-.pp_social .twitter,
-.pp_social .pinterest,
-.pp_social .google {float:left;margin-left:5px;}
-.pp_social .twitter{min-width:59px;height:20px;}
-.pp_social .pinterest{min-width:43px;height:20px;}
-.pp_social .google {min-width:32px;height:20px;}
-.pp_nav{clear:right;float:left;margin:3px 10px 0 0}
-.pp_nav p{float:left;white-space:nowrap;margin:2px 4px}
+.pp_details .pp_social{display:block !important; float:left;/*margin-top: 0 !important;*/}
+.pp_social:last-child{margin-right: 0;}
+.pp_social .jig_pp_social_btn{ float:left; height:21px; margin:6px 9px 0 0; font-size: 15px;}
+.pp_social .jig_pp_social_btn iframe{ vertical-align: baseline;}
+.pp_social .jig_pp_twitter{min-width:58px;}
+.twitter-share-button{visibility: visible !important;}
+.pp_social .jig_pp_pinterest{min-width:40px;}
+.pp_social .jig_pp_google {min-width:32px;}
+.pp_social .jig_pp_facebook{min-width:125px; margin-right: 0;overflow:hidden}
+.pp_social iframe {margin: 0;}
+.pp_nav{clear:right;float:left;margin:0 8px 3px 0;}
 .pp_nav .pp_play,.pp_nav .pp_pause{float:left;margin-right:4px;text-indent:-10000px}
 a.pp_arrow_previous,a.pp_arrow_next{display:block;float:left;height:15px;margin-top:3px;overflow:hidden;text-indent:-10000px;width:14px}
-.pp_hoverContainer{position:absolute;top:0;width:100%;z-index:2000}
-.pp_gallery{display:none;left:50%;margin-top:-50px;position:absolute;z-index:10000}
+.pp_hoverContainer{position:absolute;top:0;width:100%;z-index:20000}
+.pp_gallery{display:none;left:50%;margin-top:-50px;position:absolute;z-index:100003}
 .pp_gallery div{float:left;overflow:hidden;position:relative}
 .pp_gallery ul{float:left;height:35px;position:relative;white-space:nowrap;margin:0 0 0 5px;padding:0}
 .pp_gallery ul a{border:1px rgba(0,0,0,0.5) solid;display:block;float:left;height:33px;overflow:hidden}
@@ -146,18 +154,22 @@ a.pp_arrow_previous,a.pp_arrow_next{display:block;float:left;height:15px;margin-
 .pp_gallery .pp_arrow_previous,.pp_gallery .pp_arrow_next{margin-top:7px!important}
 a.pp_next{background:url(../images/prettyphoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;display:block;float:right;height:100%;text-indent:-10000px;width:49%}
 a.pp_previous{background:url(../images/prettyphoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;display:block;float:left;height:100%;text-indent:-10000px;width:49%}
-a.pp_expand,a.pp_contract{cursor:pointer;display:none;height:20px;position:absolute;right:30px;text-indent:-10000px;top:10px;width:20px;z-index:20000}
-a.pp_close{position:absolute;right:0;top:0;display:block;line-height:22px;text-indent:-10000px}
+a.pp_expand,a.pp_contract{cursor:pointer;display:none;height:20px;position:absolute;right:30px;text-indent:-10000px;top:10px;width:20px;z-index:200000}
+a.pp_close{position:absolute;right:0;top:auto;bottom:0;display:block;line-height:22px;text-indent:-10000px;}
 .pp_loaderIcon{display:block;height:24px;left:50%;position:absolute;top:50%;width:24px;margin:-12px 0 0 -12px}
 #pp_full_res{line-height:1!important}
 #pp_full_res .pp_inline{text-align:left}
 #pp_full_res .pp_inline p{margin:0 0 15px}
-div.ppt{color:#fff;display:none;font-size:17px;z-index:9999;margin:0 0 5px 15px}
-div.pp_default .pp_content,div.light_rounded .pp_content{background-color:#f8f8f8}
-div.pp_default #pp_full_res .pp_inline,div.light_rounded .pp_content .ppt,div.light_rounded #pp_full_res .pp_inline,div.light_square .pp_content .ppt,div.light_square #pp_full_res .pp_inline,div.facebook .pp_content .ppt,div.facebook #pp_full_res .pp_inline{color:#000}
+div.ppt{color:#fff;display:none;font-size:17px;z-index:100002;margin:0 0 5px 15px}
+div.pp_default .pp_content{background-color:#f8f8f8}
+div.pp_default #pp_full_res .pp_inline,div.light_rounded .pp_content .ppt,div.light_rounded #pp_full_res .pp_inline,div.light_square .pp_content .ppt,div.light_square #pp_full_res .pp_inline,div.pp_facebook .pp_content .ppt,div.pp_facebook #pp_full_res .pp_inline{color:#000}
 div.pp_default .pp_gallery ul li a:hover,div.pp_default .pp_gallery ul li.selected a,.pp_gallery ul a:hover,.pp_gallery li.selected a{border-color:#fff}
-div.pp_default .pp_details,div.light_rounded .pp_details,div.dark_rounded .pp_details,div.dark_square .pp_details,div.light_square .pp_details,div.facebook .pp_details{position:relative}
-div.light_rounded .pp_top .pp_middle,div.light_rounded .pp_content_container .pp_left,div.light_rounded .pp_content_container .pp_right,div.light_rounded .pp_bottom .pp_middle,div.light_square .pp_left,div.light_square .pp_middle,div.light_square .pp_right,div.light_square .pp_content,div.facebook .pp_content{background:#fff}
+div.pp_default .pp_details,div.light_rounded .pp_details,div.dark_rounded .pp_details,div.dark_square .pp_details,div.light_square .pp_details,div.pp_facebook .pp_details{position:relative}
+div.light_rounded .pp_top .pp_middle,div.light_rounded .pp_content_container .pp_left,div.light_rounded .pp_content_container .pp_right,div.light_rounded .pp_bottom .pp_middle,div.light_square .pp_left,div.light_square .pp_middle,div.light_square .pp_right,div.light_square .pp_content{background:#fbfbfb;}
+div.pp_facebook .pp_content{
+	background: rgb(251,251,251);
+	background:rgba(251,251,251,0.98);
+}
 div.light_rounded .pp_description,div.light_square .pp_description{margin-right:85px}
 div.light_rounded .pp_gallery a.pp_arrow_previous,div.light_rounded .pp_gallery a.pp_arrow_next,div.dark_rounded .pp_gallery a.pp_arrow_previous,div.dark_rounded .pp_gallery a.pp_arrow_next,div.dark_square .pp_gallery a.pp_arrow_previous,div.dark_square .pp_gallery a.pp_arrow_next,div.light_square .pp_gallery a.pp_arrow_previous,div.light_square .pp_gallery a.pp_arrow_next{margin-top:12px!important}
 div.light_rounded .pp_arrow_previous.disabled,div.dark_rounded .pp_arrow_previous.disabled,div.dark_square .pp_arrow_previous.disabled,div.light_square .pp_arrow_previous.disabled{background-position:0 -87px;cursor:default}
@@ -169,7 +181,158 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 .pp_top,.pp_bottom{height:20px;position:relative}
 * html .pp_top,* html .pp_bottom{padding:0 20px}
 .pp_top .pp_left,.pp_bottom .pp_left{height:20px;left:0;position:absolute;width:20px}
-.pp_top .pp_middle,.pp_bottom .pp_middle{height:20px;left:20px;position:absolute;right:20px}
+.pp_top .pp_middle,.pp_bottom .pp_middle{height:20px;left:20px;position:absolute;right:20px;z-index: -1;}
 * html .pp_top .pp_middle,* html .pp_bottom .pp_middle{left:0;position:static}
 .pp_top .pp_right,.pp_bottom .pp_right{height:20px;left:auto;position:absolute;right:0;top:0;width:20px}
 .pp_fade,.pp_gallery li.default a img{display:none}
+.pp_nav {width:auto !important;}
+#pp_full_res img{margin: 0;}
+.pp_gallery ul li a img{width:50px; height:31px; background-size: cover;background-position: center 25%;}
+a.pp_next,a.pp_previous,a.pp_expand,a.pp_contract,.jig_pp_pinterest a{
+	transition: initial;
+}
+/* Caption-inside JIG custom layout */
+.pp_includes_title .pp_description{
+	font-size: 13px;
+	line-height: 1.5;
+}
+.pp_description .ppt_inside{
+	font-size: 15px;
+	font-weight: 700;
+}
+.pp_details.pp_includes_title{
+	margin-bottom: 0;
+}
+.pp_details.pp_includes_title .pp_social{
+	float: right;
+	padding: 4px 40px 0 0;
+}
+.pp_details.pp_includes_title .pp_social .jig_pp_social_btn{
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* This helps align captions when title is not shown, only description */
+div.light_rounded .pp_description,
+div.dark_rounded .pp_description,
+div.light_square .pp_description,
+div.dark_square .pp_description{
+	margin-top:2px;
+	vertical-align: top;
+}
+/* And this counters that adjusmtents when title is present */
+.pp_details.pp_includes_title .pp_description .ppt_inside{
+	margin-top: -1px; 
+}
+div.pp_default .pp_details.pp_includes_title .pp_description .ppt_inside{
+	margin-top: -2px; 
+}
+.pp_details.pp_includes_title .pp_description{
+	display: inline-block;
+	margin-right: 40px;
+}
+.pp_details.pp_includes_title .pp_close{
+	bottom: auto;
+	top: 0;
+}
+.pp_details.pp_includes_title .jig_pp_social_btn:last-child{
+	margin-right: 0;
+}
+.pp_details.pp_includes_title .pp_bottom_right{
+	float: right;
+	position: relative;
+	min-height: 30px;
+}
+.pp_details.pp_includes_title.pp_alt_br_position .pp_bottom_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.pp_details.pp_includes_title.pp_alt_x_position .pp_bottom_right{
+	position: static;
+	min-height: 0;
+}
+.pp_details.pp_includes_title.pp_alt_x_position .pp_social{
+	padding-right: 0 !important;
+}
+.pp_details.pp_includes_title .pp_social{
+	margin-top: -5px;
+}
+.pp_details.pp_includes_title .pp_description{
+	margin-right: 40px;
+}
+
+
+/* JIG align patch for other skins */
+.light_rounded .pp_details.pp_includes_title .pp_social,
+.dark_rounded .pp_details.pp_includes_title .pp_social,
+.light_square .pp_details.pp_includes_title .pp_social,
+.dark_square .pp_details.pp_includes_title .pp_social{
+	padding-right: 85px;
+}
+.light_rounded .pp_details.pp_includes_title .pp_social,
+.dark_rounded .pp_details.pp_includes_title .pp_social,
+.light_square .pp_details.pp_includes_title .pp_social,
+.dark_square .pp_details.pp_includes_title .pp_social{
+	padding-top: 1px;
+}
+.pp_facebook .pp_includes_title.pp_alt_x_position .pp_bottom_right,
+.light_rounded .pp_includes_title.pp_alt_x_position .pp_bottom_right,
+.dark_rounded .pp_includes_title.pp_alt_x_position .pp_bottom_right,
+.light_square .pp_includes_title.pp_alt_x_position .pp_bottom_right,
+.dark_square .pp_includes_title.pp_alt_x_position .pp_bottom_right{
+	min-height: 22px;
+	margin-top: 4px;
+}
+.pp_default .pp_includes_title.pp_socials_own_line.pp_alt_x_position .pp_bottom_right,
+.pp_facebook .pp_includes_title.pp_socials_own_line .pp_bottom_right,
+.light_rounded .pp_includes_title.pp_socials_own_line .pp_bottom_right,
+.dark_rounded .pp_includes_title.pp_socials_own_line .pp_bottom_right,
+.light_square .pp_includes_title.pp_socials_own_line .pp_bottom_right,
+.dark_square .pp_includes_title.pp_socials_own_line .pp_bottom_right{
+	margin-top: 4px;
+}
+
+.pp_facebook .pp_includes_title .pp_bottom_right,
+.light_rounded .pp_includes_title .pp_bottom_right,
+.dark_rounded .pp_includes_title .pp_bottom_right,
+.light_square .pp_includes_title .pp_bottom_right,
+.dark_square .pp_includes_title .pp_bottom_right{
+	min-height: 0;
+}
+
+div.light_rounded .pp_content_container .pp_details,
+div.dark_rounded .pp_content_container .pp_details,
+div.light_square .pp_content_container .pp_details,
+div.dark_square .pp_content_container .pp_details{
+	margin-top: 14px;
+}
+.pp_facebook .pp_nav,
+.light_rounded .pp_nav,
+.dark_rounded .pp_nav,
+.light_square .pp_nav,
+.dark_square .pp_nav{
+	margin-top: 2px;
+	margin-bottom: 5px;
+}
+.light_rounded .currentTextHolder,
+.dark_rounded .currentTextHolder,
+.light_square .currentTextHolder,
+.dark_square .currentTextHolder{
+	margin-top: 3px;
+}
+
+/* Facebook theme only */
+.pp_facebook .pp_details.pp_includes_title .pp_close{
+	top: 0;
+}
+.pp_facebook .pp_details.pp_includes_title .pp_social{
+	padding-right: 32px;
+	padding-top: 1px;
+}
+.pp_facebook .pp_details.pp_includes_title .pp_description .ppt_inside{
+	margin-top: 2px;
+}
+.pp_facebook .pp_nav .pp_arrow_previous{
+	width: 28px;
+}

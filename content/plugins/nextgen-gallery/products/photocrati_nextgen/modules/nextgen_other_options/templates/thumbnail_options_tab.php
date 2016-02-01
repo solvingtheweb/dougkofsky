@@ -2,7 +2,7 @@
 	<tr>
 		<td>
 			<label for="thumbnail_dimensions_width">
-				<?php echo_h($thumbnail_dimensions_label) ?>
+				<?php esc_html_e($thumbnail_dimensions_label) ?>
 			</label>
 		</td>
 		<td colspan="2">
@@ -13,15 +13,19 @@
 		  $thumbnails_template_height_id = 'thumbnail_dimensions_height';
 		  $thumbnails_template_width_name = 'thumbnail_settings[thumbwidth]';
 		  $thumbnails_template_height_name = 'thumbnail_settings[thumbheight]';
-		  include(path_join(NGGALLERY_ABSPATH, implode(DIRECTORY_SEPARATOR, array('admin', 'thumbnails-template.php'))));
+          include(implode(DIRECTORY_SEPARATOR, array(
+              rtrim(NGGALLERY_ABSPATH, "/\\"),
+              'admin',
+              'thumbnails-template.php'
+          )));
 		?>
-			<p class="description"><?php echo_h($thumbnail_dimensions_help)?></p>
+			<p class="description"><?php esc_html_e($thumbnail_dimensions_help)?></p>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			<label for="thumbnail_crop">
-				<?php echo_h($thumbnail_crop_label) ?>
+				<?php esc_html_e($thumbnail_crop_label) ?>
 			</label>
 		</td>
 		<td colspan="2">
@@ -38,9 +42,10 @@
                    value="0"
                 <?php checked(0, $thumbnail_crop); ?>/>
             <label for="thumbnail_crop_no"><?php _e('No'); ?></label>
-			<p class="description"><?php echo_h($thumbnail_crop_help); ?></p>
+			<p class="description"><?php esc_html_e($thumbnail_crop_help); ?></p>
 		</td>
 	</tr>
+    <?php /*
 	<tr>
 		<td>
 			<label for="thumbnail_quality">
@@ -58,10 +63,11 @@
 			<p class="description"><?php echo_h($thumbnail_quality_help)?></p>
 		</td>
 	</tr>
+    */ ?>
 	<tr>
 		<td>
 			<label for="size_list">
-				<?php echo_h($size_list_label) ?>
+				<?php esc_html_e($size_list_label) ?>
 			</label>
 		</td>
 		<td colspan="2">
@@ -76,7 +82,7 @@
 			?>
 				<option
 					<?php selected($size, $size) ?>
-					value="<?php echo_h($size)?>"><?php echo_h($size) ?></option>
+					value="<?php echo esc_attr($size)?>"><?php esc_html_e($size) ?></option>
 			<?php
 				}
 			?>
@@ -88,7 +94,7 @@
 				echo "<i>No default sizes present.</i>";
 			}
 		?>
-			<p class="description"><?php echo_h($size_list_help)?></p>
+			<p class="description"><?php esc_html_e($size_list_help)?></p>
 		</td>
 	</tr>
 </table>

@@ -31,7 +31,7 @@ $nonce = $_REQUEST['nonce'];
 $stored_nonce = get_site_option('w3tc_support_request') ? get_site_option('w3tc_support_request') : get_option('w3tc_support_request');
 $stored_attachment = get_site_option('w3tc_support_request') ? get_site_option('attachment_' . $md5) : get_option('attachment_' . $md5);
 
-if (file_exists($attachment_location) && $nonce == $stored_nonce && $stored_attachment == $attachment_location) {
+if (file_exists($attachment_location) && $nonce == $stored_nonce && !empty($stored_nonce) && $stored_attachment == $attachment_location) {
     w3_require_once(W3TC_INC_DIR . '/functions/mime.php');
     $type = w3_get_mime_type($attachment_location);
     header($_SERVER["SERVER_PROTOCOL"] . " 200 OK");
@@ -39,7 +39,12 @@ if (file_exists($attachment_location) && $nonce == $stored_nonce && $stored_atta
     header("Content-Length:".filesize($attachment_location));
     header("Content-Disposition: attachment; filename=" . basename($attachment_location));
 
-    readfile($attachment_location);
+    $file = fopen($attachment_location, 'rb');
+    if ( $file !== false ) {
+        fpassthru($file);
+        fclose($file);
+    }
+
     w3tc_file_log('success', $attachment_location);
     die();
 } elseif ($nonce != $stored_nonce || $stored_attachment != $attachment_location) {

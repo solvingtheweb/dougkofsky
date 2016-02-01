@@ -8,7 +8,7 @@
  * @return array|bool
  */
 function origin_widgets_less_lum_change($args, $type = 'darken'){
-	if(!class_exists('SiteOrigin_Color_Object')) include plugin_dir_path(__FILE__).'../lib/color.php';
+	if( !class_exists('SiteOrigin_Color_Object') ) include plugin_dir_path(__FILE__).'../lib/color.php';
 
 	if($args[0] != 'list') return false;
 	@ list($a1_type, $a1_value, $a1_unit) = $args[2][0];
@@ -78,11 +78,16 @@ function origin_widgets_less_widgetimage($url){
 	}
 
 	// Search for the appropriate image
+	$return_url = '';
 	foreach(SiteOrigin_Panels_Widget::get_image_folders() as $folder => $folder_url) {
 		if(file_exists($folder.'/'.$the_url)) {
-			return esc_url($folder_url.'/'.$the_url);
+			$return_url = $folder_url.'/'.$the_url;
 		}
 	}
 
-	return '';
+	if ( is_ssl() ) {
+		$return_url = str_replace('http://', 'https://', $return_url);
+	}
+
+	return $return_url;
 }

@@ -2,9 +2,9 @@
 /**
  * Canadian states
  *
- * @author 		WooThemes
- * @category 	i18n
- * @package 	WooCommerce/i18n
+ * @author      WooThemes
+ * @category    i18n
+ * @package     WooCommerce/i18n
  * @version     2.0.0
  */
 global $states;
@@ -14,7 +14,7 @@ $states['CA'] = array(
 	'BC' => __( 'British Columbia', 'woocommerce' ),
 	'MB' => __( 'Manitoba', 'woocommerce' ),
 	'NB' => __( 'New Brunswick', 'woocommerce' ),
-	'NF' => __( 'Newfoundland', 'woocommerce' ),
+	'NL' => __( 'Newfoundland and Labrador', 'woocommerce' ),
 	'NT' => __( 'Northwest Territories', 'woocommerce' ),
 	'NS' => __( 'Nova Scotia', 'woocommerce' ),
 	'NU' => __( 'Nunavut', 'woocommerce' ),

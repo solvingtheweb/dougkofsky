@@ -3,15 +3,61 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 
 /**
  * Plugin Name: NextGEN Gallery by Photocrati
- * Description: The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 7 million downloads.
- * Version: 2.0.33
+ * Description: The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 12 million downloads.
+ * Version: 2.1.23
  * Author: Photocrati Media
  * Plugin URI: http://www.nextgen-gallery.com
  * Author URI: http://www.photocrati.com
  * License: GPLv2
+ * Text Domain: nggallery
+ * Domain Path: /products/photocrati_nextgen/modules/i18n/lang
  */
 
 if (!class_exists('E_Clean_Exit')) { class E_Clean_Exit extends RuntimeException {} }
+if (!class_exists('E_NggErrorException')) { class E_NggErrorException extends RuntimeException {} }
+
+// This is a temporary function to replace the use of WP's esc_url which strips spaces away from URLs
+// TODO: Move this to a better place
+if (!function_exists('nextgen_esc_url')) {
+	function nextgen_esc_url( $url, $protocols = null, $_context = 'display' ) {
+		$original_url = $url;
+
+		if ( '' == $url )
+			return $url;
+		$url = preg_replace('|[^a-z0-9 \\-~+_.?#=!&;,/:%@$\|*\'()\\x80-\\xff]|i', '', $url);
+		$strip = array('%0d', '%0a', '%0D', '%0A');
+		$url = _deep_replace($strip, $url);
+		$url = str_replace(';//', '://', $url);
+		/* If the URL doesn't appear to contain a scheme, we
+		 * presume it needs http:// appended (unless a relative
+		 * link starting with /, # or ? or a php file).
+		 */
+
+		if ( strpos($url, ':') === false && ! in_array( $url[0], array( '/', '#', '?' ) ) &&
+		     ! preg_match('/^[a-z0-9-]+?\.php/i', $url) )
+			$url = 'http://' . $url;
+
+		// Replace ampersands and single quotes only when displaying.
+		if ( 'display' == $_context ) {
+			$url = wp_kses_normalize_entities( $url );
+			$url = str_replace( '&amp;', '&#038;', $url );
+			$url = str_replace( "'", '&#039;', $url );
+			$url = str_replace( ' ', '%20', $url );
+		}
+
+		if ( '/' === $url[0] ) {
+			$good_protocol_url = $url;
+		} else {
+			if ( ! is_array( $protocols ) )
+				$protocols = wp_allowed_protocols();
+			$good_protocol_url = wp_kses_bad_protocol( $url, $protocols );
+			if ( strtolower( $good_protocol_url ) != strtolower( $url ) )
+				return '';
+		}
+
+		return apply_filters('clean_url', $good_protocol_url, $original_url, $_context);
+	}
+}
 
 /**
  * NextGEN Gallery is built on top of the Photocrati Pope Framework:
@@ -33,7 +79,9 @@ class C_NextGEN_Bootstrap
 	var $_registry = NULL;
 	var $_settings_option_name = 'ngg_options';
 	var $_pope_loaded = FALSE;
-	static $debug = WP_DEBUG;
+	static $debug = FALSE;
+	var $minimum_ngg_pro_version = '2.0.5';
+    var $minimum_ngg_plus_version = '1.0.1';
 
 	static function shutdown($exception=NULL)
 	{
@@ -52,7 +100,7 @@ class C_NextGEN_Bootstrap
 		$klass = get_class($exception);
 		echo "<h1>{$klass} thrown</h1>";
 		echo "<p>{$exception->getMessage()}</p>";
-		if (self::$debug OR (defined('NEXTGEN_GALLERY_DEBUG') AND NEXTGEN_GALLERY_DEBUG == TRUE)) {
+		if (self::$debug OR (defined('NGG_DEBUG') AND NGG_DEBUG == TRUE)) {
 			echo "<h3>Where:</h3>";
 			echo "<p>On line <strong>{$exception->getLine()}</strong> of <strong>{$exception->getFile()}</strong></p>";
 			echo "<h3>Trace:</h3>";
@@ -65,38 +113,72 @@ class C_NextGEN_Bootstrap
 		}
 	}
 
+	static function get_backtrace($objects=FALSE, $remove_dynamic_calls=TRUE)
+	{
+		$trace = debug_backtrace($objects);
+		if ($remove_dynamic_calls) {
+			$skip_methods = array(
+				'_exec_cached_method',
+				'__call',
+				'get_method_property',
+				'set_method_property',
+				'call_method'
+			);
+			foreach ($trace as $key => &$value) {
+				if (isset($value['class']) && isset($value['function'])) {
+					if ($value['class'] == 'ReflectionMethod' && $value['function'] == 'invokeArgs')
+						unset($trace[$key]);
+
+					else if ($value['class'] == 'ExtensibleObject' && in_array($value['function'], $skip_methods))
+						unset($trace[$key]);
+				}
+			}
+		}
+
+		return $trace;
+	}
+
 	function __construct()
 	{
-		// Boostrap
 		set_exception_handler(__CLASS__.'::shutdown');
 
-		$this->_define_constants();
-		$this->_load_non_pope();
-		$this->_register_hooks();
-		$this->_load_pope();
+		// We only load the plugin if we're outside of the activation request, loaded in an iframe
+		// by WordPress. Reason being, if WP_DEBUG is enabled, and another Pope-based plugin (such as
+		// the photocrati theme or NextGEN Pro/Plus), then PHP will output strict warnings
+		if ($this->is_not_activating()) {
+			$this->_define_constants();
+			$this->_load_non_pope();
+			$this->_register_hooks();
+			$this->_load_pope();
+		}
+	}
 
+	function is_not_activating()
+	{
+		return !$this->is_activating();
+	}
+
+	function is_activating()
+	{
+		$retval =  strpos($_SERVER['REQUEST_URI'], 'plugins.php') !== FALSE && isset($_REQUEST['action']) && $_REQUEST['action'] == 'activate';
+		if (!$retval && strpos($_SERVER['REQUEST_URI'], 'update.php') !== FALSE && isset($_REQUEST['action']) && $_REQUEST['action'] == 'install-plugin' && isset($_REQUEST['plugin']) && strpos($_REQUEST['plugin'], 'nextgen-gallery') === 0) {
+			$retval = TRUE;
+		}
+		if (!$retval && strpos($_SERVER['REQUEST_URI'], 'update.php') !== FALSE && isset($_REQUEST['action']) && $_REQUEST['action'] == 'activate-plugin' && isset($_REQUEST['plugin']) && strpos($_REQUEST['plugin'], 'nextgen-gallery') === 0) {
+			$retval = TRUE;
+		}
+
+		return $retval;
 	}
 
 	function _load_non_pope()
 	{
 		// Load caching component
-		include_once('non_pope/class.photocrati_cache.php');
-		C_Photocrati_Cache::get_instance();
-		C_Photocrati_Cache::get_instance('displayed_galleries');
-		C_Photocrati_Cache::$enabled = TRUE;
+		include_once('non_pope/class.photocrati_transient_manager.php');
 
-		if (isset($_REQUEST['ngg_flush'])) {
-			C_Photocrati_Cache::flush('all');
-			$_SERVER['QUERY_STRING'] = str_replace('ngg_flush=1', '', $_SERVER['QUERY_STRING']);
-		}
-		elseif (isset($_REQUEST['ngg_force_update'])) {
-			C_Photocrati_Cache::$do_not_lookup = TRUE;
-			C_Photocrati_Cache::$force_update = TRUE;
-			$_SERVER['QUERY_STRING'] = str_replace('ngg_force_update=1', '', $_SERVER['QUERY_STRING']);
-		}
-		elseif (isset($_REQUEST['ngg_flush_expired'])) {
-			C_Photocrati_Cache::flush('all', TRUE);
-			$_SERVER['QUERY_STRING'] = str_replace('ngg_flush_expired=1', '', $_SERVER['QUERY_STRING']);
+		if (isset($_REQUEST['ngg_flush']) OR isset($_REQUEST['ngg_flush_expired'])) {
+			C_Photocrati_Transient_Manager::flush();
+			die("Flushed all caches");
 		}
 
 		// Load Settings Manager
@@ -128,13 +210,30 @@ class C_NextGEN_Bootstrap
 		if ($this->_pope_loaded) return;
 
 		// Pope requires a a higher limit
-        	$tmp = ini_get('xdebug.max_nesting_level');
-	        if ($tmp && (int)$tmp <= 300) @ini_set('xdebug.max_nesting_level', 300);
+		$tmp = ini_get('xdebug.max_nesting_level');
+		if ($tmp && (int)$tmp <= 300) @ini_set('xdebug.max_nesting_level', 300);
 
 		// Include pope framework
-		require_once(path_join(NEXTGEN_GALLERY_PLUGIN_DIR, implode(
-			DIRECTORY_SEPARATOR, array('pope','lib','autoload.php')
-		)));
+		require_once(implode(
+			DIRECTORY_SEPARATOR, array(NGG_PLUGIN_DIR, 'pope','lib','autoload.php')
+		));
+
+		// Enable/disable pope caching. For now, the pope cache will not be used in multisite environments
+		if (class_exists('C_Pope_Cache')) {
+			if ((C_Pope_Cache::$enabled = NGG_POPE_CACHE)) {
+				$blogid = (is_multisite() ? get_current_blog_id() : NULL);
+				if (isset($_SERVER['SERVER_ADDR']))
+					$cache_key_prefix = abs(crc32((implode('|', array($blogid, site_url(), AUTH_KEY, $_SERVER['SERVER_ADDR'])))));
+				else
+					$cache_key_prefix = abs(crc32(implode('|', array($blogid, site_url(), AUTH_KEY))));
+
+				C_Pope_Cache::set_driver('C_Pope_Cache_SingleFile');
+				C_Pope_Cache::add_key_prefix($cache_key_prefix);
+			}
+		}
+
+		// Enforce interfaces
+		if (property_exists('ExtensibleObject', 'enforce_interfaces')) ExtensibleObject::$enforce_interfaces = EXTENSIBLE_OBJECT_ENFORCE_INTERFACES;
 
 		// Get the component registry
 		$this->_registry = C_Component_Registry::get_instance();
@@ -142,22 +241,80 @@ class C_NextGEN_Bootstrap
 		// Add the default Pope factory utility, C_Component_Factory
 		$this->_registry->add_utility('I_Component_Factory', 'C_Component_Factory');
 
+		// Blacklist any modules which are known NOT to work with this version of NextGEN Gallery
+		// We need to check if we have this ability as it's only available with Pope 0.9
+		if (method_exists($this->_registry, 'blacklist_module_file')) {
+			$this->_registry->blacklist_module_file('module.nextgen_pro_lightbox_legacy.php');
+			$this->_registry->blacklist_module_file('module.protect_image.php');
+			// TODO: Add module id for protect image
+		}
+
+		// If Pro is incompatible, then we need to blacklist all of Pro's modules
+		// TODO: Pope needs a better way of introspecting into a product's list of provided modules
+		if ($this->is_pro_incompatible()) {
+			$pro_modules = array(
+				'photocrati-comments',
+				'photocrati-galleria',
+				'photocrati-nextgen_pro_slideshow',
+				'photocrati-nextgen_pro_horizontal_filmstrip',
+				'photocrati-nextgen_pro_thumbnail_grid',
+				'photocrati-nextgen_pro_blog_gallery',
+				'photocrati-nextgen_pro_film',
+				'photocrati-nextgen_pro_masonry',
+				'photocrati-nextgen_pro_albums',
+				'photocrati-nextgen_pro_lightbox',
+				'photocrati-nextgen_pro_lightbox_legacy',
+				'photocrati-nextgen_pro_ecommerce',
+				'photocrati-paypal_express_checkout',
+				'photocrati-paypal_standard',
+				'photocrati-stripe'
+			);
+			foreach ($pro_modules as $mod) $this->_registry->blacklist_module_file($mod);
+		}
+
 		// Load embedded products. Each product is expected to load any
 		// modules required
-		$this->_registry->add_module_path(NEXTGEN_GALLERY_PRODUCT_DIR, true, false);
+		$this->_registry->add_module_path(NGG_PRODUCT_DIR, 2, false);
 		$this->_registry->load_all_products();
 
-	        // Give third-party plugins that opportunity to include their own products
-        	// and modules
-	        do_action('load_nextgen_gallery_modules', $this->_registry);
+		// Give third-party plugins that opportunity to include their own products
+		// and modules
+		do_action('load_nextgen_gallery_modules', $this->_registry);
 
 		// Initializes all loaded modules
 		$this->_registry->initialize_all_modules();
 
-		// Set the document root
-		$this->_registry->get_utility('I_Fs')->set_document_root(ABSPATH);
-
 		$this->_pope_loaded = TRUE;
+	}
+
+	function is_pro_compatible()
+	{
+		$retval = TRUE;
+
+        if (defined('NEXTGEN_GALLERY_PRO_VERSION')) $retval = FALSE;
+        if (defined('NEXTGEN_GALLERY_PRO_PLUGIN_BASENAME') && !defined('NGG_PRO_PLUGIN_VERSION')) $retval = FALSE; // 1.0 - 1.0.6
+		if (defined('NGG_PRO_PLUGIN_VERSION')  && version_compare(NGG_PRO_PLUGIN_VERSION,  $this->minimum_ngg_pro_version)  < 0) $retval = FALSE;
+        if (defined('NGG_PLUS_PLUGIN_VERSION') && version_compare(NGG_PLUS_PLUGIN_VERSION, $this->minimum_ngg_plus_version) < 0) $retval = FALSE;
+
+		return $retval;
+	}
+
+	function is_pro_incompatible()
+	{
+		return !$this->is_pro_compatible();
+	}
+
+	function render_incompatibility_warning()
+	{
+		echo '<div class="updated error"><p>';
+		echo esc_html(
+			sprintf(
+				__("NextGEN Gallery %s is incompatible with this version of NextGEN Pro. Please update NextGEN Pro to version %s or higher to restore NextGEN Pro functionality.",
+					'nggallery'
+				),
+				NGG_PLUGIN_VERSION, $this->minimum_ngg_pro_version
+			));
+		echo '</p></div>';
 	}
 
 
@@ -167,18 +324,8 @@ class C_NextGEN_Bootstrap
 	 */
 	function _register_hooks()
 	{
-		// Load text domain
-		load_plugin_textdomain(
-			NEXTGEN_GALLERY_I8N_DOMAIN,
-			false,
-			$this->directory_path('lang')
-		);
-
-		// Register the activation routines
-		add_action('activate_'.NEXTGEN_GALLERY_PLUGIN_BASENAME, array(get_class(), 'activate'));
-
 		// Register the deactivation routines
-		add_action('deactivate_'.NEXTGEN_GALLERY_PLUGIN_BASENAME, array(get_class(), 'deactivate'));
+		add_action('deactivate_'.NGG_PLUGIN_BASENAME, array(get_class(), 'deactivate'));
 
 		// Register our test suite
 		add_filter('simpletest_suites', array(&$this, 'add_testsuite'));
@@ -188,31 +335,124 @@ class C_NextGEN_Bootstrap
 		add_filter('pre_update_site_option_'.$this->_settings_option_name, array(&$this, 'persist_settings'));
 
 		// This plugin uses jQuery extensively
-		add_action('init', array(&$this, 'enqueue_jquery'), 1);
-		add_action('wp_print_scripts', array(&$this, 'fix_jquery'));
-		add_action('admin_print_scripts', array(&$this, 'fix_jquery'));
-
-		// If the selected stylesheet is using an unsafe path, then notify the user
-		if (C_NextGen_Style_Manager::get_instance()->is_directory_unsafe()) {
-			add_action('all_admin_notices', array(&$this, 'display_stylesheet_notice'));
+		if (NGG_FIX_JQUERY) {
+			add_action('wp_enqueue_scripts', array(&$this, 'fix_jquery'));
+			add_action('wp_print_scripts', array(&$this, 'fix_jquery'));
 		}
 
+		// If the selected stylesheet is using an unsafe path, then notify the user
+		add_action('all_admin_notices', array(&$this, 'display_stylesheet_notice'));
+
 		// Delete displayed gallery transients periodically
-		add_action('ngg_delete_expired_transients', array(&$this, 'delete_expired_transients'));
-		if (!wp_next_scheduled('ngg_delete_expired_transients')) {
-			wp_schedule_event(time(), 'hourly', 'ngg_delete_expired_transients');
+		if (NGG_CRON_ENABLED) {
+			add_filter('cron_schedules', array(&$this, 'add_ngg_schedule'));
+			add_action('ngg_delete_expired_transients', array(&$this, 'delete_expired_transients'));
+			add_action('wp', array(&$this, 'schedule_cron_jobs'));
 		}
 
 		// Update modules
-		add_action('init', array(&$this, 'update'), PHP_INT_MAX);
+		add_action('init', array(&$this, 'update'), PHP_INT_MAX-1);
 
 		// Start the plugin!
-		add_action('init', array(&$this, 'route'), PHP_INT_MAX);
+		add_action('init', array(&$this, 'route'), 11);
+
+		// Flush pope cache
+		add_action('init', array(&$this, 'flush_pope_cache'));
+
+		// Display a warning if an compatible version of NextGEN Pro is installed alongside this
+		// version of NextGEN Gallery
+		if ($this->is_pro_incompatible()) {
+			add_filter('http_request_args', array(&$this, 'fix_autoupdate_api_requests'), 10, 2);
+			add_action('all_admin_notices', array(&$this, 'render_incompatibility_warning'));
+		}
+
+		add_filter('ngg_load_frontend_logic', array($this, 'disable_frontend_logic'), -10, 2);
 	}
 
+	function disable_frontend_logic($enabled, $module_id)
+	{
+		if (is_admin())
+		{
+			$settings = C_NextGen_Settings::get_instance();
+			if (!$settings->get('always_enable_frontend_logic'))
+				$enabled = FALSE;
+		}
+		return $enabled;
+	}
+
+	function fix_autoupdate_api_requests($args, $url)
+	{
+		// Is this an HTTP request to the licensing server?
+		if (preg_match("/api_act=/", $url)) {
+			$args['autoupdate'] = TRUE;
+
+			// If we're supposed to pass all Pro modules, then include them here
+			if (preg_match("/api_act=(ckups|cklic)/", $url) && isset($args['body']) && is_array($args['body']) && isset($args['body']['module-list'])) {
+				$pro_modules = array(
+					'photocrati-comments',
+					'photocrati-galleria',
+					'photocrati-nextgen_pro_slideshow',
+					'photocrati-nextgen_pro_horizontal_filmstrip',
+					'photocrati-nextgen_pro_thumbnail_grid',
+					'photocrati-nextgen_pro_blog_gallery',
+					'photocrati-nextgen_pro_film',
+					'photocrati-nextgen_pro_masonry',
+					'photocrati-nextgen_pro_albums',
+					'photocrati-auto_update',
+					'photocrati-auto_update-admin',
+					'photocrati-nextgen_pro_lightbox',
+					'photocrati-nextgen_pro_lightbox_legacy',
+					'photocrati-nextgen_pro_ecommerce',
+					'photocrati-paypal_express_checkout',
+					'photocrati-paypal_standard',
+					'photocrati-stripe'
+				);
+				foreach ($pro_modules as $mod) {
+					if (!isset($args['body']['module-list'][$mod])) $args['body']['module-list'][$mod] = '0.1';
+				}
+			}
+		}
+		return $args;
+	}
+
+	function flush_pope_cache()
+	{
+		if (is_user_logged_in() && current_user_can('manage_options') && isset($_REQUEST['ngg_flush_pope_cache'])) {
+			C_Pope_Cache::get_instance()->flush();
+			print "Flushed pope cache";
+			exit;
+		}
+	}
+
+	function schedule_cron_jobs()
+	{
+		if (!wp_next_scheduled('ngg_delete_expired_transients')) {
+			wp_schedule_event(time(), 'ngg_custom', 'ngg_delete_expired_transients');
+		}
+	}
+
+	/**
+	 * Defines a new cron schedule
+	 * @param $schedules
+	 * @return mixed
+	 */
+	function add_ngg_schedule($schedules)
+	{
+		$schedules['ngg_custom'] = array(
+			'interval'	=>	NGG_CRON_SCHEDULE,
+			'display'	=>	sprintf(__('Every %d seconds', 'nggallery'), NGG_CRON_SCHEDULE)
+		);
+
+		return $schedules;
+	}
+
+
+	/**
+	 * Flush all expires transients created by the plugin
+	 */
 	function delete_expired_transients()
 	{
-		C_Photocrati_Cache::flush('displayed_galleries', TRUE);
+		C_Photocrati_Transient_Manager::flush();
 	}
 
 	/**
@@ -229,30 +469,39 @@ class C_NextGEN_Bootstrap
 	}
 
 	/**
-	 * Enqueues jQuery
-	 */
-	function enqueue_jquery()
-	{
-		wp_enqueue_script('jquery');
-	}
-
-	/**
-	 * Ensures that the latest version of jQuery bundled with WordPress is used
+	 * Ensures that the version of JQuery used is expected for NextGEN Gallery
 	 */
 	function fix_jquery()
 	{
 		global $wp_scripts;
 
+		// Determine which version of jQuery to include
+		$src = '/wp-includes/js/jquery/jquery.js';
+
+		// Ensure that jQuery is always set to the default
 		if (isset($wp_scripts->registered['jquery'])) {
 			$jquery = $wp_scripts->registered['jquery'];
-			if (!isset($jquery->ver) OR version_compare('1.8', $jquery->ver) == 1) {
-				ob_start();
-				wp_deregister_script('jquery');
-				ob_end_clean();
-				wp_register_script('jquery', false, array( 'jquery-core', 'jquery-migrate' ), '1.10.0' );
+
+			// There's an exception to the rule. We'll allow the same
+			// version of jQuery as included with WP to be fetched from
+			// Google AJAX libraries, as we have a systematic means of verifying
+			// that won't cause any troubles
+			$version = preg_quote($jquery->ver, '#');
+			if (!preg_match("#ajax\\.googleapis\\.com/ajax/libs/jquery/{$version}/jquery\\.min\\.js#", $jquery->src)) {
+				$jquery->src = FALSE;
+				if (array_search('jquery-core', $jquery->deps) === FALSE) {
+					$jquery->deps[] = 'jquery-core';
+				}
+				if (array_search('jquery-migrate', $jquery->deps) === FALSE) {
+					$jquery->deps[] = 'jquery-migrate';
+				}
 			}
 		}
-		else wp_register_script( 'jquery', false, array( 'jquery-core', 'jquery-migrate' ), '1.10.0' );
+
+		// Ensure that jquery-core is used, as WP intended
+		if (isset($wp_scripts->registered['jquery-core'])) {
+			$wp_scripts->registered['jquery-core']->src = $src;
+		}
 
 		wp_enqueue_script('jquery');
 	}
@@ -262,17 +511,19 @@ class C_NextGEN_Bootstrap
 	 */
 	function display_stylesheet_notice()
 	{
-		$styles		= C_NextGen_Style_Manager::get_instance();
-		$filename	= $styles->get_selected_stylesheet();
-		$abspath	= $styles->find_selected_stylesheet_abspath();
-		$newpath	= $styles->new_dir;
+		if (C_NextGen_Style_Manager::get_instance()->is_directory_unsafe()) {
+			$styles		= C_NextGen_Style_Manager::get_instance();
+			$filename	= $styles->get_selected_stylesheet();
+			$abspath	= $styles->find_selected_stylesheet_abspath();
+			$newpath	= $styles->new_dir;
 
-		echo "<div class='updated error'>
-			<h3>WARNING: NextGEN Gallery Stylesheet NOT Upgrade-safe</h3>
-			<p>
-			<strong>{$filename}</strong> is currently stored in <strong>{$abspath}</strong>, which isn't upgrade-safe. Please move the stylesheet to
-			<strong>{$newpath}</strong> to ensure that your customizations persist after updates.
-		</p></div>";
+			echo "<div class='updated error'>
+                <h3>WARNING: NextGEN Gallery Stylesheet NOT Upgrade-safe</h3>
+                <p>
+                <strong>{$filename}</strong> is currently stored in <strong>{$abspath}</strong>, which isn't upgrade-safe. Please move the stylesheet to
+                <strong>{$newpath}</strong> to ensure that your customizations persist after updates.
+            </p></div>";
+		}
 	}
 
 	/**
@@ -280,10 +531,13 @@ class C_NextGEN_Bootstrap
 	 */
 	function update()
 	{
-		$this->_load_pope();
+		if ((!(defined('DOING_AJAX') && DOING_AJAX)) && !isset($_REQUEST['doing_wp_cron'])) {
 
-		// Try updating all modules
-		C_Photocrati_Installer::update();
+			$this->_load_pope();
+
+			// Try updating all modules
+			C_Photocrati_Installer::update();
+		}
 	}
 
 	/**
@@ -293,18 +547,22 @@ class C_NextGEN_Bootstrap
 	function route()
 	{
 		$this->_load_pope();
-		$router = $this->_registry->get_utility('I_Router');
+		$router = C_Router::get_instance();
+
+		// Set context to path if subdirectory install
+		$parts = parse_url($router->get_base_url(FALSE));
+		if (isset($parts['path'])) {
+			$parts = explode('/index.php', $parts['path']);
+			$router->context = array_shift($parts);
+		}
+
+		// Provide a means for modules/third-parties to configure routes
+		do_action_ref_array('ngg_routes', array(&$router));
+
+		// Serve the routes
 		if (!$router->serve_request() && $router->has_parameter_segments()) {
 			return $router->passthru();
 		}
-	}
-
-	/**
-	 * Run the installer
-	 */
-	static function activate($network=FALSE)
-	{
-		C_Photocrati_Installer::update();
 	}
 
 	/**
@@ -312,7 +570,7 @@ class C_NextGEN_Bootstrap
 	 */
 	static function deactivate()
 	{
-		C_Photocrati_Installer::uninstall(NEXTGEN_GALLERY_PLUGIN_BASENAME);
+		C_Photocrati_Installer::uninstall(NGG_PLUGIN_BASENAME);
 	}
 
 	/**
@@ -321,21 +579,75 @@ class C_NextGEN_Bootstrap
 	function _define_constants()
 	{
 		// NextGEN by Photocrati Constants
-		define('NEXTGEN_GALLERY_PLUGIN', basename($this->directory_path()));
-		define('NEXTGEN_GALLERY_PLUGIN_BASENAME', plugin_basename(__FILE__));
-		define('NEXTGEN_GALLERY_PLUGIN_DIR', $this->directory_path());
-		define('NEXTGEN_GALLERY_PLUGIN_URL', $this->path_uri());
-		define('NEXTGEN_GALLERY_I8N_DOMAIN', 'nggallery');
-		define('NEXTGEN_GALLERY_TESTS_DIR', path_join(NEXTGEN_GALLERY_PLUGIN_DIR, 'tests'));
-		define('NEXTGEN_GALLERY_PRODUCT_DIR', path_join(NEXTGEN_GALLERY_PLUGIN_DIR, 'products'));
-		define('NEXTGEN_GALLERY_PRODUCT_URL', path_join(NEXTGEN_GALLERY_PLUGIN_URL, 'products'));
-		define('NEXTGEN_GALLERY_MODULE_DIR', path_join(NEXTGEN_GALLERY_PRODUCT_DIR, 'photocrati_nextgen/modules'));
-		define('NEXTGEN_GALLERY_MODULE_URL', path_join(NEXTGEN_GALLERY_PRODUCT_URL, 'photocrati_nextgen/modules'));
-		define('NEXTGEN_GALLERY_PLUGIN_CLASS', path_join(NEXTGEN_GALLERY_PLUGIN_DIR, 'module.NEXTGEN_GALLERY_PLUGIN.php'));
-		define('NEXTGEN_GALLERY_PLUGIN_STARTED_AT', microtime());
-		define('NEXTGEN_GALLERY_PLUGIN_VERSION', '2.0.33');
-	}
+		define('NGG_PLUGIN', basename($this->directory_path()));
+		define('NGG_PLUGIN_BASENAME', plugin_basename(__FILE__));
+		define('NGG_PLUGIN_DIR', $this->directory_path());
+		define('NGG_PLUGIN_URL', $this->path_uri());
+		define('NGG_TESTS_DIR',   implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PLUGIN_DIR, "/\\"), 'tests')));
+		define('NGG_PRODUCT_DIR', implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PLUGIN_DIR, "/\\"), 'products')));
+		define('NGG_MODULE_DIR', implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PRODUCT_DIR, "/\\"), 'photocrati_nextgen', 'modules')));
+		define('NGG_PRODUCT_URL', path_join(str_replace("\\", '/', NGG_PLUGIN_URL), 'products'));
+		define('NGG_MODULE_URL', path_join(str_replace("\\", '/', NGG_PRODUCT_URL), 'photocrati_nextgen/modules'));
+		define('NGG_PLUGIN_STARTED_AT', microtime());
+		define('NGG_PLUGIN_VERSION', '2.1.23');
 
+		if (!defined('NGG_HIDE_STRICT_ERRORS')) {
+			define('NGG_HIDE_STRICT_ERRORS', TRUE);
+		}
+
+		// Should we display E_STRICT errors?
+		if (NGG_HIDE_STRICT_ERRORS) {
+			$level = error_reporting();
+			if ($level != 0) error_reporting($level & ~E_STRICT);
+		}
+
+		// Should we display NGG debugging information?
+		if (!defined('NGG_DEBUG')) {
+			define('NGG_DEBUG', FALSE);
+		}
+		self::$debug = NGG_DEBUG;
+
+		// User definable constants
+		if (!defined('NGG_IMPORT_ROOT')) {
+			$path = WP_CONTENT_DIR;
+			if (defined('NEXTGEN_GALLERY_IMPORT_ROOT')) {
+				$path = NEXTGEN_GALLERY_IMPORT_ROOT;
+			}
+			define('NGG_IMPORT_ROOT', $path);
+		}
+
+		// Should the Photocrati cache be enabled
+		if (!defined('PHOTOCRATI_CACHE')) {
+			define('PHOTOCRATI_CACHE', TRUE);
+		}
+		if (!defined('PHOTOCRATI_CACHE_TTL')) {
+			define('PHOTOCRATI_CACHE_TTL', 1800);
+		}
+
+		// Cron job
+		if (!defined('NGG_CRON_SCHEDULE')) {
+			define('NGG_CRON_SCHEDULE', 900);
+		}
+
+		if (!defined('NGG_CRON_ENABLED')) {
+			define('NGG_CRON_ENABLED', TRUE);
+		}
+
+		// Don't enforce interfaces
+		if (!defined('EXTENSIBLE_OBJECT_ENFORCE_INTERFACES')) {
+			define('EXTENSIBLE_OBJECT_ENFORCE_INTERFACES', FALSE);
+		}
+
+		// Fix jquery
+		if (!defined('NGG_FIX_JQUERY')) {
+			define('NGG_FIX_JQUERY', TRUE);
+		}
+
+		// Use Pope's new caching mechanism?
+		if (!defined('NGG_POPE_CACHE')) {
+			define('NGG_POPE_CACHE', FALSE);
+		}
+	}
 
 	/**
 	 * Defines the NextGEN Test Suite
@@ -344,7 +656,7 @@ class C_NextGEN_Bootstrap
 	 */
 	function add_testsuite($suites=array())
 	{
-		$tests_dir = NEXTGEN_GALLERY_TESTS_DIR;
+		$tests_dir = NGG_TESTS_DIR;
 
 		if (file_exists($tests_dir)) {
 
@@ -354,13 +666,13 @@ class C_NextGEN_Bootstrap
 			require_once(path_join($tests_dir, 'mocks.php'));
 
 			// Define the NextGEN Test Suite
-            $suites['nextgen'] = array(
+			$suites['nextgen'] = array(
 //                path_join($tests_dir, 'mvc'),
-                path_join($tests_dir, 'datamapper'),
-                path_join($tests_dir, 'nextgen_data'),
-                path_join($tests_dir, 'gallery_display')
-            );
-        }
+				path_join($tests_dir, 'datamapper'),
+				path_join($tests_dir, 'nextgen_data'),
+				path_join($tests_dir, 'gallery_display')
+			);
+		}
 
 		return $suites;
 	}
