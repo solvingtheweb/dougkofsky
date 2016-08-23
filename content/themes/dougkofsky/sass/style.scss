@@ -340,7 +340,7 @@ a:active {
 ----------------------------------------------- */
 
 input[type="file"], input[type="checkbox"], input[type="radio"], select {
-margin: 3px 8px 12px 0;
+margin: 3px 8px 12px 1px;
 float: left;
 }
 
@@ -706,7 +706,7 @@ ul.woocommerce-error {
 	.images .page-next, .images .page-previous {
 		position:relative;
 		z-index:99;
-		width:25%;
+		width:7%;
 		height:100%;
 		@media #{$x-small} {
 			position:absolute;
@@ -786,12 +786,12 @@ span.post-link {
 	width:100%;
 	height:100%;
 }
-	span.post-link span.page-previous a {
+	/* span.post-link span.page-previous a {
 		margin-left:10px;
 	}
 	span.post-link span.page-next a {
 		margin-right:10px;
-	}
+	} */
 
 
 span.page-previous, span.page-next {
@@ -814,7 +814,7 @@ span.page-previous, span.page-next {
 span.page-previous a {
 	float:left;
 	background-image: url('images/leftArrow.png');
-	background-position:left 40px center;
+	background-position: center center;
 }
 	span.page-previous a:hover {
 		opacity:1;
@@ -822,7 +822,7 @@ span.page-previous a {
 span.page-next a{
 	float:right;
 	background-image: url('images/rightArrow.png');
-	background-position:right 40px center;
+	background-position: center center;
 }
 	span.page-next a:hover {
 		opacity:1;
@@ -1066,16 +1066,42 @@ table tr td {
 }
 
 table thead tr th, table thead tr td, table tr th, table tr td, table tfoot tr th, table tfoot tr td {
-	padding: .5em 1em;
+	padding: 1em 1em;
 }
 
 tfoot {
 	border-top: solid 30px transparent;
 }
 
+table p {
+	font-size:100%;	
+}
+
 /* =Shopping Cart
 ----------------------------------------------- */
 
+/* Needed to mimick Foundation column behavior since we can't edit the HTML for this plugin */
+.wc-amazon-checkout-message {
+	width: auto;
+    margin-left: -0.9375em;
+    margin-right: -0.9375em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+}
+.wc-amazon-checkout-message .info {
+	padding-left: 0.9375em;
+	padding-right: 0.9375em;
+	margin-bottom: 20px;
+
+	@media #{$large} {
+		width: 66.66667%;
+		float:left;
+		position: relative;
+		left: 16.66667%;
+		right: auto;
+	}
+}
 
 .woocommerce-cart .woocommerce form th.product-thumbnail, .woocommerce-cart .woocommerce form td.product-thumbnail {
 	display:none;
@@ -1103,7 +1129,7 @@ td.product-name dl.variation dt {
 	margin-bottom:0;
 }
 
-.quantity {
+/*.quantity {
 	max-width: 212px;
 	height: 30px;
 	margin:10px 0 30px;
@@ -1126,7 +1152,7 @@ td.product-name dl.variation dt {
 	width: 15%;
 	height: 30px;
 	margin-left: 4px;
-}
+}*/
 
 .shop_table .actions div { /* moves checkout buttons right */
 	float:right;
@@ -1138,6 +1164,15 @@ td.product-name dl.variation dt {
 
 /* =Checkout Page
 ----------------------------------------------- */
+
+.woocommerce-checkout .entry-content .woocommerce {
+
+	@media #{$medium} {
+		margin:0 auto;
+		width: 80%;
+	}
+	
+}
 
 form.checkout .col-1, form.checkout .col-2, form.checkout #order_details {
 	background:#fff;
@@ -1158,7 +1193,7 @@ form.checkout label {
 	color:#222;
 }
 
-form.checkout input {
+form.checkout input.input-text {
     background-color: rgba(0,0,0,.05);
 	border: 1px solid rgba(0,0,0,.1);
 	color: rgba(0,0,0,0.75);
@@ -1181,6 +1216,7 @@ clear: both;
 		clear:both;
 		border-bottom: solid 1px rgba(0, 0, 0, 0.1);
 		padding: 15px 0 14px 0;
+		overflow:auto;
 	}
 
 		.payment_methods.methods li label img {

@@ -18,23 +18,6 @@ get_header(); ?>
 
 		<main id="main" class="site-main large-10 large-centered columns" role="main">
 
-			<!--<script type="text/javascript">
-			   
-				jQuery(document).ready(function($){
-				
-					//START panorama			
-					$('#mypanorama').panorama({			        
-						size         : 'fullscreen',    //See 'Setting the size of the panorama' in HOW_TO            
-						speed        : 100,             //target speed px/sec (if negative - move to opposite direction on start, if zero - not moving at start)
-						move         : 600,      //max speed px/sec on mouse move (if negative - inverted sensitivity, if zero - not sensitive)
-						wheel        : 2,        //sensitivity on mouse wheel (if negative - inverted sensitivity, if zero - not sensitive)                    
-						drag         : 1         //sensitivity on drag (if negative - inverted sensitivity, if zero - not sensitive)            
-					}); 
-					
-				});
-				
-			</script>	
-			<!-- begin panorama-->
 			<div id="mypanorama">
 				<div class="panorama_titel">
 					<h1>Doug Kofsky</h1>

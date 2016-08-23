@@ -43,9 +43,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="large-12 columns">
 		<div class="row">
-			<div class="large-10 columns large-centered">
+			<div class="large-8 columns large-centered">
 				<div class="row">
-					<div class="large-4 push-8 columns">
+					<div class="large-5 push-7 columns">
 						<div class="next_prev_thumbs">
 							<div class="previous_thumb">
 								<?php previous_post_link_plus( array('thumb' => 'thumbnail', 'format' => '<span class="page-previous">%link</span>', 'loop' => true) ); ?>
@@ -59,12 +59,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						</div>
 					</div>
-					<div class="product-main large-8 pull-4 columns">
+					<div class="product-main large-7 pull-5 columns">
 						<h1 class="product_title"><?php the_title(); ?></h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="product-main large-8 columns">
+					<div class="product-main large-7 columns">
 						<?php the_content(); ?>
 						
 						<div id="addToCartModal" class="reveal-modal tiny">
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<a class="close-reveal-modal">x</a>
 						</div>
 					</div><!-- .summary -->
-					<div id="product-sidebar" class="large-4 columns">
+					<div id="product-sidebar" class="large-5 columns">
 						<?php
 						global $product;
 						if ( $product->get_price_html() ) : ?>
